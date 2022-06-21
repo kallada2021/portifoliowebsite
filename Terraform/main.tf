@@ -5,3 +5,9 @@ provider "aws" {
 module "networking" {
   source = "./networking"
 }
+
+module "compute" {
+  source          = "./compute"
+  vpc-id          = module.networking.vpc-id
+  private-subnets = module.networking.private-subnets
+}
