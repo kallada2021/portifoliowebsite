@@ -1,4 +1,5 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/services/contact_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
 import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,13 @@ class ContactUsScreen extends StatefulWidget {
 }
 
 class _ContactUsScreenState extends State<ContactUsScreen> {
-  RadioButton _radioButton = RadioButton.emailNotSent;
   final _contactUsFormKey = GlobalKey<FormState>();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final ContactService contactService = ContactService();
 
   @override
   void dispose() {
@@ -32,6 +33,16 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
     _emailController.dispose();
     _nameController.dispose();
     _messageController.dispose();
+  }
+
+  void sendEmail() {
+    contactService.sendEmailMessage(
+      context: context,
+      name: _nameController.text,
+      phoneNumber: _phoneController.text,
+      emailAddress: _emailController.text,
+      message: _messageController.text,
+    );
   }
 
   @override
@@ -110,7 +121,13 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         const SizedBox(
                           height: 5,
                         ),
-                        CustomButton(text: "Contact us", onPressed: () {}),
+                        CustomButton(
+                            text: "Contact us",
+                            onPressed: () {
+                              if (_contactUsFormKey.currentState!.validate()) {
+                                sendEmail();
+                              }
+                            }),
                         const SizedBox(
                           height: GlobalVariables.lineHeight,
                         )

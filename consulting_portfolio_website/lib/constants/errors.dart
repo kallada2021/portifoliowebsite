@@ -14,5 +14,12 @@ void httpErrorHandle({
     case 400:
       showSnackBar(context, "Sorry, an error has occurred");
       break;
+    case 500:
+      showSnackBar(context,
+          "Sorry, Our server can not handle your request. Please try again later.");
+      break;
+    default:
+      showSnackBar(context, response.body);
+      break;
   }
 }

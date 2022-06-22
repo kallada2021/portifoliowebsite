@@ -1,10 +1,15 @@
+import 'package:consulting_portfolio_website/constants/utils.dart';
+
+import '../../constants/errors.dart';
 import '../../constants/global_variables.dart';
 import '../models/contact.dart';
 import "package:http/http.dart" as http;
+import "package:flutter/material.dart";
 
 class ContactService {
   // send email message to server
   void sendEmailMessage({
+    required BuildContext context,
     required String name,
     required String phoneNumber,
     required String emailAddress,
@@ -14,13 +19,23 @@ class ContactService {
       Contact contact = Contact(
           id: "", name: "", phoneNumber: "", emailAddress: "", message: "");
 
-      http.Response res = await http.post(Uri.parse("$uri/api/contact"),
+      http.Response res = await http.post(Uri.parse("$uri/api/create-contact"),
           body: contact.toJson(),
           headers: <String, String>{
-            "Content-Type": "application/json; charset=UTF=8",
+            "Content-Type": "application/json; charset=UTF-8",
           });
       print(res.body);
       print(res.statusCode);
-    } catch (e) {}
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "Message sent successfully");
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
   }
 }
