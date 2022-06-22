@@ -56,7 +56,7 @@ class Project(models.Model):
 
     class Meta:
         verbose_name_plural = "projects"
-        ordering = "updated_at"
+        ordering = "updated_at",
 
     def __str__(self) -> str:
         return f"{self.name}"

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Contact
+from .models import Contact, Technology
 
 
 class ContactSerializer(serializers.Serializer):
@@ -12,4 +12,10 @@ class ContactSerializer(serializers.Serializer):
 
     class Meta:
         model = Contact
+        fields = "__all__"
     
+
+class TechnologySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Technology
+        fields = "__all__"

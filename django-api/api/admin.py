@@ -6,7 +6,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_display: tuple = (
         "name",
         "email",
-        "timestamp",
+        "created_at",
     )
 
 

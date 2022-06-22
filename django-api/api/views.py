@@ -1,26 +1,31 @@
 import json
-from .forms import ContactForm
-from .models import *
+from .serializers import Technology, TechnologySerializer
+from django.http import JsonResponse
+from .models import Project, Solution
 from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response 
 
 
+@api_view(["GET"])
+def apiOverview(request):
+    api_urls: dict = {
+        "Technologies": "/technologies/<str:pk>",
+        "Contacts": "/contacts",
+        "Solutions": "/solutions/<str:pk>",
+        "ContactUs": "/send-message",
+    }
+    return Response(api_urls)
+
+
+@api_view(["GET","POST"])
 def contact(request):
-    form = ContactForm()
-    error: str = ""
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            print("Form", form)
-            new_contact = form.save()
-            new_contact.save()
-            return json.dumps({"message": "Contact message sent"})
-        else:
-            context: dict = {"form": form}
-            print("Invalid form")
-            # messages.error(request, "An error occurred")
-            return json.dumps({"message": "An error occurred"})
-    context: dict = {"form": form, "error": error, "msg": error}
-    return json.dumps(dict)
+    error: str = "False"
+    context: dict = {
+        "error": error,
+        "message": "Contact added"
+    }
+    return Response(context)
 
 
 def solutions(request, pk: str):
@@ -31,3 +36,9 @@ def solutions(request, pk: str):
 
 def projects(request, pk: str):
     projects = Project.objects.get(id=pk)
+
+
+def technologies(request):
+    technologies = Technology.objects.all()
+    serializer = TechnologySerializer(technologies, many=True) 
+    return Response(serializer.data)
