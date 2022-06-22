@@ -1,15 +1,8 @@
 from rest_framework import serializers
-from .models import Contact, Technology
+from .models import Contact, Project, Solution, Technology
 
 
-class ContactSerializer(serializers.Serializer):
-    name = serializers.CharField(max_length=100)
-    email = serializers.EmailField()
-    phone = serializers.CharField(max_length=13)
-    message = serializers.CharField(max_length=2000)
-    created_at = serializers.DateTimeField()
-    updated_at = serializers.DateTimeField()
-
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         fields = "__all__"
@@ -18,4 +11,16 @@ class ContactSerializer(serializers.Serializer):
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = Technology
+        fields = "__all__"
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = "__all__"
+
+
+class SolutionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Solution
         fields = "__all__"

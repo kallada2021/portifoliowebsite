@@ -1,5 +1,4 @@
 from django.db import models
-from . import views
 
 
 class Contact(models.Model):
