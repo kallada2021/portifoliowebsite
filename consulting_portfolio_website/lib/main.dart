@@ -1,8 +1,12 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/responsive/mobile_screen_layout.dart';
+import 'package:consulting_portfolio_website/features/responsive/responsive_layout.dart';
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
 import 'package:consulting_portfolio_website/routes.dart';
 import 'package:flutter/material.dart';
+
+import 'features/screens/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+      title: 'Portfolio Website',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         colorScheme: ColorScheme.light(
           primary: GlobalVariables.secondaryColor,
@@ -37,7 +42,7 @@ class MyApp extends StatelessWidget {
                 const SizedBox(
                   width: GlobalVariables.lineWidth,
                 ),
-                Text(
+                const Text(
                   "MAGNOLIA IT SOLUTIONS",
                   style: TextStyle(
                     fontSize: 16,
@@ -71,37 +76,9 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(40.0),
-                child: Column(
-                  children: const [
-                    Text('What we provide'),
-                    SizedBox(
-                      height: GlobalVariables.lineHeight,
-                    ),
-                    Text("1. AWS"),
-                    SizedBox(
-                      height: GlobalVariables.lineHeight,
-                    ),
-                    Text("2. Azure"),
-                    SizedBox(
-                      height: GlobalVariables.lineHeight,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Builder(builder: (context) {
-              return ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, ContactUsScreen.routeName);
-                  },
-                  child: const Text("Contact Us"));
-            })
-          ],
+        body: const ResponsiveLayout(
+          webScreenLayout: MainPage(),
+          mobileScreenLayout: MobileScreenLayout(),
         ),
       ),
     );
