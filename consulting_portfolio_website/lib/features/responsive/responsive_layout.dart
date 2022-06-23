@@ -1,4 +1,4 @@
-import 'package:consulting_portfolio_website/constants/dimensions.dart';
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class ResponsiveLayout extends StatelessWidget {

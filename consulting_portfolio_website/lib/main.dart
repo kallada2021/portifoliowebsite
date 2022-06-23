@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/responsive/mobile_screen_layout.dart';
 import 'package:consulting_portfolio_website/features/responsive/responsive_layout.dart';
@@ -39,39 +40,17 @@ class MyApp extends StatelessWidget {
           title: Center(
             child: Row(
               children: [
-                const SizedBox(
-                  width: GlobalVariables.lineWidth,
+                Row(
+                  children: webHomeScreenItems,
                 ),
-                const Text(
-                  "MAGNOLIA IT SOLUTIONS",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(
-                  width: 200,
-                ),
-                const SizedBox(
-                  width: GlobalVariables.lineWidth,
-                ),
-                Text("Services"),
-                const SizedBox(
-                  width: GlobalVariables.lineWidth,
-                ),
-                Text("Technologies"),
-                const SizedBox(
-                  width: GlobalVariables.lineWidth,
-                ),
-                Text("Clients"),
-                const SizedBox(
-                  width: GlobalVariables.lineWidth,
-                ),
-                CustomButton(
-                    text: "CONTACT US",
+                IconButton(
+                    color: Colors.white,
+                    tooltip: "Contact us",
                     onPressed: () {
-                      print("Contact us BTN");
+                      print("Contact");
                       Navigator.pushNamed(context, ContactUsScreen.routeName);
-                    })
+                    },
+                    icon: const Icon(Icons.email_outlined))
               ],
             ),
           ),

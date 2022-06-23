@@ -10,7 +10,7 @@ enum RadioButton {
 }
 
 class ContactUsScreen extends StatefulWidget {
-  static const String routeName = "/contact-us-screen";
+  static const String routeName = "/contact-us";
 
   const ContactUsScreen({Key? key}) : super(key: key);
 
