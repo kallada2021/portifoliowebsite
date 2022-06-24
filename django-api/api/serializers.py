@@ -5,7 +5,8 @@ from .models import Contact, Project, Solution, Technology
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = "__all__"
+        # fields = "__all__"
+        fields = ["name", "email", "phone", "message",]
     
 
 class TechnologySerializer(serializers.ModelSerializer):

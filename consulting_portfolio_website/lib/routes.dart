@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,15 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
     default:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => const Scaffold(
+        builder: (_) => Scaffold(
           body: Center(
-            child: Text("Sorry, The page you are looking for does not exist."),
+            child: Text(
+              "Sorry, The page you are looking for does not exist.",
+              style: TextStyle(
+                fontSize: 20,
+                color: GlobalVariables.secondaryColor,
+              ),
+            ),
           ),
         ),
       );

@@ -32,9 +32,13 @@ def contact(request):
 @api_view(["POST"])
 def createContact(request):
     serializer = ContactSerializer(data=request.data)
-
+    print(request.data)
+    print("Serialized data")
     if serializer.is_valid():
+        print("Serializer is valid")
         serializer.save()
+    else:
+        return Response("Invalid data", status=500)
 
     return Response(serializer.data)
 

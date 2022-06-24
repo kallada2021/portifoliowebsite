@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
+        label: Text(hintText),
         border: const OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.black45,

@@ -11,7 +11,7 @@ class TechnologyService {
   }) async {
     try {
       http.Response res = await http
-          .get(Uri.parse("$uri/api/technologies"), headers: <String, String>{
+          .get(Uri.parse("$uri/api/technologies/"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
       print(res);

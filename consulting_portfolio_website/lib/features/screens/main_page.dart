@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
@@ -33,13 +34,31 @@ class MainPage extends StatelessWidget {
             ),
           ),
         ),
-        Builder(builder: (context) {
-          return ElevatedButton(
+        Builder(
+          builder: (context) {
+            return ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, ContactUsScreen.routeName);
               },
-              child: const Text("Contact Us"));
-        })
+              child: const Text("Contact Us"),
+            );
+          },
+        ),
+        const SizedBox(
+          height: GlobalVariables.lineHeight,
+        ),
+        Builder(
+          builder: (context) {
+            return ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ProjectsScreen.routeName);
+              },
+              child: Text(
+                "See our projects.",
+              ),
+            );
+          },
+        )
       ],
     );
   }

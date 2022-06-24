@@ -17,15 +17,19 @@ class ContactService {
   }) async {
     try {
       Contact contact = Contact(
-          id: "", name: "", phoneNumber: "", emailAddress: "", message: "");
+        name: name,
+        phoneNumber: phoneNumber,
+        emailAddress: emailAddress,
+        message: message,
+      );
 
-      http.Response res = await http.post(Uri.parse("$uri/api/create-contact"),
+      http.Response res = await http.post(Uri.parse("$uri/api/create-contact/"),
           body: contact.toJson(),
           headers: <String, String>{
             "Content-Type": "application/json; charset=UTF-8",
           });
-      print(res.body);
-      print(res.statusCode);
+      // print(res.body);
+      // print(res.statusCode);
 
       httpErrorHandle(
         response: res,

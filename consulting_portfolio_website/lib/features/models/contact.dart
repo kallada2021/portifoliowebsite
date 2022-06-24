@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 class Contact {
-  final String id;
+  final String? id;
   final String name;
   final String phoneNumber;
   final String emailAddress;
   final String message;
 
   Contact({
-    required this.id,
+    this.id,
     required this.name,
     required this.phoneNumber,
     required this.emailAddress,
@@ -17,9 +17,8 @@ class Contact {
 
   Map<String, dynamic> toMap() {
     return {
-      "id": id,
       "name": name,
-      "phoneNumber": phoneNumber,
+      "phone": phoneNumber,
       "email": emailAddress,
       "message": message,
     };
@@ -29,7 +28,7 @@ class Contact {
     return Contact(
       id: map["id"] ?? "",
       name: map["name"] ?? "",
-      phoneNumber: map["phoneNumber"] ?? "",
+      phoneNumber: map["phone"] ?? "",
       emailAddress: map["email"] ?? "",
       message: map["message"] ?? "",
     );
