@@ -41,7 +41,7 @@ class TechnologyService {
       );
     } catch (e) {
       print(e);
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
     return techList;
   }
@@ -62,7 +62,7 @@ class TechnologyService {
           Provider.of<TechnologyProvider>(context, listen: false);
       techProvider.setTechnologies(res.body);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
   }
 }

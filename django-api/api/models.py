@@ -44,8 +44,9 @@ class Solution(models.Model):
 
     def __str__(self) -> str:
         return f'{self.type}'
+        
 
-
+#TODO: Add image field for project images
 class Project(models.Model):
     name = models.CharField(verbose_name='project name', max_length=100)
     description = models.TextField(max_length=1000)

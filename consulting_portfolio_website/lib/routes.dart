@@ -10,6 +10,11 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => const ContactUsScreen(),
       );
+    case MobileContactScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MobileContactScreen(),
+      );
     case ProjectsScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,

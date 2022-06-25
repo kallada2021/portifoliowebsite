@@ -4,11 +4,6 @@ import 'package:consulting_portfolio_website/features/widgets/custombutton.dart'
 import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
-enum RadioButton {
-  emailNotSent,
-  emailSent,
-}
-
 class ContactUsScreen extends StatefulWidget {
   static const String routeName = "/contact-us";
 
@@ -58,7 +53,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 const Text(
                   "contact us",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -72,16 +67,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       ),
                     ),
                   ),
-                  // leading: Radio(
-                  //   value: RadioButton.emailNotSent,
-                  //   groupValue: _radioButton,
-                  //   onChanged: (RadioButton? val) {
-                  //     setState(() {
-                  //       _radioButton = val!;
-                  //     });
-                  //   },
-                  //   activeColor: GlobalVariables.secondaryColor,
-                  // ),
                 ),
                 Container(
                   padding: const EdgeInsets.only(left: 30.0, right: 30.0),
@@ -95,6 +80,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           child: CustomTextField(
                             controller: _nameController,
                             hintText: "Name",
+                            inputType: TextInputType.name,
                           ),
                         ),
                         Padding(
@@ -102,6 +88,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           child: CustomTextField(
                             controller: _emailController,
                             hintText: "Your Email Address",
+                            inputType: TextInputType.emailAddress,
                           ),
                         ),
                         Padding(
@@ -109,6 +96,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           child: CustomTextField(
                             controller: _phoneController,
                             hintText: "Your Phone Number",
+                            inputType: TextInputType.phone,
                           ),
                         ),
                         Padding(
@@ -116,6 +104,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           child: CustomTextField(
                             controller: _messageController,
                             hintText: "Your Message",
+                            inputType: TextInputType.text,
                           ),
                         ),
                         const SizedBox(
@@ -130,7 +119,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                             }),
                         const SizedBox(
                           height: GlobalVariables.lineHeight,
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -141,5 +130,113 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
         ),
       ),
     );
+  }
+}
+
+class MobileContactScreen extends StatefulWidget {
+  static const String routeName = "/contact-us-mobile";
+  const MobileContactScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MobileContactScreen> createState() => _MobileContactScreenState();
+}
+
+class _MobileContactScreenState extends State<MobileContactScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final ContactService contactService = ContactService();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _nameController.dispose();
+    _messageController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SafeArea(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Container(),
+              flex: 1,
+            ),
+            const SizedBox(
+              height: 64,
+            ),
+            CustomTextField(
+              controller: _nameController,
+              hintText: "Name",
+              inputType: TextInputType.name,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CustomTextField(
+              controller: _emailController,
+              hintText: "Your Email Address",
+              inputType: TextInputType.emailAddress,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CustomTextField(
+              controller: _phoneController,
+              hintText: "Your Phone Number",
+              inputType: TextInputType.phone,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CustomTextField(
+              controller: _messageController,
+              hintText: "Your Message",
+              inputType: TextInputType.text,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            InkWell(
+              child: GestureDetector(
+                onTap: () {
+                  //TODO: implement contact us
+                  print("Contact");
+                },
+                child: Container(
+                  width: 300,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  alignment: Alignment.center,
+                  decoration: ShapeDecoration(
+                    color: GlobalVariables.secondaryColor,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
+                  ),
+                  child: const Text(
+                    "SEND MESSAGE",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+            Flexible(
+              child: Container(),
+              flex: 1,
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }

@@ -35,11 +35,11 @@ class ContactService {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "Message sent successfully");
+          showSnackBar(context, "Message sent successfully", Colors.green);
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
   }
 }

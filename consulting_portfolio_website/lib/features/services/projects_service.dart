@@ -32,7 +32,7 @@ class ProjectsService {
             }
           });
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
   }
 
@@ -48,7 +48,7 @@ class ProjectsService {
       });
       print(res);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
   }
 }

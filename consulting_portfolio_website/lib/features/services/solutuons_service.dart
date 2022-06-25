@@ -16,7 +16,7 @@ class SolutionsService {
       });
       print(res);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
   }
 
@@ -32,7 +32,7 @@ class SolutionsService {
       });
       print(res);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), Colors.red);
     }
   }
 }

@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def sendEmail(email: str, name: str, message: str):
+    # TODO: implement send email lambda
     url: str = "lambda-endpoint-url"
     payload = { "email": email, "name": name, "message": message }
     print("Payload ", payload)

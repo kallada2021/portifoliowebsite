@@ -15,6 +15,7 @@ class GlobalVariables {
   static var secondaryColor = Colors.pink[600]!;
   static const backgroundColor = Colors.white;
   static var grayBackgroundColor = Colors.blueGrey[200]!;
+  static var lightBlue = Colors.blue[200];
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.teal;
 

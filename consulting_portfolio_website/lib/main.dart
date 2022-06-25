@@ -48,7 +48,17 @@ class MyApp extends StatelessWidget {
                     tooltip: "Contact us",
                     onPressed: () {
                       print("Contact");
-                      Navigator.pushNamed(context, ContactUsScreen.routeName);
+                      if (MediaQuery.of(context).size.width > 850) {
+                        Navigator.pushNamed(
+                          context,
+                          ContactUsScreen.routeName,
+                        );
+                      } else {
+                        Navigator.pushNamed(
+                          context,
+                          MobileContactScreen.routeName,
+                        );
+                      }
                     },
                     icon: const Icon(Icons.email_outlined))
               ],
