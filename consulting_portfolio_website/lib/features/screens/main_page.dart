@@ -1,13 +1,26 @@
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
+import 'package:consulting_portfolio_website/features/services/technology_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
 import 'contactus.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  void initState() {
+    TechnologyService service = TechnologyService();
+    service.getTechs(context: context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

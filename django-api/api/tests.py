@@ -1,7 +1,7 @@
 from webbrowser import get
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from .models import Contact
+from .models import Contact, Project, Technology
 
 class UsersManagersTests(TestCase):
     def testCreateSuperUser(self):
@@ -28,3 +28,13 @@ class ContactsTests(TestCase):
         self.assertEqual(contact.message, "Help me please!")
         self.assertEqual(contact.phone, "+123456789")
         self.assertTrue(contact.is_active)
+
+
+class ProjectsTests(TestCase):
+    def testCreateNewProject(self):
+        tech = Technology.objects.create(name="Django")
+        project = Project.objects.create(name="New Project", description="The best project!",)
+        self.assertEqual(project.name, "New Project")
+        self.assertEqual(project.description, "The best project!")
+     
+       

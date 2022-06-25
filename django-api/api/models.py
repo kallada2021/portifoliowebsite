@@ -49,7 +49,7 @@ class Solution(models.Model):
 class Project(models.Model):
     name = models.CharField(verbose_name='project name', max_length=100)
     description = models.TextField(max_length=1000)
-    technologies = models.ForeignKey(Technology, on_delete=models.CASCADE)
+    technologies = models.ManyToManyField(Technology,'projects', verbose_name="technologies")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-class Technologies {
-  final String id;
+class Technology {
+  final int id;
   final String name;
   final String createdAt;
   final String updatedAt;
 
-  Technologies({
+  Technology({
     required this.id,
     required this.name,
     required this.createdAt,
@@ -22,8 +22,8 @@ class Technologies {
     };
   }
 
-  factory Technologies.fromMap(Map<String, dynamic> map) {
-    return Technologies(
+  factory Technology.fromMap(Map<String, dynamic> map) {
+    return Technology(
       id: map["id"] ?? "",
       name: map["name"] ?? "",
       createdAt: map["created_at"] ?? "",
@@ -33,13 +33,17 @@ class Technologies {
 
   String toJson() => json.encode(toMap());
 
-  Technologies copyWith({
-    String? id,
+  factory Technology.fromJson(String source) => Technology.fromMap(
+        json.decode(source),
+      );
+
+  Technology copyWith({
+    int? id,
     String? name,
     String? createdAt,
     String? updatedAt,
   }) {
-    return Technologies(
+    return Technology(
       id: id ?? this.id,
       name: name ?? this.name,
       createdAt: createdAt ?? this.createdAt,
