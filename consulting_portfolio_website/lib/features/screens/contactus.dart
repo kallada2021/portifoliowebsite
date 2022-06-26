@@ -42,8 +42,12 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double formPadding = MediaQuery.of(context).size.width > 800
+        ? MediaQuery.of(context).size.width * 0.1
+        : 10.0;
+
     return Scaffold(
-      backgroundColor: GlobalVariables.grayBackgroundColor,
+      backgroundColor: Colors.blue[50],
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -69,38 +73,54 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(left: 30.0, right: 30.0),
-                  color: GlobalVariables.backgroundColor,
+                  padding: const EdgeInsets.all(10.0),
+                  color: Colors.white,
                   child: Form(
                     key: _contactUsFormKey,
                     child: Column(
                       children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: formPadding),
                           child: CustomTextField(
                             controller: _nameController,
                             hintText: "Name",
                             inputType: TextInputType.name,
                           ),
                         ),
+                        const SizedBox(
+                          height: 15,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: formPadding),
                           child: CustomTextField(
                             controller: _emailController,
                             hintText: "Your Email Address",
                             inputType: TextInputType.emailAddress,
                           ),
                         ),
+                        const SizedBox(
+                          height: 15,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: formPadding),
                           child: CustomTextField(
                             controller: _phoneController,
                             hintText: "Your Phone Number",
                             inputType: TextInputType.phone,
                           ),
                         ),
+                        const SizedBox(
+                          height: 15,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: formPadding),
                           child: CustomTextField(
                             controller: _messageController,
                             hintText: "Your Message",
@@ -108,7 +128,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           ),
                         ),
                         const SizedBox(
-                          height: 5,
+                          height: 15,
                         ),
                         CustomButton(
                             text: "Contact us",

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../features/screens/contactus.dart';
-import '../features/widgets/custombutton.dart';
 import '../features/widgets/customdropdown.dart';
 import 'global_variables.dart';
 

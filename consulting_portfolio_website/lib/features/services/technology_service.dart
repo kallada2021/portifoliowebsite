@@ -11,6 +11,7 @@ import '../../constants/utils.dart';
 import '../models/technology.dart';
 
 class TechnologyService {
+  bool isLoading = true;
   // getTechs gets a list of techs from backend api
   Future<List<Technology>> getTechs({
     required BuildContext context,
@@ -43,6 +44,7 @@ class TechnologyService {
       print(e);
       showSnackBar(context, e.toString(), Colors.red);
     }
+    isLoading = false;
     return techList;
   }
 
