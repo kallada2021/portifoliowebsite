@@ -1,6 +1,7 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/models/technology.dart';
 import 'package:consulting_portfolio_website/features/services/technology_service.dart';
+import 'package:consulting_portfolio_website/features/widgets/technologycard.dart';
 import 'package:flutter/material.dart';
 
 class TechnologiesScreen extends StatefulWidget {
@@ -83,51 +84,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
           Padding(
             padding: const EdgeInsets.all(30.0),
             //TODO: Make card it's own dynamic widget and setup cards for other services
-            child: Container(
-              height: 150,
-              child: Card(
-                margin: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.15),
-                color: Colors.red[200],
-                shadowColor: GlobalVariables.secondaryColor,
-                elevation: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 15.0,
-                    ),
-                    const Text(
-                      "Cloud Technologies",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Terraform"),
-                          Text("Github Actions"),
-                          Text("Bash Scripting"),
-                          Text("Jenkins"),
-                          Text("Kubernetes"),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 25.0,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            child: TechnologyCard(title: "Cloud Technologies"),
           )
         ],
       ),
