@@ -4,7 +4,8 @@ import '../../constants/global_variables.dart';
 
 class TechnologyCard extends StatelessWidget {
   final String title;
-  const TechnologyCard({Key? key, required this.title}) : super(key: key);
+  final List<String> techList;
+  const TechnologyCard({Key? key, required this.title, required this.techList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +39,13 @@ class TechnologyCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Terraform"),
-                  Text("Github Actions"),
-                  Text("Bash Scripting"),
-                  Text("Jenkins"),
-                  Text("Kubernetes"),
+                  for(String tech in techList)
+                    Text(tech),
+                   // Text("Terraform"),
+                  // Text("Github Actions"),
+                  // Text("Bash Scripting"),
+                  // Text("Jenkins"),
+                  // Text("Kubernetes"),
                 ],
               ),
             ),

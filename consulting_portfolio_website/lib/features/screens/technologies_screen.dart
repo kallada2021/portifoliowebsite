@@ -4,6 +4,8 @@ import 'package:consulting_portfolio_website/features/services/technology_servic
 import 'package:consulting_portfolio_website/features/widgets/technologycard.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/constants.dart';
+
 class TechnologiesScreen extends StatefulWidget {
   const TechnologiesScreen({Key? key}) : super(key: key);
 
@@ -84,7 +86,18 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
           Padding(
             padding: const EdgeInsets.all(30.0),
             //TODO: Make card it's own dynamic widget and setup cards for other services
-            child: TechnologyCard(title: "Cloud Technologies"),
+            child: Column(
+              children: [
+                SizedBox(height:20,),
+                TechnologyCard(title: "Cloud Technologies",techList: cloudTechnologies,),
+                SizedBox(height:20,),
+                TechnologyCard(title: "Mobile Development",techList: mobileDevelopmentTechnologies,),
+                SizedBox(height:20,),
+                TechnologyCard(title: "Web Development",techList: webDevelopmentTechnologies,),
+                SizedBox(height:20,),
+                TechnologyCard(title: "Devops",techList: devopsTechnologies,),
+              ],
+            ),
           )
         ],
       ),

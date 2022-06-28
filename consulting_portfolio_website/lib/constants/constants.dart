@@ -40,3 +40,8 @@ var webHomeScreenItems = [
     width: GlobalVariables.lineWidth,
   ),
 ];
+ List<String> cloudTechnologies = ["Amazon Web Services","Azure Cloud", "Terraform", "Devops", "Azure Active Directory", "AWS Managed Active Directory", "AWS Serverless Technologies", "AWS Networks","Azure Serverless", "Azure Networks"];
+ List<String> mobileDevelopmentTechnologies = ["Flutter","IOS Swift", "Android"];
+ List<String> webDevelopmentTechnologies = ["HTML/CSS","Javascript","Django","GoLang"];
+ List<String> devopsTechnologies = ["Terraform","Azure Devops","Jenkins","Kubernetes","Github Actions"];
+
