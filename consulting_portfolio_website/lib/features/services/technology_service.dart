@@ -22,8 +22,8 @@ class TechnologyService {
           .get(Uri.parse("$uri/api/technologies/"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
-      print(res.body);
-
+      // print(res.body);
+      print(jsonDecode(res.body));
       httpErrorHandle(
         response: res,
         context: context,
