@@ -44,13 +44,6 @@ List<String> cloudTechnologies = [
   "Amazon Web Services",
   "Azure Cloud",
   "Terraform",
-  "Devops",
-  "Azure Active Directory",
-  "AWS Managed Active Directory",
-  "AWS Serverless Technologies",
-  "AWS Networks",
-  "Azure Serverless",
-  "Azure Networks",
 ];
 List<String> mobileDevelopmentTechnologies = [
   "Flutter",

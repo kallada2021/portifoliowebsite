@@ -1,4 +1,5 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,11 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ProjectsScreen(),
+      );
+    case CloudTechnologiesScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const CloudTechnologiesScreen(),
       );
     default:
       return MaterialPageRoute(
