@@ -9,7 +9,7 @@ class MobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         elevation: 2.0,
         title: Text("MAGNOLIA CONSULTING"),

@@ -12,7 +12,7 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: GlobalVariables.secondaryColor,
+      backgroundColor: Colors.blueAccent,
       child: ListView(
         children: [
           // Header
@@ -52,90 +52,100 @@ class _AppDrawerState extends State<AppDrawer> {
               children: [
                 const Divider(
                   height: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   thickness: 2,
                 ),
                 ListTile(
                   leading: const Icon(
                     Icons.home,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                   title: const Text(
                     "HOME",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   onTap: () {},
                 ),
                 const Divider(
                   height: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   thickness: 2,
                 ),
                 ListTile(
                   leading: const Icon(
                     Icons.miscellaneous_services_sharp,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                   title: const Text(
                     "SERVICES",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   onTap: () {},
                 ),
                 const Divider(
                   height: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   thickness: 2,
                 ),
-                //not yet recieved
+                //not yet received
                 ListTile(
                   leading: const Icon(
                     Icons.computer_sharp,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                   title: const Text(
                     "TECHNOLOGIES",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   onTap: () {},
                 ),
                 const Divider(
                   height: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   thickness: 2,
                 ),
                 // history
                 ListTile(
                   leading: const Icon(
                     Icons.timer,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                   title: const Text(
                     "SOLUTIONS",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   onTap: () {},
                 ),
                 const Divider(
                   height: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   thickness: 2,
                 ),
                 // Search
                 ListTile(
                   leading: const Icon(
                     Icons.email_outlined,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                   title: const Text(
                     "CONTACT US",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   onTap: () {},
                 ),
                 const Divider(
                   height: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   thickness: 2,
                 ),
               ],
