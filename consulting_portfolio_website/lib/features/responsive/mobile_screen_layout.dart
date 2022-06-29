@@ -1,5 +1,6 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/intro_box.dart';
+import 'package:consulting_portfolio_website/features/widgets/appdrawer.dart';
 import 'package:flutter/material.dart';
 
 class MobileScreenLayout extends StatelessWidget {
@@ -8,6 +9,11 @@ class MobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(),
+      appBar: AppBar(
+        elevation: 2.0,
+        title: Text("MAGNOLIA CONSULTING"),
+      ),
       body: Center(
         child: Column(
           children: [

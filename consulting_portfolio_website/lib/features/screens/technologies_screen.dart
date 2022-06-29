@@ -88,14 +88,35 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
             //TODO: Make card it's own dynamic widget and setup cards for other services
             child: Column(
               children: [
-                SizedBox(height:20,),
-                TechnologyCard(title: "Cloud Technologies",techList: cloudTechnologies,),
-                SizedBox(height:20,),
-                TechnologyCard(title: "Mobile Development",techList: mobileDevelopmentTechnologies,),
-                SizedBox(height:20,),
-                TechnologyCard(title: "Web Development",techList: webDevelopmentTechnologies,),
-                SizedBox(height:20,),
-                TechnologyCard(title: "Devops",techList: devopsTechnologies,),
+                SizedBox(
+                  height: 20,
+                ),
+                TechnologyCard(
+                  title: "Cloud Technologies",
+                  techList: cloudTechnologies,
+                  height: 250,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TechnologyCard(
+                  title: "Mobile Development",
+                  techList: mobileDevelopmentTechnologies,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TechnologyCard(
+                  title: "Web Development",
+                  techList: webDevelopmentTechnologies,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TechnologyCard(
+                  title: "Devops",
+                  techList: devopsTechnologies,
+                ),
               ],
             ),
           )

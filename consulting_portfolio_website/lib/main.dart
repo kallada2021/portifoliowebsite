@@ -8,6 +8,7 @@ import 'package:consulting_portfolio_website/routes.dart';
 import 'package:flutter/material.dart';
 
 import 'features/screens/main_page.dart';
+import 'features/widgets/appdrawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,35 +37,6 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: (settings) => generateRoutes(settings),
       home: Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Row(
-              children: [
-                Row(
-                  children: webHomeScreenItems,
-                ),
-                IconButton(
-                    color: Colors.white,
-                    tooltip: "Contact us",
-                    onPressed: () {
-                      print("Contact");
-                      if (MediaQuery.of(context).size.width > 850) {
-                        Navigator.pushNamed(
-                          context,
-                          ContactUsScreen.routeName,
-                        );
-                      } else {
-                        Navigator.pushNamed(
-                          context,
-                          MobileContactScreen.routeName,
-                        );
-                      }
-                    },
-                    icon: const Icon(Icons.email_outlined))
-              ],
-            ),
-          ),
-        ),
         body: const ResponsiveLayout(
           webScreenLayout: MainPage(),
           mobileScreenLayout: MobileScreenLayout(),
