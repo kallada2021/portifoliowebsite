@@ -83,30 +83,35 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                         );
                       }
                     },
-                  )),
+                  ),
+                ),
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: MediaQuery.of(context).size.width > 800
+                ? const EdgeInsets.all(20.0)
+                : const EdgeInsets.all(8.0),
             //TODO: Make card it's own dynamic widget and setup cards for other services
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, CloudTechnologiesScreen.routeName,);
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      CloudTechnologiesScreen.routeName,
+                    );
                   },
                   child: TechnologyCard(
                     title: "Cloud Technologies",
                     techList: cloudTechnologies,
-                    height: 250,
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     // Navigator.pushNamed(context,MobileDevelopmentScreen.routename,);
                   },
                   child: TechnologyCard(
@@ -130,7 +135,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

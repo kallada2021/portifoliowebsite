@@ -1,5 +1,6 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/services/contact_service.dart';
+import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
 import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
 
     return Scaffold(
       backgroundColor: Colors.blue[50],
+      appBar: customAppBar(context),
       body: SafeArea(
         child: Center(
           child: Padding(

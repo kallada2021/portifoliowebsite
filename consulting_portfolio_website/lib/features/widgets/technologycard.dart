@@ -18,9 +18,13 @@ class TechnologyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
+      width: MediaQuery.of(context).size.width * 0.8,
       child: Card(
         margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.15),
+          horizontal: MediaQuery.of(context).size.width > 800
+              ? MediaQuery.of(context).size.width * 0.15
+              : MediaQuery.of(context).size.width * 0.005,
+        ),
         color: Colors.red[200],
         shadowColor: GlobalVariables.secondaryColor,
         elevation: 12,
@@ -52,22 +56,40 @@ class TechnologyCard extends StatelessWidget {
                 height: 25.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    for (String tech in techList)
-                      Text(
-                        tech,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15.0,
-                          color: Colors.black87,
+                  padding: MediaQuery.of(context).size.width > 850
+                      ? const EdgeInsets.symmetric(horizontal: 25.0)
+                      : const EdgeInsets.symmetric(
+                          horizontal: 5.0,
                         ),
-                      ),
-                  ],
-                ),
-              ),
+                  child: MediaQuery.of(context).size.width > 850
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            for (String tech in techList)
+                              Text(
+                                tech,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15.0,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                          ],
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            for (String tech in techList)
+                              Text(
+                                tech,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15.0,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                          ],
+                        )),
               const SizedBox(
                 height: 25.0,
               ),

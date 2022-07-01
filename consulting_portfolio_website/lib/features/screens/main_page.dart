@@ -33,9 +33,15 @@ class _MainPageState extends State<MainPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(40.0),
                   child: Column(
-                    children: const [
-                      Text('What we provide'),
-                      SizedBox(
+                    children: [
+                      Text(
+                        "What we provide",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.blue[800],
+                        ),
+                      ),
+                      const SizedBox(
                         height: GlobalVariables.lineHeight,
                       ),
                       Text("1. AWS"),
@@ -43,9 +49,6 @@ class _MainPageState extends State<MainPage> {
                         height: GlobalVariables.lineHeight,
                       ),
                       Text("2. Azure"),
-                      SizedBox(
-                        height: GlobalVariables.lineHeight,
-                      ),
                     ],
                   ),
                 ),
