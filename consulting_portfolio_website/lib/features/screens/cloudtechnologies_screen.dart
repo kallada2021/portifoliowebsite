@@ -67,32 +67,73 @@ class CloudTechnologiesScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              "Azure Cloud",
-              style: TextStyle(
-                fontSize: 40,
-                color: Colors.black,
-              ),
-              textAlign: TextAlign.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Azure Cloud",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.deepPurple[900],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.red[300],
+                ),
+              ],
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.all(10.0),
-              child: Center(
-                child: Text(
-                  "Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure is designed to take advantage of skills you already have and make you productive right away.",
+              child: Card(
+                color: Colors.blue[100],
+                elevation: 15,
+                shadowColor: Colors.blue[900],
+                child: const Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Text(
+                      "Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure is designed to take advantage of skills you already have and make you productive right away.",
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.25,
+                    ),),
+                  ),
                 ),
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              "Terraform",
-              style: TextStyle(
-                fontSize: 40,
-                color: Colors.black,
-              ),
-              textAlign: TextAlign.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Terraform",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.deepPurple[900],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.red[300],
+                ),
+              ],
             ),
             const Padding(
               padding: EdgeInsets.all(10.0),
