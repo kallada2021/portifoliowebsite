@@ -103,7 +103,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               EdgeInsets.symmetric(horizontal: formPadding),
                           child: CustomTextField(
                             controller: _emailController,
-                            hintText: "Your Email Address",
+                            hintText: "Email Address",
                             inputType: TextInputType.emailAddress,
                           ),
                         ),
@@ -115,7 +115,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               EdgeInsets.symmetric(horizontal: formPadding),
                           child: CustomTextField(
                             controller: _phoneController,
-                            hintText: "Your Phone Number",
+                            hintText: "Phone Number",
                             inputType: TextInputType.phone,
                           ),
                         ),
