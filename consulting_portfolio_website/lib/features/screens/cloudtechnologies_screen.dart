@@ -14,9 +14,10 @@ class CloudTechnologiesScreen extends StatelessWidget {
             const Text(
               "Cloud Technologies",
               style: TextStyle(
-                  fontSize: 100,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.black),
+                fontSize: 100,
+                fontStyle: FontStyle.italic,
+                color: Colors.black,
+              ),
               textAlign: TextAlign.center,
             ),
             Row(
@@ -89,23 +90,24 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 ),
               ],
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.all(10.0),
               child: Card(
                 color: Colors.blue[100],
                 elevation: 15,
                 shadowColor: Colors.blue[900],
                 child: const Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0),
                   child: Center(
                     child: Text(
                       "Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure is designed to take advantage of skills you already have and make you productive right away.",
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1.25,
-                    ),),
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.25,
+                      ),
+                    ),
                   ),
                 ),
               ),
