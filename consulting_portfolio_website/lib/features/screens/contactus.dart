@@ -1,8 +1,10 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/services/contact_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
 import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class ContactUsScreen extends StatefulWidget {
@@ -135,8 +137,30 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         CustomButton(
                             text: "Contact us",
                             onPressed: () {
-                              if (_contactUsFormKey.currentState!.validate()) {
-                                sendEmail();
+                              if (_nameController.text.isNotEmpty &&
+                                  _emailController.text.isNotEmpty &&
+                                  _messageController.text.isNotEmpty) {
+                                if (_contactUsFormKey.currentState!
+                                    .validate()) {
+                                  String email = _emailController.text;
+                                  bool isValidEmail =
+                                      EmailValidator.validate(email);
+                                  if (!isValidEmail) {
+                                    showSnackBar(
+                                      context,
+                                      "Please Enter a valid email",
+                                      Colors.red,
+                                    );
+                                    return;
+                                  }
+                                  sendEmail();
+                                }
+                              } else {
+                                showSnackBar(
+                                  context,
+                                  "Please fill out all form fields",
+                                  Colors.red,
+                                );
                               }
                             }),
                         const SizedBox(
