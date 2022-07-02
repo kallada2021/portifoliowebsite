@@ -11,6 +11,9 @@ void httpErrorHandle({
     case 200:
       onSuccess();
       break;
+    case 201:
+      onSuccess();
+      break;
     case 400:
       showSnackBar(context, "Sorry, an error has occurred", Colors.red);
       break;

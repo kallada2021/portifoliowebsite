@@ -5,6 +5,7 @@ from .models import Project, Solution, Technology, Contact
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response 
+from rest_framework import status 
 
 
 @api_view(["GET"])
@@ -28,8 +29,8 @@ def contact(request):
         contact = Contact.objects.all()
         serializer = ContactSerializer(contact, many=True)
     except:
-         return Response({"error": True, "message": "Error retrieving contacts from the database"}, status=500)
-    return Response(serializer.data, status=200)
+         return Response({"error": True, "message": "Error retrieving contacts from the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["POST"])
@@ -39,9 +40,9 @@ def createContact(request):
     if serializer.is_valid():
         serializer.save()
     else:
-        return Response("Invalid contact data", status=400)
+        return Response("Invalid contact data", status=status.HTTP_400_BAD_REQUEST)
 
-    return Response(serializer.data, status=200)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(["GET"])
 def solutions(request):
@@ -49,8 +50,8 @@ def solutions(request):
         solutions = Solution.objects.all()
         serializer = SolutionSerializer(solutions, many=True)
     except: 
-        return Response({"error": True, "message": "Error retrieving solutions from the database"}, status=500)
-    return Response(serializer.data, status=200)
+        return Response({"error": True, "message": "Error retrieving solutions from the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
@@ -59,8 +60,8 @@ def solutionsDetail(request, pk: str):
         solution = Solution.objects.get(id=pk)
         serializer = SolutionSerializer(solution, many=False)
     except:
-        return Response({"error": True, "message": f"solution with id {pk} wasn't found in the database"}, status=500)
-    return Response(serializer.data, status=200)
+        return Response({"error": True, "message": f"solution with id {pk} wasn't found in the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
@@ -69,8 +70,8 @@ def projects(request):
         project = Project.objects.all()
         serializer = ProjectSerializer(project, many=True)
     except:
-        return Response({"error": True, "message": "Error retrieving projects from the database"}, status=500)
-    return Response(serializer.data, status=200)
+        return Response({"error": True, "message": "Error retrieving projects from the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
@@ -79,8 +80,8 @@ def projectDetail(request, pk: str):
         project = Project.objects.get(id=pk)
         serializer = ProjectSerializer(project, many=False)
     except:
-        return Response({"error": True, "message": f"project with id {pk} wasn't found in the database"}, status=500)
-    return Response(serializer.data, status=200)
+        return Response({"error": True, "message": f"project with id {pk} wasn't found in the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
@@ -89,8 +90,8 @@ def technologies(request):
         technologies = Technology.objects.all()
         serializer = TechnologySerializer(technologies, many=True) 
     except:
-         return Response({"error": True, "message": "Error retrieving technologies from the database"}, status=500)
-    return Response(serializer.data, status=200)
+         return Response({"error": True, "message": "Error retrieving technologies from the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
@@ -99,5 +100,5 @@ def technologiesDetail(request, pk:str):
         technology = Technology.objects.get(id=pk)
         serializer = TechnologySerializer(technology, many=False) 
     except:
-        return Response({"error": True, "message": f"Technology with id {pk} wasn't found in the database"}, status=500)
-    return Response(serializer.data, status=200)
+        return Response({"error": True, "message": f"Technology with id {pk} wasn't found in the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response(serializer.data, status=status.HTTP_200_OK)
