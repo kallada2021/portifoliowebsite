@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/models/technology.dart';
 import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_screen.dart';
@@ -40,7 +42,14 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
           SizedBox(
             height: 20,
           ),
-          Text("Our Technologies"),
+          Text(
+            "Some of our favorite technologies",
+            style: TextStyle(
+              color: Colors.deepPurple[900],
+              fontSize: 25,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
           service.isLoading
               ? Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
@@ -54,8 +63,10 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     future: getTech,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
+                        // TODO: make random number not repetitive
+                        var index = Random();
                         return ListView.builder(
-                          itemCount: snapshot.data!.length,
+                          itemCount: 4,
                           shrinkWrap: true,
                           itemBuilder: (ctx, int i) {
                             return Container(
@@ -67,7 +78,8 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                                   hoverColor: Colors.pink[100],
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),
-                                    child: Text("* ${snapshot.data![i].name}"),
+                                    child: Text(
+                                        "* ${snapshot.data![index.nextInt(snapshot.data!.length)].name}"),
                                   ),
                                 ),
                               ),
@@ -85,6 +97,14 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     },
                   ),
                 ),
+          const Text(
+            "Scroll down for more technologies and information about our services",
+            style: TextStyle(
+              color: Colors.black54,
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
           Padding(
             padding: MediaQuery.of(context).size.width > 800
                 ? const EdgeInsets.all(20.0)

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/constants/utils.dart';
+import 'package:consulting_portfolio_website/features/screens/main_page.dart';
 import 'package:consulting_portfolio_website/features/services/contact_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
@@ -33,13 +36,19 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
     _messageController.dispose();
   }
 
+  setTimerToHomePage() {
+    Timer(const Duration(seconds: 3), () async {
+      Navigator.of(context).pop();
+    });
+  }
+
   void sendEmail() {
     contactService.sendEmailMessage(
       context: context,
-      name: _nameController.text,
-      phoneNumber: _phoneController.text,
-      emailAddress: _emailController.text,
-      message: _messageController.text,
+      name: _nameController.text.trim(),
+      phoneNumber: _phoneController.text.trim(),
+      emailAddress: _emailController.text.trim(),
+      message: _messageController.text.trim(),
     );
   }
 
@@ -154,6 +163,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                     return;
                                   }
                                   sendEmail();
+                                  setTimerToHomePage();
                                 }
                               } else {
                                 showSnackBar(
