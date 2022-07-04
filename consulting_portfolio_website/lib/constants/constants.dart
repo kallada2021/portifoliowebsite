@@ -63,3 +63,4 @@ List<String> devopsTechnologies = [
   "Kubernetes",
   "Github Actions",
 ];
+const String terraformIntro = "Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can be used on many types of cloud providers to manage services and infrastructure. Terraform uses a declarative language called the HashiCorp Configuration Language (HCL). We will create your infrastructure as code using Terraform in order to help manage your servers and cloud services";

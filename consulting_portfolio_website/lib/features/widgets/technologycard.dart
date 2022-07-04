@@ -25,13 +25,13 @@ class TechnologyCard extends StatelessWidget {
               ? MediaQuery.of(context).size.width * 0.15
               : MediaQuery.of(context).size.width * 0.005,
         ),
-        color: Colors.red[200],
+        color: Colors.lightBlue[200],
         shadowColor: GlobalVariables.secondaryColor,
         elevation: 12,
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.red,
+              color: Colors.blue,
               width: 3.0,
             ),
             borderRadius: const BorderRadius.all(

@@ -12,7 +12,7 @@ class GlobalVariables {
     1.0
   ]);
 
-  static var secondaryColor = Colors.pink[600]!;
+  static var secondaryColor = Colors.teal[600]!;
   static const backgroundColor = Colors.white;
   static var grayBackgroundColor = Colors.blueGrey[200]!;
   static var lightBlue = Colors.blue[200];

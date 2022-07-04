@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/models/technology.dart';
 import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_screen.dart';
+import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
 import 'package:consulting_portfolio_website/features/services/technology_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/technologycard.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +76,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                               child: Center(
                                 child: InkWell(
                                   enableFeedback: true,
-                                  hoverColor: Colors.pink[100],
+                                  hoverColor: Colors.blue[100],
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),
                                     child: Text(
@@ -127,7 +128,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     techList: cloudTechnologies,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 InkWell(
@@ -139,19 +140,24 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     techList: mobileDevelopmentTechnologies,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TechnologyCard(
                   title: "Web Development",
                   techList: webDevelopmentTechnologies,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                TechnologyCard(
-                  title: "Devops",
-                  techList: devopsTechnologies,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, DevopsScreen.routeName,);
+                      },
+                  child: TechnologyCard(
+                    title: "Devops",
+                    techList: devopsTechnologies,
+                  ),
                 ),
               ],
             ),
