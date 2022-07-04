@@ -1,5 +1,5 @@
 import 'package:consulting_portfolio_website/features/models/projects.dart';
-import 'package:consulting_portfolio_website/features/screens/project_widget.dart';
+import 'package:consulting_portfolio_website/features/widgets/projectpage.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';

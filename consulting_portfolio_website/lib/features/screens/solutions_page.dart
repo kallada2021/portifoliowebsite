@@ -37,7 +37,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
             ),
             Container(
               color: Colors.green[100],
-              child: TabBarView(
+              child: const TabBarView(
                 children: [
                   Text("AWS"),
                   Text("AZURE"),

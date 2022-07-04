@@ -8,7 +8,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,7 +55,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                     padding: EdgeInsets.all(20.0),
                     child: Center(
                       child: Text(
-                        "Amazon Web Services (AWS) provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a pay-as-you-go basis. We can help you setup cloud computing web services that provide distributed computing processing capacity and software tools on AWS. One of these services we specialize in is called Amazon Elastic Compute Cloud (EC2), which provides users a virtual cluster of computers, available all the time, through the Internet. We can set up an EC2 service offering a choice of operating systems, networking, and pre-loaded application software such as web servers and databases. We will configure your application to run on AWS using these technologies",
+                        amazonIntro,
                         style: TextStyle(
                           color: Colors.black87,
                           fontSize: 16,
@@ -102,7 +102,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                     padding: EdgeInsets.all(20.0),
                     child: Center(
                       child: Text(
-                        "Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure is designed to take advantage of skills you already have and make you productive right away.",
+                        azureIntro,
                         style: TextStyle(
                           color: Colors.black87,
                           fontSize: 16,
@@ -139,15 +139,15 @@ class CloudTechnologiesScreen extends StatelessWidget {
                   ),
                 ],
               ),
-               Padding(
+              Padding(
                 padding: EdgeInsets.all(10.0),
-                child:Card(
+                child: Card(
                   color: Colors.blue[100],
                   elevation: 15,
                   shadowColor: Colors.blue[900],
                   child: const Padding(
                     padding: EdgeInsets.all(20.0),
-                     child: Center(
+                    child: Center(
                       child: Text(
                         terraformIntro,
                         style: TextStyle(
@@ -162,7 +162,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height:10,
+                height: 10,
               ),
             ],
           ),
