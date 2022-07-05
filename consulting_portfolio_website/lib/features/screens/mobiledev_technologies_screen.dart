@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../widgets/footer.dart';
 
-class CloudTechnologiesScreen extends StatelessWidget {
-  static const String routeName = "/cloudtechnologies";
-  const CloudTechnologiesScreen({Key? key}) : super(key: key);
+class MobileDevTechnologiesScreen extends StatelessWidget {
+  static const String routeName = "/mobiletechnologies";
+  const MobileDevTechnologiesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Cloud Technologies",
+                "Mobile Technologies",
                 style: TextStyle(
                   fontSize: 100,
                   fontStyle: FontStyle.italic,
@@ -29,7 +29,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Amazon Web Services (AWS)",
+                    "Flutter",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
@@ -40,7 +40,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  // Add AWS ICON
+                  //TODO: ADD FLUTTER ICON
                   Container(
                     width: 50,
                     height: 50,
@@ -51,7 +51,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: amazonIntro,
+                  descriptionText: flutterIntro,
                 ),
               ),
               const SizedBox(
@@ -61,7 +61,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Azure Cloud",
+                    "Swift (iOS)",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
@@ -82,7 +82,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: azureIntro,
+                  descriptionText: swiftIntro,
                 ),
               ),
               const SizedBox(
@@ -92,7 +92,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Terraform",
+                    "Kotlin (Android)",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
@@ -103,6 +103,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
+                  //TODO: Kotlin logo
                   Container(
                     width: 50,
                     height: 50,
@@ -113,7 +114,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: terraformIntro,
+                  descriptionText: kotlinIntro,
                 ),
               ),
               const SizedBox(

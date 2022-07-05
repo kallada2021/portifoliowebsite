@@ -9,6 +9,7 @@ import 'package:consulting_portfolio_website/features/widgets/technologycard.dar
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
+import 'mobiledev_technologies_screen.dart';
 
 class TechnologiesScreen extends StatefulWidget {
   const TechnologiesScreen({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
 
   Future<List<Technology>> getTechs() async {
     techList = await service.getTechs(context: context);
+    techList.shuffle();
     return techList;
   }
 
@@ -65,7 +67,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         // TODO: make random number not repetitive
-                        var index = Random();
+                        //var index = Random();
                         return ListView.builder(
                           itemCount: 4,
                           shrinkWrap: true,
@@ -79,8 +81,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                                   hoverColor: Colors.blue[100],
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),
-                                    child: Text(
-                                        "* ${snapshot.data![index.nextInt(snapshot.data!.length)].name}"),
+                                    child: Text("* ${snapshot.data![i].name}"),
                                   ),
                                 ),
                               ),
@@ -133,7 +134,10 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    // Navigator.pushNamed(context,MobileDevelopmentScreen.routename,);
+                    Navigator.pushNamed(
+                      context,
+                      MobileDevTechnologiesScreen.routeName,
+                    );
                   },
                   child: TechnologyCard(
                     title: "Mobile Development",
@@ -152,8 +156,11 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, DevopsScreen.routeName,);
-                      },
+                    Navigator.pushNamed(
+                      context,
+                      DevopsScreen.routeName,
+                    );
+                  },
                   child: TechnologyCard(
                     title: "Devops",
                     techList: devopsTechnologies,

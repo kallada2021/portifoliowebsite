@@ -78,3 +78,9 @@ const String kubernetesIntro =
     "Kubernetes can also be deployed across multi-cloud environments. It is an open-source tool that enables users to use hybrid, cloud or on-premises infrastructures. In addition, Kubernetes makes it possible for multiple cloud providers to be used within the same managed Kubernetes cluster.";
 const String githubActionsIntro =
     "GitHub Actions now supports OpenID Connect (OIDC) for secure deployments to cloud, which uses short-lived tokens that are automatically rotated for each deployment. This enables: Seamless authentication between Cloud Providers and GitHub without the need for storing any long-lived cloud secrets in GitHub";
+const String flutterIntro =
+    "Flutter is a multiplatform library used to create primary iOS and Android apps and can also be used to create websites and desktop applications.  We also work with Flutter and can setup an Android app as well as an iOS app as well as a landing page or website for your company saving your costs.";
+const String swiftIntro =
+    "Swift is Apple's language for creating iOS apps.  Apps for iPhones, iPads and Mac computers are created with Swift. We can provide solutions for iOS system applications for your company";
+const String kotlinIntro =
+    "Kotlin is used for creating Android application as well as Multiplatform applications and backend APIs. We can provide Android solutions and Fullstack solutions for your company.";

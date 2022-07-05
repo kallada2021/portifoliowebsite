@@ -1,5 +1,6 @@
 import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
+import 'package:consulting_portfolio_website/features/widgets/footer.dart';
 import 'package:consulting_portfolio_website/features/widgets/techdescriptioncard.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,7 @@ class DevopsScreen extends StatelessWidget {
                       fontWeight: FontWeight.w900,
                       color: Colors.deepPurple[900],
                     ),
-                    ),
+                  ),
                   const SizedBox(
                     width: 15.0,
                   ),
@@ -84,25 +85,25 @@ class DevopsScreen extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Jenkins",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.deepPurple[900],
-                      ),
-                      textAlign: TextAlign.center,
+                children: [
+                  Text(
+                    "Jenkins",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
                     ),
-                    const SizedBox(
-                      width: 15.0,
-                    ),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      color: Colors.red[300],
-                    ),
-                  ],
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red[300],
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -166,6 +167,10 @@ class DevopsScreen extends StatelessWidget {
                   descriptionText: githubActionsIntro,
                 ),
               ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              const Footer(),
             ],
           ),
         ),
