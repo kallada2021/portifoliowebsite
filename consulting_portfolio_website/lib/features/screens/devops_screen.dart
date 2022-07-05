@@ -1,5 +1,6 @@
 import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
+import 'package:consulting_portfolio_website/features/widgets/techdescriptioncard.dart';
 import 'package:flutter/material.dart';
 
 class DevopsScreen extends StatelessWidget {
@@ -47,29 +48,124 @@ class DevopsScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Card(
-                  color: Colors.blue[100],
-                  elevation: 15,
-                  shadowColor: Colors.blue[900],
-                  child: const Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Center(
-                      child: Text(
-                        terraformIntro,
-                        style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 1.25,
-                        ),
-                      ),
-                    ),
-                  ),
+                child: TechDescriptionCard(
+                  descriptionText: terraformIntro,
                 ),
               ),
               const SizedBox(
                 height: 10,
-              )
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Azure Devops",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
+                    ),
+                    ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red[300],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: azureDevopsIntro,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Jenkins",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.deepPurple[900],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      color: Colors.red[300],
+                    ),
+                  ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: jenkinsIntro,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Kubernetes",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red[300],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: kubernetesIntro,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Github Actions",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red[300],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: githubActionsIntro,
+                ),
+              ),
             ],
           ),
         ),
