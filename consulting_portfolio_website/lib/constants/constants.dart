@@ -84,3 +84,15 @@ const String swiftIntro =
     "Swift is Apple's language for creating iOS apps.  Apps for iPhones, iPads and Mac computers are created with Swift. We can provide solutions for iOS system applications for your company";
 const String kotlinIntro =
     "Kotlin is used for creating Android application as well as Multiplatform applications and backend APIs. We can provide Android solutions and Fullstack solutions for your company.";
+const String htmlCssIntro =
+    "HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages";
+const String javascriptInto =
+    "Javascript is used by programmers across the world to create dynamic and interactive web content like applications and browsers. JavaScript is so popular that it's the most used programming language in the world, used as a client-side programming language by 97.0% of all websites.";
+const String djangoIntro =
+    "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. ";
+const String golangIntro =
+    "Go (also called Golang or Go language) is an open source programming language used for general purpose. Go was developed by Google engineers to create dependable and efficient software. Most similarly modeled after C, Go is statically typed and explicit.";
+const String csharpIntro =
+    "C# is a simple, modern, general-purpose, object-oriented programming language developed by Microsoft within its .NET initiative led by Anders Hejlsberg";
+const String powershellIntro =
+    "PowerShell. PowerShell is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language";

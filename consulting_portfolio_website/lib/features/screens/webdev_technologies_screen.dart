@@ -1,24 +1,23 @@
 import 'package:consulting_portfolio_website/constants/constants.dart';
-import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
-import 'package:consulting_portfolio_website/features/widgets/footer.dart';
 import 'package:consulting_portfolio_website/features/widgets/techdescriptioncard.dart';
 import 'package:flutter/material.dart';
 
-class DevopsScreen extends StatelessWidget {
-  static const String routeName = "/devopstechnologies";
+import '../widgets/footer.dart';
 
-  const DevopsScreen({Key? key}) : super(key: key);
+class WebTechnologiesScreen extends StatelessWidget {
+  static const String routeName = "/webtechnologies";
+  const WebTechnologiesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Devops TechStack",
+                "Web Technologies",
                 style: TextStyle(
                   fontSize: 100,
                   fontStyle: FontStyle.italic,
@@ -30,16 +29,18 @@ class DevopsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Terraform",
+                    "HTML/CSS",
                     style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.deepPurple[900]),
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     width: 15.0,
                   ),
+                  // Add AWS ICON
                   Container(
                     width: 50,
                     height: 50,
@@ -50,7 +51,7 @@ class DevopsScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: terraformIntro,
+                  descriptionText: htmlCssIntro,
                 ),
               ),
               const SizedBox(
@@ -60,15 +61,16 @@ class DevopsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Azure Devops",
+                    "Javascript",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
                       color: Colors.deepPurple[900],
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    width: 15.0,
+                    width: 15,
                   ),
                   Container(
                     width: 50,
@@ -80,14 +82,17 @@ class DevopsScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: azureDevopsIntro,
+                  descriptionText: javascriptInto,
                 ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Jenkins",
+                    "Django",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
@@ -96,7 +101,7 @@ class DevopsScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    width: 15.0,
+                    width: 15,
                   ),
                   Container(
                     width: 50,
@@ -108,14 +113,17 @@ class DevopsScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: jenkinsIntro,
+                  descriptionText: djangoIntro,
                 ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Kubernetes",
+                    "GoLang",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
@@ -124,7 +132,7 @@ class DevopsScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    width: 15.0,
+                    width: 15,
                   ),
                   Container(
                     width: 50,
@@ -136,14 +144,17 @@ class DevopsScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TechDescriptionCard(
-                  descriptionText: kubernetesIntro,
+                  descriptionText: golangIntro,
                 ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Github Actions",
+                    "C#",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
@@ -152,47 +163,25 @@ class DevopsScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    width: 15.0,
+                    width: 15,
                   ),
                   Container(
                     width: 50,
                     height: 50,
                     color: Colors.red[300],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "PowerShell",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.deepPurple[900],
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(
-                        width: 15.0,
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        color: Colors.red[300],
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: TechDescriptionCard(
-                      descriptionText: powershellIntro,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-                  const Footer(),
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: csharpIntro,
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Footer(),
             ],
           ),
         ),

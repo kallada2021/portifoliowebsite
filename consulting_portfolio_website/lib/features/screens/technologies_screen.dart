@@ -4,6 +4,7 @@ import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/models/technology.dart';
 import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
+import 'package:consulting_portfolio_website/features/screens/webdev_technologies_screen.dart';
 import 'package:consulting_portfolio_website/features/services/technology_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/technologycard.dart';
 import 'package:flutter/material.dart';
@@ -147,9 +148,17 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                TechnologyCard(
-                  title: "Web Development",
-                  techList: webDevelopmentTechnologies,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context,
+                        WebTechnologiesScreen.routeName,
+                    );
+                  },
+                  child: TechnologyCard(
+                    title: "Web Development",
+                    techList: webDevelopmentTechnologies,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
