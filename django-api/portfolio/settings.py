@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["localhost"]
 CORS_ALLOW_ALL_ORIGINS: True 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:60498"
+    "http://localhost:51665"
 ]
 
 CORS_ALLOW_METHODS = [

@@ -24,6 +24,9 @@ class Project extends StatelessWidget {
               child: CircleAvatar(
                 maxRadius: 50,
                 backgroundColor: Colors.pink[100],
+                // child: Image.network(
+                //     'https://portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/LWSC.png',
+                // ),
               ),
             ),
             SizedBox(

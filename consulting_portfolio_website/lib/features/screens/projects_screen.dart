@@ -50,8 +50,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       body: Column(
         children: const [
           Project(
-            title: "Project 1",
-            description: "This is project 1.  This is description text",
+            title: "Living Well With Sickle Cell",
+            description: "The Living Well with Sickle Cell phone application will allow patients who have sickle cell disease to better manage their daily lives."
           ),
           Divider(
             color: Colors.pinkAccent,
