@@ -96,3 +96,5 @@ const String csharpIntro =
     "C# is a simple, modern, general-purpose, object-oriented programming language developed by Microsoft within its .NET initiative led by Anders Hejlsberg";
 const String powershellIntro =
     "PowerShell. PowerShell is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language";
+const String dockerIntro =
+    "Docker is used for containering applications to allow it to run easily in many different environments. We can run your application in Docker and run it on cloud environments such as AWS or Azure";

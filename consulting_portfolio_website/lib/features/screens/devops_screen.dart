@@ -159,40 +159,77 @@ class DevopsScreen extends StatelessWidget {
                     height: 50,
                     color: Colors.red[300],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "PowerShell",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.deepPurple[900],
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(
-                        width: 15.0,
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        color: Colors.red[300],
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: TechDescriptionCard(
-                      descriptionText: powershellIntro,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-                  const Footer(),
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: githubActionsIntro,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "PowerShell",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red[300],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: powershellIntro,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Docker",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.deepPurple[900],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red[300],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: dockerIntro,
+                ),
+              ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              const Footer(),
             ],
           ),
         ),
