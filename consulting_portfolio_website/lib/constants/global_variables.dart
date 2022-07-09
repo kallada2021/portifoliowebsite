@@ -21,4 +21,16 @@ class GlobalVariables {
 
   static const lineHeight = 30.0;
   static const lineWidth = 40.0;
+
+  static TextStyle kTechNameStyle = TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.w900,
+    color: Colors.deepPurple[900],
+  );
+
+  static const TextStyle kTechPageTitleStyle = TextStyle(
+    fontSize: 100,
+    fontStyle: FontStyle.italic,
+    color: Colors.black,
+  );
 }

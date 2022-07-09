@@ -4,6 +4,8 @@ import 'package:consulting_portfolio_website/features/widgets/footer.dart';
 import 'package:consulting_portfolio_website/features/widgets/techdescriptioncard.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/global_variables.dart';
+
 class DevopsScreen extends StatelessWidget {
   static const String routeName = "/devopstechnologies";
 
@@ -19,11 +21,7 @@ class DevopsScreen extends StatelessWidget {
             children: [
               const Text(
                 "Devops TechStack",
-                style: TextStyle(
-                  fontSize: 100,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.black,
-                ),
+                style: GlobalVariables.kTechPageTitleStyle,
                 textAlign: TextAlign.center,
               ),
               Row(
@@ -31,10 +29,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Terraform",
-                    style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.deepPurple[900]),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -61,11 +56,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Azure Devops",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                   ),
                   const SizedBox(
                     width: 15.0,
@@ -88,11 +79,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Jenkins",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -116,11 +103,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Kubernetes",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -144,11 +127,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Github Actions",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -172,11 +151,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "PowerShell",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -203,11 +178,7 @@ class DevopsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Docker",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(

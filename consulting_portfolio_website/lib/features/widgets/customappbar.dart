@@ -16,7 +16,6 @@ AppBar customAppBar(BuildContext context) {
               color: Colors.white,
               tooltip: "Contact us",
               onPressed: () {
-                print("Contact");
                 if (MediaQuery.of(context).size.width > 850) {
                   Navigator.pushNamed(
                     context,

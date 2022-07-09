@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoutes(settings),
-      home: Scaffold(
-        body: const ResponsiveLayout(
+      home: const Scaffold(
+        body: ResponsiveLayout(
           webScreenLayout: MainPage(),
           mobileScreenLayout: MobileScreenLayout(),
         ),

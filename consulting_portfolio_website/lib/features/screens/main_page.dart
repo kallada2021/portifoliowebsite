@@ -6,12 +6,11 @@ import 'package:consulting_portfolio_website/features/widgets/customappbar.dart'
 import 'package:consulting_portfolio_website/features/widgets/footer.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/constants.dart';
 import '../../constants/global_variables.dart';
-import '../widgets/appdrawer.dart';
 import 'contactus.dart';
 
 class MainPage extends StatefulWidget {
+  static String routeName = "/";
   const MainPage({
     Key? key,
   }) : super(key: key);

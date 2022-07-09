@@ -1,7 +1,9 @@
 import 'package:consulting_portfolio_website/constants/constants.dart';
+import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/techdescriptioncard.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/global_variables.dart';
 import '../widgets/footer.dart';
 
 class MobileDevTechnologiesScreen extends StatelessWidget {
@@ -11,6 +13,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: customAppBar(context),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -18,11 +21,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
             children: [
               const Text(
                 "Mobile Technologies",
-                style: TextStyle(
-                  fontSize: 100,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.black,
-                ),
+                style: GlobalVariables.kTechPageTitleStyle,
                 textAlign: TextAlign.center,
               ),
               Row(
@@ -30,11 +29,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Flutter",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -62,11 +57,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Swift (iOS)",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -93,11 +84,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Kotlin (Android)",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.deepPurple[900],
-                    ),
+                    style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
