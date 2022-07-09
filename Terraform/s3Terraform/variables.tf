@@ -3,9 +3,11 @@ variable "region" {
   type        = string
   default     = "us-east-1"
 }
+
 variable "aws_accesskey" {
   type = string
 }
+
 variable "aws_secretkey" {
   type = string
 }

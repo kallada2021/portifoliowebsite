@@ -5,10 +5,13 @@ import '../../constants/global_variables.dart';
 class Project extends StatelessWidget {
   final String title;
   final String description;
-  const Project({
+  String? imageURL;
+
+  Project({
     Key? key,
     required this.title,
     required this.description,
+    this.imageURL,
   }) : super(key: key);
 
   @override
@@ -24,9 +27,8 @@ class Project extends StatelessWidget {
               child: CircleAvatar(
                 maxRadius: 50,
                 backgroundColor: Colors.pink[100],
-                // child: Image.network(
-                //     'https://portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/LWSC.png',
-                // ),
+                child:
+                    imageURL != null ? Image.network(imageURL!) : Container(),
               ),
             ),
             SizedBox(
