@@ -9,8 +9,10 @@ resource "aws_s3_bucket" "picturesbucket" {
   #key = "Images/"
 }
 
+# Store Images to be used onsite
 resource "aws_s3_object" "imagesfolder" {
   bucket = aws_s3_bucket.picturesbucket.id
   acl    = "private"
   key    = "Images/"
+  
 }
