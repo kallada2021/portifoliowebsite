@@ -33,4 +33,9 @@ class GlobalVariables {
     fontStyle: FontStyle.italic,
     color: Colors.black,
   );
+  static const TextStyle kFooterTextStyle = TextStyle(
+  fontSize: 20,
+  fontStyle: FontStyle.normal,
+  color: Colors.black,
+  );
 }

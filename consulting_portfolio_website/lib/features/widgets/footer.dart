@@ -11,9 +11,27 @@ class Footer extends StatelessWidget {
       height: 150.0,
       color: GlobalVariables.secondaryColor,
       child: Row(
-        children: const [
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           Center(
-            child: Text("This is the footer"),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("About",style: GlobalVariables.kFooterTextStyle,),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Contacts",style: GlobalVariables.kFooterTextStyle,),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Services",style: GlobalVariables.kFooterTextStyle,),
+                ),
+              ],
+            ),
           )
         ],
       ),

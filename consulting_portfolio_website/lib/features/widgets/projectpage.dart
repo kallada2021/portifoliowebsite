@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/features/screens/projectpictures_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
@@ -23,12 +24,20 @@ class Project extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50.0, bottom: 50.0),
-              child: CircleAvatar(
-                maxRadius: 50,
-                backgroundColor: Colors.pink[100],
-                child:
-                    imageURL != null ? Image.network(imageURL!) : Container(),
+              padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context,ProjectPicture.routeName,arguments: ProjectPicture(
+                    imageUrl: imageURL,
+                  ),
+                  );
+                },
+                child: SizedBox(
+                  height: 500,
+                  width: 500,
+                  child:
+                      imageURL != null ? Image.network(imageURL!) : Container(),
+                ),
               ),
             ),
             SizedBox(

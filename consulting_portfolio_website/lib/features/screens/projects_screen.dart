@@ -21,26 +21,28 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context),
-      body: Column(
-        children: [
-          Project(
-            title: "Living Well With Sickle Cell",
-            description:
-                "The Living Well with Sickle Cell phone application will allow patients who have sickle cell disease to better manage their daily lives.",
-            // imageURL:
-            //     "https://portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/LWSC.png",
-          ),
-          const Divider(
-            color: Colors.pinkAccent,
-          ),
-          Project(
-            title: "Project 2",
-            description: "This is project 2.  This is description text",
-          ),
-          const Divider(
-            color: Colors.pinkAccent,
-          ),
-        ],
+      body:SingleChildScrollView(
+        child: Column(
+          children: [
+            Project(
+              title: "Living Well With Sickle Cell",
+              description:
+                  "The Living Well with Sickle Cell phone application will allow patients who have sickle cell disease to better manage their daily lives.",
+              imageURL:
+                  "https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/LWSC.png",
+            ),
+            const Divider(
+              color: Colors.pinkAccent,
+            ),
+            Project(
+              title: "Project 2",
+              description: "This is project 2.  This is description text",
+            ),
+            const Divider(
+              color: Colors.pinkAccent,
+            ),
+          ],
+        ),
       ),
     );
   }
