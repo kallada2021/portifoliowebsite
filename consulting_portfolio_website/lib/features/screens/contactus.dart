@@ -6,6 +6,7 @@ import 'package:consulting_portfolio_website/features/screens/main_page.dart';
 import 'package:consulting_portfolio_website/features/services/contact_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
+import 'package:consulting_portfolio_website/features/widgets/progressbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   final TextEditingController _messageController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final ContactService contactService = ContactService();
+  bool isSending = false;
 
   @override
   void dispose() {
@@ -43,6 +45,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   }
 
   void sendEmail() {
+    setState(() {
+      isSending = true;
+    });
     contactService.sendEmailMessage(
       context: context,
       name: _nameController.text.trim(),
@@ -67,6 +72,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             padding: const EdgeInsets.all(50.0),
             child: Column(
               children: [
+                isSending == true ? linearProgressBar() : Container(),
                 const Text(
                   "contact us",
                   style: TextStyle(
@@ -162,6 +168,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                     );
                                     return;
                                   }
+
                                   sendEmail();
                                   setTimerToHomePage();
                                 }
@@ -272,7 +279,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   alignment: Alignment.center,
                   decoration: ShapeDecoration(
-                    color: GlobalVariables.secondaryColor,
+                    color: GlobalVariables.kSecondaryColor,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(5),

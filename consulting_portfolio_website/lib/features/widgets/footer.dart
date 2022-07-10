@@ -1,4 +1,5 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
@@ -9,7 +10,7 @@ class Footer extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 150.0,
-      color: GlobalVariables.secondaryColor,
+      color: GlobalVariables.kSecondaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -17,18 +18,32 @@ class Footer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Padding(
+              children: [
+                const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("About",style: GlobalVariables.kFooterTextStyle,),
+                  child: Text(
+                    "About",
+                    style: GlobalVariables.kFooterTextStyle,
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Contacts",style: GlobalVariables.kFooterTextStyle,),
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, ContactUsScreen.routeName);
+                    },
+                    child: const Text(
+                      "Contact us",
+                      style: GlobalVariables.kFooterTextStyle,
+                    ),
+                  ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("Services",style: GlobalVariables.kFooterTextStyle,),
+                  child: Text(
+                    "Services",
+                    style: GlobalVariables.kFooterTextStyle,
+                  ),
                 ),
               ],
             ),

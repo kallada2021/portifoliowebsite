@@ -1,9 +1,8 @@
-import 'package:consulting_portfolio_website/features/screens/projectpictures_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
 
-class Project extends StatelessWidget {
+class Project extends StatefulWidget {
   final String title;
   final String description;
   String? imageURL;
@@ -16,6 +15,13 @@ class Project extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<Project> createState() => _ProjectState();
+}
+
+class _ProjectState extends State<Project> {
+  bool isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -26,18 +32,27 @@ class Project extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context,ProjectPicture.routeName,arguments: ProjectPicture(
-                    imageUrl: imageURL,
-                  ),
-                  );
+                hoverColor: Colors.blue[100],
+                onTap: () {},
+                onHover: (bool isPictureHovered) {
+                  isHovered = !isHovered;
+                  setState(() {});
                 },
-                child: SizedBox(
-                  height: 500,
-                  width: 500,
-                  child:
-                      imageURL != null ? Image.network(imageURL!) : Container(),
-                ),
+                child: isHovered
+                    ? SizedBox(
+                        height: 800,
+                        width: 800,
+                        child: widget.imageURL != null
+                            ? Image.network(widget.imageURL!)
+                            : Container(),
+                      )
+                    : SizedBox(
+                        height: 500,
+                        width: 500,
+                        child: widget.imageURL != null
+                            ? Image.network(widget.imageURL!)
+                            : Container(),
+                      ),
               ),
             ),
             SizedBox(
@@ -49,9 +64,9 @@ class Project extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        title,
+                        widget.title,
                         style: TextStyle(
-                          color: GlobalVariables.secondaryColor,
+                          color: GlobalVariables.kSecondaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0,
                         ),
@@ -60,8 +75,9 @@ class Project extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        description,
-                        style: TextStyle(color: GlobalVariables.secondaryColor),
+                        widget.description,
+                        style:
+                            TextStyle(color: GlobalVariables.kSecondaryColor),
                       ),
                     ),
                   ],

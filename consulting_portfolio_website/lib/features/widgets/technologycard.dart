@@ -26,7 +26,7 @@ class TechnologyCard extends StatelessWidget {
               : MediaQuery.of(context).size.width * 0.005,
         ),
         color: Colors.lightBlue[200],
-        shadowColor: GlobalVariables.secondaryColor,
+        shadowColor: GlobalVariables.kSecondaryColor,
         elevation: 12,
         child: Container(
           decoration: BoxDecoration(

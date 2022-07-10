@@ -59,7 +59,7 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
               "Sorry, The page you are looking for does not exist.",
               style: TextStyle(
                 fontSize: 20,
-                color: GlobalVariables.secondaryColor,
+                color: GlobalVariables.kSecondaryColor,
               ),
             ),
           ),

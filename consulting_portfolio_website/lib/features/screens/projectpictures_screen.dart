@@ -13,7 +13,6 @@ class ProjectPicture extends StatelessWidget {
         height: 1000,
         color: Colors.amber,
         child: imageUrl != null ? Image.network(imageUrl!) : Container(),
-
       ),
     );
   }

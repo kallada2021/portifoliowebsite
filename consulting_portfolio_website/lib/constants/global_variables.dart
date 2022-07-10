@@ -12,10 +12,10 @@ class GlobalVariables {
     1.0
   ]);
 
-  static var secondaryColor = Colors.teal[600]!;
-  static const backgroundColor = Colors.white;
+  static var kSecondaryColor = Colors.teal[600]!;
+  static const kBackgroundColor = Colors.white;
   static var grayBackgroundColor = Colors.blueGrey[200]!;
-  static var lightBlue = Colors.blue[200];
+  static var kLightBlue = Colors.blue[200];
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.teal;
 
@@ -34,8 +34,8 @@ class GlobalVariables {
     color: Colors.black,
   );
   static const TextStyle kFooterTextStyle = TextStyle(
-  fontSize: 20,
-  fontStyle: FontStyle.normal,
-  color: Colors.black,
+    fontSize: 20,
+    fontStyle: FontStyle.normal,
+    color: Colors.black,
   );
 }

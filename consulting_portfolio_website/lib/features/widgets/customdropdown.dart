@@ -13,7 +13,7 @@ class _CustomDropdownItemState extends State<CustomDropdownItem> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-        dropdownColor: GlobalVariables.lightBlue,
+        dropdownColor: GlobalVariables.kLightBlue,
         menuMaxHeight: 300,
         elevation: 4,
         alignment: AlignmentDirectional.center,

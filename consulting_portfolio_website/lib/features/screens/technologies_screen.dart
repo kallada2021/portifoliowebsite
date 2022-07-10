@@ -58,7 +58,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
               ? Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
                   child: CircularProgressIndicator(
-                    color: GlobalVariables.secondaryColor,
+                    color: GlobalVariables.kSecondaryColor,
                   ),
                 )
               : Padding(
@@ -94,7 +94,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                       } else {
                         // By default, show a loading spinner.
                         return CircularProgressIndicator(
-                          color: GlobalVariables.secondaryColor,
+                          color: GlobalVariables.kSecondaryColor,
                         );
                       }
                     },
@@ -119,6 +119,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
+                  hoverColor: GlobalVariables.kLightBlue,
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -134,6 +135,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
+                  hoverColor: GlobalVariables.kLightBlue,
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -149,10 +151,11 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
+                  hoverColor: GlobalVariables.kLightBlue,
                   onTap: () {
                     Navigator.pushNamed(
-                        context,
-                        WebTechnologiesScreen.routeName,
+                      context,
+                      WebTechnologiesScreen.routeName,
                     );
                   },
                   child: TechnologyCard(
@@ -164,6 +167,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
+                  hoverColor: GlobalVariables.kLightBlue,
                   onTap: () {
                     Navigator.pushNamed(
                       context,

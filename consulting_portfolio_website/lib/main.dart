@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
       title: 'Portfolio Website',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        scaffoldBackgroundColor: GlobalVariables.kBackgroundColor,
         colorScheme: ColorScheme.light(
-          primary: GlobalVariables.secondaryColor,
+          primary: GlobalVariables.kSecondaryColor,
         ),
         appBarTheme: const AppBarTheme(
           elevation: 3,

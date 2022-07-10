@@ -24,7 +24,7 @@ class MobileScreenLayout extends StatelessWidget {
               Text(
                 "Mobile Screen",
                 style: TextStyle(
-                  color: GlobalVariables.secondaryColor,
+                  color: GlobalVariables.kSecondaryColor,
                 ),
               ),
               const TechnologiesScreen(),
