@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 import '../../constants/global_variables.dart';
+import '../widgets/footer.dart';
 import 'contactus.dart';
 
 class ProjectsScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context),
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Project(
@@ -41,6 +42,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             const Divider(
               color: Colors.pinkAccent,
             ),
+            const Footer(),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -32,17 +33,41 @@ class Footer extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, ContactUsScreen.routeName);
                     },
-                    child: const Text(
-                      "Contact us",
-                      style: GlobalVariables.kFooterTextStyle,
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Contact us",
+                          style: GlobalVariables.kFooterTextStyle,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(
+                          IconlyBold.message,
+                          color: Colors.white60,
+                          size: 30,
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Services",
-                    style: GlobalVariables.kFooterTextStyle,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: const [
+                      Text(
+                        "Services",
+                        style: GlobalVariables.kFooterTextStyle,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        IconlyBold.chart,
+                        color: Colors.white60,
+                        size: 30,
+                      ),
+                    ],
                   ),
                 ),
               ],

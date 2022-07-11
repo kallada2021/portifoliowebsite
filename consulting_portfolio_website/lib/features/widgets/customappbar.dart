@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 
 import '../../constants/constants.dart';
 import '../screens/contactus.dart';
@@ -28,7 +29,7 @@ AppBar customAppBar(BuildContext context) {
                   );
                 }
               },
-              icon: const Icon(Icons.email_outlined))
+              icon: const Icon(IconlyBold.message))
         ],
       ),
     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 
 class IntroBox extends StatelessWidget {
   const IntroBox({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class IntroBox extends StatelessWidget {
               Row(
                 children: const [
                   Icon(
-                    Icons.people_alt_outlined,
+                    IconlyLight.user3,
                     size: 20,
                     color: Colors.white70,
                   ),

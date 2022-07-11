@@ -11,6 +11,8 @@ import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/footer.dart';
+
 class ContactUsScreen extends StatefulWidget {
   static const String routeName = "/contact-us";
 
@@ -67,126 +69,133 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
       backgroundColor: Colors.blue[50],
       appBar: customAppBar(context),
       body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(50.0),
+        child: SingleChildScrollView(
+          child: Center(
             child: Column(
               children: [
-                isSending == true ? linearProgressBar() : Container(),
-                const Text(
-                  "contact us",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const ListTile(
-                  title: Padding(
-                    padding: EdgeInsets.only(left: 40),
-                    child: Text(
-                      "Send us an email",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.all(50.0),
+                  child: Column(
+                    children: [
+                      isSending == true ? linearProgressBar() : Container(),
+                      const Text(
+                        "contact us",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
+                      const ListTile(
+                        title: Padding(
+                          padding: EdgeInsets.only(left: 40),
+                          child: Text(
+                            "Send us an email",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10.0),
+                        color: Colors.white,
+                        child: Form(
+                          key: _contactUsFormKey,
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: formPadding),
+                                child: CustomTextField(
+                                  controller: _nameController,
+                                  hintText: "Name",
+                                  inputType: TextInputType.name,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: formPadding),
+                                child: CustomTextField(
+                                  controller: _emailController,
+                                  hintText: "Email Address",
+                                  inputType: TextInputType.emailAddress,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: formPadding),
+                                child: CustomTextField(
+                                  controller: _phoneController,
+                                  hintText: "Phone Number",
+                                  inputType: TextInputType.phone,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: formPadding),
+                                child: CustomTextField(
+                                  controller: _messageController,
+                                  hintText: "Your Message",
+                                  inputType: TextInputType.text,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              CustomButton(
+                                  text: "Contact us",
+                                  onPressed: () {
+                                    if (_nameController.text.isNotEmpty &&
+                                        _emailController.text.isNotEmpty &&
+                                        _messageController.text.isNotEmpty) {
+                                      if (_contactUsFormKey.currentState!
+                                          .validate()) {
+                                        String email = _emailController.text;
+                                        bool isValidEmail =
+                                            EmailValidator.validate(email);
+                                        if (!isValidEmail) {
+                                          showSnackBar(
+                                            context,
+                                            "Please Enter a valid email",
+                                            Colors.red,
+                                          );
+                                          return;
+                                        }
+
+                                        sendEmail();
+                                        setTimerToHomePage();
+                                      }
+                                    } else {
+                                      showSnackBar(
+                                        context,
+                                        "Please fill out all form fields",
+                                        Colors.red,
+                                      );
+                                    }
+                                  }),
+                              const SizedBox(
+                                height: GlobalVariables.lineHeight,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: Form(
-                    key: _contactUsFormKey,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: formPadding),
-                          child: CustomTextField(
-                            controller: _nameController,
-                            hintText: "Name",
-                            inputType: TextInputType.name,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: formPadding),
-                          child: CustomTextField(
-                            controller: _emailController,
-                            hintText: "Email Address",
-                            inputType: TextInputType.emailAddress,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: formPadding),
-                          child: CustomTextField(
-                            controller: _phoneController,
-                            hintText: "Phone Number",
-                            inputType: TextInputType.phone,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: formPadding),
-                          child: CustomTextField(
-                            controller: _messageController,
-                            hintText: "Your Message",
-                            inputType: TextInputType.text,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        CustomButton(
-                            text: "Contact us",
-                            onPressed: () {
-                              if (_nameController.text.isNotEmpty &&
-                                  _emailController.text.isNotEmpty &&
-                                  _messageController.text.isNotEmpty) {
-                                if (_contactUsFormKey.currentState!
-                                    .validate()) {
-                                  String email = _emailController.text;
-                                  bool isValidEmail =
-                                      EmailValidator.validate(email);
-                                  if (!isValidEmail) {
-                                    showSnackBar(
-                                      context,
-                                      "Please Enter a valid email",
-                                      Colors.red,
-                                    );
-                                    return;
-                                  }
-
-                                  sendEmail();
-                                  setTimerToHomePage();
-                                }
-                              } else {
-                                showSnackBar(
-                                  context,
-                                  "Please fill out all form fields",
-                                  Colors.red,
-                                );
-                              }
-                            }),
-                        const SizedBox(
-                          height: GlobalVariables.lineHeight,
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                const Footer(),
               ],
             ),
           ),
