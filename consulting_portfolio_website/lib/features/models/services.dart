@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-class Solutions {
+class Services {
   final String id;
   final String type;
   final String description;
   final List<String> technologies;
 
-  Solutions(
+  Services(
       {required this.id,
       required this.type,
       required this.description,
@@ -21,8 +21,8 @@ class Solutions {
     };
   }
 
-  factory Solutions.fromMap(Map<String, dynamic> map) {
-    return Solutions(
+  factory Services.fromMap(Map<String, dynamic> map) {
+    return Services(
       id: map["id"] ?? "",
       type: map["type"] ?? "",
       description: map["description"] ?? "",
@@ -32,13 +32,13 @@ class Solutions {
 
   String toJson() => json.encode(toMap());
 
-  Solutions copyWith({
+  Services copyWith({
     String? id,
     String? type,
     String? description,
     List<String>? technologies,
   }) {
-    return Solutions(
+    return Services(
       id: id ?? this.id,
       type: type ?? this.type,
       description: description ?? this.description,
