@@ -5,7 +5,7 @@ import 'package:consulting_portfolio_website/features/screens/devops_screen.dart
 import 'package:consulting_portfolio_website/features/screens/mobiledev_technologies_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/projectpictures_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
-import 'package:consulting_portfolio_website/features/screens/services.dart';
+import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/webdev_technologies_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -53,8 +53,8 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
       );
     case ServicesScreen.routeName:
       return MaterialPageRoute(
-          settings: routeSettings,
-          builder: (_) => const ServicesScreen(),
+        settings: routeSettings,
+        builder: (_) => const ServicesScreen(),
       );
     default:
       return MaterialPageRoute(

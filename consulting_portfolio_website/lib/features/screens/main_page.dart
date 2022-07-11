@@ -25,32 +25,32 @@ class _MainPageState extends State<MainPage> {
     {
       "title": "AWS",
       "url":
-      "https://cdn.pixabay.com/photo/2020/11/08/09/41/deer-5723225_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/11/08/09/41/deer-5723225_960_720.jpg"
     },
     {
       "title": "Azure",
       "url":
-      "https://cdn.pixabay.com/photo/2020/11/01/19/41/autumn-5704791_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/11/01/19/41/autumn-5704791_960_720.jpg"
     },
     {
       "title": "Terraform",
       "url":
-      "https://cdn.pixabay.com/photo/2020/04/11/14/55/houses-5030731_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/04/11/14/55/houses-5030731_960_720.jpg"
     },
     {
       "title": "WebDevelopment",
       "url":
-      "https://cdn.pixabay.com/photo/2020/11/16/16/05/hoverfly-5749361_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/11/16/16/05/hoverfly-5749361_960_720.jpg"
     },
     {
       "title": "MobileDevelopment",
       "url":
-      "https://cdn.pixabay.com/photo/2020/04/19/12/26/thread-5063401_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/04/19/12/26/thread-5063401_960_720.jpg"
     },
     {
       "title": "Devops",
       "url":
-      "https://cdn.pixabay.com/photo/2020/11/16/22/58/mountains-5750804_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/11/16/22/58/mountains-5750804_960_720.jpg"
     },
   ];
   @override
@@ -62,27 +62,28 @@ class _MainPageState extends State<MainPage> {
           child: Column(
             children: [
               const IntroBox(),
-          CarouselSlider(
-            options: CarouselOptions(
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 2),
-              autoPlayAnimationDuration: const Duration(milliseconds: 400),
-              height: 300,
-            ),
-            items: data.map((item) {
-              return GridTile(
-                footer: Container(
-                    padding: const EdgeInsets.all(15),
-                    color: Colors.black54,
-                    child: Text(
-                      item["title"],
-                      style: const TextStyle(color: Colors.white, fontSize: 20),
-                      textAlign: TextAlign.right,
-                    )),
-                child: Image.network(item["url"], fit: BoxFit.cover),
-              );
-            }).toList(),
-          ),
+              CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 2),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 400),
+                  height: 300,
+                ),
+                items: data.map((item) {
+                  return GridTile(
+                    footer: Container(
+                        padding: const EdgeInsets.all(15),
+                        color: Colors.black54,
+                        child: Text(
+                          item["title"],
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 20),
+                          textAlign: TextAlign.right,
+                        )),
+                    child: Image.network(item["url"], fit: BoxFit.cover),
+                  );
+                }).toList(),
+              ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(40.0),
@@ -123,11 +124,15 @@ class _MainPageState extends State<MainPage> {
                 children: [
                   Builder(
                     builder: (context) {
-                      return ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, ContactUsScreen.routeName);
-                        },
-                        child: const Text("Contact Us"),
+                      return SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, ContactUsScreen.routeName);
+                          },
+                          child: const Text("Contact Us"),
+                        ),
                       );
                     },
                   ),
@@ -136,21 +141,24 @@ class _MainPageState extends State<MainPage> {
                   ),
                   Builder(
                     builder: (context) {
-                      return ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, ProjectsScreen.routeName);
-                        },
-                        child: const Text(
-                          "See our projects.",
+                      return SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, ProjectsScreen.routeName);
+                          },
+                          child: const Text(
+                            "Our projects.",
+                          ),
                         ),
                       );
                     },
                   ),
                 ],
               ),
-
               const SizedBox(
-                height: 20,
+                height: 50,
               ),
               const TechnologiesScreen(),
               const SizedBox(
@@ -161,7 +169,6 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
       ),
-
     );
   }
 }

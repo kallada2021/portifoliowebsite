@@ -1,8 +1,7 @@
 import json
-from .serializers import ProjectSerializer, SolutionSerializer, Technology, TechnologySerializer, ContactSerializer
+from .serializers import ProjectSerializer, ServiceSerializer, Technology, TechnologySerializer, ContactSerializer
 from django.http import JsonResponse
-from .models import Project, Solution, Technology, Contact
-from django.shortcuts import render
+from .models import Project, Service, Technology, Contact
 from rest_framework.decorators import api_view
 from rest_framework.response import Response 
 from rest_framework import status 
@@ -16,8 +15,8 @@ def apiOverview(request):
         "Contacts": "/contacts",
         "Projects": "/projects/",
         "Project": "/projects/<str:pk>",
-        "Solutions": "/solutions/",
-        "Solution": "/solutions/<str:pk>",
+        "Services": "/services/",
+        "Services": "/services/<str:pk>",
         "ContactUs": "/send-message",
     }
     return Response(api_urls, status=200)
@@ -45,22 +44,22 @@ def createContact(request):
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(["GET"])
-def solutions(request):
+def services(request):
     try:
-        solutions = Solution.objects.all()
-        serializer = SolutionSerializer(solutions, many=True)
+        services = Service.objects.all()
+        serializer = ServiceSerializer(services, many=True)
     except: 
-        return Response({"error": True, "message": "Error retrieving solutions from the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({"error": True, "message": "Error retrieving services from the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
-def solutionsDetail(request, pk: str):
+def servicesDetail(request, pk: str):
     try:
-        solution = Solution.objects.get(id=pk)
-        serializer = SolutionSerializer(solution, many=False)
+        service = Service.objects.get(id=pk)
+        serializer = ServiceSerializer(service, many=False)
     except:
-        return Response({"error": True, "message": f"solution with id {pk} wasn't found in the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({"error": True, "message": f"Service with id {pk} wasn't found in the database"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
