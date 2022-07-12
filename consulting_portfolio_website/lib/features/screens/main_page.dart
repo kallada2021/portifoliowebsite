@@ -2,6 +2,7 @@ import 'package:consulting_portfolio_website/features/screens/intro_box.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/technologies_screen.dart';
 import 'package:consulting_portfolio_website/features/services/technology_service.dart';
+import 'package:consulting_portfolio_website/features/widgets/appdrawer.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/footer.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +57,8 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer:
+          MediaQuery.of(context).size.width > 1000 ? null : const AppDrawer(),
       appBar: customAppBar(context),
       body: Center(
         child: SingleChildScrollView(

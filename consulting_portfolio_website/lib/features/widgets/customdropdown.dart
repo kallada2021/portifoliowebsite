@@ -51,7 +51,12 @@ List<DropdownMenuItem<String>> get dropdownItems {
         value: service,
         child: Wrap(
           children: [
-            Text(service),
+            TextButton(
+              onPressed: () {
+                print("button pressed");
+              },
+              child: Text(service),
+            ),
           ],
         ),
       ),

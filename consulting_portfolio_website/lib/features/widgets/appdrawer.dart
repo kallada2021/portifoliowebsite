@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -84,7 +87,12 @@ class _AppDrawerState extends State<AppDrawer> {
                       color: Colors.white,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      ServicesScreen.routeName,
+                    );
+                  },
                 ),
                 const Divider(
                   height: 10,
