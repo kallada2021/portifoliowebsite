@@ -4,14 +4,14 @@ import "package:http/http.dart" as http;
 import '../../constants/global_variables.dart';
 import '../../constants/utils.dart';
 
-class SolutionsService {
-  // getSolutions gets list of solutions from backend api
-  void getSolutions({
+class ServicesService {
+  // getServices gets list of solutions from backend api
+  void getServices({
     required BuildContext context,
   }) async {
     try {
       http.Response res = await http
-          .get(Uri.parse("$uri/api/solutions"), headers: <String, String>{
+          .get(Uri.parse("$uri/api/services"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
       print(res);
@@ -20,14 +20,14 @@ class SolutionsService {
     }
   }
 
-  // getSolutionByID gets a solution by ID from backend api
-  void getSolutionByID({
+  // getServicesByID gets a solution by ID from backend api
+  void getServicesByID({
     required BuildContext context,
     required String id,
   }) async {
     try {
       http.Response res = await http
-          .get(Uri.parse("$uri/api/solutions/$id"), headers: <String, String>{
+          .get(Uri.parse("$uri/api/services/$id"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
       print(res);

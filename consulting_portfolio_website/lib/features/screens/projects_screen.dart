@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 import '../../constants/global_variables.dart';
+import '../widgets/appdrawer.dart';
 import '../widgets/footer.dart';
 import 'contactus.dart';
 
@@ -21,6 +22,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer:
+          MediaQuery.of(context).size.width > 1000 ? null : const AppDrawer(),
       appBar: customAppBar(context),
       body: SingleChildScrollView(
         child: Column(

@@ -41,7 +41,7 @@ class _ProjectState extends State<Project> {
                 child: isHovered
                     ? SizedBox(
                         height: 800,
-                        width: 800,
+                        width: MediaQuery.of(context).size.width * 0.65,
                         child: widget.imageURL != null
                             ? Image.network(widget.imageURL!)
                             : Container(),

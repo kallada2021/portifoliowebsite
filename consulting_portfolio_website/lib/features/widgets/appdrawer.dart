@@ -28,7 +28,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   height: 130,
                   width: 130,
                   //TODO: add company logo image
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(""),
                   ),
@@ -117,20 +117,6 @@ class _AppDrawerState extends State<AppDrawer> {
                   height: 10,
                   color: Colors.white,
                   thickness: 2,
-                ),
-                // history
-                ListTile(
-                  leading: const Icon(
-                    Icons.timer,
-                    color: Colors.white,
-                  ),
-                  title: const Text(
-                    "SOLUTIONS",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  onTap: () {},
                 ),
                 const Divider(
                   height: 10,
