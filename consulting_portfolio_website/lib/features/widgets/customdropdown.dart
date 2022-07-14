@@ -1,4 +1,5 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomDropdownItem extends StatefulWidget {
@@ -13,20 +14,21 @@ class _CustomDropdownItemState extends State<CustomDropdownItem> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-        dropdownColor: GlobalVariables.kLightBlue,
-        menuMaxHeight: 300,
-        elevation: 4,
-        alignment: AlignmentDirectional.center,
-        icon: const Icon(
-          Icons.computer,
-          size: 20,
-          color: Colors.white,
-        ),
-        items: dropdownItems,
-        value: widget.value,
-        onChanged: (_) {
-          //TODO: Implement onchange
-        });
+      dropdownColor: GlobalVariables.kLightBlue,
+      menuMaxHeight: 300,
+      elevation: 4,
+      alignment: AlignmentDirectional.center,
+      icon: const Icon(
+        Icons.computer,
+        size: 20,
+        color: Colors.white,
+      ),
+      items: dropdownItems,
+      value: widget.value,
+      onChanged: (_) {
+        //TODO: Implement onchange
+      },
+    );
   }
 }
 

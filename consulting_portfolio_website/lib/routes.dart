@@ -3,7 +3,6 @@ import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/mobiledev_technologies_screen.dart';
-import 'package:consulting_portfolio_website/features/screens/projectpictures_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/webdev_technologies_screen.dart';
@@ -45,11 +44,6 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const WebTechnologiesScreen(),
-      );
-    case ProjectPicture.routeName:
-      return MaterialPageRoute(
-        settings: routeSettings,
-        builder: (_) => ProjectPicture(),
       );
     case ServicesScreen.routeName:
       return MaterialPageRoute(

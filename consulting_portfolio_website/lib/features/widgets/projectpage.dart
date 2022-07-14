@@ -33,15 +33,18 @@ class _ProjectState extends State<Project> {
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: InkWell(
                 hoverColor: Colors.blue[100],
-                onTap: () {},
+                onTap: () {
+                  _showPictureBox();
+                },
                 onHover: (bool isPictureHovered) {
                   isHovered = !isHovered;
                   setState(() {});
                 },
                 child: isHovered
                     ? SizedBox(
-                        height: 800,
-                        width: MediaQuery.of(context).size.width * 0.65,
+                        height: 550,
+                        //width: MediaQuery.of(context).size.width * 0.65,
+                        width: 550,
                         child: widget.imageURL != null
                             ? Image.network(widget.imageURL!)
                             : Container(),
@@ -87,6 +90,40 @@ class _ProjectState extends State<Project> {
           ],
         ),
       ],
+    );
+  }
+
+  Future<void> _showPictureBox() async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: GlobalVariables.kLightBlue,
+          title: Center(
+            child: Text(
+              widget.title,
+              style: GlobalVariables.kTechNameStyle,
+            ),
+          ),
+          content: Image.network(widget.imageURL!),
+          actions: [
+            TextButton(
+              onPressed: () {
+                if (Navigator.canPop(context)) {
+                  Navigator.pop(context);
+                }
+              },
+              child: Text(
+                "Close",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.teal[800],
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
