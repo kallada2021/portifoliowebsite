@@ -48,7 +48,7 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
     case ServicesScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => const ServicesScreen(),
+        builder: (_) => ServicesScreen(),
       );
     default:
       return MaterialPageRoute(

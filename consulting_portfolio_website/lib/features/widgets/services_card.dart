@@ -1,39 +1,70 @@
 import 'package:flutter/material.dart';
 
 class ServicesCard extends StatelessWidget {
-  final String title,description;
-  ServicesCard({Key? key,required this.title, required this.description}) : super(key: key);
+  final String title, description, service;
+  ServicesCard(
+      {Key? key,
+      required this.title,
+      required this.description,
+      required this.service})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight:FontWeight.w500,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-            width: 10,
-          ),
-          Text(
-              description,
+    return Container(
+      padding: const EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+        color: Colors.teal.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Colors.teal.withOpacity(0.7),
+          width: 2,
+        ),
+      ),
+      child: Card(
+        shadowColor: Colors.teal[900],
+        elevation: 8,
+        child: Column(
+          children: [
+            Text(
+              service,
               style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+                fontSize: 16,
+                color: Colors.teal,
               ),
-          ),
-          SizedBox(
-            height: 10,
-            width: 10,
-          ),
-        ],
-      ) ,
+            ),
+            SizedBox(
+              height: 10,
+              width: 10,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+              width: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                description,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+              width: 10,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
-
