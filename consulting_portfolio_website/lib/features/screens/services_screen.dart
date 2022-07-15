@@ -1,6 +1,7 @@
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/services_card.dart';
 import '../widgets/textdelegateheader.dart';
 
 class ServicesScreen extends StatelessWidget {
@@ -19,9 +20,17 @@ class ServicesScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Column(
-              children: const [
+              children:[
                 Text("Our Services"),
                 Text("AWS"),
+                Row(
+                  children: [
+                    ServicesCard(
+                      title:"EC2",
+                      description: "Deploy an application to EC2",
+                    ),
+                  ],
+                ),
               ],
             ),
           )
