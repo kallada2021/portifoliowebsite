@@ -35,6 +35,7 @@ class Service(models.Model):
     type = models.CharField(verbose_name='service type', max_length=100)
     description = models.TextField(max_length=1000)
     technologies = models.ManyToManyField(Technology, 'services', verbose_name='technologies')
+    image_url = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -46,11 +47,11 @@ class Service(models.Model):
         return f'{self.type}'
         
 
-#TODO: Add image field for project images
 class Project(models.Model):
     name = models.CharField(verbose_name='project name', max_length=100)
     description = models.TextField(max_length=1000)
     technologies = models.ManyToManyField(Technology,'projects', verbose_name="technologies")
+    image_url = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

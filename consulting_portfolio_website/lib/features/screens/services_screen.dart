@@ -1,8 +1,10 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/aws_services.dart';
 import 'package:consulting_portfolio_website/features/screens/mobiledev_services.dart';
+import 'package:consulting_portfolio_website/features/screens/service_home.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 
 import '../widgets/services_card.dart';
 import '../widgets/textdelegateheader.dart';
@@ -19,6 +21,7 @@ class ServicesScreen extends StatefulWidget {
 class _ServicesScreenState extends State<ServicesScreen> {
   int _selectedIndex = 0;
   final List<Map<String, dynamic>> _pages = [
+    {"page": const ServicesHomeScreen(), "Title": "Services"},
     {"page": AWSServicesScreen(), "Title": "AWS Services"},
     {"page": AzureServicesScreen(), "Title": "Azure Services"},
     {"page": MobileServicesScreen(), "Title": "Mobile Development"}
@@ -46,6 +49,14 @@ class _ServicesScreenState extends State<ServicesScreen> {
           BottomNavigationBarItem(
             backgroundColor:
                 _selectedIndex == 0 ? Colors.white60 : Colors.white,
+            icon: Icon(
+              IconlyBold.chart,
+            ),
+            label: "All Services",
+          ),
+          BottomNavigationBarItem(
+            backgroundColor:
+                _selectedIndex == 1 ? Colors.white60 : Colors.white,
             icon: Icon(Icons.computer),
             label: "AWS",
           ),

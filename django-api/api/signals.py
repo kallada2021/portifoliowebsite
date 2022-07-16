@@ -3,6 +3,8 @@ import logging
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Contact
+import requests 
+import json 
 
 logger = logging.getLogger(__name__)
 
