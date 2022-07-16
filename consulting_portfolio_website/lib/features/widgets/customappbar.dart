@@ -19,17 +19,10 @@ AppBar customAppBar(BuildContext context) {
                   color: Colors.white,
                   tooltip: "Contact us",
                   onPressed: () {
-                    if (MediaQuery.of(context).size.width > 850) {
-                      Navigator.pushNamed(
-                        context,
-                        ContactUsScreen.routeName,
-                      );
-                    } else {
-                      Navigator.pushNamed(
-                        context,
-                        MobileContactScreen.routeName,
-                      );
-                    }
+                    Navigator.pushNamed(
+                      context,
+                      ContactUsScreen.routeName,
+                    );
                   },
                   icon: const Icon(IconlyBold.message),
                 ),
@@ -50,17 +43,10 @@ AppBar customAppBar(BuildContext context) {
                   color: Colors.white,
                   tooltip: "Contact us",
                   onPressed: () {
-                    if (MediaQuery.of(context).size.width > 850) {
-                      Navigator.pushNamed(
-                        context,
-                        ContactUsScreen.routeName,
-                      );
-                    } else {
-                      Navigator.pushNamed(
-                        context,
-                        MobileContactScreen.routeName,
-                      );
-                    }
+                    Navigator.pushNamed(
+                      context,
+                      ContactUsScreen.routeName,
+                    );
                   },
                   icon: const Icon(IconlyBold.message),
                 ),

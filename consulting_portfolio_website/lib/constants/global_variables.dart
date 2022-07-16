@@ -29,7 +29,7 @@ class GlobalVariables {
   );
 
   static const TextStyle kTechPageTitleStyle = TextStyle(
-    fontSize: 100,
+    fontSize: 90,
     fontStyle: FontStyle.italic,
     color: Colors.black,
   );

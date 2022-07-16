@@ -1,88 +1,61 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/screens/aws_services.dart';
+import 'package:consulting_portfolio_website/features/screens/mobiledev_services.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/services_card.dart';
 import '../widgets/textdelegateheader.dart';
+import 'azure_services.dart';
 
-class ServicesScreen extends StatelessWidget {
+class ServicesScreen extends StatefulWidget {
   static const String routeName = "/servicespage";
   ServicesScreen({Key? key}) : super(key: key);
 
-  List<Map<String, dynamic>> serviceInfo = [
-    {
-      "service": "AWS",
-      "title": "EC2",
-      "description":
-          "Deploy an application to a Linux or Windows EC2 virtual server with a custom VPC, Subnets, Security Groups, Routetables as well as Autoscaling, and a custom launch template backed by an Application Load Balancer.."
-    },
-    {
-      "service": "AWS",
-      "title": "Managed Active Directory",
-      "description":
-          "AWS Managed Active Directory with logging and schemas, custom security groups, AWS Secret Manager password rotation and domain joins.",
-    },
-    {
-      "service": "AWS",
-      "title": "Lambdas",
-      "description": "Serverless lambda",
-    },
-    {
-      "service": "AWS",
-      "title": "Cloudwatch Dashboards",
-      "description":
-          "Monitor your application with customized Cloudwatch dashboards for easy logging."
-    }
+  @override
+  State<ServicesScreen> createState() => _ServicesScreenState();
+}
+
+class _ServicesScreenState extends State<ServicesScreen> {
+  int _selectedIndex = 0;
+  final List<Map<String, dynamic>> _pages = [
+    {"page": AWSServicesScreen(), "Title": "AWS Services"},
+    {"page": AzureServicesScreen(), "Title": "Azure Services"},
+    {"page": MobileServicesScreen(), "Title": "Mobile Development"}
   ];
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: customAppBar(context),
-      body: Column(
-        children: [
-          const Text(
-            "Our Services",
-            style: GlobalVariables.kTechPageTitleStyle,
+      body: _pages[_selectedIndex]["page"],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: GlobalVariables.kSecondaryColor,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: _selectPage,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            backgroundColor:
+                _selectedIndex == 0 ? Colors.white60 : Colors.white,
+            icon: Icon(Icons.computer),
+            label: "AWS",
           ),
-          Expanded(
-            child: SizedBox(
-              width: double.infinity,
-              child: _screenWidth > 700
-                  ? GridView.count(
-                      crossAxisCount: _screenWidth > 1080 ? 3 : 2,
-                      childAspectRatio:
-                          _screenWidth > 1200 ? 240 / 100 : 200 / 90,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                      children: List.generate(serviceInfo.length, (index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ServicesCard(
-                            title: serviceInfo[index]["title"],
-                            description: serviceInfo[index]["description"],
-                            service: serviceInfo[index]["service"],
-                          ),
-                        );
-                      }),
-                    )
-                  : GridView.count(
-                      crossAxisCount: 1,
-                      childAspectRatio: 240 / 70,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                      children: List.generate(serviceInfo.length, (index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ServicesCard(
-                            title: serviceInfo[index]["title"],
-                            description: serviceInfo[index]["description"],
-                            service: serviceInfo[index]["service"],
-                          ),
-                        );
-                      }),
-                    ),
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.computer),
+            label: "AZURE",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.mobile_friendly),
+            label: "MOBILE DEVELOPMENT",
           ),
         ],
       ),
