@@ -1,13 +1,12 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/aws_services.dart';
+import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
+import 'package:consulting_portfolio_website/features/screens/devops_services.dart';
 import 'package:consulting_portfolio_website/features/screens/mobiledev_services.dart';
 import 'package:consulting_portfolio_website/features/screens/service_home.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-
-import '../widgets/servicescard.dart';
-import '../widgets/textdelegateheader.dart';
 import 'azure_services.dart';
 
 class ServicesScreen extends StatefulWidget {
@@ -24,7 +23,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
     {"page": ServicesHomeScreen(), "Title": "Services"},
     {"page": AWSServicesScreen(), "Title": "AWS Services"},
     {"page": AzureServicesScreen(), "Title": "Azure Services"},
-    {"page": MobileServicesScreen(), "Title": "Mobile Development"}
+    {"page": MobileServicesScreen(), "Title": "Mobile Development"},
+    {"page": DevopsServicesScreen(), "Title": "Devops Screen"},
   ];
 
   void _selectPage(int index) {
@@ -67,6 +67,10 @@ class _ServicesScreenState extends State<ServicesScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.mobile_friendly),
             label: "MOBILE DEVELOPMENT",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.computer),
+            label: "DEVOPS",
           ),
         ],
       ),

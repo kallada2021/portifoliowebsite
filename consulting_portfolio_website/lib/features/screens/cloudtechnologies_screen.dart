@@ -36,10 +36,13 @@ class CloudTechnologiesScreen extends StatelessWidget {
                     width: 15.0,
                   ),
                   // Add AWS ICON
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}AWS.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -63,10 +66,13 @@ class CloudTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}Azure.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -90,10 +96,13 @@ class CloudTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}TerraformLogo.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),

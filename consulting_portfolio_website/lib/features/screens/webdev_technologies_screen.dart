@@ -66,7 +66,11 @@ class WebTechnologiesScreen extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    color: Colors.amber[300],
+                    child: const Icon(
+                      Icons.javascript_outlined,
+                      size: 45,
+                    ),
                   ),
                 ],
               ),
@@ -94,6 +98,10 @@ class WebTechnologiesScreen extends StatelessWidget {
                     width: 50,
                     height: 50,
                     color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}DjangoLogo.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -147,7 +155,17 @@ class WebTechnologiesScreen extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    color: Colors.purple[600],
+                    child: const Center(
+                      child: Text(
+                        "C#",
+                        style: TextStyle(
+                          fontSize: 34,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white70,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

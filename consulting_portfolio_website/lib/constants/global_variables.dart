@@ -38,4 +38,7 @@ class GlobalVariables {
     fontStyle: FontStyle.normal,
     color: Colors.black,
   );
+
+  static const String s3Url =
+      "https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/";
 }

@@ -36,10 +36,13 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                     width: 15.0,
                   ),
                   //TODO: ADD FLUTTER ICON
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}FlutterLogo.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
