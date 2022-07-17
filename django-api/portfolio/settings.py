@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ["localhost"]
 CORS_ALLOW_ALL_ORIGINS: True 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:53502"
+    "http://localhost:60303"
 ]
 
 CORS_ALLOW_METHODS = [

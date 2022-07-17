@@ -21,7 +21,7 @@ class ServicesScreen extends StatefulWidget {
 class _ServicesScreenState extends State<ServicesScreen> {
   int _selectedIndex = 0;
   final List<Map<String, dynamic>> _pages = [
-    {"page": const ServicesHomeScreen(), "Title": "Services"},
+    {"page": ServicesHomeScreen(), "Title": "Services"},
     {"page": AWSServicesScreen(), "Title": "AWS Services"},
     {"page": AzureServicesScreen(), "Title": "Azure Services"},
     {"page": MobileServicesScreen(), "Title": "Mobile Development"}

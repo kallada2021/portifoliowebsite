@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import '../../constants/utils.dart';
 
 class ServicesHomeScreen extends StatefulWidget {
-  const ServicesHomeScreen({Key? key}) : super(key: key);
+  final List<String> imageUrls = ["https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/code.png","https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/django.png","https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/flutter.png","https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/powershell.png"];
+  ServicesHomeScreen({Key? key}) : super(key: key);
 
   @override
   State<ServicesHomeScreen> createState() => _ServicesHomeScreenState();
@@ -25,10 +26,10 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
             child: Center(
               //TODO: Code snippets go here
               child: Swiper(
-                itemCount: 3,
+                itemCount: widget.imageUrls.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Image.network(
-                    "https://via.placeholder.com/288x188",
+                   widget.imageUrls[index],
                     fit: BoxFit.fill,
                   );
                 },

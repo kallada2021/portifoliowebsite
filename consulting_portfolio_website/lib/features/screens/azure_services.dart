@@ -17,12 +17,13 @@ class AzureServicesScreen extends StatelessWidget {
       "service": "Azure",
       "title": "Azure Active Directory",
       "description":
-          "AWS Managed Active Directory with logging and schemas, custom security groups, AWS Secret Manager password rotation and domain joins.",
+          "Azure AD is an identity service that provides SSO, MFA and Conditional Access to guards against cyber attacks.",
     },
     {
       "service": "Azure",
       "title": "Azure Functions",
-      "description": "Serverless lambda",
+      "description":
+          "Serverless function which can be written in C#, Python, GoLang",
     },
     {
       "service": "Azure",
@@ -32,9 +33,15 @@ class AzureServicesScreen extends StatelessWidget {
     },
     {
       "service": "Azure",
-      "title": "Cloudwatch Dashboards",
+      "title": "Log Analytics Dashboards",
       "description":
-          "Monitor your application with customized Cloudwatch dashboards for easy logging."
+          "Monitor your application with customized Log Analytics dashboards built using Kusto Query Language(KQL)."
+    },
+    {
+      "service": "Azure",
+      "title": "Azure Web Apps",
+      "description":
+          "Build, deploy and manage web apps using your choice of programming language(.Net, Flutter, Python, Next.js). Integrate with any source control. "
     }
   ];
 
