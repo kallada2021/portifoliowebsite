@@ -251,94 +251,96 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Flexible(
-              child: Container(),
-              flex: 1,
-            ),
-            const SizedBox(
-              height: 64,
-            ),
-            CustomTextField(
-              controller: _nameController,
-              hintText: "Name",
-              inputType: TextInputType.name,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              controller: _emailController,
-              hintText: "Your Email Address",
-              inputType: TextInputType.emailAddress,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              controller: _phoneController,
-              hintText: "Your Phone Number",
-              inputType: TextInputType.phone,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              controller: _messageController,
-              hintText: "Your Message",
-              inputType: TextInputType.text,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            InkWell(
-              child: GestureDetector(
-                onTap: () {
-                  if (_nameController.text.isNotEmpty &&
-                      _emailController.text.isNotEmpty &&
-                      _messageController.text.isNotEmpty) {
-                    if (_contactUsFormKey.currentState!.validate()) {
-                      String email = _emailController.text;
-                      bool isValidEmail = EmailValidator.validate(email);
-                      if (!isValidEmail) {
-                        showSnackBar(
-                          context,
-                          "Please Enter a valid email",
-                          Colors.red,
-                        );
-                        return;
-                      }
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Container(),
+                flex: 1,
+              ),
+              const SizedBox(
+                height: 64,
+              ),
+              CustomTextField(
+                controller: _nameController,
+                hintText: "Name",
+                inputType: TextInputType.name,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                controller: _emailController,
+                hintText: "Your Email Address",
+                inputType: TextInputType.emailAddress,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                controller: _phoneController,
+                hintText: "Your Phone Number",
+                inputType: TextInputType.phone,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                controller: _messageController,
+                hintText: "Your Message",
+                inputType: TextInputType.text,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                child: GestureDetector(
+                  onTap: () {
+                    if (_nameController.text.isNotEmpty &&
+                        _emailController.text.isNotEmpty &&
+                        _messageController.text.isNotEmpty) {
+                      if (_contactUsFormKey.currentState!.validate()) {
+                        String email = _emailController.text;
+                        bool isValidEmail = EmailValidator.validate(email);
+                        if (!isValidEmail) {
+                          showSnackBar(
+                            context,
+                            "Please Enter a valid email",
+                            Colors.red,
+                          );
+                          return;
+                        }
 
-                      sendEmail();
-                      setTimerToHomePage();
+                        sendEmail();
+                        setTimerToHomePage();
+                      }
+                    } else {
+                      showSnackBar(
+                        context,
+                        "Please fill out all form fields",
+                        Colors.red,
+                      );
                     }
-                  } else {
-                    showSnackBar(
-                      context,
-                      "Please fill out all form fields",
-                      Colors.red,
-                    );
-                  }
-                },
-                child: const Text(
-                  "SEND MESSAGE",
-                  style: TextStyle(color: Colors.white),
+                  },
+                  child: const Text(
+                    "SEND MESSAGE",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-            Flexible(
-              child: Container(),
-              flex: 1,
-            ),
-          ],
+              Flexible(
+                flex: 1,
+                child: Container(),
+              ),
+              const Footer(),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }

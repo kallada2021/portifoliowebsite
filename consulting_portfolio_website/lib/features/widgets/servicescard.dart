@@ -23,6 +23,7 @@ class ServicesCard extends StatelessWidget {
       ),
       child: Card(
         shadowColor: Colors.teal[900],
+        color: Theme.of(context).cardColor,
         elevation: 8,
         child: Column(
           children: [

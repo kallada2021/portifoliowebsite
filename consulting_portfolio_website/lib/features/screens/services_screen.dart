@@ -6,7 +6,7 @@ import 'package:consulting_portfolio_website/features/widgets/customappbar.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
-import '../widgets/services_card.dart';
+import '../widgets/servicescard.dart';
 import '../widgets/textdelegateheader.dart';
 import 'azure_services.dart';
 

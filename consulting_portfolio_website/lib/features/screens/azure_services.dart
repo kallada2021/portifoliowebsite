@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
-import '../widgets/services_card.dart';
+import '../widgets/servicescard.dart';
 
 class AzureServicesScreen extends StatelessWidget {
   AzureServicesScreen({Key? key}) : super(key: key);
