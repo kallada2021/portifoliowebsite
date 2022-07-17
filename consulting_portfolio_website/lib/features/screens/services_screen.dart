@@ -48,7 +48,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor:
-                _selectedIndex == 0 ? Colors.white60 : Colors.white,
+                _selectedIndex == 0 ? Colors.white60 : Colors.black,
             icon: Icon(
               IconlyBold.chart,
             ),
@@ -56,7 +56,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
           ),
           BottomNavigationBarItem(
             backgroundColor:
-                _selectedIndex == 1 ? Colors.white60 : Colors.white,
+                _selectedIndex == 1 ? Colors.white60 : Colors.black,
             icon: Icon(Icons.computer),
             label: "AWS",
           ),

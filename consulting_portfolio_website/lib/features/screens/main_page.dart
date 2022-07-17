@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/screens/intro_box.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/technologies_screen.dart';
@@ -56,9 +57,9 @@ class _MainPageState extends State<MainPage> {
   ];
   @override
   Widget build(BuildContext context) {
+    Size size = Utils(context).screenSize;
     return Scaffold(
-      drawer:
-          MediaQuery.of(context).size.width > 1000 ? null : const AppDrawer(),
+      drawer: size.width > 1000 ? null : const AppDrawer(),
       appBar: customAppBar(context),
       body: Center(
         child: SingleChildScrollView(

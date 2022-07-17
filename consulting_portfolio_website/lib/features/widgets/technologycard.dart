@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
@@ -16,14 +17,13 @@ class TechnologyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = Utils(context).screenSize;
     return SizedBox(
       height: height,
-      width: MediaQuery.of(context).size.width * 0.8,
+      width: size.width * 0.8,
       child: Card(
         margin: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width > 800
-              ? MediaQuery.of(context).size.width * 0.15
-              : MediaQuery.of(context).size.width * 0.005,
+          horizontal: size.width > 800 ? size.width * 0.15 : size.width * 0.005,
         ),
         color: Colors.lightBlue[200],
         shadowColor: GlobalVariables.kSecondaryColor,
@@ -56,12 +56,12 @@ class TechnologyCard extends StatelessWidget {
                 height: 25.0,
               ),
               Padding(
-                padding: MediaQuery.of(context).size.width > 850
+                padding: size.width > 850
                     ? const EdgeInsets.symmetric(horizontal: 25.0)
                     : const EdgeInsets.symmetric(
                         horizontal: 5.0,
                       ),
-                child: MediaQuery.of(context).size.width > 850
+                child: size.width > 850
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

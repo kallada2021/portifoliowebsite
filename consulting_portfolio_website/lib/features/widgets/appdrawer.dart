@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/screens/contactus.dart';
 import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../screens/main_page.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -15,7 +18,7 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: GlobalVariables.kSecondaryColor,
       child: ListView(
         children: [
           // Header
@@ -69,7 +72,12 @@ class _AppDrawerState extends State<AppDrawer> {
                       color: Colors.white,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      MainPage.routeName,
+                    );
+                  },
                 ),
                 const Divider(
                   height: 10,
@@ -118,11 +126,6 @@ class _AppDrawerState extends State<AppDrawer> {
                   color: Colors.white,
                   thickness: 2,
                 ),
-                const Divider(
-                  height: 10,
-                  color: Colors.white,
-                  thickness: 2,
-                ),
                 // Search
                 ListTile(
                   leading: const Icon(
@@ -135,7 +138,12 @@ class _AppDrawerState extends State<AppDrawer> {
                       color: Colors.white,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      ContactUsScreen.routeName,
+                    );
+                  },
                 ),
                 const Divider(
                   height: 10,

@@ -26,6 +26,12 @@ class AWSServicesScreen extends StatelessWidget {
     },
     {
       "service": "AWS",
+      "title": "EKS Kubernetes",
+      "description":
+          "Deploy an application to a scalable managed Kubernetes cluster.",
+    },
+    {
+      "service": "AWS",
       "title": "Cloudwatch Dashboards",
       "description":
           "Monitor your application with customized Cloudwatch dashboards for easy logging."

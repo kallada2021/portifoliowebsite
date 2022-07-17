@@ -26,6 +26,12 @@ class AzureServicesScreen extends StatelessWidget {
     },
     {
       "service": "Azure",
+      "title": "Kubernetes AKS",
+      "description":
+          "Deploy a Kubernetes cluster to Azure AKS, a scalable managed Kubernetes service."
+    },
+    {
+      "service": "Azure",
       "title": "Cloudwatch Dashboards",
       "description":
           "Monitor your application with customized Cloudwatch dashboards for easy logging."

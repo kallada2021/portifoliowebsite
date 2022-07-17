@@ -1,4 +1,5 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
@@ -7,7 +8,8 @@ import '../screens/contactus.dart';
 
 //TODO: Build Mobile AppBar
 AppBar customAppBar(BuildContext context) {
-  return MediaQuery.of(context).size.width > 1000
+  Size size = Utils(context).screenSize;
+  return size.width > 1050
       ? AppBar(
           title: Center(
             child: Row(

@@ -23,7 +23,7 @@ class IntroBox extends StatelessWidget {
         children: [
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               Row(
