@@ -49,7 +49,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
           BottomNavigationBarItem(
             backgroundColor:
                 _selectedIndex == 0 ? Colors.white60 : Colors.black,
-            icon: Icon(
+            icon: const Icon(
               IconlyBold.chart,
             ),
             label: "All Services",
@@ -57,18 +57,18 @@ class _ServicesScreenState extends State<ServicesScreen> {
           BottomNavigationBarItem(
             backgroundColor:
                 _selectedIndex == 1 ? Colors.white60 : Colors.black,
-            icon: Icon(Icons.computer),
+            icon: const Icon(Icons.computer),
             label: "AWS",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.computer),
             label: "AZURE",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.mobile_friendly),
             label: "MOBILE DEVELOPMENT",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.computer),
             label: "DEVOPS",
           ),

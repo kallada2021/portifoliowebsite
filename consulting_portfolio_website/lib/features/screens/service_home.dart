@@ -1,6 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/featuredservicewidget.dart';
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/utils.dart';
@@ -40,10 +41,14 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   // containerHeight: 500,
                   itemCount: widget.imageUrls.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Image.network(
-                      widget.imageUrls[index],
-                      fit: BoxFit.fill,
-                      //  height: 400,
+                    // return Image.network(
+                    //   widget.imageUrls[index],
+                    //   fit: BoxFit.fill,
+                    //   width: size.width * 0.8,
+                    // );
+                    return FancyShimmerImage(
+                      imageUrl: widget.imageUrls[index],
+                      boxFit: BoxFit.fill,
                       width: size.width * 0.8,
                     );
                   },

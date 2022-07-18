@@ -1,6 +1,7 @@
 import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/screens/intro_box.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
+import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/technologies_screen.dart';
 import 'package:consulting_portfolio_website/features/services/technology_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/appdrawer.dart';
@@ -158,6 +159,26 @@ class _MainPageState extends State<MainPage> {
                         ),
                       );
                     },
+                  ),
+                  const SizedBox(
+                    width: GlobalVariables.lineHeight,
+                  ),
+                  Builder(
+                    builder: (context) {
+                      return SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, ServicesScreen.routeName);
+                          },
+                          child: const Text("Our Services"),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    width: GlobalVariables.lineHeight,
                   ),
                 ],
               ),

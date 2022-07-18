@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
@@ -46,19 +47,20 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                         const SizedBox(
                           height: 6,
                         ),
-                        Image.network(
-                          "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Apricot_and_cross_section.jpg/1280px-Apricot_and_cross_section.jpg",
+                        FancyShimmerImage(
+                          imageUrl:
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Apricot_and_cross_section.jpg/1280px-Apricot_and_cross_section.jpg",
                           //width: size.width * 0.22,
                           height: size.width > 800
                               ? size.width * 0.12
                               : size.width * 0.2,
-                          fit: BoxFit.fill,
+                          boxFit: BoxFit.fill,
                         ),
                         Row(
                           children: [
                             GestureDetector(
                               onTap: () {},
-                              child: Icon(
+                              child: const Icon(
                                 IconlyBold.chart,
                                 size: 22,
                                 color: Colors.teal,
