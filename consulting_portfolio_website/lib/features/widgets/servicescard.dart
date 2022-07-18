@@ -26,6 +26,7 @@ class ServicesCard extends StatelessWidget {
         color: Theme.of(context).cardColor,
         elevation: 8,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               service,

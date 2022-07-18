@@ -1,6 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
-import 'package:consulting_portfolio_website/features/screens/featuredservicewidget.dart';
+import 'package:consulting_portfolio_website/features/services/featuredservicewidget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +8,28 @@ import '../../constants/utils.dart';
 
 class ServicesHomeScreen extends StatefulWidget {
   List<Map<String, dynamic>> featuredServices = [
-    {"featuredServices": "AWS Resources Deployed By Terraform"},
-    {"featuredServices": "Azure Resources provisioned by Terraform"},
-    {"featuredServices": "Full stack mobile application deployed to cloud/app store"},
-    {"featuredServices": "Full stack web application deployed using Devops to cloud"}];
+    {
+      "featuredServices": "AWS Resources Deployed By Terraform",
+      "description":
+          "Lambda, RDS database, API Gateway and custom VPC and EC2/Autoscaling"
+    },
+    {
+      "featuredServices": "Azure Resources provisioned by Terraform",
+      "description": "Azure Function, Active Directory or custom VM"
+    },
+    {
+      "featuredServices":
+          "Full stack mobile application deployed to cloud/app store",
+      "description":
+          "Cross Platform Flutter app with custom backend and AWS/Azure hosting.",
+    },
+    {
+      "featuredServices":
+          "Full stack web application deployed using Devops to cloud",
+      "description":
+          "Frontend website with custom backend and AWS/Azure hosting."
+    }
+  ];
   final List<String> imageUrls = [
     "${GlobalVariables.s3Url}code.png",
     "${GlobalVariables.s3Url}django.png",
@@ -46,11 +64,6 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   // containerHeight: 500,
                   itemCount: widget.imageUrls.length,
                   itemBuilder: (BuildContext context, int index) {
-                    // return Image.network(
-                    //   widget.imageUrls[index],
-                    //   fit: BoxFit.fill,
-                    //   width: size.width * 0.8,
-                    // );
                     return FancyShimmerImage(
                       imageUrl: widget.imageUrls[index],
                       boxFit: BoxFit.fill,
@@ -88,7 +101,14 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return FeaturedServiceWidget(featuredServiceName: widget.featuredServices[index]["featuredServices"].toString(),);
+                    return FeaturedServiceWidget(
+                      featuredServiceName: widget.featuredServices[index]
+                              ["featuredServices"]
+                          .toString(),
+                      serviceDescription: widget.featuredServices[index]
+                              ["featuredServices"]
+                          .toString(),
+                    );
                   }),
             ),
           ],

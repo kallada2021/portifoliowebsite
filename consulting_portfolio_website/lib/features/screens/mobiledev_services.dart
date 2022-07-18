@@ -43,6 +43,8 @@ class MobileServicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text(
           "Our Services",
@@ -53,9 +55,9 @@ class MobileServicesScreen extends StatelessWidget {
             width: double.infinity,
             child: _screenWidth > 700
                 ? GridView.count(
-                    crossAxisCount: _screenWidth > 1080 ? 3 : 2,
+                    crossAxisCount: _screenWidth > 1150 ? 3 : 2,
                     childAspectRatio:
-                        _screenWidth > 1200 ? 240 / 100 : 200 / 90,
+                        _screenWidth > 1200 ? 250 / 160 : 200 / 90,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {
@@ -71,7 +73,7 @@ class MobileServicesScreen extends StatelessWidget {
                   )
                 : GridView.count(
                     crossAxisCount: 1,
-                    childAspectRatio: 240 / 70,
+                    childAspectRatio: 200 / 70,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {

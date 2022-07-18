@@ -6,10 +6,13 @@ import '../../constants/utils.dart';
 
 class FeaturedServiceWidget extends StatefulWidget {
   final String featuredServiceName;
+  final String serviceDescription;
 
-
-
-  FeaturedServiceWidget({Key? key, required this.featuredServiceName}) : super(key: key);
+  FeaturedServiceWidget({
+    Key? key,
+    required this.featuredServiceName,
+    required this.serviceDescription,
+  }) : super(key: key);
 
   @override
   State<FeaturedServiceWidget> createState() => _FeaturedServiceWidgetState();
@@ -39,10 +42,9 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                   children: [
                     Column(
                       children: [
-                        // TODO: make dynamic
                         Text(
                           widget.featuredServiceName,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black87,
                             fontSize: 15,
                             fontWeight: FontWeight.w800,
@@ -70,16 +72,6 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                                 color: Colors.teal,
                               ),
                             ),
-                            // GestureDetector(
-                            //   onTap: () {
-                            //     print("Btn press");
-                            //   },
-                            //   child: Icon(
-                            //     IconlyBold.heart,
-                            //     size: 22,
-                            //     color: Colors.amber,
-                            //   ),
-                            // ),
                           ],
                         ),
                       ],
@@ -90,9 +82,9 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                 const SizedBox(
                   height: 5,
                 ),
-                const Text(
-                  "Lambda, RDS database, API Gateway and custom VPC",
-                  style: TextStyle(
+                Text(
+                  widget.serviceDescription,
+                  style: const TextStyle(
                     color: Colors.black87,
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
