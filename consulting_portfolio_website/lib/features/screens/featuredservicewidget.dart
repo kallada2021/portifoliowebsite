@@ -5,7 +5,11 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import '../../constants/utils.dart';
 
 class FeaturedServiceWidget extends StatefulWidget {
-  const FeaturedServiceWidget({Key? key}) : super(key: key);
+  final String featuredServiceName;
+
+
+
+  FeaturedServiceWidget({Key? key, required this.featuredServiceName}) : super(key: key);
 
   @override
   State<FeaturedServiceWidget> createState() => _FeaturedServiceWidgetState();
@@ -36,8 +40,8 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                     Column(
                       children: [
                         // TODO: make dynamic
-                        const Text(
-                          "AWS Serverless API with Database",
+                        Text(
+                          widget.featuredServiceName,
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 15,

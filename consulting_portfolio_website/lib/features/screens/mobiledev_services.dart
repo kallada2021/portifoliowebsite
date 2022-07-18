@@ -11,13 +11,13 @@ class MobileServicesScreen extends StatelessWidget {
       "service": "Mobile Development",
       "title": "Android App",
       "description":
-          "Create an Android app backed by a Django or DotNet Core API and Postgres database hosted on the cloud using Flutter or native Kotlin for the app. The app will be deployed to the Google Playstore."
+          "Create an Android app backed by a Django or DotNet Core API and Postgres/firebase/Azure SQl database hosted on the cloud using Flutter or native Kotlin for the app. The app will be deployed to the Google Playstore."
     },
     {
       "service": "Mobile Development",
       "title": "iOS App",
       "description":
-          "Create an iOS app backed by a Django or DotNet Core API and Postgres database hosted on the cloud using Flutter or native SwiftUI for the app. The app will be deployed to the Apple Playstore.",
+          "Create an iOS app backed by a Django or DotNet Core API and Postgres/Azure SQL  database hosted on the cloud using Flutter or native SwiftUI for the app. The app will be deployed to the Apple Store.",
     },
     {
       "service": "Mobile Development",
@@ -35,7 +35,7 @@ class MobileServicesScreen extends StatelessWidget {
       "service": "Mobile Development",
       "title": "API Development",
       "description":
-          "Create an API using Golang, Django or Dotnet Core for a mobile application"
+          "Create an API using Golang, Django or Dotnet Core for a mobile application and integrate with payment services(i.e Google/Apple pay or Stripe)"
     }
   ];
 

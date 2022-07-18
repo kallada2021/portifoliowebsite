@@ -4,10 +4,12 @@ import 'package:consulting_portfolio_website/features/screens/devops_screen.dart
 import 'package:consulting_portfolio_website/features/screens/devops_services.dart';
 import 'package:consulting_portfolio_website/features/screens/mobiledev_services.dart';
 import 'package:consulting_portfolio_website/features/screens/service_home.dart';
+import 'package:consulting_portfolio_website/features/screens/webdev_services.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'azure_services.dart';
+
 
 class ServicesScreen extends StatefulWidget {
   static const String routeName = "/servicespage";
@@ -23,6 +25,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
     {"page": ServicesHomeScreen(), "Title": "Services"},
     {"page": AWSServicesScreen(), "Title": "AWS Services"},
     {"page": AzureServicesScreen(), "Title": "Azure Services"},
+    {"page": WebDevServicesScreen(), "Title":"Web Development"},
     {"page": MobileServicesScreen(), "Title": "Mobile Development"},
     {"page": DevopsServicesScreen(), "Title": "Devops Screen"},
   ];
@@ -63,6 +66,10 @@ class _ServicesScreenState extends State<ServicesScreen> {
           const BottomNavigationBarItem(
             icon: Icon(Icons.computer),
             label: "AZURE",
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.mobile_friendly),
+            label: "Web DEVELOPMENT",
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.mobile_friendly),

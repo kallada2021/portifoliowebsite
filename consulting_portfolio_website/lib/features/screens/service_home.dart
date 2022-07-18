@@ -7,6 +7,11 @@ import 'package:flutter/material.dart';
 import '../../constants/utils.dart';
 
 class ServicesHomeScreen extends StatefulWidget {
+  List<Map<String, dynamic>> featuredServices = [
+    {"featuredServices": "AWS Resources Deployed By Terraform"},
+    {"featuredServices": "Azure Resources provisioned by Terraform"},
+    {"featuredServices": "Full stack mobile application deployed to cloud/app store"},
+    {"featuredServices": "Full stack web application deployed using Devops to cloud"}];
   final List<String> imageUrls = [
     "${GlobalVariables.s3Url}code.png",
     "${GlobalVariables.s3Url}django.png",
@@ -83,7 +88,7 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return FeaturedServiceWidget();
+                    return FeaturedServiceWidget(featuredServiceName: widget.featuredServices[index]["featuredServices"].toString(),);
                   }),
             ),
           ],

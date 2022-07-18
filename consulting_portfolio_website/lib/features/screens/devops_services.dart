@@ -25,20 +25,26 @@ class DevopsServicesScreen extends StatelessWidget {
       "description": "Github Actions sets up pipelines for easy deployment.",
     },
     {
-      "service": "Azure",
-      "title": "Kubernetes AKS",
+      "service": "Devops",
+      "title": "Azure Devops",
       "description":
-          "Deploy a Kubernetes cluster to Azure AKS, a scalable managed Kubernetes service."
+          "Deploy a Web/mobile application and infrastructure  using Azure Devops(Self-hosted agent/MS Hosted Agent)."
     },
     {
-      "service": "Azure",
-      "title": "Log Analytics Dashboards",
+      "service": "Devops",
+      "title": "Linux/Shell Scripting",
       "description":
-          "Monitor your application with customized Log Analytics dashboards built using Kusto Query Language(KQL)."
+          "Customize deployed infrastructure/applications by using userdata/artifacts file on AWS/Azure."
     },
     {
-      "service": "Azure",
-      "title": "Azure Web Apps",
+      "service": "Devops",
+      "title": "Packer",
+      "description":
+      "Prepare a customized image for your business needs and deploy to AWS/Azure image galleries which can be used while provisioning resources on Cloud/On-Prem."
+    },
+    {
+      "service": "Devops",
+      "title": "PowerShell",
       "description":
           "Build, deploy and manage web apps using your choice of programming language(.Net, Flutter, Python, Next.js). Integrate with any source control. "
     }
