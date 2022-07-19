@@ -25,21 +25,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final List data = [
-    {
-      "title": "AWS",
-      "url":
-          "https://cdn.pixabay.com/photo/2020/11/08/09/41/deer-5723225_960_720.jpg"
-    },
+    {"title": "AWS", "url": "${GlobalVariables.s3Url}FullStackOnAWS.png"},
     {
       "title": "Azure",
       "url":
           "https://cdn.pixabay.com/photo/2020/11/01/19/41/autumn-5704791_960_720.jpg"
     },
-    {
-      "title": "Terraform",
-      "url":
-          "https://cdn.pixabay.com/photo/2020/04/11/14/55/houses-5030731_960_720.jpg"
-    },
+    {"title": "Terraform", "url": "${GlobalVariables.s3Url}terraform.png"},
     {
       "title": "WebDevelopment",
       "url":

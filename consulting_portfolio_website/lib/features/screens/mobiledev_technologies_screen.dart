@@ -69,7 +69,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                   SizedBox(
                     width: 50,
                     height: 50,
-                    child: Image.network("${GlobalVariables.s3Url}iosLogo.png",
+                    child: Image.network("${GlobalVariables.s3Url}iOSLogo.png",
                         fit: BoxFit.fill),
                   ),
                 ],

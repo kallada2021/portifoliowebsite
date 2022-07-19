@@ -40,7 +40,7 @@ class DevopsServicesScreen extends StatelessWidget {
       "service": "Devops",
       "title": "Packer",
       "description":
-      "Prepare a customized image for your business needs and deploy to AWS/Azure image galleries which can be used while provisioning resources on Cloud/On-Prem."
+          "Prepare a customized image for your business needs and deploy to AWS/Azure image galleries which can be used while provisioning resources on Cloud/On-Prem."
     },
     {
       "service": "Devops",
@@ -66,7 +66,7 @@ class DevopsServicesScreen extends StatelessWidget {
                 ? GridView.count(
                     crossAxisCount: _screenWidth > 1080 ? 3 : 2,
                     childAspectRatio:
-                        _screenWidth > 1200 ? 240 / 100 : 200 / 90,
+                        _screenWidth > 1200 ? 240 / 120 : 200 / 110,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {
@@ -82,7 +82,7 @@ class DevopsServicesScreen extends StatelessWidget {
                   )
                 : GridView.count(
                     crossAxisCount: 1,
-                    childAspectRatio: 240 / 70,
+                    childAspectRatio: 240 / 100,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {

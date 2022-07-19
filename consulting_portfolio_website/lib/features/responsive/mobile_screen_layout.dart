@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/contactus.dart';
 import '../screens/projects_screen.dart';
+import '../screens/services_screen.dart';
 import '../screens/technologies_screen.dart';
 
 class MobileScreenLayout extends StatelessWidget {
@@ -25,19 +26,16 @@ class MobileScreenLayout extends StatelessWidget {
           child: Column(
             children: [
               const IntroBox(),
-              Text(
-                "Mobile Screen",
-                style: TextStyle(
-                  color: GlobalVariables.kSecondaryColor,
-                ),
+              const SizedBox(
+                height: GlobalVariables.lineHeight,
               ),
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Builder(
                     builder: (context) {
                       return SizedBox(
-                        width: 150,
+                        width: 140,
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(
@@ -49,12 +47,12 @@ class MobileScreenLayout extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    width: GlobalVariables.lineHeight,
+                    height: GlobalVariables.lineHeight,
                   ),
                   Builder(
                     builder: (context) {
                       return SizedBox(
-                        width: 150,
+                        width: 140,
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(
@@ -66,6 +64,26 @@ class MobileScreenLayout extends StatelessWidget {
                         ),
                       );
                     },
+                  ),
+                  const SizedBox(
+                    height: GlobalVariables.lineHeight,
+                  ),
+                  Builder(
+                    builder: (context) {
+                      return SizedBox(
+                        width: 140,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, ServicesScreen.routeName);
+                          },
+                          child: const Text("Our Services"),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: GlobalVariables.lineHeight,
                   ),
                 ],
               ),

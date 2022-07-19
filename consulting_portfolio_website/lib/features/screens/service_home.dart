@@ -11,7 +11,7 @@ class ServicesHomeScreen extends StatefulWidget {
     {
       "featuredServices": "AWS Resources Deployed By Terraform",
       "description":
-          "Lambda, RDS database, API Gateway and custom VPC and EC2/Autoscaling",
+          "Lambda, RDS database, API Gateway and\ncustom VPC and EC2/Autoscaling",
       "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png",
     },
     {
@@ -23,7 +23,7 @@ class ServicesHomeScreen extends StatefulWidget {
       "featuredServices":
           "Full stack mobile application deployed to cloud/app store",
       "description":
-          "Cross Platform Flutter app with custom backend and AWS/Azure hosting.",
+          "Cross Platform Flutter app with custom backend\n and AWS/Azure hosting.",
       "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png"
     },
     {
@@ -103,20 +103,24 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
             SizedBox(
               height: size.height * 0.4,
               child: ListView.builder(
-                  itemCount: 4,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return FeaturedServiceWidget(
-                      featuredServiceName: widget.featuredServices[index]
-                              ["featuredServices"]
-                          .toString(),
-                      serviceDescription: widget.featuredServices[index]
-                              ["featuredServices"]
-                          .toString(),
-                      imageUrl:
-                          widget.featuredServices[index]["imageUrl"].toString(),
-                    );
-                  }),
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return FeaturedServiceWidget(
+                    featuredServiceName: widget.featuredServices[index]
+                            ["featuredServices"]
+                        .toString(),
+                    serviceDescription: widget.featuredServices[index]
+                            ["description"]
+                        .toString(),
+                    imageUrl:
+                        widget.featuredServices[index]["imageUrl"].toString(),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),

@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+load_dotenv()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -30,7 +31,7 @@ ALLOWED_HOSTS = ["localhost"]
 CORS_ALLOW_ALL_ORIGINS: True 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:51379"
+    "http://localhost:61277"
 ]
 
 CORS_ALLOW_METHODS = [

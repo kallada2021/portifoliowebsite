@@ -43,7 +43,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
       color: Colors.teal.shade50,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Text(
@@ -100,12 +100,15 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     },
                   ),
                 ),
-          const Text(
-            "Scroll down for more technologies and information about our services",
-            style: TextStyle(
-              color: Colors.black54,
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              "Scroll down for more technologies and information about our services",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
           Padding(

@@ -74,16 +74,19 @@ class WebDevServicesScreen extends StatelessWidget {
                     childAspectRatio: 240 / 70,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    children: List.generate(serviceInfo.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ServicesCard(
-                          title: serviceInfo[index]["title"],
-                          description: serviceInfo[index]["description"],
-                          service: serviceInfo[index]["service"],
-                        ),
-                      );
-                    }),
+                    children: List.generate(
+                      serviceInfo.length,
+                      (index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ServicesCard(
+                            title: serviceInfo[index]["title"],
+                            description: serviceInfo[index]["description"],
+                            service: serviceInfo[index]["service"],
+                          ),
+                        );
+                      },
+                    ),
                   ),
           ),
         ),

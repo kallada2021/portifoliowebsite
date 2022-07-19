@@ -9,7 +9,7 @@ class FeaturedServiceWidget extends StatefulWidget {
   final String serviceDescription;
   final String imageUrl;
 
-  FeaturedServiceWidget({
+  const FeaturedServiceWidget({
     Key? key,
     required this.featuredServiceName,
     required this.serviceDescription,
@@ -31,72 +31,78 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
       child: Material(
         borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).cardColor.withOpacity(0.9),
+        // TODO: Make image popout
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: () {},
+          onHover: (isHoovered) {},
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          widget.featuredServiceName,
-                          style: const TextStyle(
-                            color: Colors.black87,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        FancyShimmerImage(
-                          imageUrl:
-                              widget.imageUrl,
-                          //width: size.width * 0.22,
-                          height: size.width > 800
-                              ? size.width * 0.12
-                              : size.width * 0.2,
-                          boxFit: BoxFit.fill,
-                        ),
-                        Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: const Icon(
-                                IconlyBold.chart,
-                                size: 22,
-                                color: Colors.teal,
-                              ),
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            widget.featuredServiceName,
+                            style: const TextStyle(
+                              color: Colors.black87,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
                             ),
-                          ],
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                //const PriceWidget(),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  widget.serviceDescription,
-                  style: const TextStyle(
-                    color: Colors.black87,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
+                          ),
+                          const SizedBox(
+                            height: 6,
+                          ),
+                          FancyShimmerImage(
+                            imageUrl: widget.imageUrl,
+                            //width: size.width * 0.22,
+                            height: size.width > 800
+                                ? size.width * 0.12
+                                : size.width * 0.2,
+                            boxFit: BoxFit.fill,
+                          ),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {},
+                                child: const Icon(
+                                  IconlyBold.chart,
+                                  size: 22,
+                                  color: Colors.teal,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-              ],
+                  //const PriceWidget(),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    widget.serviceDescription,
+                    style: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

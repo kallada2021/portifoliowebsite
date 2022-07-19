@@ -110,7 +110,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   EdgeInsets.symmetric(horizontal: formPadding),
                               child: CustomTextField(
                                 controller: _nameController,
-                                hintText: "Name",
+                                hintText: "* Name",
                                 inputType: TextInputType.name,
                               ),
                             ),
@@ -122,7 +122,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   EdgeInsets.symmetric(horizontal: formPadding),
                               child: CustomTextField(
                                 controller: _emailController,
-                                hintText: "Email Address",
+                                hintText: "* Email Address",
                                 inputType: TextInputType.emailAddress,
                               ),
                             ),
@@ -134,7 +134,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   EdgeInsets.symmetric(horizontal: formPadding),
                               child: CustomTextField(
                                 controller: _phoneController,
-                                hintText: "Phone Number",
+                                hintText: "* Phone Number",
                                 inputType: TextInputType.phone,
                               ),
                             ),
@@ -146,7 +146,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   EdgeInsets.symmetric(horizontal: formPadding),
                               child: CustomTextField(
                                 controller: _messageController,
-                                hintText: "Your Message",
+                                hintText: "* Your Message",
                                 inputType: TextInputType.text,
                               ),
                             ),
@@ -267,7 +267,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
               ),
               CustomTextField(
                 controller: _nameController,
-                hintText: "Name",
+                hintText: "* Name",
                 inputType: TextInputType.name,
               ),
               const SizedBox(
@@ -275,7 +275,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
               ),
               CustomTextField(
                 controller: _emailController,
-                hintText: "Your Email Address",
+                hintText: "* Your Email Address",
                 inputType: TextInputType.emailAddress,
               ),
               const SizedBox(
@@ -283,7 +283,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
               ),
               CustomTextField(
                 controller: _phoneController,
-                hintText: "Your Phone Number",
+                hintText: "* Your Phone Number",
                 inputType: TextInputType.phone,
               ),
               const SizedBox(
@@ -291,7 +291,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
               ),
               CustomTextField(
                 controller: _messageController,
-                hintText: "Your Message",
+                hintText: "* Your Message",
                 inputType: TextInputType.text,
               ),
               const SizedBox(
