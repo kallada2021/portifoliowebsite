@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
+import '../../constants/utils.dart';
 
 class Project extends StatefulWidget {
   final String title;
@@ -34,7 +35,11 @@ class _ProjectState extends State<Project> {
               child: InkWell(
                 hoverColor: Colors.blue[100],
                 onTap: () {
-                  _showPictureBox();
+                  showPictureBox(
+                    context,
+                    widget.title,
+                    widget.imageURL!,
+                  );
                 },
                 onHover: (bool isPictureHovered) {
                   isHovered = !isHovered;
@@ -90,40 +95,6 @@ class _ProjectState extends State<Project> {
           ],
         ),
       ],
-    );
-  }
-
-  Future<void> _showPictureBox() async {
-    await showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: GlobalVariables.kLightBlue,
-          title: Center(
-            child: Text(
-              widget.title,
-              style: GlobalVariables.kTechNameStyle,
-            ),
-          ),
-          content: Image.network(widget.imageURL!),
-          actions: [
-            TextButton(
-              onPressed: () {
-                if (Navigator.canPop(context)) {
-                  Navigator.pop(context);
-                }
-              },
-              child: Text(
-                "Close",
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.teal[800],
-                ),
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }

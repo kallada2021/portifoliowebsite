@@ -8,6 +8,7 @@ import '../widgets/footer.dart';
 
 class MobileDevTechnologiesScreen extends StatelessWidget {
   static const String routeName = "/mobiletechnologies";
+
   const MobileDevTechnologiesScreen({Key? key}) : super(key: key);
 
   @override
@@ -35,7 +36,6 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  //TODO: ADD FLUTTER ICON
                   SizedBox(
                     width: 50,
                     height: 50,
@@ -66,10 +66,11 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network("${GlobalVariables.s3Url}iosLogo.png",
+                        fit: BoxFit.fill),
                   ),
                 ],
               ),
@@ -94,10 +95,11 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                     width: 15,
                   ),
                   //TODO: Kotlin logo
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network("${GlobalVariables.s3Url}Android.png",
+                        fit: BoxFit.fill),
                   ),
                 ],
               ),

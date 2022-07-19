@@ -1,6 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
-import 'package:consulting_portfolio_website/features/services/featuredservicewidget.dart';
+import 'package:consulting_portfolio_website/features/widgets/featuredservicewidget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
@@ -11,23 +11,27 @@ class ServicesHomeScreen extends StatefulWidget {
     {
       "featuredServices": "AWS Resources Deployed By Terraform",
       "description":
-          "Lambda, RDS database, API Gateway and custom VPC and EC2/Autoscaling"
+          "Lambda, RDS database, API Gateway and custom VPC and EC2/Autoscaling",
+      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png",
     },
     {
       "featuredServices": "Azure Resources provisioned by Terraform",
-      "description": "Azure Function, Active Directory or custom VM"
+      "description": "Azure Function, Active Directory or custom VM",
+      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png",
     },
     {
       "featuredServices":
           "Full stack mobile application deployed to cloud/app store",
       "description":
           "Cross Platform Flutter app with custom backend and AWS/Azure hosting.",
+      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png"
     },
     {
       "featuredServices":
           "Full stack web application deployed using Devops to cloud",
       "description":
-          "Frontend website with custom backend and AWS/Azure hosting."
+          "Frontend website with custom backend and AWS/Azure hosting.",
+      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png"
     }
   ];
   final List<String> imageUrls = [
@@ -36,6 +40,7 @@ class ServicesHomeScreen extends StatefulWidget {
     "${GlobalVariables.s3Url}flutter.png",
     "${GlobalVariables.s3Url}powershell.png",
   ];
+
   ServicesHomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -108,6 +113,8 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                       serviceDescription: widget.featuredServices[index]
                               ["featuredServices"]
                           .toString(),
+                      imageUrl:
+                          widget.featuredServices[index]["imageUrl"].toString(),
                     );
                   }),
             ),

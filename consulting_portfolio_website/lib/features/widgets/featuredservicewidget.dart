@@ -7,11 +7,13 @@ import '../../constants/utils.dart';
 class FeaturedServiceWidget extends StatefulWidget {
   final String featuredServiceName;
   final String serviceDescription;
+  final String imageUrl;
 
   FeaturedServiceWidget({
     Key? key,
     required this.featuredServiceName,
     required this.serviceDescription,
+    required this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -19,6 +21,7 @@ class FeaturedServiceWidget extends StatefulWidget {
 }
 
 class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
+  bool isHovered = false;
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;
@@ -55,7 +58,7 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                         ),
                         FancyShimmerImage(
                           imageUrl:
-                              "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Apricot_and_cross_section.jpg/1280px-Apricot_and_cross_section.jpg",
+                              widget.imageUrl,
                           //width: size.width * 0.22,
                           height: size.width > 800
                               ? size.width * 0.12
