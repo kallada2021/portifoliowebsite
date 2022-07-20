@@ -54,6 +54,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       drawer: size.width > 1000 ? null : const AppDrawer(),
       appBar: customAppBar(context),
+      bottomSheet: const Footer(),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -181,7 +182,6 @@ class _MainPageState extends State<MainPage> {
               const SizedBox(
                 height: 20,
               ),
-              const Footer(),
             ],
           ),
         ),

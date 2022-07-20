@@ -33,9 +33,9 @@ class _ProjectState extends State<Project> {
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: InkWell(
-                hoverColor: Colors.blue[100],
+                hoverColor: Colors.blueGrey[100],
                 onTap: () {
-                  showPictureBox(
+                  Utils.showPictureBox(
                     context,
                     widget.title,
                     widget.imageURL!,
@@ -48,7 +48,6 @@ class _ProjectState extends State<Project> {
                 child: isHovered
                     ? SizedBox(
                         height: 550,
-                        //width: MediaQuery.of(context).size.width * 0.65,
                         width: 550,
                         child: widget.imageURL != null
                             ? Image.network(widget.imageURL!)

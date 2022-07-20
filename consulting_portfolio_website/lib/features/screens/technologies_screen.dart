@@ -26,6 +26,9 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
 
   Future<List<Technology>> getTechs() async {
     techList = await service.getTechs(context: context);
+    if (techList.isEmpty) {
+      return [];
+    }
     techList.shuffle();
     return techList;
   }
@@ -70,7 +73,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                         // TODO: make random number not repetitive
                         //var index = Random();
                         return ListView.builder(
-                          itemCount: 4,
+                          itemCount: techList.isEmpty ? 0 : 4,
                           shrinkWrap: true,
                           itemBuilder: (ctx, int i) {
                             return Container(
@@ -115,14 +118,13 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
             padding: MediaQuery.of(context).size.width > 800
                 ? const EdgeInsets.all(20.0)
                 : const EdgeInsets.all(8.0),
-            //TODO: Make card it's own dynamic widget and setup cards for other services
             child: Column(
               children: [
                 const SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  hoverColor: GlobalVariables.kLightBlue,
+                  hoverColor: Colors.transparent,
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -138,7 +140,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
-                  hoverColor: GlobalVariables.kLightBlue,
+                  hoverColor: Colors.transparent,
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -154,7 +156,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
-                  hoverColor: GlobalVariables.kLightBlue,
+                  hoverColor: Colors.transparent,
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -170,7 +172,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                   height: 20,
                 ),
                 InkWell(
-                  hoverColor: GlobalVariables.kLightBlue,
+                  hoverColor: Colors.transparent,
                   onTap: () {
                     Navigator.pushNamed(
                       context,

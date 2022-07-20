@@ -25,6 +25,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       drawer:
           MediaQuery.of(context).size.width > 1000 ? null : const AppDrawer(),
       appBar: customAppBar(context),
+      bottomSheet: const Footer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -39,13 +40,12 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               color: Colors.pinkAccent,
             ),
             Project(
-              title: "Project 2",
-              description: "This is project 2.  This is description text",
+              title: "Ecommerce App",
+              description: "A full stack ecommerce app.",
             ),
             const Divider(
               color: Colors.pinkAccent,
             ),
-            const Footer(),
           ],
         ),
       ),

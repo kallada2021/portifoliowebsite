@@ -52,7 +52,7 @@ class DevopsServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         const Text(
@@ -62,11 +62,11 @@ class DevopsServicesScreen extends StatelessWidget {
         Expanded(
           child: SizedBox(
             width: double.infinity,
-            child: _screenWidth > 700
+            child: screenWidth > 700
                 ? GridView.count(
-                    crossAxisCount: _screenWidth > 1080 ? 3 : 2,
+                    crossAxisCount: screenWidth > 1080 ? 3 : 2,
                     childAspectRatio:
-                        _screenWidth > 1200 ? 240 / 120 : 200 / 110,
+                        screenWidth > 1200 ? 240 / 120 : 200 / 110,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {
@@ -85,16 +85,19 @@ class DevopsServicesScreen extends StatelessWidget {
                     childAspectRatio: 240 / 100,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    children: List.generate(serviceInfo.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ServicesCard(
-                          title: serviceInfo[index]["title"],
-                          description: serviceInfo[index]["description"],
-                          service: serviceInfo[index]["service"],
-                        ),
-                      );
-                    }),
+                    children: List.generate(
+                      serviceInfo.length,
+                      (index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ServicesCard(
+                            title: serviceInfo[index]["title"],
+                            description: serviceInfo[index]["description"],
+                            service: serviceInfo[index]["service"],
+                          ),
+                        );
+                      },
+                    ),
                   ),
           ),
         ),

@@ -32,7 +32,7 @@ class GlobalVariables {
   static const TextStyle kTechPageTitleStyle = TextStyle(
     fontSize: 50,
     fontStyle: FontStyle.normal,
-    color: Colors.black,
+    color: Colors.black87,
   );
   static const TextStyle kFooterTextStyle = TextStyle(
     fontSize: 20,

@@ -25,14 +25,14 @@ class TechnologyCard extends StatelessWidget {
         margin: EdgeInsets.symmetric(
           horizontal: size.width > 800 ? size.width * 0.15 : size.width * 0.005,
         ),
-          color: Colors.purpleAccent.withOpacity(0.2),
+        color: Colors.purpleAccent.withOpacity(0.2),
         //color: Theme.of(context).cardColor,
         shadowColor: GlobalVariables.kSecondaryColor,
         elevation: 12,
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.blue,
+              color: Colors.deepPurple[800]!,
               width: 3.0,
             ),
             borderRadius: const BorderRadius.all(

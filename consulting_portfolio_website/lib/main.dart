@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           elevation: 3,
           iconTheme: IconThemeData(
-            color: Colors.black,
+            color: Colors.white70,
           ),
         ),
       ),

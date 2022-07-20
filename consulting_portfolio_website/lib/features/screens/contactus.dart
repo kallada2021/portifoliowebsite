@@ -68,9 +68,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
     return Scaffold(
       backgroundColor: Colors.blue[50],
       appBar: customAppBar(context),
+      bottomSheet: Footer(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.all(50.0),
@@ -194,7 +196,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   ],
                 ),
               ),
-              const Footer(),
+              // const Footer(),
             ],
           ),
         ),
