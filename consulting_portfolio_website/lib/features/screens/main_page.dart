@@ -146,7 +146,7 @@ class _MainPageState extends State<MainPage> {
                                 context, ProjectsScreen.routeName);
                           },
                           child: const Text(
-                            "Our projects.",
+                            "Current Projects.",
                           ),
                         ),
                       );
@@ -164,7 +164,7 @@ class _MainPageState extends State<MainPage> {
                             Navigator.pushNamed(
                                 context, ServicesScreen.routeName);
                           },
-                          child: const Text("Our Services"),
+                          child: const Text("Featured Services"),
                         ),
                       );
                     },

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.light(
           primary: GlobalVariables.kSecondaryColor,
         ),
-        cardColor: Colors.blue[100],
+        cardColor: Colors.purple[400]!.withOpacity(0.2),
         appBarTheme: const AppBarTheme(
           elevation: 3,
           iconTheme: IconThemeData(

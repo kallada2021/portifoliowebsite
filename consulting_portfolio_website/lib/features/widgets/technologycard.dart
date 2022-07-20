@@ -25,7 +25,8 @@ class TechnologyCard extends StatelessWidget {
         margin: EdgeInsets.symmetric(
           horizontal: size.width > 800 ? size.width * 0.15 : size.width * 0.005,
         ),
-        color: Theme.of(context).cardColor,
+          color: Colors.purpleAccent.withOpacity(0.2),
+        //color: Theme.of(context).cardColor,
         shadowColor: GlobalVariables.kSecondaryColor,
         elevation: 12,
         child: Container(

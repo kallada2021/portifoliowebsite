@@ -124,10 +124,13 @@ class WebTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}golang.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),

@@ -25,12 +25,15 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Amazon Web Services (AWS)",
-                    style: GlobalVariables.kTechNameStyle,
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      "Amazon Web Services (AWS)",
+                      style: GlobalVariables.kTechNameStyle,
+                      textAlign: TextAlign.left,
+                    ),
                   ),
                   const SizedBox(
                     width: 15.0,
@@ -56,12 +59,15 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 height: 10,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Azure Cloud",
-                    style: GlobalVariables.kTechNameStyle,
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      "Azure Cloud",
+                      style: GlobalVariables.kTechNameStyle,
+                      textAlign: TextAlign.left,
+                    ),
                   ),
                   const SizedBox(
                     width: 15,
@@ -85,26 +91,29 @@ class CloudTechnologiesScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Terraform",
-                    style: GlobalVariables.kTechNameStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: Image.network(
-                      "${GlobalVariables.s3Url}TerraformLogo.png",
-                      fit: BoxFit.fill,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Terraform",
+                      style: GlobalVariables.kTechNameStyle,
+                      textAlign: TextAlign.left,
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: Image.network(
+                        "${GlobalVariables.s3Url}TerraformLogo.png",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),

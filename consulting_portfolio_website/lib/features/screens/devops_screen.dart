@@ -63,10 +63,13 @@ class DevopsScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child:Image.network(
+                      "${GlobalVariables.s3Url}AzureDevOps.png",
+                        fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -114,10 +117,13 @@ class DevopsScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child:Image.network(
+                      "${GlobalVariables.s3Url}kubernetes.png",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -138,10 +144,13 @@ class DevopsScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}Github.png",
+                    fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -162,10 +171,13 @@ class DevopsScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}PowershellLogo.png",
+                        fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
@@ -189,10 +201,13 @@ class DevopsScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15.0,
                   ),
-                  Container(
+                  SizedBox(
                     width: 50,
                     height: 50,
-                    color: Colors.red[300],
+                    child:Image.network(
+                      "${GlobalVariables.s3Url}Jenkins.png",
+                        fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),

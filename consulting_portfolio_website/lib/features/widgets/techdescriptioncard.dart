@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
    @override
    Widget build(BuildContext context) {
      return Card(
-       color: Colors.blue[100],
+       color: Colors.purple[100],
        elevation: 15,
-       shadowColor: Colors.blue[900],
+       shadowColor: Colors.purple[900],
        child:  Padding(
          padding: const EdgeInsets.all(20.0),
          child: Center(

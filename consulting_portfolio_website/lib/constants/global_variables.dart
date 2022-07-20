@@ -12,7 +12,7 @@ class GlobalVariables {
     1.0
   ]);
 
-  static var kSecondaryColor = Colors.teal[600]!;
+  static var kSecondaryColor = Colors.purple[700]!;
   static const kBackgroundColor = Colors.white;
   static var grayBackgroundColor = Colors.blueGrey[200]!;
   static var kLightBlue = Colors.blue[200];
@@ -26,11 +26,12 @@ class GlobalVariables {
     fontSize: 40,
     fontWeight: FontWeight.w900,
     color: Colors.deepPurple[900],
+    fontFamily: "Arial",
   );
 
   static const TextStyle kTechPageTitleStyle = TextStyle(
-    fontSize: 90,
-    fontStyle: FontStyle.italic,
+    fontSize: 50,
+    fontStyle: FontStyle.normal,
     color: Colors.black,
   );
   static const TextStyle kFooterTextStyle = TextStyle(
