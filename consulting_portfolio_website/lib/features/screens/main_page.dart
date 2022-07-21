@@ -180,7 +180,7 @@ class _MainPageState extends State<MainPage> {
               ),
               const TechnologiesScreen(),
               const SizedBox(
-                height: 20,
+                height: 200,
               ),
             ],
           ),

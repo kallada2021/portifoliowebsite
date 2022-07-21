@@ -15,6 +15,7 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context),
+      bottomSheet: const Footer(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -110,9 +111,8 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 150,
               ),
-              const Footer(),
             ],
           ),
         ),

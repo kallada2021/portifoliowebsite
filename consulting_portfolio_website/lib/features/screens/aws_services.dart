@@ -22,8 +22,9 @@ class AWSServicesScreen extends StatelessWidget {
     {
       "service": "AWS",
       "title": "Lambdas",
-      "description": "Serverless lambda. AWS Lambdas could be invoked by an event generated from other AWS Services like API Gateway, "
-          "Simple Queue Services, Simple Notification Services or a REST call from a web application",
+      "description":
+          "Serverless lambda. AWS Lambdas could be invoked by an event generated from other AWS Services like API Gateway, "
+              "Simple Queue Services, Simple Notification Services or a REST call from a web application",
     },
     {
       "service": "AWS",
@@ -41,7 +42,7 @@ class AWSServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         const Text(
@@ -51,11 +52,10 @@ class AWSServicesScreen extends StatelessWidget {
         Expanded(
           child: SizedBox(
             width: double.infinity,
-            child: _screenWidth > 700
+            child: screenWidth > 700
                 ? GridView.count(
-                    crossAxisCount: _screenWidth > 1080 ? 3 : 2,
-                    childAspectRatio:
-                        _screenWidth > 1200 ? 240 / 120 : 200 / 90,
+                    crossAxisCount: screenWidth > 1080 ? 3 : 2,
+                    childAspectRatio: screenWidth > 1200 ? 240 / 120 : 200 / 90,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {

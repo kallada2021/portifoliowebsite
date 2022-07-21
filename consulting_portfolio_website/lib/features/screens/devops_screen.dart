@@ -15,6 +15,7 @@ class DevopsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context),
+      bottomSheet: const Footer(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -38,8 +39,9 @@ class DevopsScreen extends StatelessWidget {
                   SizedBox(
                     width: 50,
                     height: 50,
-                    child: Image.network("${GlobalVariables.s3Url}TerraformLogo.png",
-                    fit: BoxFit.fill,
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}TerraformLogo.png",
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -66,9 +68,9 @@ class DevopsScreen extends StatelessWidget {
                   SizedBox(
                     width: 50,
                     height: 50,
-                    child:Image.network(
+                    child: Image.network(
                       "${GlobalVariables.s3Url}AzureDevOps.png",
-                        fit: BoxFit.fill,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -94,8 +96,8 @@ class DevopsScreen extends StatelessWidget {
                     width: 50,
                     height: 50,
                     child: Image.network(
-                        "${GlobalVariables.s3Url}Jenkins.png",
-                        fit: BoxFit.fill,
+                      "${GlobalVariables.s3Url}Jenkins.png",
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -120,7 +122,7 @@ class DevopsScreen extends StatelessWidget {
                   SizedBox(
                     width: 50,
                     height: 50,
-                    child:Image.network(
+                    child: Image.network(
                       "${GlobalVariables.s3Url}kubernetes.png",
                       fit: BoxFit.fill,
                     ),
@@ -149,7 +151,7 @@ class DevopsScreen extends StatelessWidget {
                     height: 50,
                     child: Image.network(
                       "${GlobalVariables.s3Url}Github.png",
-                    fit: BoxFit.fill,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -176,7 +178,7 @@ class DevopsScreen extends StatelessWidget {
                     height: 50,
                     child: Image.network(
                       "${GlobalVariables.s3Url}PowershellLogo.png",
-                        fit: BoxFit.fill,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -204,9 +206,9 @@ class DevopsScreen extends StatelessWidget {
                   SizedBox(
                     width: 50,
                     height: 50,
-                    child:Image.network(
+                    child: Image.network(
                       "${GlobalVariables.s3Url}Jenkins.png",
-                        fit: BoxFit.fill,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],
@@ -218,9 +220,8 @@ class DevopsScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30.0,
+                height: 150.0,
               ),
-              const Footer(),
             ],
           ),
         ),

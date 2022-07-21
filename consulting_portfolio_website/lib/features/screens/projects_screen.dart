@@ -43,9 +43,6 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               title: "Ecommerce App",
               description: "A full stack ecommerce app.",
             ),
-            const Divider(
-              color: Colors.pinkAccent,
-            ),
           ],
         ),
       ),

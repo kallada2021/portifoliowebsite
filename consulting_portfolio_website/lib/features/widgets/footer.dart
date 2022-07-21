@@ -12,7 +12,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150.0,
+      height: 100.0,
       color: GlobalVariables.kSecondaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

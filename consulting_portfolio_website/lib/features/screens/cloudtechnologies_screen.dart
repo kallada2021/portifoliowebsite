@@ -14,6 +14,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context),
+      bottomSheet: const Footer(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -122,9 +123,8 @@ class CloudTechnologiesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 150,
               ),
-              const Footer(),
             ],
           ),
         ),
