@@ -41,7 +41,7 @@ class MobileServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,14 +50,20 @@ class MobileServicesScreen extends StatelessWidget {
           "Our Services",
           style: GlobalVariables.kTechPageTitleStyle,
         ),
+        const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Divider(
+            color: Colors.teal,
+            height: 2,
+          ),
+        ),
         Expanded(
           child: SizedBox(
             width: double.infinity,
-            child: _screenWidth > 700
+            child: screenWidth > 700
                 ? GridView.count(
-                    crossAxisCount: _screenWidth > 1150 ? 3 : 2,
-                    childAspectRatio:
-                        _screenWidth > 1200 ? 250 / 160 : 200 / 90,
+                    crossAxisCount: screenWidth > 1150 ? 3 : 2,
+                    childAspectRatio: screenWidth > 1200 ? 250 / 160 : 200 / 90,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {

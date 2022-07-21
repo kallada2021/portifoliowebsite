@@ -18,7 +18,7 @@ class ServicesCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: Colors.teal.withOpacity(0.7),
-          width: 2,
+          width: 3,
         ),
       ),
       child: Card(
@@ -30,9 +30,10 @@ class ServicesCard extends StatelessWidget {
           children: [
             Text(
               service,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
-                color: Colors.teal,
+                color: Colors.black87,
+                fontWeight: FontWeight.w800,
               ),
             ),
             SizedBox(

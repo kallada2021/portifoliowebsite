@@ -24,6 +24,9 @@ class TechnologyService {
       });
       // print(res.body);
       print(jsonDecode(res.body));
+      if (res.statusCode != 200) {
+        print(res.statusCode);
+      }
       httpErrorHandle(
         response: res,
         context: context,
@@ -41,8 +44,13 @@ class TechnologyService {
         },
       );
     } catch (e) {
-      print(e);
-      showSnackBar(context, e.toString(), Colors.red);
+      print(e.toString());
+      if (e.toString().contains("XMLHttp")) {
+        showSnackBar(
+            context, "Please check your internet connection", Colors.red);
+      } else {
+        showSnackBar(context, e.toString(), Colors.red);
+      }
     }
     isLoading = false;
     return techList;

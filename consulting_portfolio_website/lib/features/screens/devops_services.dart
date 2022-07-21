@@ -59,6 +59,13 @@ class DevopsServicesScreen extends StatelessWidget {
           "Our Services",
           style: GlobalVariables.kTechPageTitleStyle,
         ),
+        const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Divider(
+            color: Colors.teal,
+            height: 2,
+          ),
+        ),
         Expanded(
           child: SizedBox(
             width: double.infinity,

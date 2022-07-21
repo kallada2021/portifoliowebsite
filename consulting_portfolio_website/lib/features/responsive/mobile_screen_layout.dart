@@ -8,6 +8,7 @@ import '../screens/contactus.dart';
 import '../screens/projects_screen.dart';
 import '../screens/services_screen.dart';
 import '../screens/technologies_screen.dart';
+import '../widgets/footer.dart';
 
 class MobileScreenLayout extends StatelessWidget {
   const MobileScreenLayout({Key? key}) : super(key: key);
@@ -17,10 +18,7 @@ class MobileScreenLayout extends StatelessWidget {
     return Scaffold(
       drawer: const AppDrawer(),
       appBar: customAppBar(context),
-      // appBar: AppBar(
-      //   elevation: 2.0,
-      //   title: Text("MAGNOLIA CONSULTING"),
-      // ),
+      bottomSheet: const Footer(),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -88,6 +86,9 @@ class MobileScreenLayout extends StatelessWidget {
                 ],
               ),
               const TechnologiesScreen(),
+              const SizedBox(
+                height: 150,
+              ),
             ],
           ),
         ),

@@ -21,7 +21,6 @@ var webHomeScreenItems = [
   const SizedBox(
     width: GlobalVariables.lineWidth,
   ),
-  //const Text("Services"),
   Container(
     width: 270,
     child: const CustomDropdownItem(value: "Services"),
@@ -29,16 +28,11 @@ var webHomeScreenItems = [
   const SizedBox(
     width: GlobalVariables.lineWidth,
   ),
-  //TODO: implement technology dropdown
-  const Text("Technologies"),
+  const Text("Projects"),
   const SizedBox(
     width: GlobalVariables.lineWidth,
   ),
-  //TODO: implement clients section
-  const Text("Clients"),
-  const SizedBox(
-    width: GlobalVariables.lineWidth,
-  ),
+  const Text("Contact us"),
 ];
 List<String> cloudTechnologies = [
   "Amazon Web Services",

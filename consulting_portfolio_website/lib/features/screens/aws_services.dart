@@ -49,13 +49,21 @@ class AWSServicesScreen extends StatelessWidget {
           "Our Services",
           style: GlobalVariables.kTechPageTitleStyle,
         ),
+        const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Divider(
+            color: Colors.teal,
+            height: 2,
+          ),
+        ),
         Expanded(
           child: SizedBox(
             width: double.infinity,
             child: screenWidth > 700
                 ? GridView.count(
                     crossAxisCount: screenWidth > 1080 ? 3 : 2,
-                    childAspectRatio: screenWidth > 1200 ? 240 / 120 : 200 / 90,
+                    childAspectRatio:
+                        screenWidth > 1200 ? 240 / 160 : 200 / 120,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {
@@ -71,7 +79,7 @@ class AWSServicesScreen extends StatelessWidget {
                   )
                 : GridView.count(
                     crossAxisCount: 1,
-                    childAspectRatio: 240 / 70,
+                    childAspectRatio: 240 / 100,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {

@@ -147,7 +147,7 @@ class _MainPageState extends State<MainPage> {
                                 context, ProjectsScreen.routeName);
                           },
                           child: const Text(
-                            "Current Projects.",
+                            "Current Projects",
                           ),
                         ),
                       );
