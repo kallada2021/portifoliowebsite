@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
+import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -25,22 +26,22 @@ class _AppDrawerState extends State<AppDrawer> {
           Container(
             padding: const EdgeInsets.only(top: 26, bottom: 13),
             child: Column(
-              children: [
+              children: const [
                 // user profile image
-                Container(
+                SizedBox(
                   height: 130,
                   width: 130,
                   //TODO: add company logo image
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(""),
                   ),
                 ),
                 //username
-                const SizedBox(
+                SizedBox(
                   height: 12,
                 ),
-                const Text(
+                Text(
                   "MAGNOLIA CONSULTING",
                   style: TextStyle(
                     color: Colors.white,
@@ -114,12 +115,14 @@ class _AppDrawerState extends State<AppDrawer> {
                     color: Colors.white,
                   ),
                   title: const Text(
-                    "TECHNOLOGIES",
+                    "PROJECTS",
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, ProjectsScreen.routeName,);
+                  },
                 ),
                 const Divider(
                   height: 10,

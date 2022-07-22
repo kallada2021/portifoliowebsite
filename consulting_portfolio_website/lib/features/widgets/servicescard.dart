@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
 class ServicesCard extends StatelessWidget {
@@ -14,16 +15,16 @@ class ServicesCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
-        color: Colors.teal.withOpacity(0.1),
+        color: Colors.deepPurple.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Colors.teal.withOpacity(0.7),
+          color: GlobalVariables.kBorderColor,
           width: 3,
         ),
       ),
       child: Card(
-        shadowColor: Colors.teal[900],
-        color: Theme.of(context).cardColor,
+        shadowColor: Colors.deepPurple[900],
+        color: GlobalVariables.kGrayBackgroundColor,
         elevation: 8,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

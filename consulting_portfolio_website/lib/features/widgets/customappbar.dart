@@ -5,6 +5,8 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 
 import '../../constants/constants.dart';
 import '../screens/contactus.dart';
+import '../screens/projects_screen.dart';
+import '../screens/services_screen.dart';
 
 //TODO: Build Mobile AppBar
 AppBar customAppBar(BuildContext context) {
@@ -13,20 +15,63 @@ AppBar customAppBar(BuildContext context) {
       ? AppBar(
           title: Center(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
-                  children: webHomeScreenItems,
+                  children: [
+                    const SizedBox(
+                      width: GlobalVariables.lineWidth,
+                    ),
+                    const Text(
+                      "MAGNOLIA IT SOLUTIONS",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                     SizedBox(
+                      width: size.width*0.2,
+                    ),
+                    const SizedBox(
+                      width: GlobalVariables.lineWidth,
+                    ),
+                    SizedBox(
+                      // width: 270,
+                      child: TextButton(
+                        onPressed: (){
+                          Navigator.pushNamed(context, ServicesScreen.routeName);
+                        },
+                        child: Text("Services", style: GlobalVariables.kAppBarTextStyle,),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: GlobalVariables.lineWidth,
+                    ),
+                    TextButton(
+                        onPressed: (){
+                          Navigator.pushNamed(context, ProjectsScreen.routeName);
+                        },
+                        child: Text("Projects", style: GlobalVariables.kAppBarTextStyle,),
+                    ),
+                    const SizedBox(
+                      width: GlobalVariables.lineWidth,
+                    ),
+                  ],
                 ),
-                IconButton(
-                  color: Colors.white,
-                  tooltip: "Contact us",
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      ContactUsScreen.routeName,
-                    );
-                  },
-                  icon: const Icon(IconlyBold.message),
+                Row(
+                  children: [
+                    Text("Contact us",style: GlobalVariables.kAppBarTextStyle,),
+                    IconButton(
+                      color: Colors.white,
+                      tooltip: "Contact us",
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          ContactUsScreen.routeName,
+                        );
+                      },
+                      icon: const Icon(IconlyBold.message),
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,3 +1,6 @@
+import 'dart:js';
+
+import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../features/widgets/customdropdown.dart';
@@ -5,34 +8,39 @@ import 'global_variables.dart';
 
 const webScreenSize = 900;
 
+
 var webHomeScreenItems = [
-  const SizedBox(
-    width: GlobalVariables.lineWidth,
-  ),
-  const Text(
-    "MAGNOLIA IT SOLUTIONS",
-    style: TextStyle(
-      fontSize: 16,
-    ),
-  ),
-  const SizedBox(
-    width: 100,
-  ),
-  const SizedBox(
-    width: GlobalVariables.lineWidth,
-  ),
-  Container(
-    width: 270,
-    child: const CustomDropdownItem(value: "Services"),
-  ),
-  const SizedBox(
-    width: GlobalVariables.lineWidth,
-  ),
-  const Text("Projects"),
-  const SizedBox(
-    width: GlobalVariables.lineWidth,
-  ),
-  const Text("Contact us"),
+  // const SizedBox(
+  //   width: GlobalVariables.lineWidth,
+  // ),
+  // const Text(
+  //   "MAGNOLIA IT SOLUTIONS",
+  //   style: TextStyle(
+  //     fontSize: 16,
+  //   ),
+  // ),
+  // const SizedBox(
+  //   width: 100,
+  // ),
+  // const SizedBox(
+  //   width: GlobalVariables.lineWidth,
+  // ),
+  // Container(
+  //   width: 270,
+  //   child: const CustomDropdownItem(value: "Services"),
+  // ),
+  // const SizedBox(
+  //   width: GlobalVariables.lineWidth,
+  // ),
+  // TextButton(
+  //     onPressed: (){
+  //       Navigator.pushNamed(context, ProjectsScreen.routeName),
+  //     },
+  //     child: const Text("Projects")),
+  // const SizedBox(
+  //   width: GlobalVariables.lineWidth,
+  // ),
+  // const Text("Contact us"),
 ];
 List<String> cloudTechnologies = [
   "Amazon Web Services",

@@ -14,13 +14,17 @@ class GlobalVariables {
 
   static var kSecondaryColor = Colors.purple[700]!;
   static const kBackgroundColor = Colors.white;
-  static var grayBackgroundColor = Colors.blueGrey[200]!;
+  static var kGrayBackgroundColor = Colors.blueGrey[200]!;
   static var kLightBlue = Colors.blue[200];
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.teal;
+  static Color kBorderColor = Colors.deepPurple[800]!;
 
   static const lineHeight = 30.0;
   static const lineWidth = 40.0;
+
+  static TextStyle kAppBarTextStyle = const TextStyle(color: Colors.white, fontSize: 16);
+
 
   static TextStyle kTechNameStyle = TextStyle(
     fontSize: 40,
