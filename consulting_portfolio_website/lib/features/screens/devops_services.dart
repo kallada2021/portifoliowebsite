@@ -1,3 +1,4 @@
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_variables.dart';
@@ -69,7 +70,7 @@ class DevopsServicesScreen extends StatelessWidget {
         Expanded(
           child: SizedBox(
             width: double.infinity,
-            child: screenWidth > 700
+            child: screenWidth > webScreenSize
                 ? GridView.count(
                     crossAxisCount: screenWidth > 1080 ? 3 : 2,
                     childAspectRatio:

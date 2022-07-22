@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/constants.dart';
 import '../../constants/global_variables.dart';
 import '../widgets/servicescard.dart';
 
@@ -59,7 +60,7 @@ class AWSServicesScreen extends StatelessWidget {
         Expanded(
           child: SizedBox(
             width: double.infinity,
-            child: screenWidth > 700
+            child: screenWidth > webScreenSize
                 ? GridView.count(
                     crossAxisCount: screenWidth > 1080 ? 3 : 2,
                     childAspectRatio:

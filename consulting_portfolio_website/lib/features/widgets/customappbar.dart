@@ -20,7 +20,7 @@ AppBar customAppBar(BuildContext context) {
                 Row(
                   children: [
                     const SizedBox(
-                      width: GlobalVariables.lineWidth,
+                      width: GlobalVariables.kLineWidth,
                     ),
                     const Text(
                       "MAGNOLIA IT SOLUTIONS",
@@ -28,38 +28,50 @@ AppBar customAppBar(BuildContext context) {
                         fontSize: 16,
                       ),
                     ),
-                     SizedBox(
-                      width: size.width*0.2,
+                    SizedBox(
+                      width: size.width * 0.2,
                     ),
                     const SizedBox(
-                      width: GlobalVariables.lineWidth,
+                      width: GlobalVariables.kLineWidth,
                     ),
-                    SizedBox(
-                      // width: 270,
-                      child: TextButton(
-                        onPressed: (){
-                          Navigator.pushNamed(context, ServicesScreen.routeName);
-                        },
-                        child: Text("Services", style: GlobalVariables.kAppBarTextStyle,),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          ServicesScreen.routeName,
+                        );
+                      },
+                      child: Text(
+                        "Services",
+                        style: GlobalVariables.kAppBarTextStyle,
                       ),
                     ),
                     const SizedBox(
-                      width: GlobalVariables.lineWidth,
+                      width: GlobalVariables.kLineWidth,
                     ),
                     TextButton(
-                        onPressed: (){
-                          Navigator.pushNamed(context, ProjectsScreen.routeName);
-                        },
-                        child: Text("Projects", style: GlobalVariables.kAppBarTextStyle,),
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          ProjectsScreen.routeName,
+                        );
+                      },
+                      child: Text(
+                        "Projects",
+                        style: GlobalVariables.kAppBarTextStyle,
+                      ),
                     ),
                     const SizedBox(
-                      width: GlobalVariables.lineWidth,
+                      width: GlobalVariables.kLineWidth,
                     ),
                   ],
                 ),
                 Row(
                   children: [
-                    Text("Contact us",style: GlobalVariables.kAppBarTextStyle,),
+                    Text(
+                      "Contact us",
+                      style: GlobalVariables.kAppBarTextStyle,
+                    ),
                     IconButton(
                       color: Colors.white,
                       tooltip: "Contact us",
@@ -84,7 +96,7 @@ AppBar customAppBar(BuildContext context) {
               children: [
                 const Text("MAGNOLIA IT CONSULTING"),
                 const SizedBox(
-                  width: GlobalVariables.lineHeight,
+                  width: GlobalVariables.kLineHeight,
                 ),
                 IconButton(
                   color: Colors.white,

@@ -25,7 +25,7 @@ class MobileScreenLayout extends StatelessWidget {
             children: [
               const IntroBox(),
               const SizedBox(
-                height: GlobalVariables.lineHeight,
+                height: GlobalVariables.kLineHeight,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +45,7 @@ class MobileScreenLayout extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: GlobalVariables.lineHeight,
+                    height: GlobalVariables.kLineHeight,
                   ),
                   Builder(
                     builder: (context) {
@@ -64,7 +64,7 @@ class MobileScreenLayout extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: GlobalVariables.lineHeight,
+                    height: GlobalVariables.kLineHeight,
                   ),
                   Builder(
                     builder: (context) {
@@ -81,7 +81,7 @@ class MobileScreenLayout extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: GlobalVariables.lineHeight,
+                    height: GlobalVariables.kLineHeight,
                   ),
                 ],
               ),

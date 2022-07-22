@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/screens/main_page.dart';
@@ -61,14 +62,14 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double formPadding = MediaQuery.of(context).size.width > 800
+    double formPadding = MediaQuery.of(context).size.width > webScreenSize
         ? MediaQuery.of(context).size.width * 0.1
         : 10.0;
 
     return Scaffold(
       backgroundColor: Colors.blue[50],
       appBar: customAppBar(context),
-      bottomSheet: Footer(),
+      bottomSheet: const Footer(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -187,7 +188,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   }
                                 }),
                             const SizedBox(
-                              height: GlobalVariables.lineHeight,
+                              height: GlobalVariables.kLineHeight,
                             ),
                           ],
                         ),

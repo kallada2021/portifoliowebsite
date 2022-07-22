@@ -121,7 +121,10 @@ class _AppDrawerState extends State<AppDrawer> {
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, ProjectsScreen.routeName,);
+                    Navigator.pushNamed(
+                      context,
+                      ProjectsScreen.routeName,
+                    );
                   },
                 ),
                 const Divider(

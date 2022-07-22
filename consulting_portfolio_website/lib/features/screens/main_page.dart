@@ -135,7 +135,7 @@ class _MainPageState extends State<MainPage> {
                     },
                   ),
                   const SizedBox(
-                    width: GlobalVariables.lineHeight,
+                    width: GlobalVariables.kLineHeight,
                   ),
                   Builder(
                     builder: (context) {
@@ -154,7 +154,7 @@ class _MainPageState extends State<MainPage> {
                     },
                   ),
                   const SizedBox(
-                    width: GlobalVariables.lineHeight,
+                    width: GlobalVariables.kLineHeight,
                   ),
                   Builder(
                     builder: (context) {
@@ -171,7 +171,7 @@ class _MainPageState extends State<MainPage> {
                     },
                   ),
                   const SizedBox(
-                    width: GlobalVariables.lineHeight,
+                    width: GlobalVariables.kLineHeight,
                   ),
                 ],
               ),
