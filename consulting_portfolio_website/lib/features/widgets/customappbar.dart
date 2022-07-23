@@ -8,7 +8,6 @@ import '../screens/contactus.dart';
 import '../screens/projects_screen.dart';
 import '../screens/services_screen.dart';
 
-//TODO: Build Mobile AppBar
 AppBar customAppBar(BuildContext context) {
   Size size = Utils(context).screenSize;
   return size.width > 1050

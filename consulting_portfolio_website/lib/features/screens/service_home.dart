@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/features/services/services_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/featuredservicewidget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,16 @@ class ServicesHomeScreen extends StatefulWidget {
 }
 
 class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
+  @override
+  void didChangeDependencies() {
+    getFeaturedServices();
+    super.didChangeDependencies();
+  }
+
+  getFeaturedServices() async {
+    await ServicesService.getServices(context: context);
+  }
+
   @override
   Widget build(BuildContext context) {
     final Utils utils = Utils(context);

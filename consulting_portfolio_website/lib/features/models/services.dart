@@ -4,12 +4,14 @@ class Services {
   final String id;
   final String type;
   final String description;
+  final String imageUrl;
   final List<String> technologies;
 
   Services(
       {required this.id,
       required this.type,
       required this.description,
+      required this.imageUrl,
       required this.technologies});
 
   Map<String, dynamic> toMap() {
@@ -18,6 +20,7 @@ class Services {
       "type": type,
       "description": description,
       "technologies": technologies,
+      "image_url": imageUrl,
     };
   }
 
@@ -27,6 +30,7 @@ class Services {
       type: map["type"] ?? "",
       description: map["description"] ?? "",
       technologies: map["technologies"] ?? "",
+      imageUrl: map["image_url"] ?? "",
     );
   }
 
@@ -36,6 +40,7 @@ class Services {
     String? id,
     String? type,
     String? description,
+    String? imageUrl,
     List<String>? technologies,
   }) {
     return Services(
@@ -43,6 +48,7 @@ class Services {
       type: type ?? this.type,
       description: description ?? this.description,
       technologies: technologies ?? this.technologies,
+      imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 }

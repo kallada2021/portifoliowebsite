@@ -39,8 +39,7 @@ class _MainPageState extends State<MainPage> {
     },
     {
       "title": "MobileDevelopment",
-      "url":
-          "https://cdn.pixabay.com/photo/2020/04/19/12/26/thread-5063401_960_720.jpg"
+      "url": "${GlobalVariables.s3Url}LWSC.png",
     },
     {
       "title": "Devops",

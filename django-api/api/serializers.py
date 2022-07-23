@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Contact, Project, Service, Technology
 
 
@@ -6,8 +7,13 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         # fields = "__all__"
-        fields = ["name", "email", "phone", "message",]
-    
+        fields = [
+            "name",
+            "email",
+            "phone",
+            "message",
+        ]
+
 
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
