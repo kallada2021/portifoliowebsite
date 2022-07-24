@@ -1,11 +1,12 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 
-class Services {
-  final String id;
-  final String type;
-  final String description;
-  final String imageUrl;
-  final List<String> technologies;
+class Services with ChangeNotifier {
+  String? id;
+  String? type;
+  String? description;
+  String? imageUrl;
+  List<int>? technologies;
 
   Services(
       {required this.id,
@@ -36,12 +37,19 @@ class Services {
 
   String toJson() => json.encode(toMap());
 
+  Services.fromJson(Map<String, dynamic> json) {
+    id = json["id"];
+    type = json["type"];
+    description = json["description"];
+    technologies = json["technologies"];
+    imageUrl = json["imageUrl"];
+  }
   Services copyWith({
     String? id,
     String? type,
     String? description,
     String? imageUrl,
-    List<String>? technologies,
+    List<int>? technologies,
   }) {
     return Services(
       id: id ?? this.id,
@@ -50,5 +58,12 @@ class Services {
       technologies: technologies ?? this.technologies,
       imageUrl: imageUrl ?? this.imageUrl,
     );
+  }
+
+  static List<Services> servicesFromJSON(List servicesList) {
+    print("snapshot ${servicesList}");
+    return servicesList.map((data) {
+      return Services.fromJson(data);
+    }).toList();
   }
 }

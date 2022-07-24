@@ -1,5 +1,6 @@
 variable "vpc-id" {
   description = "VPC ID"
+  type        = string
 }
 
 variable "private-subnets" {
@@ -7,5 +8,6 @@ variable "private-subnets" {
 }
 
 variable "subnet" {
-  type = string
+  description = "Public Subnet for EC2 Instance"
+  type        = string
 }

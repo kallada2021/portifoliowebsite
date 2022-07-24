@@ -56,7 +56,7 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
   }
 
   getFeaturedServices() async {
-    await ServicesService.getServices(context: context);
+    await ServicesService.getAllServices(context: context);
   }
 
   @override
@@ -81,8 +81,9 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   itemCount: widget.imageUrls.length,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: (){
-                        Utils.showPictureBox(context, "Featured Services", widget.imageUrls[index]);
+                      onTap: () {
+                        Utils.showPictureBox(context, "Featured Services",
+                            widget.imageUrls[index]);
                       },
                       child: FancyShimmerImage(
                         imageUrl: widget.imageUrls[index],

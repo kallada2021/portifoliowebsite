@@ -10,7 +10,7 @@ import '../../constants/utils.dart';
 
 class ServicesService {
   // getServices gets list of solutions from backend api
-  static Future<void> getServices({
+  static Future<List<dynamic>> getAllServices({
     required BuildContext context,
   }) async {
     try {
@@ -21,15 +21,14 @@ class ServicesService {
 
       List tempList = [];
       var data = jsonDecode(res.body);
-      print(data);
       for (var d in data) {
         print("res data $d");
         tempList.add(d);
       }
-
-      //return Services.(tempList);
+      return Services.servicesFromJSON(tempList);
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);
+      return [];
     }
   }
 
