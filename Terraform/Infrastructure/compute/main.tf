@@ -36,3 +36,14 @@ resource "aws_security_group" "ec2-sg" {
 
   }
 }
+
+// Provisioning ec2
+resource "aws_instance" "webserver" {
+  ami           = "ami-052efd3df9dad4825"
+  instance_type = "t2.micro"
+  subnet_id = var.subnet
+
+  tags = {
+    Name = "PortfolioWebServer"
+  }
+}

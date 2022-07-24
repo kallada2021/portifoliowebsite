@@ -25,7 +25,7 @@ class ServicesHomeScreen extends StatefulWidget {
           "Full stack mobile application deployed to cloud/app store",
       "description":
           "Cross Platform Flutter app with custom backend\n and AWS/Azure hosting.",
-      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png"
+      "imageUrl": "${GlobalVariables.s3Url}MobileFeaturedService.png"
     },
     {
       "featuredServices":
@@ -80,10 +80,15 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   // containerHeight: 500,
                   itemCount: widget.imageUrls.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return FancyShimmerImage(
-                      imageUrl: widget.imageUrls[index],
-                      boxFit: BoxFit.fill,
-                      width: size.width * 0.8,
+                    return InkWell(
+                      onTap: (){
+                        Utils.showPictureBox(context, "Featured Services", widget.imageUrls[index]);
+                      },
+                      child: FancyShimmerImage(
+                        imageUrl: widget.imageUrls[index],
+                        boxFit: BoxFit.fill,
+                        width: size.width * 0.8,
+                      ),
                     );
                   },
                   pagination: const SwiperPagination(

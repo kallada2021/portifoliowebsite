@@ -22,7 +22,7 @@ class Utils {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: GlobalVariables.kLightBlue,
+          backgroundColor: GlobalVariables.kBackgroundColor,
           title: Center(
             child: Text(
               title,

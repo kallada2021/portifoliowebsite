@@ -207,7 +207,7 @@ class DevopsScreen extends StatelessWidget {
                     width: 50,
                     height: 50,
                     child: Image.network(
-                      "${GlobalVariables.s3Url}Jenkins.png",
+                      "${GlobalVariables.s3Url}Docker.png",
                       fit: BoxFit.fill,
                     ),
                   ),

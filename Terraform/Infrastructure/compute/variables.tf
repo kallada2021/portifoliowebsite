@@ -5,3 +5,7 @@ variable "vpc-id" {
 variable "private-subnets" {
   description = "Private Subnets Variable"
 }
+
+variable "subnet" {
+  type = string
+}

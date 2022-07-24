@@ -22,6 +22,7 @@ class FeaturedServiceWidget extends StatefulWidget {
 
 class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
   bool isHovered = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;
@@ -34,7 +35,10 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
         // TODO: Make image popout
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
-          onTap: () {},
+          onTap: () {
+            Utils.showPictureBox(
+                context, "Featured Services", widget.imageUrl);
+          },
           onHover: (isHoovered) {},
           child: Padding(
             padding: const EdgeInsets.all(8.0),
