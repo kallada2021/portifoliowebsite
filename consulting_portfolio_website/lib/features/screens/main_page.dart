@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
     {
       "title": "WebDevelopment",
       "url":
-          "https://cdn.pixabay.com/photo/2020/11/16/16/05/hoverfly-5749361_960_720.jpg"
+          "${GlobalVariables.s3Url}EcommerceWebsite.png"
     },
     {
       "title": "MobileDevelopment",
@@ -64,7 +64,7 @@ class _MainPageState extends State<MainPage> {
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 2),
                   autoPlayAnimationDuration: const Duration(milliseconds: 400),
-                  height: 300,
+                  height: 400,
                 ),
                 items: data.map((item) {
                   return GridTile(
@@ -87,30 +87,6 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     children: [
                       // Text(
-                      //   "What we provide",
-                      //   style: TextStyle(
-                      //     fontSize: 20,
-                      //     color: Colors.blue[800],
-                      //   ),
-                      // ),
-                      // const SizedBox(
-                      //   height: GlobalVariables.lineHeight,
-                      // ),
-                      // Text("1. Cloud Technologies"),
-                      // SizedBox(
-                      //   height: GlobalVariables.lineHeight,
-                      // ),
-                      // Text("2. Mobile Development"),
-                      // SizedBox(
-                      //   height: GlobalVariables.lineHeight,
-                      // ),
-                      // Text("3. Web Development"),
-                      // SizedBox(
-                      //   height:GlobalVariables.lineHeight,
-                      // ),
-                      // Text("4. Devops"),
-                      // SizedBox(
-                      //   height: GlobalVariables.lineHeight,
                       // ),
                     ],
                   ),

@@ -41,6 +41,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             Project(
               title: "Ecommerce App",
               description: "A full stack ecommerce app.",
+              imageURL: "${GlobalVariables.s3Url}EcommerceWebsite.png",
             ),
           ],
         ),
