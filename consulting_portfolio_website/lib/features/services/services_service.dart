@@ -10,7 +10,7 @@ import '../../constants/utils.dart';
 
 class ServicesService {
   // getServices gets list of solutions from backend api
-  static Future<List<dynamic>> getAllServices({
+  static Future<List<Services>> getAllServices({
     required BuildContext context,
   }) async {
     try {
@@ -21,6 +21,9 @@ class ServicesService {
 
       List tempList = [];
       var data = jsonDecode(res.body);
+      if (res.statusCode != 200) {
+        throw data["message"];
+      }
       for (var d in data) {
         print("res data $d");
         tempList.add(d);
@@ -28,7 +31,8 @@ class ServicesService {
       return Services.servicesFromJSON(tempList);
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);
-      return [];
+      log("An error occurred $e");
+      throw e.toString();
     }
   }
 
@@ -45,6 +49,8 @@ class ServicesService {
       print(res);
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);
+      log("An error occurred $e");
+      throw e.toString();
     }
   }
 }

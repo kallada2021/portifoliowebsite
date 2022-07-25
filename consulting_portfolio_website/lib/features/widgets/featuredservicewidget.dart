@@ -32,12 +32,10 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
       child: Material(
         borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).cardColor.withOpacity(0.9),
-        // TODO: Make image popout
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: () {
-            Utils.showPictureBox(
-                context, "Featured Services", widget.imageUrl);
+            Utils.showPictureBox(context, "Featured Services", widget.imageUrl);
           },
           onHover: (isHoovered) {},
           child: Padding(

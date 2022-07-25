@@ -26,6 +26,7 @@ class TechnologyService {
       print(jsonDecode(res.body));
       if (res.statusCode != 200) {
         print(res.statusCode);
+        throw "An error occurred.";
       }
       httpErrorHandle(
         response: res,
@@ -50,6 +51,7 @@ class TechnologyService {
             context, "Please check your internet connection", Colors.red);
       } else {
         showSnackBar(context, e.toString(), Colors.red);
+        throw e.toString();
       }
     }
     isLoading = false;

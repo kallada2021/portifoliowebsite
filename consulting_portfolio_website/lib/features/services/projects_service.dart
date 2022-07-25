@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:consulting_portfolio_website/constants/errors.dart';
 import 'package:consulting_portfolio_website/features/models/projects.dart';
@@ -33,6 +34,8 @@ class ProjectsService {
           });
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);
+      log(e.toString());
+      throw e.toString();
     }
   }
 
@@ -49,6 +52,8 @@ class ProjectsService {
       print(res);
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);
+      log(e.toString());
+      throw e.toString();
     }
   }
 }

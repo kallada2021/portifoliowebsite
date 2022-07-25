@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:card_swiper/card_swiper.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/services/services_service.dart';
@@ -6,6 +8,7 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/utils.dart';
+import '../models/services.dart';
 
 class ServicesHomeScreen extends StatefulWidget {
   List<Map<String, dynamic>> featuredServices = [
@@ -49,6 +52,9 @@ class ServicesHomeScreen extends StatefulWidget {
 }
 
 class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
+  List<Services>? services;
+  bool isError = false;
+  String errorMsg = "";
   @override
   void didChangeDependencies() {
     getFeaturedServices();
@@ -56,7 +62,13 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
   }
 
   getFeaturedServices() async {
-    await ServicesService.getAllServices(context: context);
+    try {
+      services = await ServicesService.getAllServices(context: context);
+      print("Services from widget $services");
+    } catch (error) {
+      log("An error occured $error");
+      errorMsg = "Sorry, an unexpected error occured";
+    }
   }
 
   @override
