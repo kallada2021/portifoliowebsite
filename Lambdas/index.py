@@ -1,45 +1,56 @@
+import json
+import logging
+import os
+import random
+from datetime import datetime
 from email import message
 from http import client
-import boto3
-import os
-from botocore.exceptions import ClientError
-import random
-import json
-from datetime import datetime
 
-RECIPIENT = “paremodelingautomation@gmail.com”
+import boto3
+from botocore.exceptions import ClientError
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+RECIPIENT = "paremodelingautomation@gmail.com"
 AWS_REGION = "us-east-1"
 client = boto3.client("ses")
-def index_handler(event,context):
-    message = event["message"]
+
+
+def index_handler(event, context):
+    logger.info(f"Incoming request is: {event}")
+
+    message = json.loads(event["message"])
+    sender_email = json.loads(event["email"])
+
     body_html = f"""<html>
         <head></head>
         <body>
           <h2>Email from Prospective Client</h2>
           <br/>
-          <p>${message}</p> 
+          <p>{message}</p> 
         </body>
         </html>
                     """
     email_message = {
-        'Body': {
-            'Html': {
-                'Charset': 'utf-8',
-                'Data': body_html,
+        "Body": {
+            "Html": {
+                "Charset": "utf-8",
+                "Data": body_html,
             },
         },
-        'Subject': {
-            'Charset': 'utf-8',
-            'Data': "Message from Prospective Client",
+        "Subject": {
+            "Charset": "utf-8",
+            "Data": "Message from Prospective Client",
         },
     }
     ses_response = client.send_email(
         Destination={
-            'ToAddresses': [RECIPIENT],
+            "ToAddresses": [RECIPIENT],
         },
         Message=email_message,
-        Source= event["email"],
+        Source=sender_email,
         ConfigurationSetName=config_set_name,
     )
 
-    print(f"Prospective ClientID: ${event['name']}.")
+    print(f"Prospective ClientID: {event['name']}.")

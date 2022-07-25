@@ -5,6 +5,7 @@ class Projects {
   final String name;
   final String description;
   final List<String> technologies;
+  final String imageUrl;
   final String createdAt;
   final String updatedAt;
 
@@ -14,6 +15,7 @@ class Projects {
     required this.description,
     required this.technologies,
     required this.createdAt,
+    required this.imageUrl,
     required this.updatedAt,
   });
 
@@ -35,6 +37,7 @@ class Projects {
       description: map["description"] ?? "",
       technologies: map["technologies"] ?? "",
       createdAt: map["created_at"] ?? "",
+      imageUrl: map["imageUrl"] ?? "",
       updatedAt: map["updated_at"] ?? "",
     );
   }
@@ -49,6 +52,7 @@ class Projects {
     String? name,
     String? description,
     List<String>? technologies,
+    String? imageUrl,
     String? createdAt,
     String? updatedAt,
   }) {
@@ -57,8 +61,16 @@ class Projects {
       name: name ?? this.name,
       description: description ?? this.description,
       technologies: technologies ?? this.technologies,
+      imageUrl: imageUrl ?? this.imageUrl,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
+  }
+
+  static List<Projects> servicesFromJSON(List projectList) {
+    print("snapshot $projectList");
+    return projectList.map((data) {
+      return Projects.fromJson(data);
+    }).toList();
   }
 }
