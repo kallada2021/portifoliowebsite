@@ -72,17 +72,8 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                                 : size.width * 0.2,
                             boxFit: BoxFit.fill,
                           ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: const Icon(
-                                  IconlyBold.chart,
-                                  size: 22,
-                                  color: Colors.teal,
-                                ),
-                              ),
-                            ],
+                          const SizedBox(
+                            height: 15,
                           ),
                         ],
                       )
@@ -99,6 +90,7 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                       fontSize: 15,
                       fontWeight: FontWeight.w800,
                     ),
+                    textAlign: TextAlign.justify,
                   ),
                   const SizedBox(
                     height: 5,

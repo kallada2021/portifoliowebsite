@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/models/projects.dart';
 import 'package:consulting_portfolio_website/features/services/projects_service.dart';
@@ -17,9 +19,19 @@ class ProjectsScreen extends StatefulWidget {
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
+  String errorMsg = "";
+  bool isError = false;
   List<Projects> projects = [];
+
   getProjects() async {
-    projects = await ProjectsService.getProjects(context: context);
+    try {
+      projects = await ProjectsService.getProjects(context: context);
+    } catch (error) {
+      log("error $error");
+      isError = true;
+      errorMsg = "Oops! We are having problems reaching our servers.";
+      setState(() {});
+    }
   }
 
   @override
@@ -38,38 +50,41 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Project(
-            //   title: "Living Well With Sickle Cell",
-            //   description:
-            //       "The Living Well with Sickle Cell phone application will allow patients who have sickle cell disease to better manage their daily lives.",
-            //   imageURL: "${GlobalVariables.s3Url}LWSC.png",
-            // ),
-            // const Divider(
-            //   color: Colors.pinkAccent,
-            // ),
-            projects.isEmpty
+            isError
                 ? Padding(
                     padding: const EdgeInsets.only(top: 100.0),
                     child: Center(
-                      child: CircularProgressIndicator(
-                        color: GlobalVariables.kSecondaryColor,
+                      child: Text(
+                        errorMsg,
+                        style: const TextStyle(
+                          color: Colors.red,
+                        ),
                       ),
                     ),
                   )
-                : SizedBox(
-                    width: double.infinity,
-                    height: size.height,
-                    child: ListView.builder(
-                      itemCount: projects.length,
-                      itemBuilder: (ctx, index) {
-                        return Project(
-                          title: projects[index].name,
-                          description: projects[index].description,
-                          imageURL: projects[index].imageUrl,
-                        );
-                      },
-                    ),
-                  ),
+                : projects.isEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 100.0),
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            color: GlobalVariables.kSecondaryColor,
+                          ),
+                        ),
+                      )
+                    : SizedBox(
+                        width: double.infinity,
+                        height: size.height,
+                        child: ListView.builder(
+                          itemCount: projects.length,
+                          itemBuilder: (ctx, index) {
+                            return Project(
+                              title: projects[index].name,
+                              description: projects[index].description,
+                              imageURL: projects[index].imageUrl,
+                            );
+                          },
+                        ),
+                      ),
           ],
         ),
       ),

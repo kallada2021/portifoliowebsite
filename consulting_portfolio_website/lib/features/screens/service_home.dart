@@ -67,6 +67,7 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
       print("Services from widget $services");
     } catch (error) {
       log("An error occured $error");
+      isError = true;
       errorMsg = "Sorry, an unexpected error occured";
     }
   }

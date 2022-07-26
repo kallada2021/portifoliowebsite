@@ -70,7 +70,6 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     future: getTech,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        // TODO: make random number not repetitive
                         //var index = Random();
                         return ListView.builder(
                           itemCount: techList.isEmpty ? 0 : 4,
