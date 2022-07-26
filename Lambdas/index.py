@@ -22,6 +22,10 @@ def index_handler(event, context):
 
     message = json.loads(event["message"])
     sender_email = json.loads(event["email"])
+    client_name = json.loads(event["name"])
+
+    if sender_email is None:
+        raise Exception("No email provided.")
 
     body_html = f"""<html>
         <head></head>
@@ -50,7 +54,10 @@ def index_handler(event, context):
         },
         Message=email_message,
         Source=sender_email,
-        ConfigurationSetName=config_set_name,
+        # ConfigurationSetName=config_set_name,
     )
 
-    print(f"Prospective ClientID: {event['name']}.")
+    print(f"Prospective ClientID: {client_name}.")
+    response = {"message": "Email successfully sent"}
+    # return Body=json.dumps(response).encode()
+    return json.dumps(response)

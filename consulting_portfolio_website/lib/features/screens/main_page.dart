@@ -15,6 +15,7 @@ import 'contactus.dart';
 
 class MainPage extends StatefulWidget {
   static String routeName = "/";
+
   const MainPage({
     Key? key,
   }) : super(key: key);
@@ -28,14 +29,12 @@ class _MainPageState extends State<MainPage> {
     {"title": "AWS", "url": "${GlobalVariables.s3Url}FullStackOnAWS.png"},
     {
       "title": "Azure",
-      "url":
-          "https://cdn.pixabay.com/photo/2020/11/01/19/41/autumn-5704791_960_720.jpg"
+      "url": "${GlobalVariables.s3Url}AzureWebApp.JPG",
     },
-    {"title": "Terraform", "url": "${GlobalVariables.s3Url}terraform.png"},
+    {"title": "Terraform", "url": "${GlobalVariables.s3Url}terraform.png",},
     {
       "title": "WebDevelopment",
-      "url":
-          "${GlobalVariables.s3Url}EcommerceWebsite.png"
+      "url": "${GlobalVariables.s3Url}EcommerceWebsite.png",
     },
     {
       "title": "MobileDevelopment",
@@ -44,9 +43,10 @@ class _MainPageState extends State<MainPage> {
     {
       "title": "Devops",
       "url":
-          "https://cdn.pixabay.com/photo/2020/11/16/22/58/mountains-5750804_960_720.jpg"
+          "https://cdn.pixabay.com/photo/2020/11/16/22/58/mountains-5750804_960_720.jpg",
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;

@@ -21,7 +21,7 @@ class ServicesHomeScreen extends StatefulWidget {
     {
       "featuredServices": "Azure Resources provisioned by Terraform",
       "description": "Azure Function, Active Directory or custom VM",
-      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png",
+      "imageUrl": "${GlobalVariables.s3Url}AzureWebApp.JPG",
     },
     {
       "featuredServices":
