@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 class Services with ChangeNotifier {
-  String? id;
+  int? id;
   String? type;
   String? description;
   String? imageUrl;
-  List<int>? technologies;
+  List<dynamic>? technologies;
 
   Services(
       {required this.id,
@@ -45,11 +45,11 @@ class Services with ChangeNotifier {
     imageUrl = json["imageUrl"];
   }
   Services copyWith({
-    String? id,
+    int? id,
     String? type,
     String? description,
     String? imageUrl,
-    List<int>? technologies,
+    List<dynamic>? technologies,
   }) {
     return Services(
       id: id ?? this.id,

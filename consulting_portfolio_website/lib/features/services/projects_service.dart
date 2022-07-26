@@ -11,14 +11,14 @@ import '../../constants/utils.dart';
 
 class ProjectsService {
   // getProjects gets list of projects from backend api
-  void getProjects({
+  static Future<List<Projects>> getProjects({
     required BuildContext context,
   }) async {
     List<Projects> projectsList = [];
 
     try {
       http.Response res = await http
-          .get(Uri.parse("$uri/api/projects"), headers: <String, String>{
+          .get(Uri.parse("$uri/api/projects/"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
       print(res);
@@ -32,6 +32,8 @@ class ProjectsService {
               ));
             }
           });
+
+      return projectsList;
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);
       log(e.toString());

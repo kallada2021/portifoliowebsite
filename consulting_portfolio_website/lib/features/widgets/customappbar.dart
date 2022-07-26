@@ -35,6 +35,9 @@ AppBar customAppBar(BuildContext context) {
                     ),
                     TextButton(
                       onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
                         Navigator.pushNamed(
                           context,
                           ServicesScreen.routeName,
@@ -50,6 +53,9 @@ AppBar customAppBar(BuildContext context) {
                     ),
                     TextButton(
                       onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
                         Navigator.pushNamed(
                           context,
                           ProjectsScreen.routeName,
@@ -75,6 +81,9 @@ AppBar customAppBar(BuildContext context) {
                       color: Colors.white,
                       tooltip: "Contact us",
                       onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
                         Navigator.pushNamed(
                           context,
                           ContactUsScreen.routeName,

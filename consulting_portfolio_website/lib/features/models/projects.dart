@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class Projects {
-  final String id;
+  final int id;
   final String name;
   final String description;
-  final List<String> technologies;
+  final List<dynamic> technologies;
   final String imageUrl;
   final String createdAt;
   final String updatedAt;
@@ -37,7 +37,7 @@ class Projects {
       description: map["description"] ?? "",
       technologies: map["technologies"] ?? "",
       createdAt: map["created_at"] ?? "",
-      imageUrl: map["imageUrl"] ?? "",
+      imageUrl: map["image_url"] ?? "",
       updatedAt: map["updated_at"] ?? "",
     );
   }
@@ -48,10 +48,10 @@ class Projects {
       Projects.fromMap(json.decode(source));
 
   Projects copyWith({
-    String? id,
+    int? id,
     String? name,
     String? description,
-    List<String>? technologies,
+    List<dynamic>? technologies,
     String? imageUrl,
     String? createdAt,
     String? updatedAt,
