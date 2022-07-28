@@ -64,7 +64,8 @@ class MobileServicesScreen extends StatelessWidget {
             child: screenWidth > webScreenSize
                 ? GridView.count(
                     crossAxisCount: screenWidth > 1150 ? 3 : 2,
-                    childAspectRatio: screenWidth > 1200 ? 250 / 160 : 200 / 90,
+                    childAspectRatio:
+                        screenWidth > 1200 ? 270 / 180 : 200 / 120,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: List.generate(serviceInfo.length, (index) {

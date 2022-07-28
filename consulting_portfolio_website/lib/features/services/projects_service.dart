@@ -35,7 +35,7 @@ class ProjectsService {
 
       return projectsList;
     } catch (e) {
-      showSnackBar(context, e.toString(), Colors.red);
+      //showSnackBar(context, e.toString(), Colors.red);
       log(e.toString());
       throw e.toString();
     }

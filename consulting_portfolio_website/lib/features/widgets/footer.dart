@@ -20,6 +20,9 @@ class Footer extends StatelessWidget {
           Center(
             child: TextButton(
               onPressed: () {
+                if (Navigator.canPop(context)) {
+                  Navigator.canPop(context);
+                }
                 Navigator.pushNamed(
                   context,
                   MainPage.routeName,
@@ -52,6 +55,9 @@ class Footer extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.canPop(context);
+                        }
                         Navigator.pushNamed(context, ContactUsScreen.routeName);
                       },
                       child: Row(
@@ -76,6 +82,9 @@ class Footer extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.canPop(context);
+                        }
                         Navigator.pushNamed(
                           context,
                           ServicesScreen.routeName,

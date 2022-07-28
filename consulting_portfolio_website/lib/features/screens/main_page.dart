@@ -31,7 +31,10 @@ class _MainPageState extends State<MainPage> {
       "title": "Azure",
       "url": "${GlobalVariables.s3Url}AzureWebApp.JPG",
     },
-    {"title": "Terraform", "url": "${GlobalVariables.s3Url}terraform.png",},
+    {
+      "title": "Terraform",
+      "url": "${GlobalVariables.s3Url}terraform.png",
+    },
     {
       "title": "WebDevelopment",
       "url": "${GlobalVariables.s3Url}EcommerceWebsite.png",
@@ -84,71 +87,74 @@ class _MainPageState extends State<MainPage> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(40.0),
-                  child: Column(
-                    children: [
-                      // Text(
-                      // ),
-                    ],
-                  ),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Builder(
-                    builder: (context) {
-                      return SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, ContactUsScreen.routeName);
-                          },
-                          child: const Text("Contact Us"),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    width: GlobalVariables.kLineHeight,
-                  ),
-                  Builder(
-                    builder: (context) {
-                      return SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, ProjectsScreen.routeName);
-                          },
-                          child: const Text(
-                            "Current Projects",
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Builder(
+                      builder: (context) {
+                        return SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, ServicesScreen.routeName);
+                            },
+                            child: const Text("Featured Services"),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
-                  const SizedBox(
-                    width: GlobalVariables.kLineHeight,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Builder(
+                      builder: (context) {
+                        return SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, ProjectsScreen.routeName);
+                            },
+                            child: const Text(
+                              "Current Projects",
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                  Builder(
-                    builder: (context) {
-                      return SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, ServicesScreen.routeName);
-                          },
-                          child: const Text("Featured Services"),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    width: GlobalVariables.kLineHeight,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Builder(
+                      builder: (context) {
+                        return SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, ContactUsScreen.routeName);
+                            },
+                            child: const Text("Contact Us"),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                width: GlobalVariables.kLineHeight,
+              ),
+              const SizedBox(
+                width: GlobalVariables.kLineHeight,
+              ),
+              const SizedBox(
+                width: GlobalVariables.kLineHeight,
               ),
               const SizedBox(
                 height: 50,

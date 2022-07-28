@@ -33,13 +33,13 @@ class MobileScreenLayout extends StatelessWidget {
                   Builder(
                     builder: (context) {
                       return SizedBox(
-                        width: 140,
+                        width: 150,
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(
                                 context, ContactUsScreen.routeName);
                           },
-                          child: const Text("Contact Us"),
+                          child: const Text("Featured Services"),
                         ),
                       );
                     },
@@ -50,14 +50,14 @@ class MobileScreenLayout extends StatelessWidget {
                   Builder(
                     builder: (context) {
                       return SizedBox(
-                        width: 140,
+                        width: 150,
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(
                                 context, ProjectsScreen.routeName);
                           },
                           child: const Text(
-                            "Our projects.",
+                            "Current Projects",
                           ),
                         ),
                       );
@@ -69,13 +69,13 @@ class MobileScreenLayout extends StatelessWidget {
                   Builder(
                     builder: (context) {
                       return SizedBox(
-                        width: 140,
+                        width: 150,
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(
                                 context, ServicesScreen.routeName);
                           },
-                          child: const Text("Our Services"),
+                          child: const Text("Contact us"),
                         ),
                       );
                     },

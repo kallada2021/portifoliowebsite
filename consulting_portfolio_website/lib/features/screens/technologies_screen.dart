@@ -30,6 +30,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
       return [];
     }
     techList.shuffle();
+    setState(() {});
     return techList;
   }
 

@@ -26,6 +26,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   getProjects() async {
     try {
       projects = await ProjectsService.getProjects(context: context);
+      setState(() {});
     } catch (error) {
       log("error $error");
       isError = true;
@@ -85,6 +86,9 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                           },
                         ),
                       ),
+            const SizedBox(
+              height: 100,
+            ),
           ],
         ),
       ),

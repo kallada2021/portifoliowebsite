@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     libpq-dev
 
-COPY ./requirements .
+COPY ./requirements.txt .
 
 RUN pip wheel --wheel-dir /usr/src/app/wheels \
     -r ${BUILD_ENVIRONMENT}.txt
@@ -40,11 +40,11 @@ COPY --from=python-build-stage /usr/src/app/wheels /wheels/
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
     && rm -rf /wheels/
 
-COPY --chown=django:django entrypoint /entrypoint
+COPY --chown=django:django Entrypoint /entrypoint
 RUN sed -i "s/\r$//g"  /entrypoint
 RUN chmod +x /entrypoint
 
-COPY --chown=django:django start /start
+COPY --chown=django:django Start /start
 RUN sed -i "s/\r$//g"  /start
 RUN chmod +x /start
 
@@ -54,4 +54,4 @@ RUN chown django:django ${APP_HOME}
 
 USER django
 
-ENTRYPOINT [ "/entrypoint" ]
+ENTRYPOINT [ "/Entrypoint" ]
