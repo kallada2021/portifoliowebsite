@@ -67,8 +67,8 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
                           FancyShimmerImage(
                             imageUrl: widget.imageUrl,
                             //width: size.width * 0.22,
-                            height: size.width > 800
-                                ? size.width * 0.12
+                            height: size.width > 900
+                                ? size.width * 0.13
                                 : size.width * 0.2,
                             boxFit: BoxFit.fill,
                           ),

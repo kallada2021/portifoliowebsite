@@ -39,9 +39,9 @@ class ServicesHomeScreen extends StatefulWidget {
     },
     {
       "featuredServices":
-      "Full stack web application deployed using Azure and Asp.Net core ",
+          "Full stack web application deployed using Azure and Asp.Net core ",
       "description":
-      "Frontend website/Mobile App with custom backend on Azure.",
+          "Frontend website/Mobile App with custom backend on Azure.",
       "imageUrl": "${GlobalVariables.s3Url}FullStackonAzure.png"
     }
   ];
@@ -138,9 +138,9 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.4,
+              height: size.height * 0.42,
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: widget.featuredServices.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return FeaturedServiceWidget(

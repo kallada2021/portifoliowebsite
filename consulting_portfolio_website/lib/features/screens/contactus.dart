@@ -149,7 +149,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                                   EdgeInsets.symmetric(horizontal: formPadding),
                               child: CustomTextField(
                                 controller: _messageController,
-                                hintText: "* Your Message",
+                                hintText: "* Message",
                                 inputType: TextInputType.text,
                               ),
                             ),
