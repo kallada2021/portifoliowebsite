@@ -6,7 +6,7 @@ services:
       context: . 
       dockerfile: .
     command: /Start 
-    container_name: productivemuslim 
+    container_name: api
     volumes: 
       - .:/app 
       - static-volume:/app/staticfiles 
