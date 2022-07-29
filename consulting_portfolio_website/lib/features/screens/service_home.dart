@@ -36,6 +36,13 @@ class ServicesHomeScreen extends StatefulWidget {
       "description":
           "Frontend website with custom backend and AWS/Azure hosting.",
       "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png"
+    },
+    {
+      "featuredServices":
+      "Full stack web application deployed using Azure and Asp.Net core ",
+      "description":
+      "Frontend website/Mobile App with custom backend on Azure.",
+      "imageUrl": "${GlobalVariables.s3Url}FullStackonAzure.png"
     }
   ];
   final List<String> imageUrls = [
