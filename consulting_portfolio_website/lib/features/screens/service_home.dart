@@ -16,7 +16,7 @@ class ServicesHomeScreen extends StatefulWidget {
       "featuredServices": "AWS Resources Deployed By Terraform",
       "description":
           "Lambda, RDS database, API Gateway and\ncustom VPC and EC2/Autoscaling",
-      "imageUrl": "${GlobalVariables.s3Url}FullStackOnAWS.png",
+      "imageUrl": "${GlobalVariables.s3Url}AWSWithTerraform.png",
     },
     {
       "featuredServices": "Azure Resources provisioned by Terraform",

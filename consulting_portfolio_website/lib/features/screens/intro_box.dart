@@ -47,11 +47,12 @@ class IntroBox extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               //TODO: Write introduction of our company
-              Text("This is the about us text. This is what we provide"),
+              const Expanded(child: Text("Magnolia IT Solutions (MITS) was founded just over a year ago by a husband and wife dynamic duo.\n Their career paths couldn’t be more different.  "
+                  "Send us a message, let’s chat now!")),
             ],
           )
         ],
