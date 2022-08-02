@@ -138,22 +138,31 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.42,
-              child: ListView.builder(
-                itemCount: widget.featuredServices.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return FeaturedServiceWidget(
-                    featuredServiceName: widget.featuredServices[index]
-                            ["featuredServices"]
-                        .toString(),
-                    serviceDescription: widget.featuredServices[index]
-                            ["description"]
-                        .toString(),
-                    imageUrl:
-                        widget.featuredServices[index]["imageUrl"].toString(),
-                  );
-                },
+              // height: size.height * 0.42,
+              child: GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: size.width > 850 ? 2 : 1,
+                padding: EdgeInsets.zero,
+                childAspectRatio: size.width > 850
+                    ? size.width / (size.height * 1.05)
+                    : size.width / (size.height * 0.45),
+                //scrollDirection: Axis.horizontal,
+                children: List.generate(
+                  widget.featuredServices.length,
+                  (index) {
+                    return FeaturedServiceWidget(
+                      featuredServiceName: widget.featuredServices[index]
+                              ["featuredServices"]
+                          .toString(),
+                      serviceDescription: widget.featuredServices[index]
+                              ["description"]
+                          .toString(),
+                      imageUrl:
+                          widget.featuredServices[index]["imageUrl"].toString(),
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(

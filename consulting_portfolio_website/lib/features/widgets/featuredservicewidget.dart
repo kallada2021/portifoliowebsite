@@ -42,55 +42,51 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            widget.featuredServiceName,
-                            style: const TextStyle(
-                              color: Colors.black87,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                            ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          widget.featuredServiceName,
+                          style: const TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
                           ),
-                          const SizedBox(
-                            height: 6,
-                          ),
-                          FancyShimmerImage(
-                            imageUrl: widget.imageUrl,
-                            //width: size.width * 0.22,
-                            height: size.width > 900
-                                ? size.width * 0.13
-                                : size.width * 0.2,
-                            boxFit: BoxFit.fill,
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                        ],
-                      )
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 6,
+                      ),
+                      FancyShimmerImage(
+                        imageUrl: widget.imageUrl,
+                        //width: size.width * 0.22,
+                        height: size.width > 800
+                            ? size.width * 0.17
+                            : size.width * 0.25,
+                        boxFit: BoxFit.fill,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                     ],
                   ),
-                  //const PriceWidget(),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    widget.serviceDescription,
-                    style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w800,
+                  FittedBox(
+                    child: Text(
+                      widget.serviceDescription,
+                      style: const TextStyle(
+                        color: Colors.black87,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                      // textAlign: TextAlign.justify,
                     ),
-                    textAlign: TextAlign.justify,
                   ),
                   const SizedBox(
                     height: 5,

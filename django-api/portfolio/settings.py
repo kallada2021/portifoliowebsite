@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["localhost"]
 
 CORS_ALLOW_ALL_ORIGINS: True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:58087"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:49745"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -97,6 +97,11 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+
+# DATABASES = {"default": os.getenv("DATABASE_URL", default="postgres://user:password@localhost:5432/portfolio")}
+
+# DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
 # Password validation
