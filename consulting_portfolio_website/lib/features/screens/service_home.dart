@@ -45,10 +45,8 @@ class ServicesHomeScreen extends StatefulWidget {
       "imageUrl": "${GlobalVariables.s3Url}FullStackonAzure.png"
     },
     {
-      "featuredServices":
-      "Mobile application with Push Notifications",
-      "description":
-      "Mobile application with Push Notifications.",
+      "featuredServices": "Mobile application with Push Notifications",
+      "description": "Mobile application with Push Notifications.",
       "imageUrl": "${GlobalVariables.s3Url}MobileAppOnCloud.png"
     }
   ];
@@ -80,7 +78,7 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
       services = await ServicesService.getAllServices(context: context);
       print("Services from widget $services");
     } catch (error) {
-      log("An error occured $error");
+      log("An error occurred $error");
       isError = true;
       errorMsg = "Sorry, an unexpected error occured";
     }
@@ -109,8 +107,11 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
-                        Utils.showPictureBox(context, "Featured Services",
-                            widget.imageUrls[index]);
+                        Utils.showPictureBox(
+                          context,
+                          "Featured Services",
+                          widget.imageUrls[index],
+                        );
                       },
                       child: FancyShimmerImage(
                         imageUrl: widget.imageUrls[index],
@@ -152,7 +153,7 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                 crossAxisCount: size.width > 850 ? 2 : 1,
                 padding: EdgeInsets.zero,
                 childAspectRatio: size.width > 850
-                    ? size.width / (size.height * 1.05)
+                    ? size.width / (size.height * 1.15)
                     : size.width / (size.height * 0.45),
                 //scrollDirection: Axis.horizontal,
                 children: List.generate(

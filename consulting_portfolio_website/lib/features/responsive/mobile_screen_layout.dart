@@ -23,7 +23,10 @@ class MobileScreenLayout extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const IntroBox(),
+              const SizedBox(
+                height: 200,
+                child: IntroBox(),
+              ),
               const SizedBox(
                 height: GlobalVariables.kLineHeight,
               ),

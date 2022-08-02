@@ -1,7 +1,5 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
-
 import '../../constants/utils.dart';
 
 class FeaturedServiceWidget extends StatefulWidget {
@@ -35,7 +33,11 @@ class _FeaturedServiceWidgetState extends State<FeaturedServiceWidget> {
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: () {
-            Utils.showPictureBox(context, "Featured Services", widget.imageUrl);
+            Utils.showPictureBox(
+              context,
+              "Featured Services",
+              widget.imageUrl,
+            );
           },
           onHover: (isHoovered) {},
           child: Padding(

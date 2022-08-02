@@ -84,10 +84,8 @@ class _MainPageState extends State<MainPage> {
                   );
                 }).toList(),
               ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(40.0),
-                ),
+              const SizedBox(
+                height: 40,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

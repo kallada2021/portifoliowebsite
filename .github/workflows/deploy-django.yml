@@ -21,6 +21,10 @@ jobs:
     name: "Deploy Django"
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        shell: bash 
+
     steps:
      # checkout the repo to Github Actions runner
     - name: Checkout 

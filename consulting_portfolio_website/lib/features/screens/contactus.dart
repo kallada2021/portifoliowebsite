@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/constants/utils.dart';
-import 'package:consulting_portfolio_website/features/screens/main_page.dart';
+
 import 'package:consulting_portfolio_website/features/services/contact_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/custombutton.dart';
@@ -262,8 +262,8 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Flexible(
-                child: Container(),
                 flex: 1,
+                child: Container(),
               ),
               const SizedBox(
                 height: 64,
