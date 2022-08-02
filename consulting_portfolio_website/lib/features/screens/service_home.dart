@@ -43,6 +43,13 @@ class ServicesHomeScreen extends StatefulWidget {
       "description":
           "Frontend website/Mobile App with custom backend on Azure.",
       "imageUrl": "${GlobalVariables.s3Url}FullStackonAzure.png"
+    },
+    {
+      "featuredServices":
+      "Mobile application with Push Notifications",
+      "description":
+      "Mobile application with Push Notifications.",
+      "imageUrl": "${GlobalVariables.s3Url}MobileAppOnCloud.png"
     }
   ];
   final List<String> imageUrls = [
