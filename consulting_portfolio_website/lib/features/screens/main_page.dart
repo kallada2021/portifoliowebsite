@@ -1,5 +1,6 @@
 import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/screens/intro_box.dart';
+import 'package:consulting_portfolio_website/features/screens/meet_the_team.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/technologies_screen.dart';
@@ -90,6 +91,25 @@ class _MainPageState extends State<MainPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Builder(
+                      builder: (context) {
+                        return SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                MeetTheTeamScreen.routeName,
+                              );
+                            },
+                            child: const Text("Meet the team"),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Builder(

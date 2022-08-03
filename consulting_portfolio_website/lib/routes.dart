@@ -8,6 +8,8 @@ import 'package:consulting_portfolio_website/features/screens/services_screen.da
 import 'package:consulting_portfolio_website/features/screens/webdev_technologies_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'features/screens/meet_the_team.dart';
+
 Route<dynamic> generateRoutes(RouteSettings routeSettings) {
   switch (routeSettings.name) {
     case ContactUsScreen.routeName:
@@ -49,6 +51,11 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ServicesScreen(),
+      );
+    case MeetTheTeamScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MeetTheTeamScreen(),
       );
     default:
       return MaterialPageRoute(
