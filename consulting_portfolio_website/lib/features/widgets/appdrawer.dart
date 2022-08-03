@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/contactus.dart';
+import 'package:consulting_portfolio_website/features/screens/meet_the_team.dart';
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:flutter/material.dart';
@@ -155,6 +156,24 @@ class _AppDrawerState extends State<AppDrawer> {
                   height: 10,
                   color: Colors.white,
                   thickness: 2,
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.email_outlined,
+                    color: Colors.white,
+                  ),
+                  title: const Text(
+                    "MEET THE TEAM",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      MeetTheTeamScreen.routeName,
+                    );
+                  },
                 ),
               ],
             ),
