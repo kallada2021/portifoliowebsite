@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Contact, Project, Service, Technology
+
+from .models import Contact, MeetTheTeam, Project, Service, Technology
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -14,3 +15,4 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Service)
 admin.site.register(Technology)
 admin.site.register(Project)
+admin.site.register(MeetTheTeam)

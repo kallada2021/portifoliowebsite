@@ -12,4 +12,5 @@ urlpatterns = [
     path("services/<str:pk>", views.servicesDetail, name="solutions"),
     path("contacts/", views.contact, name="contacts"),
     path("create-contact/", views.createContact, name="create-contact"),
+    path("meet-the-team/", views.meetTheTeam, name="meet-the-team"),
 ]

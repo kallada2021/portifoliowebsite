@@ -1,12 +1,11 @@
 from rest_framework import serializers
 
-from .models import Contact, Project, Service, Technology
+from .models import Contact, MeetTheTeam, Project, Service, Technology
 
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        # fields = "__all__"
         fields = [
             "name",
             "email",
@@ -30,4 +29,10 @@ class ProjectSerializer(serializers.ModelSerializer):
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
+        fields = "__all__"
+
+
+class MeetTheTeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MeetTheTeam
         fields = "__all__"

@@ -30,18 +30,23 @@ class Technology(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
 
+
 class MeetTheTeam(models.Model):
-    name = models.CharField("FullName",max_length=100)
-    description = models.TextField("About Me")
+    name = models.CharField("FullName", max_length=100)
+    description = models.TextField("About Me", max_length=1000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = "MeetTheTeam"
-        ordering = ("updated_at",)
+        ordering = (
+            "updated_at",
+            "name",
+        )
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.name}"
+
 
 class Service(models.Model):
     type = models.CharField(verbose_name="service type", max_length=100)
@@ -63,7 +68,7 @@ class Project(models.Model):
     name = models.CharField(verbose_name="project name", max_length=100)
     description = models.TextField(max_length=1000)
     technologies = models.ManyToManyField(Technology, "projects", verbose_name="technologies")
-    image_url = models.TextField(max_length=300)
+    image_url = models.TextField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

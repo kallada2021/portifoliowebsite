@@ -17,17 +17,43 @@ class MeetTheTeamScreen extends StatelessWidget {
       appBar: customAppBar(context),
       drawer: size.width > 1000.0 ? null : const AppDrawer(),
       bottomSheet: const Footer(),
-      body: Column(
-        children: const [
-          Text(
-            "Meet the team",
-            style: GlobalVariables.kTechPageTitleStyle,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text("This is where the info about team members go!!"),
-        ],
+      body: Center(
+        child: Column(
+          children: const [
+            Text(
+              "Meet the team",
+              style: GlobalVariables.kTechPageTitleStyle,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Team Member One",
+              style: TextStyle(
+                color: Colors.black45,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "This is where the info about team members go!!",
+              style: TextStyle(
+                color: Colors.black45,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Divider(
+              thickness: 2,
+              height: 3,
+              color: Colors.deepPurple,
+            ),
+          ],
+        ),
       ),
     );
   }
