@@ -21,7 +21,7 @@ class Contact(models.Model):
 class Technology(models.Model):
     name = models.CharField("technology name", max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = "technologies"
@@ -30,6 +30,18 @@ class Technology(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
 
+class MeetTheTeam(models.Model):
+    name = models.CharField("FullName",max_length=100)
+    description = models.TextField("About Me")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = "MeetTheTeam"
+        ordering = ("updated_at",)
+
+    def __str__(self) -> str:
+        return self.name
 
 class Service(models.Model):
     type = models.CharField(verbose_name="service type", max_length=100)
