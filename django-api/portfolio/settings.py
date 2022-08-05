@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["localhost"]
 
 CORS_ALLOW_ALL_ORIGINS: True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:58128"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:57384"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",

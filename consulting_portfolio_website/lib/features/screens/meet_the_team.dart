@@ -23,9 +23,22 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
       appBar: customAppBar(context),
       drawer: size.width > 1000.0 ? null : const AppDrawer(),
       bottomSheet: const Footer(),
-      body: const MeetTheTeamWidget(
-        descriptionText: "Description of a team member",
-        nameText: "Team Member One",
+      body: Column(
+        children: const [
+          MeetTheTeamWidget(
+            descriptionText: "Description of a team member",
+            nameText: "Director",
+          ),
+          MeetTheTeamWidget(
+            nameText: "Lead Architect",
+            descriptionText: "Description of a team member",),
+          MeetTheTeamWidget(
+              nameText: "Project Manager",
+              descriptionText: "Description of a team member",),
+          MeetTheTeamWidget(
+            nameText: "Development Team",
+            descriptionText: "Description of a team member",),
+        ],
       ),
     );
   }
