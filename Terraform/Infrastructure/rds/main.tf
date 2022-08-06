@@ -9,18 +9,18 @@ resource "aws_db_instance" "main-db" {
   identifier        = "main-db"
   db_name           = var.db-name
   storage_encrypted = true
-  kms_key_id        = aws_kms_key.kms-key.arn //TODO: Add KMS key resoure
+  kms_key_id        = aws_kms_key.portifoliodbkey.arn 
   apply_immediately = true
 
   allocated_storage       = 20    # disk space
   storage_type            = "gp2" # entry level general purpose
   engine                  = "postgres"
   engine_version          = "13.1"
-  instance_class          = var.db-instance-type //TODO: decide instance type
+  instance_class          = var.db-instance-type 
   db_subnet_group_name    = aws_db_subnet_group.db-main.name
   password                = var.db-password
   username                = var.db-username
-  backup_retention_period = var.backup-days # backup days
+  backup_retention_period = var.backup-days 
   multi_az                = false           // true for production
   skip_final_snapshot     = true            // false for production
   vpc_security_group_ids  = [aws_security_group.rds-sg.id]
@@ -41,4 +41,30 @@ resource "aws_security_group" "rds-sg" {
   }
 
   tags = var.common-tags
+}
+
+#Added Glacier resource for archiving
+resource "aws_glacier_vault" "portifoliodb-archive" {
+  name = "portifoliodb-archive"
+  access_policy = <<EOF
+{
+    "Version":"2012-10-17",
+    "Statement":[
+       {
+          "Sid": "add-read-only-perm",
+          "Principal": "*",
+          "Effect": "Allow",
+          "Action": [
+             "glacier:InitiateJob",
+             "glacier:GetJobOutput"
+          ],
+          "Resource": "${aws_glacier_vault.portifoliodb-archive.arn}"
+       }
+    ]
+}
+EOF
+
+  tags = {
+    Name = aws_glacier_vault.portifoliodb-archive.name
+  }
 }
