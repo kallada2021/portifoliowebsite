@@ -45,7 +45,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;
     return Scaffold(
-      drawer: size.width > 1000.0 ? null : const AppDrawer(),
+      // drawer: size.width > 1000.0 ? null : const AppDrawer(),
       appBar: customAppBar(context),
       bottomSheet: const Footer(),
       body: SingleChildScrollView(

@@ -28,7 +28,6 @@ List<String> devopsTechnologies = [
   "Terraform",
   "Azure Devops",
   "Jenkins",
-  "Kubernetes",
   "Github Actions",
 ];
 

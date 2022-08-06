@@ -75,6 +75,9 @@ class _AppDrawerState extends State<AppDrawer> {
                     ),
                   ),
                   onTap: () {
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
                     Navigator.pushNamed(
                       context,
                       MainPage.routeName,
@@ -159,7 +162,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 ),
                 ListTile(
                   leading: const Icon(
-                    Icons.email_outlined,
+                    Icons.people_outline_sharp,
                     color: Colors.white,
                   ),
                   title: const Text(
@@ -174,6 +177,11 @@ class _AppDrawerState extends State<AppDrawer> {
                       MeetTheTeamScreen.routeName,
                     );
                   },
+                ),
+                const Divider(
+                  height: 10,
+                  color: Colors.white,
+                  thickness: 2,
                 ),
               ],
             ),

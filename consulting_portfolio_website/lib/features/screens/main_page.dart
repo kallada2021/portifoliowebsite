@@ -55,7 +55,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;
     return Scaffold(
-      drawer: size.width > 1000 ? null : const AppDrawer(),
+      drawer: size.width > 1050 ? null : const AppDrawer(),
       appBar: customAppBar(context),
       bottomSheet: const Footer(),
       body: Center(
@@ -119,7 +119,9 @@ class _MainPageState extends State<MainPage> {
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(
-                                  context, ServicesScreen.routeName);
+                                context,
+                                ServicesScreen.routeName,
+                              );
                             },
                             child: const Text("Featured Services"),
                           ),
