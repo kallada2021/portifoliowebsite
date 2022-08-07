@@ -8,7 +8,7 @@ class IntroBox extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: 150,
+      height: 200,
       width: double.infinity,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -51,16 +51,18 @@ class IntroBox extends StatelessWidget {
               const SizedBox(
                 height: 10.0,
               ),
-              SizedBox(
-                width: size.width > 800 ? 500 : 350,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Magnolia IT Solutions (MITS) was founded just over a year ago by a husband and wife dynamic duo.\n Their career paths couldn’t be more different.  "
-                    "Send us a message, let’s chat now!",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+              Center(
+                child: SizedBox(
+                  width: size.width > 800 ? 500 : 350,
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      "Magnolia IT Solutions (MITS) was founded just over a year ago by a husband and wife dynamic duo.\n Their career paths couldn’t be more different.  "
+                      "Send us a message, let’s chat now!",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),

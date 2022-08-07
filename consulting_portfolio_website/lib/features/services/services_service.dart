@@ -30,10 +30,17 @@ class ServicesService {
       }
       return Services.servicesFromJSON(tempList);
     } catch (e) {
-      showSnackBar(context, e.toString(), Colors.red);
-      log("An error occurred $e");
-      throw e.toString();
+      log("An error occurred ${e.toString()}");
+      if (e.toString().contains("XMLHttp")) {
+        showSnackBar(
+            context, "Please check your internet connection", Colors.red);
+      } else {
+        showSnackBar(context, e.toString(), Colors.red);
+        throw e.toString();
+      }
+      return [];
     }
+    //isLoading = false;
   }
 
   // getServicesByID gets a solution by ID from backend api

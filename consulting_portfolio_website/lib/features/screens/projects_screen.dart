@@ -59,6 +59,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                         errorMsg,
                         style: const TextStyle(
                           color: Colors.red,
+                          fontSize: 20,
                         ),
                       ),
                     ),

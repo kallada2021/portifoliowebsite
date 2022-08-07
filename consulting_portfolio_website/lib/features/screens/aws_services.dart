@@ -12,7 +12,7 @@ class AWSServicesScreen extends StatelessWidget {
       "service": "AWS",
       "title": "EC2",
       "description":
-          "Deploy an application to a Linux or Windows EC2 virtual server with a custom VPC, Subnets, Security Groups, Routetables as well as Autoscaling, and a custom launch template backed by an Application Load Balancer.."
+          "Deploy your application to a customizable EC2 virtual machine instance and integrate it with other infrastructure."
     },
     {
       "service": "AWS",
@@ -24,14 +24,14 @@ class AWSServicesScreen extends StatelessWidget {
       "service": "AWS",
       "title": "Lambdas",
       "description":
-          "Serverless lambda. AWS Lambdas could be invoked by an event generated from other AWS Services like API Gateway, "
-              "Simple Queue Services, Simple Notification Services or a REST call from a web application",
+          "Lambda code can run on AWS when invoked from an AWS resource such as"
+              " Simple Queue Services, Simple Notification Services or an API call from a web application",
     },
     {
       "service": "AWS",
       "title": "EKS Kubernetes",
       "description":
-          "Deploy an application to a scalable managed Kubernetes cluster.",
+          "Deploy an application or microservice with load balancing and routing to a scalable managed Kubernetes cluster.",
     },
     {
       "service": "AWS",
@@ -67,32 +67,38 @@ class AWSServicesScreen extends StatelessWidget {
                         screenWidth > 1200 ? 240 / 160 : 200 / 120,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    children: List.generate(serviceInfo.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ServicesCard(
-                          title: serviceInfo[index]["title"],
-                          description: serviceInfo[index]["description"],
-                          service: serviceInfo[index]["service"],
-                        ),
-                      );
-                    }),
+                    children: List.generate(
+                      serviceInfo.length,
+                      (index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ServicesCard(
+                            title: serviceInfo[index]["title"],
+                            description: serviceInfo[index]["description"],
+                            service: serviceInfo[index]["service"],
+                          ),
+                        );
+                      },
+                    ),
                   )
                 : GridView.count(
                     crossAxisCount: 1,
                     childAspectRatio: 240 / 100,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    children: List.generate(serviceInfo.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ServicesCard(
-                          title: serviceInfo[index]["title"],
-                          description: serviceInfo[index]["description"],
-                          service: serviceInfo[index]["service"],
-                        ),
-                      );
-                    }),
+                    children: List.generate(
+                      serviceInfo.length,
+                      (index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ServicesCard(
+                            title: serviceInfo[index]["title"],
+                            description: serviceInfo[index]["description"],
+                            service: serviceInfo[index]["service"],
+                          ),
+                        );
+                      },
+                    ),
                   ),
           ),
         ),

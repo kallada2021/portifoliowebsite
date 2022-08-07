@@ -57,7 +57,7 @@ class WebTechnologiesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Javascript",
+                    "Javascript/Typescript",
                     style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -70,7 +70,7 @@ class WebTechnologiesScreen extends StatelessWidget {
                     color: Colors.amber[300],
                     child: const Icon(
                       Icons.javascript_outlined,
-                      size: 45,
+                      size: 50,
                     ),
                   ),
                 ],
