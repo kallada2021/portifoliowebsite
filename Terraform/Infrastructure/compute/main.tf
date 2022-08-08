@@ -33,7 +33,6 @@ resource "aws_security_group" "ec2-sg" {
     from_port   = 5432
     to_port     = 5432
     cidr_blocks = var.private-subnets
-
   }
 }
 
@@ -42,8 +41,22 @@ resource "aws_instance" "webserver" {
   ami           = "ami-052efd3df9dad4825"
   instance_type = "t2.micro"
   subnet_id = var.subnet
-
+  ebs_block_device {
+    device_name = "/dev/pda1"
+    volume_size = 30
+    volume_type = "gp2"
+    delete_on_termination = false
+  }
   tags = {
     Name = "PortfolioWebServer"
+  }
+}
+
+resource "aws_cloudwatch_log_group" "portifolio-loggroup" {
+  name = "portifolio-ec2-loggroup"
+  retention_in_days = 30
+  tags = {
+    Environment = "production"
+    Application = "portifoliowebsite"
   }
 }
