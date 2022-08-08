@@ -28,9 +28,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: portfolio-api
-    depends_on: 
-      - api 
+      POSTGRES_DB: portfolio
     networks:
       - portfolio-website
 

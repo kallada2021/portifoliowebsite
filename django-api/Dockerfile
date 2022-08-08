@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./requirements.txt .
 
 RUN pip wheel --wheel-dir /usr/src/app/wheels \
-    -r ${BUILD_ENVIRONMENT}.txt
+    -r requirements.txt
 
 FROM python as python-run-stage
 
@@ -40,13 +40,13 @@ COPY --from=python-build-stage /usr/src/app/wheels /wheels/
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
     && rm -rf /wheels/
 
-COPY --chown=django:django Entrypoint /entrypoint
-RUN sed -i "s/\r$//g"  /entrypoint
-RUN chmod +x /entrypoint
+COPY --chown=django:django Entrypoint /Entrypoint
+RUN sed -i "s/\r$//g"  /Entrypoint
+RUN chmod +x /Entrypoint
 
-COPY --chown=django:django Start /start
-RUN sed -i "s/\r$//g"  /start
-RUN chmod +x /start
+COPY --chown=django:django Start /Start
+RUN sed -i "s/\r$//g"  /Start
+RUN chmod +x /Start
 
 COPY --chown=django:django . ${APP_HOME}
 
