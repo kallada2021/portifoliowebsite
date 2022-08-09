@@ -12,3 +12,9 @@ module "compute" {
   private-subnets = module.networking.private-subnets
   subnet          = module.networking.public-subnets[0]
 }
+
+module "alb" {
+  source = "./alb"
+  vpc-id = module.networking.vpc-id
+  public-subnets = module.networking.public-subnets
+}
