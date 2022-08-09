@@ -14,7 +14,7 @@ resource "aws_subnet" "PublicSubnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "Portifolio Public Subnet.${count.index}"
+    Name = "Portifolio Public Subnet-${count.index}"
   }
 }
 
@@ -26,7 +26,7 @@ resource "aws_subnet" "PrivateSubnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "Portifolio Private Subnet.${count.index}"
+    Name = "Portifolio Private Subnet-${count.index}"
   }
 }
 
