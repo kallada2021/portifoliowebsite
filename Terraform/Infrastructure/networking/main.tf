@@ -26,19 +26,19 @@ resource "aws_subnet" "PrivateSubnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "Portifolio Private Subnet-${count.index}"
+    Name = "Portfolio Private Subnet-${count.index}"
   }
 }
 
-resource "aws_internet_gateway" "PortifolioGW" {
+resource "aws_internet_gateway" "PortfolioGW" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "PortifolioGateway"
+    Name = "PortfolioGateway"
   }
 }
 
-resource "aws_route_table" "portifolio-public-rt" {
+resource "aws_route_table" "portfolio-public-rt" {
   vpc_id = aws_vpc.main.id
 
   tags = {
@@ -46,16 +46,16 @@ resource "aws_route_table" "portifolio-public-rt" {
   }
 }
 
-resource "aws_route" "portifolio-public-route" {
-  route_table_id         = aws_route_table.portifolio-public-rt.id
+resource "aws_route" "portfolio-public-route" {
+  route_table_id         = aws_route_table.portfolio-public-rt.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.PortifolioGW.id
+  gateway_id             = aws_internet_gateway.PortfolioGW.id
 }
 
-resource "aws_route_table_association" "portifolio-rt-assoc" {
+resource "aws_route_table_association" "portfolio-rt-assoc" {
   count          = 2
   subnet_id      = aws_subnet.PublicSubnet[count.index].id
-  route_table_id = aws_route_table.portifolio-public-rt.id
+  route_table_id = aws_route_table.portfolio-public-rt.id
 }
 
 /* resource "aws_nat_gateway" "portifolio-nat-gateway" {
