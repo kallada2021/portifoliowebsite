@@ -112,6 +112,33 @@ class DevopsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
+                    "AWS CDK",
+                    style: GlobalVariables.kTechNameStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: Image.network(
+                      "${GlobalVariables.s3Url}AWS.png",
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TechDescriptionCard(
+                  descriptionText: cdkIntro,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
                     "Kubernetes",
                     style: GlobalVariables.kTechNameStyle,
                     textAlign: TextAlign.center,

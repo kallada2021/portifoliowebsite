@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["localhost"]
 
 CORS_ALLOW_ALL_ORIGINS: True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:50248"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:51261"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -99,7 +99,16 @@ DATABASES = {
 }
 
 
-# DATABASES = {"default": os.getenv("DATABASE_URL", default="postgres://user:password@localhost:5432/portfolio")}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": os.getenv("POSTGRES_DB"),
+#         "USER": os.getenv("POSTGRES_USER"),
+#         "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+#         "HOST": os.getenv("POSTGRES_HOST"),
+#         "PORT": "5432",
+#     }
+# }
 
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 

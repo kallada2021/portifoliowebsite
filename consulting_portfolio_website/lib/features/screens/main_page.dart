@@ -88,6 +88,15 @@ class _MainPageState extends State<MainPage> {
               const SizedBox(
                 height: 40,
               ),
+              Center(
+                child: Text(
+                  "Learn more about us",
+                  style: GlobalVariables.kTechNameStyle,
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

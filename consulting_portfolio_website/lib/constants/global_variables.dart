@@ -12,13 +12,14 @@ class GlobalVariables {
     1.0
   ]);
 
-  static var kSecondaryColor = Colors.purple[700]!;
-  static const kBackgroundColor = Colors.white;
-  static var kGrayBackgroundColor = Colors.blueGrey[200]!;
-  static var kLightBlue = Colors.blue[200];
-  static var kSelectedNavBarColor = Colors.cyan[800]!;
-  static const unselectedNavBarColor = Colors.teal;
+  static Color kSecondaryColor = Colors.purple[700]!;
+  static Color kBackgroundColor = Colors.white;
+  static Color kGrayBackgroundColor = Colors.blueGrey[200]!;
+  static Color kLightBlue = Colors.blue[200]!;
+  static Color kSelectedNavBarColor = Colors.cyan[800]!;
+  static const Color unselectedNavBarColor = Colors.teal;
   static Color kBorderColor = Colors.deepPurple[800]!;
+  static Color kCardBackgroundColor = Colors.purple[100]!;
 
   static const kLineHeight = 30.0;
   static const kLineWidth = 40.0;

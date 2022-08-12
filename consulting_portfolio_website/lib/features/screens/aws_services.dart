@@ -12,7 +12,7 @@ class AWSServicesScreen extends StatelessWidget {
       "service": "AWS",
       "title": "EC2",
       "description":
-          "Deploy your application to a customizable EC2 virtual machine instance and integrate it with other infrastructure."
+          "Deploy your application to a customizable EC2 virtual machine instance and integrate it with other AWS infrastructure."
     },
     {
       "service": "AWS",
@@ -24,8 +24,7 @@ class AWSServicesScreen extends StatelessWidget {
       "service": "AWS",
       "title": "Lambdas",
       "description":
-          "Lambda code can run on AWS when invoked from an AWS resource such as"
-              " Simple Queue Services, Simple Notification Services or an API call from a web application",
+          "Lambdas can be created as Python, Javascript or Golang code as a serverless API and run when invoked by another AWS resource or outside application saving you costs and time.",
     },
     {
       "service": "AWS",

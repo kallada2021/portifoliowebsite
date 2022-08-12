@@ -14,7 +14,15 @@ module "compute" {
 }
 
 module "alb" {
-  source = "./alb"
-  vpc-id = module.networking.vpc-id
+  source         = "./alb"
+  vpc-id         = module.networking.vpc-id
   public-subnets = module.networking.public-subnets
+}
+
+module "rds" {
+  source          = "./rds"
+  private-subnets = module.networking.private-subnets
+  db-name         = var.db-name
+  db-password     = var.db-password
+  db-username     = var.db-username
 }

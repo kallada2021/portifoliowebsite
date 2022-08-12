@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   }
 }
 
-resource "aws_subnet" "PublicSubnet" {
+resource "aws_subnet" "public-subnets" {
   count                   = 2
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_cidr_blocks[count.index]
@@ -18,7 +18,7 @@ resource "aws_subnet" "PublicSubnet" {
   }
 }
 
-resource "aws_subnet" "PrivateSubnet" {
+resource "aws_subnet" "private-subnets" {
   count                   = 2
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.private_cidr_blocks[count.index]
@@ -30,7 +30,7 @@ resource "aws_subnet" "PrivateSubnet" {
   }
 }
 
-resource "aws_internet_gateway" "PortfolioGW" {
+resource "aws_internet_gateway" "portfolio-gw" {
   vpc_id = aws_vpc.main.id
 
   tags = {

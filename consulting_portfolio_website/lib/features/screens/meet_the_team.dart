@@ -50,6 +50,9 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
       bottomSheet: const Footer(),
       body: Column(
         children: const [
+          SizedBox(
+            height: 10,
+          ),
           MeetTheTeamWidget(
             descriptionText: "Description of a team member",
             nameText: "Director",
@@ -57,7 +60,7 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
           MeetTheTeamWidget(
             nameText: "Lead Architect",
             descriptionText:
-                "Lead designer and developer of software.  He enjoys working with different"
+                "Lead designer and developer of software.  He enjoys working with different "
                 "technologies and developing different types of products and solutions.",
           ),
           MeetTheTeamWidget(

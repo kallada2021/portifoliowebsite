@@ -3,7 +3,6 @@ import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
-import '../../constants/constants.dart';
 import '../screens/contactus.dart';
 import '../screens/projects_screen.dart';
 import '../screens/services_screen.dart';
