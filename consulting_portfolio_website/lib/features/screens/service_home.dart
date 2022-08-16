@@ -65,8 +65,10 @@ class ServicesHomeScreen extends StatefulWidget {
 
 class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
   List<Services>? services;
+  bool isLoading = false;
   bool isError = false;
   String errorMsg = "";
+
   @override
   void didChangeDependencies() {
     getFeaturedServices();
@@ -75,12 +77,16 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
 
   getFeaturedServices() async {
     try {
+      isLoading = true;
       services = await ServicesService.getAllServices(context: context);
       print("Services from widget $services");
+      setState(() {});
+      isLoading = false;
     } catch (error) {
       log("An error occurred $error");
       isError = true;
-      errorMsg = "Sorry, an unexpected error occured";
+      errorMsg = "Oops! We are having problems reaching our servers.";
+      setState(() {});
     }
   }
 
@@ -147,31 +153,67 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
             ),
             SizedBox(
               // height: size.height * 0.42,
-              child: GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: size.width > 850 ? 2 : 1,
-                padding: EdgeInsets.zero,
-                childAspectRatio: size.width > 850
-                    ? size.width / (size.height * 1.15)
-                    : size.width / (size.height * 0.45),
-                //scrollDirection: Axis.horizontal,
-                children: List.generate(
-                  widget.featuredServices.length,
-                  (index) {
-                    return FeaturedServiceWidget(
-                      featuredServiceName: widget.featuredServices[index]
-                              ["featuredServices"]
-                          .toString(),
-                      serviceDescription: widget.featuredServices[index]
-                              ["description"]
-                          .toString(),
-                      imageUrl:
-                          widget.featuredServices[index]["imageUrl"].toString(),
-                    );
-                  },
-                ),
-              ),
+              child: isError
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 100.0),
+                      child: Center(
+                        child: Text(
+                          errorMsg,
+                          style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    )
+                  : isLoading
+                      ? Padding(
+                          padding: const EdgeInsets.only(top: 100.0),
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: GlobalVariables.kSecondaryColor,
+                            ),
+                          ),
+                        )
+                      : GridView.count(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          crossAxisCount: size.width > 850 ? 2 : 1,
+                          padding: EdgeInsets.zero,
+                          childAspectRatio: size.width > 850
+                              ? size.width / (size.height * 1.15)
+                              : size.width / (size.height * 0.45),
+                          //scrollDirection: Axis.horizontal,
+                          children: List.generate(
+                            services!.length,
+                            (index) {
+                              print("services ${services![index].description}");
+
+                              return FeaturedServiceWidget(
+                                featuredServiceName:
+                                    services![index].type ?? "",
+                                serviceDescription:
+                                    services![index].description ?? "",
+                                imageUrl: services![index].imageUrl ?? "",
+                              );
+                            },
+                          ),
+                          // children: List.generate(
+                          //   widget.featuredServices.length,
+                          //   (index) {
+                          //     return FeaturedServiceWidget(
+                          //       featuredServiceName: widget.featuredServices[index]
+                          //               ["featuredServices"]
+                          //           .toString(),
+                          //       serviceDescription: widget.featuredServices[index]
+                          //               ["description"]
+                          //           .toString(),
+                          //       imageUrl:
+                          //           widget.featuredServices[index]["imageUrl"].toString(),
+                          //     );
+                          //   },
+                          // ),
+                        ),
             ),
             const SizedBox(
               height: 20,

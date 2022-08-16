@@ -42,7 +42,7 @@ class Services with ChangeNotifier {
     type = json["type"];
     description = json["description"];
     technologies = json["technologies"];
-    imageUrl = json["imageUrl"];
+    imageUrl = json["image_url"];
   }
   Services copyWith({
     int? id,
