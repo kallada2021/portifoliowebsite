@@ -1,7 +1,6 @@
 import json
 import logging
 import os
-import random
 from datetime import datetime
 from email import message
 from http import client
@@ -12,8 +11,9 @@ from botocore.exceptions import ClientError
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-RECIPIENT = "paremodelingautomation@gmail.com"
-AWS_REGION = "us-east-1"
+RECIPIENT = os.environ["RECIPIENT"]
+AWS_REGION = os.environ["AWS_REGION"]
+
 client = boto3.client("ses")
 
 

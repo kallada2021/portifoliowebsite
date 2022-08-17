@@ -1,4 +1,3 @@
-
 resource "aws_security_group" "ec2-sg" {
   description = "Control ec2 inbound and outbound access"
   name        = "Portfolio EC2 Security Group"
@@ -36,15 +35,15 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
-// Provisioning ec2
+// Provision ec2
 resource "aws_instance" "webserver" {
   ami           = "ami-052efd3df9dad4825"
-  instance_type = "t2.micro"
-  subnet_id = var.subnet
+  instance_type = var.instance-type
+  subnet_id     = var.subnet
   ebs_block_device {
-    device_name = "/dev/pda1"
-    volume_size = 30
-    volume_type = "gp2"
+    device_name           = "/dev/pda1"
+    volume_size           = 30
+    volume_type           = "gp2"
     delete_on_termination = false
   }
   tags = {
@@ -53,7 +52,7 @@ resource "aws_instance" "webserver" {
 }
 
 resource "aws_cloudwatch_log_group" "portifolio-loggroup" {
-  name = "portifolio-ec2-loggroup"
+  name              = "portifolio-ec2-loggroup"
   retention_in_days = 30
   tags = {
     Environment = "production"
