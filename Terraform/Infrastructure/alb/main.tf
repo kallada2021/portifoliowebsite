@@ -51,3 +51,25 @@ resource "aws_lb" "portfolio-alb" {
   }
 }
 
+resource "aws_lb_target_group" "portfolio-alb-tg" {
+  name = "portfolio-tg"
+  port = local.http_port
+  protocol = local.http_protocol
+  vpc_id = var.vpc_id
+}
+
+resource "aws_lb_listener" "portfolio-listener" {
+  load_balancer_arn = aws_lb.portfolio-alb.arn
+  port = local.https_port
+  protocol = local.https_protocol
+  ssl_policy = var.ssl_policy
+  certificate_arn = var.certificate_arn
+  default_action {
+    type = var.listener_type
+    target_group_arn = aws_lb_target_group.portfolio-alb-tg.arn
+  }
+  depends_on = [aws_lb.portfolio-alb, aws_lb_target_group.portfolio-alb-tg]
+  tags = {
+    Name = "https-listener"
+  }
+}
