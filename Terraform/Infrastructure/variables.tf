@@ -17,3 +17,17 @@ variable "db-username" {
 variable "db-password" {
   description = "Password for RDS postgres DB"
 }
+
+variable "ssl_policy" {
+    type = string
+    default = "ELBSecurityPolicy-2016-08"
+}
+
+variable "certificate_arn" {
+    type = string
+}
+
+variable "listener_type" {
+    type = string
+    default = "forward"
+}
