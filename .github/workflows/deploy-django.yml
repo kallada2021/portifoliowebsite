@@ -78,8 +78,8 @@ jobs:
         JWT_KEY: ${{ secrets.JWT_KEY }} 
       run: |
         cd django-api
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
 
     - name: Build, tag, and push NGINX image to Amazon ECR
       id: build-nginx
@@ -90,6 +90,23 @@ jobs:
       run: |
         cd django-api
         cd nginx
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
+
+    - name: Pull Django container to EC2
+      uses: shimataro/ssh-key-action@v2
+      with: 
+        known_hosts: $${{secrets.KNOWN_HOSTS}}
+        name: id_rsa
+        key: ${{secrets.SSH_KEY}}
+    - name: Run docker compose
+      run: |
+        docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+        docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
+        git checkout master 
+        git fetch origin
+        docker compose -f docker-compose.prod.yml down -v
+        cd django-api
+        docker compose -f docker-compose.prod.yml up -d
+
         

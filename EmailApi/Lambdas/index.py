@@ -11,8 +11,8 @@ from botocore.exceptions import ClientError
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-RECIPIENT = os.environ["RECIPIENT"]
-AWS_REGION = os.environ["AWS_REGION"]
+RECIPIENT = os.getenv("RECIPIENT")
+AWS_REGION = os.getenv("AWS_REGION")
 
 client = boto3.client("ses")
 
