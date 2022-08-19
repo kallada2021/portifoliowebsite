@@ -25,7 +25,6 @@ resource "aws_security_group" "portfolio-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-
   egress {
     from_port        = 0
     to_port          = 0
@@ -52,11 +51,35 @@ resource "aws_lb" "portfolio-alb" {
 }
 
 resource "aws_lb_target_group" "portfolio-alb-tg" {
-  name     = "portfolio-tg"
-  port     = local.http_port
-  protocol = local.http_protocol
-  vpc_id   = var.vpc_id
+  name        = "portfolio-tg"
+  port        = local.server_port
+  protocol    = local.http_protocol
+  vpc_id      = var.vpc_id
+  target_type = "ip"
+
+  health_check {
+    path = "/" # checks application to see if it is running
+  }
 }
+
+# entry point
+resource "aws_lb_listener" "http-listener" {
+  load_balancer_arn = aws_lb.loadbalancer.arn
+  port              = local.http_port
+  protocol          = local.http_protocol
+
+  //production
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = local.https_port
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
+
 
 resource "aws_lb_listener" "portfolio-listener" {
   load_balancer_arn = aws_lb.portfolio-alb.arn
@@ -72,4 +95,10 @@ resource "aws_lb_listener" "portfolio-listener" {
   tags = {
     Name = "https-listener"
   }
+}
+
+resource "aws_lb_target_group_attachment" "mtc-tg-attach" {
+  target_group_arn = aws_lb_target_group.portfolio-alb-tg.arn
+  target_id        = var.ec2-id
+  port             = local.server_port
 }

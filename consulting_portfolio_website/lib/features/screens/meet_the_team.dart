@@ -23,6 +23,7 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
   List<MeetTheTeam> teamMembers = [];
   bool isError = false;
   String errorMsg = "";
+  bool isLoading = false;
 
   @override
   void didChangeDependencies() {
@@ -32,12 +33,16 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
 
   getTeamMembers() async {
     try {
+      isLoading = true;
       teamMembers = await MeetTheTeamService.getTeamMembers(context: context);
       print("Services from widget $teamMembers");
+      setState(() {});
+      isLoading = false;
     } catch (error) {
       log("An error occurred $error");
       isError = true;
       errorMsg = "Sorry, an unexpected error occurred";
+      setState(() {});
     }
   }
 
@@ -48,31 +53,53 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
       appBar: customAppBar(context),
       // drawer: size.width > 1000.0 ? null : const AppDrawer(),
       bottomSheet: const Footer(),
-      body: Column(
-        children: const [
-          SizedBox(
-            height: 10,
-          ),
-          MeetTheTeamWidget(
-            descriptionText: "Description of a team member",
-            nameText: "Director",
-          ),
-          MeetTheTeamWidget(
-            nameText: "Lead Architect",
-            descriptionText:
-                "Lead designer and developer of software.  He enjoys working with different "
-                "technologies and developing different types of products and solutions.",
-          ),
-          MeetTheTeamWidget(
-            nameText: "Project Manager",
-            descriptionText: "Description of a team member",
-          ),
-          MeetTheTeamWidget(
-            nameText: "Development Team",
-            descriptionText: "Description of a team member",
-          ),
-        ],
-      ),
+      body: isError
+          ? Padding(
+              padding: const EdgeInsets.only(top: 100.0),
+              child: Center(
+                child: Text(
+                  errorMsg,
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            )
+          : isLoading
+              ? Padding(
+                  padding: const EdgeInsets.all(100.0),
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: GlobalVariables.kSecondaryColor,
+                    ),
+                  ),
+                )
+              : Column(
+                  children: const [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    MeetTheTeamWidget(
+                      descriptionText: "Description of a team member",
+                      nameText: "Director",
+                    ),
+                    MeetTheTeamWidget(
+                      nameText: "Lead Architect",
+                      descriptionText:
+                          "Lead designer and developer of software.  He enjoys working with different "
+                          "technologies and developing different types of products and solutions.",
+                    ),
+                    MeetTheTeamWidget(
+                      nameText: "Project Manager",
+                      descriptionText: "Description of a team member",
+                    ),
+                    MeetTheTeamWidget(
+                      nameText: "Development Team",
+                      descriptionText: "Description of a team member",
+                    ),
+                  ],
+                ),
     );
   }
 }

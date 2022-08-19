@@ -17,6 +17,7 @@ module "alb" {
   source         = "./alb"
   vpc-id         = module.networking.vpc-id
   public-subnets = module.networking.public-subnets
+  ec2-id         = module.compute.ec2-id
 }
 
 module "rds" {

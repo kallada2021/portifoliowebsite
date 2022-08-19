@@ -39,7 +39,9 @@ resource "aws_security_group" "ec2-sg" {
 resource "aws_instance" "webserver" {
   ami           = "ami-052efd3df9dad4825"
   instance_type = var.instance-type
+  key_name      = aws_key_pair.sshkey.id
   subnet_id     = var.subnet
+
   ebs_block_device {
     device_name           = "/dev/pda1"
     volume_size           = 30
@@ -64,3 +66,4 @@ resource "aws_cloudwatch_log_group" "portifolio-loggroup" {
     Application = "portifoliowebsite"
   }
 }
+
