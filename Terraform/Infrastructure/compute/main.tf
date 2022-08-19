@@ -51,6 +51,11 @@ resource "aws_instance" "webserver" {
   }
 }
 
+resource "aws_key_pair" "sshkey" {
+  key_name   = "magnoliaitsolutions"
+  public_key = file("${path.module}/keypair/magnoliaitsolutions.pem")
+}
+
 resource "aws_cloudwatch_log_group" "portifolio-loggroup" {
   name              = "portifolio-ec2-loggroup"
   retention_in_days = 30
