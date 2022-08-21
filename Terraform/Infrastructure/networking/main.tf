@@ -49,12 +49,12 @@ resource "aws_route_table" "portfolio-public-rt" {
 resource "aws_route" "portfolio-public-route" {
   route_table_id         = aws_route_table.portfolio-public-rt.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.PortfolioGW.id
+  gateway_id             = aws_internet_gateway.portfolio-gw.id
 }
 
 resource "aws_route_table_association" "portfolio-rt-assoc" {
   count          = 2
-  subnet_id      = aws_subnet.PublicSubnet[count.index].id
+  subnet_id      = aws_subnet.public-subnets[count.index].id
   route_table_id = aws_route_table.portfolio-public-rt.id
 }
 

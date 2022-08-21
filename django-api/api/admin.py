@@ -13,7 +13,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display: tuple = (
-        "name",
+        "type",
         "description",
         "image_url",
         "created_at",

@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
     {"title": "AWS", "url": "${GlobalVariables.s3Url}FullStackOnAWS.png"},
     {
       "title": "Azure",
-      "url": "${GlobalVariables.s3Url}AzureWebApp.JPG",
+      "url": "${GlobalVariables.s3Url}AzureWebApp.jpeg",
     },
     {
       "title": "Terraform",

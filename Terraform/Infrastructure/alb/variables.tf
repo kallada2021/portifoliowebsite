@@ -3,7 +3,7 @@ variable "public-subnets" {
 }
 
 variable "vpc-id" {
-  type = sting
+  type = string
 }
 
 variable "http_port" {
@@ -36,6 +36,7 @@ variable "certificate_arn" {
 
 variable "listener_type" {
   type = string
+  default = "forward"
 }
 
 variable "ec2-id" {
@@ -47,4 +48,10 @@ variable "domain-name" {
   type        = string
   description = "Domain Name"
   default     = "magnoliaitsolutionsgroup.com."
+}
+
+variable "server-port" {
+  type = number
+  description = "Nginx port for web server"
+  default = 8080
 }

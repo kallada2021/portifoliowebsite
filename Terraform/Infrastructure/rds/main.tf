@@ -39,8 +39,6 @@ resource "aws_security_group" "rds-sg" {
     from_port = 5432
     to_port   = 5432
   }
-
-  tags = var.common-tags
 }
 
 #Added Glacier resource for archiving
@@ -65,6 +63,6 @@ resource "aws_glacier_vault" "portfoliodb-archive" {
 EOF
 
   tags = {
-    Name = aws_glacier_vault.portifoliodb-archive.name
+    Name = aws_glacier_vault.portfoliodb-archive.name
   }
 }

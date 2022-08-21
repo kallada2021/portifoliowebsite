@@ -54,7 +54,7 @@ resource "aws_lb_target_group" "portfolio-alb-tg" {
   name        = "portfolio-tg"
   port        = local.server_port
   protocol    = local.http_protocol
-  vpc_id      = var.vpc_id
+  vpc_id      = var.vpc-id
   target_type = "ip"
 
   health_check {
@@ -64,7 +64,7 @@ resource "aws_lb_target_group" "portfolio-alb-tg" {
 
 # entry point
 resource "aws_lb_listener" "http-listener" {
-  load_balancer_arn = aws_lb.loadbalancer.arn
+  load_balancer_arn = aws_lb.portfolio-alb.arn
   port              = local.http_port
   protocol          = local.http_protocol
 

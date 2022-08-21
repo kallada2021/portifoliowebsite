@@ -46,5 +46,5 @@ class GlobalVariables {
   );
 
   static const String s3Url =
-      "https://testing-portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/";
+      "https://portfolio-website-magnolia-bucket.s3.amazonaws.com/Images/";
 }

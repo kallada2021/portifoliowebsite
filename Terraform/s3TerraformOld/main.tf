@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "picturesbucket" {
-  bucket = "portfolio-website-magnolia-bucket"
+  bucket = "testing-portfolio-website-magnolia-bucket"
 }
 
 # Store Images to be used onsite
