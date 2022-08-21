@@ -42,3 +42,9 @@ variable "ec2-id" {
   type        = string
   description = "EC2 instance id"
 }
+
+variable "domain-name" {
+  type        = string
+  description = "Domain Name"
+  default     = "magnoliaitsolutionsgroup.com."
+}

@@ -58,6 +58,10 @@ def index_handler(event, context):
     )
 
     print(f"Prospective ClientID: {client_name}.")
-    response = {"message": "Email successfully sent"}
-    # return Body=json.dumps(response).encode()
+    response = {
+        "statusCode": 200,
+        "body": "Email successfully sent",
+        "headers": {"Content-Type": "application/json"},
+    }
+
     return json.dumps(response)

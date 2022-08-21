@@ -80,7 +80,6 @@ resource "aws_lb_listener" "http-listener" {
   }
 }
 
-
 resource "aws_lb_listener" "portfolio-listener" {
   load_balancer_arn = aws_lb.portfolio-alb.arn
   port              = local.https_port
@@ -97,7 +96,7 @@ resource "aws_lb_listener" "portfolio-listener" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "mtc-tg-attach" {
+resource "aws_lb_target_group_attachment" "server-tg-attach" {
   target_group_arn = aws_lb_target_group.portfolio-alb-tg.arn
   target_id        = var.ec2-id
   port             = local.server_port

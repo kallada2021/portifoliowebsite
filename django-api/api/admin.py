@@ -11,8 +11,26 @@ class ContactAdmin(admin.ModelAdmin):
     )
 
 
+class ServiceAdmin(admin.ModelAdmin):
+    list_display: tuple = (
+        "name",
+        "description",
+        "image_url",
+        "created_at",
+    )
+
+
+class ProjectAdmin(admin.ModelAdmin):
+    list_display: tuple = (
+        "name",
+        "description",
+        "image_url",
+        "created_at",
+    )
+
+
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Service)
+admin.site.register(Service, ServiceAdmin)
 admin.site.register(Technology)
-admin.site.register(Project)
+admin.site.register(Project, ProjectAdmin)
 admin.site.register(MeetTheTeam)
