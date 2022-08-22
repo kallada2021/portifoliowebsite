@@ -4,6 +4,18 @@ variable "region" {
   default     = "us-east-1"
 }
 
+variable "secret-name" {
+  type = string
+}
+
+variable "aws-accesskey" {
+  type = string
+}
+
+variable "aws-secretkey" {
+  type = string
+}
+
 variable "db-name" {
   type        = string
   description = "Database Name"

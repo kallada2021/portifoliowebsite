@@ -47,7 +47,7 @@ variable "ec2-id" {
 variable "domain-name" {
   type        = string
   description = "Domain Name"
-  default     = "magnoliaitsolutionsgroup.com."
+  default     = "magnoliaitsolutionsgroup.com"
 }
 
 variable "server-port" {

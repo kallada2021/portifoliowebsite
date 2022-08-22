@@ -1,5 +1,7 @@
 provider "aws" {
   region = var.region
+  access_key = var.aws-accesskey
+  secret_key = var.aws-secretkey
 }
 
 module "networking" {
@@ -21,13 +23,13 @@ module "alb" {
   certificate-arn = var.certificate-arn
   listener-type   = var.listener-type
   ssl-policy      = var.ssl-policy
-
 }
 
 //TODO: add secret manager for DB creds
 module "rds" {
   source          = "./rds"
   private-subnets = module.networking.private-subnets
+  secret-name = var.secret-name
   db-name         = var.db-name
   db-password     = var.db-password
   db-username     = var.db-username

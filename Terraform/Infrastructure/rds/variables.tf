@@ -2,6 +2,10 @@ variable "private-subnets" {
   description = "Private subnets used for database"
 }
 
+variable "secret-name" {
+  type = string
+}
+
 variable "vpc-id" {
   type        = string
   description = "VPC Id"

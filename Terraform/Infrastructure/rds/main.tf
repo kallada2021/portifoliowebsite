@@ -1,7 +1,7 @@
 # DB Subnets
 resource "aws_db_subnet_group" "db-main" {
   name       = "main-rds-db-subnets"
-  subnet_ids = [var.private-subnets[0].id, var.private-subnets[1].id]
+  subnet_ids = [var.private-subnets[0], var.private-subnets[1]]
 }
 
 # Postgres RDS instance 
@@ -28,6 +28,45 @@ resource "aws_db_instance" "main-db" {
   backup_window           = "03:00-06:00"
 }
 
+# Secret Manager 
+resource "random_password" "dbpassword" {
+  length = 30
+  special = false
+}
+
+#Creating a AWS Secret for Portfolio db
+resource "aws_secretsmanager_secret" "dbsecretmaster" {
+  name = var.secret-name
+}
+
+resource "aws_secretsmanager_secret_version" "dbsecret" {
+  secret_id = aws_secretsmanager_secret.dbsecretmaster.id
+  secret_string = <<EOF
+    {
+      "username": "${var.db-username}"
+      "password": "${random_password.dbpassword.result}"
+    }
+EOF
+}
+
+resource "aws_secretsmanager_secret_policy" "secret-policy" {
+  secret_arn = aws_secretsmanager_secret.dbsecretmaster.arn
+  policy = <<POLICY
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "secretsmanager:*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+  }
+POLICY
+}
+
 # RDS Security Group
 resource "aws_security_group" "rds-sg" {
   description = "Allow access to the RDS DB"
@@ -42,7 +81,7 @@ resource "aws_security_group" "rds-sg" {
 }
 
 #Added Glacier resource for archiving
-resource "aws_glacier_vault" "portfoliodb-archive" {
+/* resource "aws_glacier_vault" "portfoliodb-archive" {
   name          = "portfoliodb-archive"
   access_policy = <<EOF
 {
@@ -63,6 +102,6 @@ resource "aws_glacier_vault" "portfoliodb-archive" {
 EOF
 
   tags = {
-    Name = aws_glacier_vault.portfoliodb-archive.name
+    Name = "portfoliodb-archive"
   }
-}
+} */
