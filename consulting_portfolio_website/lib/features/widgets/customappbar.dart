@@ -72,9 +72,20 @@ AppBar customAppBar(BuildContext context) {
                 ),
                 Row(
                   children: [
-                    Text(
-                      "Contact us",
-                      style: GlobalVariables.kAppBarTextStyle,
+                    TextButton(
+                      onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
+                        Navigator.pushNamed(
+                          context,
+                          ContactUsScreen.routeName,
+                        );
+                      },
+                      child: Text(
+                        "Contact us",
+                        style: GlobalVariables.kAppBarTextStyle,
+                      ),
                     ),
                     IconButton(
                       color: Colors.white,

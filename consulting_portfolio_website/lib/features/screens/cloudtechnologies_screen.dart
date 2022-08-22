@@ -1,5 +1,6 @@
 import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
+import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/techdescriptioncard.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class CloudTechnologiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = Utils(context).screenSize;
     return Scaffold(
       appBar: customAppBar(context),
       bottomSheet: const Footer(),
@@ -31,7 +33,9 @@ class CloudTechnologiesScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Text(
-                      "Amazon Web Services (AWS)",
+                      size.width > 700
+                          ? "Amazon Web Services (AWS)"
+                          : "Amazon Web Services\n (AWS)",
                       style: GlobalVariables.kTechNameStyle,
                       textAlign: TextAlign.left,
                     ),

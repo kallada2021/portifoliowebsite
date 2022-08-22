@@ -37,18 +37,18 @@ class ServicesCard extends StatelessWidget {
                 fontWeight: FontWeight.w800,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width: 10,
             ),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width: 10,
             ),
@@ -56,13 +56,13 @@ class ServicesCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 description,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width: 10,
             ),

@@ -28,7 +28,7 @@ class _ProjectState extends State<Project> {
 
     return Column(
       children: [
-        size.width > 800.0
+        size.width > 900.0
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,

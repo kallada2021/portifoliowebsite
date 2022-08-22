@@ -62,38 +62,38 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET }}
           aws-region: ${{ secrets.AWS_REGION }}
     
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+    # - name: Login to Amazon ECR
+    #   id: login-ecr
+    #   uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, tag, and push Django image to Amazon ECR
-      id: build-django
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ secrets.ECR_REPO }} 
-        IMAGE_TAG: ${{ github.sha }}
-        DB_HOST: ${{ secrets.PGSQL_HOST }} 
-        DB_USER: ${{ secrets.PGSQL_USER }} 
-        DB_PASSWORD: ${{ secrets.PGSQL_PASSWORD }} 
-        JWT_KEY: ${{ secrets.JWT_KEY }} 
-      run: |
-        cd django-api
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+    # - name: Build, tag, and push Django image to Amazon ECR
+    #   id: build-django
+    #   env:
+    #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+    #     ECR_REPOSITORY: ${{ secrets.ECR_REPO }} 
+    #     IMAGE_TAG: ${{ github.sha }}
+    #     DB_HOST: ${{ secrets.PGSQL_HOST }} 
+    #     DB_USER: ${{ secrets.PGSQL_USER }} 
+    #     DB_PASSWORD: ${{ secrets.PGSQL_PASSWORD }} 
+    #     JWT_KEY: ${{ secrets.JWT_KEY }} 
+    #   run: |
+    #     cd django-api
+    #     docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG .
+    #     docker push $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
 
-    - name: Build, tag, and push NGINX image to Amazon ECR
-      id: build-nginx
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ secrets.ECR_REPO }} 
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        cd django-api
-        cd nginx
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
+    # - name: Build, tag, and push NGINX image to Amazon ECR
+    #   id: build-nginx
+    #   env:
+    #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+    #     ECR_REPOSITORY: ${{ secrets.ECR_REPO }} 
+    #     IMAGE_TAG: ${{ github.sha }}
+    #   run: |
+    #     cd django-api
+    #     cd nginx
+    #     docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
+    #     docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
 
-    - name: Pull Django container to EC2
+    - name: Create Docker containers on EC2
       uses: shimataro/ssh-key-action@v2
       with: 
         known_hosts: $${{secrets.KNOWN_HOSTS}}

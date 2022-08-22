@@ -9,8 +9,6 @@ import 'package:consulting_portfolio_website/features/widgets/footer.dart';
 import 'package:consulting_portfolio_website/features/widgets/meet_the_team_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/appdrawer.dart';
-
 class MeetTheTeamScreen extends StatefulWidget {
   static const routeName = "/meet-the-team";
   const MeetTheTeamScreen({Key? key}) : super(key: key);
@@ -51,7 +49,6 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
     Size size = Utils(context).screenSize;
     return Scaffold(
       appBar: customAppBar(context),
-      // drawer: size.width > 1000.0 ? null : const AppDrawer(),
       bottomSheet: const Footer(),
       body: isError
           ? Padding(
@@ -75,30 +72,55 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
                     ),
                   ),
                 )
-              : Column(
-                  children: const [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    MeetTheTeamWidget(
-                      descriptionText: "Description of a team member",
-                      nameText: "Director",
-                    ),
-                    MeetTheTeamWidget(
-                      nameText: "Lead Architect",
-                      descriptionText:
-                          "Lead designer and developer of software.  He enjoys working with different "
-                          "technologies and developing different types of products and solutions.",
-                    ),
-                    MeetTheTeamWidget(
-                      nameText: "Project Manager",
-                      descriptionText: "Description of a team member",
-                    ),
-                    MeetTheTeamWidget(
-                      nameText: "Development Team",
-                      descriptionText: "Description of a team member",
-                    ),
-                  ],
+              : SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const MeetTheTeamWidget(
+                        descriptionText: "Description of a team member",
+                        nameText: "Director",
+                      ),
+                      const MeetTheTeamWidget(
+                        nameText: "Lead Architect",
+                        descriptionText:
+                            "Lead designer and developer of software.  He enjoys working with different "
+                            "technologies and developing different types of products and solutions.",
+                      ),
+                      const MeetTheTeamWidget(
+                        nameText: "Project Manager",
+                        descriptionText: "Description of a team member",
+                      ),
+                      const MeetTheTeamWidget(
+                        nameText: "Development Team",
+                        descriptionText: "Description of a team member",
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        "Team Achievements",
+                        style: GlobalVariables.kTechPageTitleStyle,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Center(
+                        child: Text(
+                          "AWS Solutions Architect Certificate",
+                          style: TextStyle(
+                            color: Colors.deepPurple[900],
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 130,
+                      ),
+                    ],
+                  ),
                 ),
     );
   }
