@@ -6,35 +6,35 @@ variable "vpc-id" {
   type = string
 }
 
-variable "http_port" {
+variable "http-port" {
   type    = number
   default = 80
 }
 
-variable "http_protocol" {
+variable "http-protocol" {
   type    = string
   default = "HTTP"
 }
 
-variable "https_port" {
+variable "https-port" {
   type    = number
   default = 443
 }
 
-variable "https_protocol" {
+variable "https-protocol" {
   type    = string
   default = "HTTPS"
 }
 
-variable "ssl_policy" {
+variable "ssl-policy" {
   type = string
 }
 
-variable "certificate_arn" {
+variable "certificate-arn" {
   type = string
 }
 
-variable "listener_type" {
+variable "listener-type" {
   type = string
   default = "forward"
 }

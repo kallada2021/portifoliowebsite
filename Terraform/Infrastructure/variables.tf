@@ -18,16 +18,16 @@ variable "db-password" {
   description = "Password for RDS postgres DB"
 }
 
-variable "ssl_policy" {
-    type = string
-    default = "ELBSecurityPolicy-2016-08"
+variable "ssl-policy" {
+  type    = string
+  default = "ELBSecurityPolicy-2016-08"
 }
 
-variable "certificate_arn" {
-    type = string
+variable "certificate-arn" {
+  type = string
 }
 
-variable "listener_type" {
-    type = string
-    default = "forward"
+variable "listener-type" {
+  type    = string
+  default = "forward"
 }
