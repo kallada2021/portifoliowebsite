@@ -6,6 +6,7 @@ import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_
 import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/webdev_technologies_screen.dart';
 import 'package:consulting_portfolio_website/features/services/technology_service.dart';
+import 'package:consulting_portfolio_website/features/widgets/loading_manager.dart';
 import 'package:consulting_portfolio_website/features/widgets/technologycard.dart';
 import 'package:flutter/material.dart';
 
@@ -58,51 +59,56 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
               fontWeight: FontWeight.w700,
             ),
           ),
-          service.isLoading
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: CircularProgressIndicator(
-                    color: GlobalVariables.kSecondaryColor,
-                  ),
-                )
-              : Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: FutureBuilder<List<Technology>>(
-                    future: getTech,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        //var index = Random();
-                        return ListView.builder(
-                          itemCount: techList.isEmpty ? 0 : 4,
-                          shrinkWrap: true,
-                          itemBuilder: (ctx, int i) {
-                            return Container(
-                              width: 300,
-                              color: Colors.transparent,
-                              child: Center(
-                                child: InkWell(
-                                  enableFeedback: true,
-                                  hoverColor: Colors.blue[100],
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Text("* ${snapshot.data![i].name}"),
-                                  ),
-                                ),
+          // service.isLoading
+          //     ? Padding(
+          //         padding: const EdgeInsets.symmetric(vertical: 20.0),
+          //         child: CircularProgressIndicator(
+          //           color: GlobalVariables.kSecondaryColor,
+          //         ),
+          //       ) :
+          LoadingManager(
+            isLoading: service.isLoading,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: FutureBuilder<List<Technology>>(
+                future: getTech,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    //var index = Random();
+                    return ListView.builder(
+                      itemCount: techList.isEmpty ? 0 : 4,
+                      shrinkWrap: true,
+                      itemBuilder: (ctx, int i) {
+                        return Container(
+                          width: 300,
+                          color: Colors.transparent,
+                          child: Center(
+                            child: InkWell(
+                              enableFeedback: true,
+                              hoverColor: Colors.blue[100],
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Text("* ${snapshot.data![i].name}"),
                               ),
-                            );
-                          },
+                            ),
+                          ),
                         );
-                      } else if (snapshot.hasError) {
-                        return Text('${snapshot.error}');
-                      } else {
-                        // By default, show a loading spinner.
-                        return CircularProgressIndicator(
-                          color: GlobalVariables.kSecondaryColor,
-                        );
-                      }
-                    },
-                  ),
-                ),
+                      },
+                    );
+                  } else if (snapshot.hasError) {
+                    return LoadingManager(
+                        isLoading: service.isLoading,
+                        child: Text('${snapshot.error}'));
+                  } else {
+                    // By default, show a loading spinner.
+                    return CircularProgressIndicator(
+                      color: GlobalVariables.kSecondaryColor,
+                    );
+                  }
+                },
+              ),
+            ),
+          ),
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(

@@ -29,7 +29,7 @@ class ContactService {
             "Content-Type": "application/json; charset=UTF-8",
           });
       // print(res.body);
-      // print(res.statusCode);
+      print(res.statusCode);
 
       httpErrorHandle(
         response: res,
@@ -39,7 +39,14 @@ class ContactService {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString(), Colors.red);
+      if (e.toString().contains("XMLHttp")) {
+        showSnackBar(
+            context,
+            "Please check your internet connection. Message not sent!",
+            Colors.red);
+      } else {
+        showSnackBar(context, e.toString(), Colors.red);
+      }
     }
   }
 }
