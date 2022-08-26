@@ -2,17 +2,14 @@ import json
 import logging
 import os
 from datetime import datetime
-from email import message
 from http import client
 
 import boto3
-from botocore.exceptions import ClientError
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 RECIPIENT = os.getenv("RECIPIENT")
-AWS_REGION = os.getenv("AWS_REGION")
 
 client = boto3.client("ses")
 
@@ -20,9 +17,10 @@ client = boto3.client("ses")
 def index_handler(event, context):
     logger.info(f"Incoming request is: {event}")
 
-    message = json.loads(event["message"])
-    sender_email = json.loads(event["email"])
-    client_name = json.loads(event["name"])
+    data = json.loads(event["body"])
+    message: str = data["message"]
+    sender_email: str = data["email"]
+    client_name: str = data["name"]
 
     if sender_email is None:
         raise Exception("No email provided.")
@@ -33,6 +31,7 @@ def index_handler(event, context):
           <h2>Email from Prospective Client</h2>
           <br/>
           <p>{message}</p> 
+          <h4>Sent on {datetime.now()}</h4>
         </body>
         </html>
                     """
@@ -54,14 +53,22 @@ def index_handler(event, context):
         },
         Message=email_message,
         Source=sender_email,
-        # ConfigurationSetName=config_set_name,
     )
 
-    print(f"Prospective ClientID: {client_name}.")
-    response = {
-        "statusCode": 200,
-        "body": "Email successfully sent",
-        "headers": {"Content-Type": "application/json"},
+    logger.info(f"Prospective ClientID: {client_name}.")
+    logger.info(f"SES Response: ${ses_response}")
+
+    body = {
+        "message": "Email sent successfully!",
+        "success": True,
     }
 
-    return json.dumps(response)
+    return {
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Origin": "*",
+        },
+        "statusCode": 200,
+        "body": json.dumps(body),
+    }

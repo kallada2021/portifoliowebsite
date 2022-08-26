@@ -93,12 +93,19 @@ jobs:
     #     docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
     #     docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
 
+    # TODO: change secret parameter name
+    - name: Get .env variables from AWS parameter store
+      run: |
+          cd django-api
+          aws ssm get-parameter --name "/DeploymentConfig/PortfolioWebSite/Env" --with-decryption --query Parameter.Value --output text > .env
+    
     - name: Create Docker containers on EC2
       uses: shimataro/ssh-key-action@v2
       with: 
         known_hosts: $${{secrets.KNOWN_HOSTS}}
         name: id_rsa
         key: ${{secrets.SSH_KEY}}
+        
     - name: Run docker compose
       run: |
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
