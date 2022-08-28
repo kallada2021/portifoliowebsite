@@ -21,15 +21,6 @@ variable "db-name" {
   description = "Database Name"
 }
 
-variable "db-username" {
-  type        = string
-  description = "Username for RDS postgres DB"
-}
-
-variable "db-password" {
-  description = "Password for RDS postgres DB"
-}
-
 variable "ssl-policy" {
   type    = string
   default = "ELBSecurityPolicy-2016-08"

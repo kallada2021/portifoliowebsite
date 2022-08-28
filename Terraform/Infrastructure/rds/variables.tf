@@ -2,10 +2,6 @@ variable "private-subnets" {
   description = "Private subnets used for database"
 }
 
-variable "secret-name" {
-  type = string
-}
-
 variable "vpc-id" {
   type        = string
   description = "VPC Id"
@@ -16,13 +12,14 @@ variable "db-name" {
   description = "Database Name"
 }
 
-variable "db-username" {
+variable "dbusername" {
   type        = string
-  description = "Username for RDS postgres DB"
+  description = "Database User"
 }
 
-variable "db-password" {
-  description = "Password for RDS postgres DB"
+variable "dbpassword" {
+  type        = string
+  description = "Database password"
 }
 
 variable "db-instance-type" {

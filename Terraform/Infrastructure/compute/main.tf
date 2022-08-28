@@ -31,7 +31,7 @@ resource "aws_security_group" "ec2-sg" {
     protocol    = "tcp"
     from_port   = 5432
     to_port     = 5432
-    cidr_blocks = var.private-subnets
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 

@@ -11,15 +11,14 @@ resource "aws_db_instance" "main-db" {
   storage_encrypted = true
   kms_key_id        = aws_kms_key.portfoliodbkey.arn
   apply_immediately = true
-
   allocated_storage       = 20    # disk space
   storage_type            = "gp2" # entry level general purpose
   engine                  = "postgres"
   engine_version          = "13.1"
   instance_class          = var.db-instance-type
   db_subnet_group_name    = aws_db_subnet_group.db-main.name
-  password                = var.db-password
-  username                = var.db-username
+  password                = var.dbpassword
+  username                = var.dbusername
   backup_retention_period = var.backup-days
   multi_az                = false // true for production
   skip_final_snapshot     = true  // false for production
@@ -28,44 +27,6 @@ resource "aws_db_instance" "main-db" {
   backup_window           = "03:00-06:00"
 }
 
-# Secret Manager 
-resource "random_password" "dbpassword" {
-  length = 30
-  special = false
-}
-
-#Creating a AWS Secret for Portfolio db
-resource "aws_secretsmanager_secret" "dbsecretmaster" {
-  name = var.secret-name
-}
-
-resource "aws_secretsmanager_secret_version" "dbsecret" {
-  secret_id = aws_secretsmanager_secret.dbsecretmaster.id
-  secret_string = <<EOF
-    {
-      "username": "${var.db-username}"
-      "password": "${random_password.dbpassword.result}"
-    }
-EOF
-}
-
-resource "aws_secretsmanager_secret_policy" "secret-policy" {
-  secret_arn = aws_secretsmanager_secret.dbsecretmaster.arn
-  policy = <<POLICY
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "secretsmanager:*"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        }
-    ]
-  }
-POLICY
-}
 
 # RDS Security Group
 resource "aws_security_group" "rds-sg" {
