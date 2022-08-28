@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.region
+  region     = var.region
   access_key = var.aws-accesskey
   secret_key = var.aws-secretkey
 }
@@ -8,10 +8,10 @@ module "networking" {
   source = "./networking"
 }
 
-/* module "secretmanager" {
-  source = "./secretmanager"
+module "secretmanager" {
+  source      = "./secretmanager"
   secret-name = "databasecret"
-} */
+}
 
 module "compute" {
   source          = "./compute"
@@ -30,15 +30,14 @@ module "alb" {
   ssl-policy      = var.ssl-policy
 }
 
-//TODO: add secret manager for DB creds
 module "rds" {
   source          = "./rds"
-  #depends_on      = [module.secretmanager]
+  depends_on      = [module.secretmanager]
   private-subnets = module.networking.private-subnets
-  dbusername      = "admin"
-  dbpassword      = "password1"
-  /* dbusername      = module.secretmanager.dbusername
-  dbpassword      = module.secretmanager.dbpassword */
-  db-name         = var.db-name
-  vpc-id          = module.networking.vpc-id
+  // dbusername      = "admin"
+  // dbpassword      = "password1"
+  dbusername = module.secretmanager.dbusername
+  dbpassword = module.secretmanager.dbpassword
+  db-name    = var.db-name
+  vpc-id     = module.networking.vpc-id
 }

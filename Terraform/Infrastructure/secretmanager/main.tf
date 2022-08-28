@@ -1,6 +1,6 @@
 # Secret Manager 
 resource "random_password" "dbpassword" {
-  length = 30
+  length  = 30
   special = false
 }
 
@@ -10,10 +10,10 @@ resource "aws_secretsmanager_secret" "dbsecretmaster" {
 }
 
 resource "aws_secretsmanager_secret_version" "dbsecret" {
-  secret_id = aws_secretsmanager_secret.dbsecretmaster.id
+  secret_id     = aws_secretsmanager_secret.dbsecretmaster.id
   secret_string = <<EOF
     {
-      "username": "admin"
+      "username": "admin",
       "password": "${random_password.dbpassword.result}"
     }
 EOF
@@ -21,20 +21,27 @@ EOF
 
 resource "aws_secretsmanager_secret_policy" "secret-policy" {
   secret_arn = aws_secretsmanager_secret.dbsecretmaster.arn
-  policy = <<POLICY
+  policy     = <<POLICY
   {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecrets"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        }
-    ]
-  }
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Sid": "EnableAllPermissions",
+							"Effect": "Allow",
+							"Principal": {
+								"AWS": "*"
+							},
+							 "Action": [
+                  "secretsmanager:DescribeSecret",
+                  "secretsmanager:GetSecretValue",
+                  "secretsmanager:ListSecrets"
+              ],
+							"Resource": "*"
+						}
+					]
+				}
 POLICY
+  lifecycle {
+    ignore_changes = [secret_arn, policy]
+  }
 }
