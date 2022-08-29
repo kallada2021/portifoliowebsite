@@ -1,0 +1,31 @@
+name: "Build Flutter"
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        required: true 
+        options:
+          - production
+        type: choice 
+
+jobs: 
+  build-flutter:
+    name: "Build Flutter"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash 
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.0.5'
+        channel: 'stable'
+    - run: |
+        cd consulting_portfolio_website
+        flutter pub get
+        flutter build web

@@ -1,6 +1,7 @@
 import json
 
 from django.http import JsonResponse
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -145,3 +146,7 @@ def meetTheTeam(request):
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+def displayFrontend(request):
+    return render(request, "test.html")
