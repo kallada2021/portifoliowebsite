@@ -6,15 +6,15 @@ resource "aws_db_subnet_group" "db-main" {
 
 # Postgres RDS instance 
 resource "aws_db_instance" "main-db" {
-  identifier        = "main-db"
-  db_name           = var.db-name
-  storage_encrypted = true
-  kms_key_id        = aws_kms_key.portfoliodbkey.arn
-  apply_immediately = true
+  identifier              = "main-db"
+  db_name                 = var.db-name
+  storage_encrypted       = true
+  kms_key_id              = aws_kms_key.portfoliodbkey.arn
+  apply_immediately       = true
   allocated_storage       = 20    # disk space
   storage_type            = "gp2" # entry level general purpose
   engine                  = "postgres"
-  engine_version          = "13.1"
+  engine_version          = "14.3"
   instance_class          = var.db-instance-type
   db_subnet_group_name    = aws_db_subnet_group.db-main.name
   password                = var.dbpassword

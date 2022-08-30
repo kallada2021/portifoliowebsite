@@ -1,7 +1,8 @@
 import 'dart:convert';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class Services with ChangeNotifier {
+class Services with ChangeNotifier, EquatableMixin {
   int? id;
   String? type;
   String? description;
@@ -66,4 +67,7 @@ class Services with ChangeNotifier {
       return Services.fromJson(data);
     }).toList();
   }
+
+  @override
+  List<Object?> get props => [id, type, description, technologies, imageUrl];
 }

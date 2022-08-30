@@ -1,10 +1,9 @@
-import 'dart:js';
-
-import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
+import 'dart:developer' as devtools show log;
 import 'package:flutter/material.dart';
 
-import '../features/widgets/customdropdown.dart';
-import 'global_variables.dart';
+extension Log on Object {
+  void log() => devtools.log(toString());
+}
 
 const webScreenSize = 800;
 

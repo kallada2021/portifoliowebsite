@@ -1,6 +1,5 @@
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/screens/aws_services.dart';
-import 'package:consulting_portfolio_website/features/screens/devops_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/devops_services.dart';
 import 'package:consulting_portfolio_website/features/screens/mobiledev_services.dart';
 import 'package:consulting_portfolio_website/features/screens/service_home.dart';

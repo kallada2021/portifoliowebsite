@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/models/projects.dart';
 import 'package:consulting_portfolio_website/features/services/projects_service.dart';
@@ -7,7 +6,6 @@ import 'package:consulting_portfolio_website/features/widgets/customappbar.dart'
 import 'package:consulting_portfolio_website/features/widgets/projectpage.dart';
 import 'package:flutter/material.dart';
 import '../../constants/global_variables.dart';
-import '../widgets/appdrawer.dart';
 import '../widgets/footer.dart';
 
 class ProjectsScreen extends StatefulWidget {
@@ -28,7 +26,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       projects = await ProjectsService.getProjects(context: context);
       setState(() {});
     } catch (error) {
-      log("error $error");
+      "error $error".log();
       isError = true;
       errorMsg = "Oops! We are having problems reaching our servers.";
       setState(() {});

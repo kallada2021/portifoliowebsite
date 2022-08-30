@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-class Projects {
+import 'package:equatable/equatable.dart';
+
+class Projects with EquatableMixin {
   final int id;
   final String name;
   final String description;
@@ -73,4 +75,7 @@ class Projects {
       return Projects.fromJson(data);
     }).toList();
   }
+
+  @override
+  List<Object?> get props => [id, name, description, imageUrl];
 }

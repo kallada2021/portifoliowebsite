@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../widgets/footer.dart';
 
 class CloudTechnologiesScreen extends StatelessWidget {
-  static const String routeName = "/cloudtechnologies";
+  static const String routeName = "/cloud-technologies";
   const CloudTechnologiesScreen({Key? key}) : super(key: key);
 
   @override

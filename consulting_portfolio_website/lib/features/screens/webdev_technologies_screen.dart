@@ -7,7 +7,7 @@ import '../../constants/global_variables.dart';
 import '../widgets/footer.dart';
 
 class WebTechnologiesScreen extends StatelessWidget {
-  static const String routeName = "/webtechnologies";
+  static const String routeName = "/web-technologies";
   const WebTechnologiesScreen({Key? key}) : super(key: key);
 
   @override

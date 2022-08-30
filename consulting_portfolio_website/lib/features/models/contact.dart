@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-class Contact {
+import 'package:equatable/equatable.dart';
+
+class Contact with EquatableMixin {
   final String? id;
   final String name;
   final String phoneNumber;
@@ -51,4 +53,7 @@ class Contact {
       message: message ?? this.message,
     );
   }
+
+  @override
+  List<Object?> get props => [id, name, phoneNumber, emailAddress, message];
 }

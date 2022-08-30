@@ -4,7 +4,6 @@ import 'package:consulting_portfolio_website/features/screens/meet_the_team.dart
 import 'package:consulting_portfolio_website/features/screens/projects_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/services_screen.dart';
 import 'package:consulting_portfolio_website/features/screens/technologies_screen.dart';
-import 'package:consulting_portfolio_website/features/services/technology_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/appdrawer.dart';
 import 'package:consulting_portfolio_website/features/widgets/customappbar.dart';
 import 'package:consulting_portfolio_website/features/widgets/footer.dart';

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:card_swiper/card_swiper.dart';
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/services/services_service.dart';
 import 'package:consulting_portfolio_website/features/widgets/featuredservicewidget.dart';
@@ -79,11 +80,11 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
     try {
       isLoading = true;
       services = await ServicesService.getAllServices(context: context);
-      print("Services from widget $services");
+      "Services from widget $services".log();
       setState(() {});
       isLoading = false;
     } catch (error) {
-      log("An error occurred $error");
+      "An error occurred $error".log();
       isError = true;
       errorMsg = "Oops! We are having problems reaching our servers.";
       setState(() {});

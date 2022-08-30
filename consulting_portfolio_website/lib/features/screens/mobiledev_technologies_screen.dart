@@ -7,7 +7,7 @@ import '../../constants/global_variables.dart';
 import '../widgets/footer.dart';
 
 class MobileDevTechnologiesScreen extends StatelessWidget {
-  static const String routeName = "/mobiletechnologies";
+  static const String routeName = "/mobile-technologies";
 
   const MobileDevTechnologiesScreen({Key? key}) : super(key: key);
 

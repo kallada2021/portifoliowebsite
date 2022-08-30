@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-class MeetTheTeam {
+import 'package:equatable/equatable.dart';
+
+class MeetTheTeam with EquatableMixin {
   final int? id;
   final String name;
   final String description;
@@ -54,4 +56,7 @@ class MeetTheTeam {
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
+
+  @override
+  List<Object?> get props => [id, name, description, createdAt, updatedAt];
 }

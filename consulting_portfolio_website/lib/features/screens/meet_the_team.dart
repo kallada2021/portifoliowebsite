@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/constants/utils.dart';
 import 'package:consulting_portfolio_website/features/models/meet_the_team_model.dart';
@@ -33,11 +32,11 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
     try {
       isLoading = true;
       teamMembers = await MeetTheTeamService.getTeamMembers(context: context);
-      print("Services from widget $teamMembers");
+      "Services from widget $teamMembers".log();
       setState(() {});
       isLoading = false;
     } catch (error) {
-      log("An error occurred $error");
+      "An error occurred $error".log();
       isError = true;
       errorMsg = "Sorry, an unexpected error occurred";
       setState(() {});

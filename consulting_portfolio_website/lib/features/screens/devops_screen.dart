@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../../constants/global_variables.dart';
 
 class DevopsScreen extends StatelessWidget {
-  static const String routeName = "/devopstechnologies";
+  static const String routeName = "/devops-technologies";
 
   const DevopsScreen({Key? key}) : super(key: key);
 
