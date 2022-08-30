@@ -10,7 +10,7 @@ module "networking" {
 
 module "secretmanager" {
   source      = "./secretmanager"
-  secret-name = "databasecret"
+  secret-name = var.secret-name
 }
 
 module "compute" {
