@@ -43,7 +43,7 @@ resource "aws_instance" "webserver" {
   subnet_id     = var.subnet
 
   ebs_block_device {
-    device_name           = "/dev/pda1"
+    device_name           = "/dev/sda1"
     volume_size           = 30
     volume_type           = "gp2"
     delete_on_termination = false
@@ -54,8 +54,8 @@ resource "aws_instance" "webserver" {
 }
 
 resource "aws_key_pair" "sshkey" {
-  key_name   = "magnoliaitsolutions"
-  public_key = filebase64("${path.module}/keypair/magnoliaitsolutions.pem")
+  key_name   = "portfolio-key"
+  public_key = file("${path.module}/keypair/portfolio-key.pub")
 }
 
 resource "aws_cloudwatch_log_group" "portifolio-loggroup" {

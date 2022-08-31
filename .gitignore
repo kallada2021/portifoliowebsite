@@ -163,3 +163,4 @@ PyCharm
 *.tfstate
 .terraform/
 terraform.auto.tfvars
+keypair/

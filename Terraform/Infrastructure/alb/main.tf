@@ -55,7 +55,7 @@ resource "aws_lb_target_group" "portfolio-alb-tg" {
   port        = local.server-port
   protocol    = local.http-protocol
   vpc_id      = var.vpc-id
-  target_type = "ip"
+  //target_type = "ip"
 
   health_check {
     path = "/" # checks application to see if it is running
