@@ -20,8 +20,8 @@ resource "aws_db_instance" "main-db" {
   password                = var.dbpassword
   username                = var.dbusername
   backup_retention_period = var.backup-days
-  multi_az                = false // true for production
-  skip_final_snapshot     = true  // false for production
+  multi_az                = false // TODO: true for production
+  skip_final_snapshot     = true  //TODO:  false for production
   vpc_security_group_ids  = [aws_security_group.rds-sg.id]
   maintenance_window      = "Mon:00:00-Mon:03:00"
   backup_window           = "03:00-06:00"

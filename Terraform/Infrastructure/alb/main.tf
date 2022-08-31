@@ -44,17 +44,17 @@ resource "aws_lb" "portfolio-alb" {
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.portfolio-sg.id]
   subnets                    = var.public-subnets
-  enable_deletion_protection = false //true in prod
+  enable_deletion_protection = false //TODO: true in prod
   tags = {
     Name = "portifolio-alb"
   }
 }
 
 resource "aws_lb_target_group" "portfolio-alb-tg" {
-  name        = "portfolio-tg"
-  port        = local.server-port
-  protocol    = local.http-protocol
-  vpc_id      = var.vpc-id
+  name     = "portfolio-tg"
+  port     = local.server-port
+  protocol = local.http-protocol
+  vpc_id   = var.vpc-id
   //target_type = "ip"
 
   health_check {
@@ -77,6 +77,11 @@ resource "aws_lb_listener" "http-listener" {
       protocol    = "HTTPS"
       status_code = "HTTP_301"
     }
+  }
+
+  depends_on = [aws_lb.portfolio-alb, aws_lb_target_group.portfolio-alb-tg]
+  tags = {
+    Name = "http-listener"
   }
 }
 
