@@ -2,12 +2,24 @@ resource "aws_security_group" "ec2-sg" {
   description = "Control ec2 inbound and outbound access"
   name        = "Portfolio EC2 Security Group"
   vpc_id      = var.vpc-id
-
   # ssh 
   ingress {
     protocol    = "tcp"
     from_port   = 22
     to_port     = 22
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = 80
+    to_port     = 80
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+ ingress {
+    protocol    = "tcp"
+    from_port   = 443
+    to_port     = 443
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -41,7 +53,8 @@ resource "aws_instance" "webserver" {
   instance_type = var.instance-type
   key_name      = aws_key_pair.sshkey.id
   subnet_id     = var.subnet
-
+  security_groups = [aws_security_group.ec2-sg.id]
+  user_data     = filebase64("${path.module}/userdata.sh")
   ebs_block_device {
     device_name           = "/dev/sda1"
     volume_size           = 30
