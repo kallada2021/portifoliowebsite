@@ -57,6 +57,11 @@ resource "aws_lb_target_group" "portfolio-alb-tg" {
   vpc_id   = var.vpc-id
   //target_type = "ip"
 
+  lifecycle {
+    ignore_changes        = [name]
+    create_before_destroy = true
+  }
+
   health_check {
     path = "/" # checks application to see if it is running
   }

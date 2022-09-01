@@ -16,45 +16,33 @@ resource "aws_security_group" "ec2-sg" {
     to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
   }
- ingress {
+  ingress {
     protocol    = "tcp"
     from_port   = 443
     to_port     = 443
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # https out
+  # All open
   egress {
-    protocol    = "tcp"
-    from_port   = 443
-    to_port     = 443
+    protocol    = -1
+    from_port   = 0
+    to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # standard http
-  egress {
-    protocol    = "tcp"
-    from_port   = 80
-    to_port     = 80
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    protocol    = "tcp"
-    from_port   = 5432
-    to_port     = 5432
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 }
 
 // Provision ec2
 resource "aws_instance" "webserver" {
-  ami           = "ami-052efd3df9dad4825"
-  instance_type = var.instance-type
-  key_name      = aws_key_pair.sshkey.id
-  subnet_id     = var.subnet
-  security_groups = [aws_security_group.ec2-sg.id]
-  user_data     = filebase64("${path.module}/userdata.sh")
+  ami                         = "ami-052efd3df9dad4825"
+  instance_type               = var.instance-type
+  key_name                    = aws_key_pair.sshkey.id
+  subnet_id                   = var.subnet
+  vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
+  user_data                   = filebase64("${path.module}/userdata.sh")
+  associate_public_ip_address = true
+
   ebs_block_device {
     device_name           = "/dev/sda1"
     volume_size           = 30

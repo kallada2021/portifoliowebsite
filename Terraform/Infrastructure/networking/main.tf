@@ -1,5 +1,7 @@
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
 
   tags = {
     Name = "Portifolio VPC"
@@ -39,6 +41,7 @@ resource "aws_internet_gateway" "portfolio-gw" {
 }
 
 resource "aws_route_table" "portfolio-public-rt" {
+  count  = 2
   vpc_id = aws_vpc.main.id
 
   tags = {
@@ -47,7 +50,11 @@ resource "aws_route_table" "portfolio-public-rt" {
 }
 
 resource "aws_route" "portfolio-public-route" {
-  route_table_id         = aws_route_table.portfolio-public-rt.id
+  depends_on = [
+    aws_internet_gateway.portfolio-gw
+  ]
+  count                  = 2
+  route_table_id         = aws_route_table.portfolio-public-rt[count.index].id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.portfolio-gw.id
 }
@@ -55,7 +62,7 @@ resource "aws_route" "portfolio-public-route" {
 resource "aws_route_table_association" "portfolio-rt-assoc" {
   count          = 2
   subnet_id      = aws_subnet.public-subnets[count.index].id
-  route_table_id = aws_route_table.portfolio-public-rt.id
+  route_table_id = aws_route_table.portfolio-public-rt[count.index].id
 }
 
 /* resource "aws_nat_gateway" "portifolio-nat-gateway" {
