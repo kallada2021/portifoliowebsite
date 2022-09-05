@@ -3,6 +3,14 @@ resource "aws_security_group" "ec2-sg" {
   name        = "Portfolio EC2 Security Group"
   vpc_id      = var.vpc-id
   # ssh 
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = 8080
+    to_port     = 8080
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     protocol    = "tcp"
     from_port   = 22
@@ -40,7 +48,7 @@ resource "aws_instance" "webserver" {
   key_name                    = aws_key_pair.sshkey.id
   subnet_id                   = var.subnet
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
-  user_data                   = filebase64("${path.module}/userdata.sh")
+  user_data                   = filebase64("${path.module}/docker-userdata.sh")
   associate_public_ip_address = true
 
   ebs_block_device {
