@@ -30,9 +30,9 @@ class UsersManagersTests(TestCase):
 class ContactsTests(TestCase):
     def testCreateNewContact(self):
         contact = Contact.objects.create(
-            name="New Client", email="client@abc.com", message="Help me please!", phone="+123456789"
+            name="New Client1", email="client@abc.com", message="Help me please!", phone="+123456789"
         )
-        self.assertEqual(contact.name, "New Client")
+        self.assertEqual(contact.name, "New Client1")
         self.assertEqual(contact.email, "client@abc.com")
         self.assertEqual(contact.message, "Help me please!")
         self.assertEqual(contact.phone, "+123456789")
