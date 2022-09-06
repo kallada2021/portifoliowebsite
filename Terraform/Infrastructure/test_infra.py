@@ -14,7 +14,7 @@ def plan():
     tf = tftest.TerraformTest(tfdir="./", basedir=base_dir)
     # tf = tftest.TerraformTest("plan",fixtures_dir)
     # tf.setup()
-    tf.init()
+
     # print(tf)
     return tf.plan(output=True)
 
