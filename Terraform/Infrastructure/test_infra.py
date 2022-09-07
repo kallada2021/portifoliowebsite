@@ -1,25 +1,13 @@
-from pathlib import Path
-
-import pytest
-import tftest
+from boto3 import Session
+from pytest_terraform import terraform
 
 
-@pytest.fixture
-def plan():
-    file_path = Path(__file__).resolve()
-    print(file_path)
-    base_dir = file_path.parent.absolute()
-
-    print(base_dir)
-    tf = tftest.TerraformTest(tfdir="./", basedir=base_dir)
-    # tf = tftest.TerraformTest("plan",fixtures_dir)
-    # tf.setup()
-
-    # print(tf)
-    return tf.plan(output=True)
+@terraform("sqs", scope="session")
+def test_sqs(sqs):
+    assert sqs["aws_sqs_queue.test_queue.tags"] == {"Environment": "production"}
+    assert sqs["aws_sqs_queue.test_queue.name"] == "test-queue"
 
 
-def test_modules(plan):
-    mod = plan.modules["module.networking"]
-    res = mod.resources["aws_vpc.main"]
-    print(res)
+@terraform("s3", scope="session")
+def test_s3(s3):
+    assert s3["aws_s3_bucket.test-bucket.name"] == "bucket-name"
