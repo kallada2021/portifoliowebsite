@@ -37,9 +37,9 @@ const String cdkIntro =
 const String amazonIntro =
     "Amazon Web Services (AWS) provides on-demand cloud computing platforms and APIs, on a pay-as-you-go basis. We can help you setup cloud computing web services and software on AWS. Some services include EC2 (virtual server), Database options, and Lambdas for serverless APIs. We will configure your application to run on AWS using these technologies";
 const String azureIntro =
-    "Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure is designed to take advantage of skills you already have and make you productive right away.";
+    "Azure is a public cloud platform from Microsoft. A wide range of services such as compute, analytics, storage and networking are provided and can be used for IaaS, Pass and SaaS. Azure can be used to supplementOn-premise servers or migrate from on-premise to cloud.";
 const String azureDevopsIntro =
-    "Azure DevOps is a devops solution that creates a collaborative culture and set of processes to bring together different team members during the development and deployment process. Azure Devops helps to facilitate speedy development and team communication and participation.";
+    "Azure Devops is a SaaS platform from Microsoft providing a complete Devops toolkit for developing and deploying software. Azure Devops provided Azure Boards for agile planning, Azure CI,CD pipelines which are cloud agnostic, Azure repos, Azure Artifacts and test plans";
 const String jenkinsIntro =
     "Jenkins is an open source Pipeline tool. It is useful for creating build and delopyment pipeline and can run on cloud servers. We have experience with Jenkins and can use it for your pipeline and infrastructure build needs.";
 const String kubernetesIntro =

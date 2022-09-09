@@ -18,7 +18,7 @@ class AWSServicesScreen extends StatelessWidget {
       "service": "AWS",
       "title": "Managed Active Directory",
       "description":
-          "AWS Managed Active Directory with logging and schemas, custom security groups, AWS Secret Manager password rotation and domain joins.",
+          "AWS Managed Active Directory with logging and schemas, custom security groups, AWS Secret Manager password rotation and domain joins. With AWS Managed AD you can provision and share a directory to authenticate and authorize access for related use-cases",
     },
     {
       "service": "AWS",
