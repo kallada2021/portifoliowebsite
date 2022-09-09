@@ -117,7 +117,8 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                         Utils.showPictureBox(
                           context,
                           "Featured Services",
-                          widget.imageUrls[index],
+                          //widget.imageUrls[index],
+                          services![index].imageUrl!,
                         );
                       },
                       child: FancyShimmerImage(
@@ -199,21 +200,6 @@ class _ServicesHomeScreenState extends State<ServicesHomeScreen> {
                               );
                             },
                           ),
-                          // children: List.generate(
-                          //   widget.featuredServices.length,
-                          //   (index) {
-                          //     return FeaturedServiceWidget(
-                          //       featuredServiceName: widget.featuredServices[index]
-                          //               ["featuredServices"]
-                          //           .toString(),
-                          //       serviceDescription: widget.featuredServices[index]
-                          //               ["description"]
-                          //           .toString(),
-                          //       imageUrl:
-                          //           widget.featuredServices[index]["imageUrl"].toString(),
-                          //     );
-                          //   },
-                          // ),
                         ),
             ),
             const SizedBox(

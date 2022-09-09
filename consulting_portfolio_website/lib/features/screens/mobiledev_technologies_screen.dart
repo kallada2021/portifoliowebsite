@@ -95,7 +95,6 @@ class MobileDevTechnologiesScreen extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
-                  //TODO: Kotlin logo
                   SizedBox(
                     width: 50,
                     height: 50,

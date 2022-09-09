@@ -42,7 +42,7 @@ class MobileScreenLayout extends StatelessWidget {
                             Navigator.pushNamed(
                                 context, ContactUsScreen.routeName);
                           },
-                          child: const Text("Featured Services"),
+                          child: const Text("Contact us"),
                         ),
                       );
                     },
@@ -78,7 +78,7 @@ class MobileScreenLayout extends StatelessWidget {
                             Navigator.pushNamed(
                                 context, ServicesScreen.routeName);
                           },
-                          child: const Text("Contact us"),
+                          child: const Text("Featured Services"),
                         ),
                       );
                     },

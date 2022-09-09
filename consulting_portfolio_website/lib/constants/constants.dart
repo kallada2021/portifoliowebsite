@@ -37,15 +37,15 @@ const String cdkIntro =
 const String amazonIntro =
     "Amazon Web Services (AWS) provides on-demand cloud computing platforms and APIs, on a pay-as-you-go basis. We can help you setup cloud computing web services and software on AWS. Some services include EC2 (virtual server), Database options, and Lambdas for serverless APIs. We will configure your application to run on AWS using these technologies";
 const String azureIntro =
-    "Azure is a public cloud platform from Microsoft. A wide range of services such as compute, analytics, storage and networking are provided and can be used for IaaS, Pass and SaaS. Azure can be used to supplementOn-premise servers or migrate from on-premise to cloud.";
+    "Azure is a public cloud platform from Microsoft. A wide range of services such as compute, analytics, storage and networking are provided and can be used for IaaS, Pass and SaaS. Azure can be used to supplement On-premise servers or migrate from on-premise to cloud.";
 const String azureDevopsIntro =
-    "Azure Devops is a SaaS platform from Microsoft providing a complete Devops toolkit for developing and deploying software. Azure Devops provided Azure Boards for agile planning, Azure CI,CD pipelines which are cloud agnostic, Azure repos, Azure Artifacts and test plans";
+    "Azure Devops is a SaaS platform from Microsoft providing a complete Devops toolkit for developing and deploying software. Azure Devops provides Azure Boards for agile planning, Cloud agnostic Azure CI,CD pipelines, Azure repos, Azure Artifacts and test plans.";
 const String jenkinsIntro =
-    "Jenkins is an open source Pipeline tool. It is useful for creating build and delopyment pipeline and can run on cloud servers. We have experience with Jenkins and can use it for your pipeline and infrastructure build needs.";
+    "Jenkins is an open source Pipeline tool. It is useful for creating build and deployment pipeline and can run on cloud servers. We have experience with Jenkins and can use it for your pipeline and infrastructure build needs.";
 const String kubernetesIntro =
     "Kubernetes is a managed service for deploying several different Docker containers and services. It can be deployed to AWS EKS or Azure AKS. We have experience deploying different apps on kubernetes.";
 const String githubActionsIntro =
-    "GitHub Actions now supports OpenID Connect (OIDC) for secure deployments to cloud, which uses short-lived tokens that are automatically rotated for each deployment. This enables: Seamless authentication between Cloud Providers and GitHub without the need for storing any long-lived cloud secrets in GitHub";
+    "GitHub Actions is a pipeline to deploy apps on the cloud. It is a customizable deployment tool and also focuses on high security";
 const String flutterIntro =
     "Flutter is a multiplatform library used to create primary iOS and Android apps and can also be used to create websites and desktop applications.  We also work with Flutter and can setup an Android app as well as an iOS app and in addition we can use it to create a landing page, portfolio or website for your company to help with saving your costs.";
 const String swiftIntro =
