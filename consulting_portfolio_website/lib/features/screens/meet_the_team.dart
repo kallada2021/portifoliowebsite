@@ -107,7 +107,7 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
                       ),
                       Center(
                         child: Text(
-                          "AWS Solutions Architect Certificate",
+                          "Certified AWS Solutions Architect\n Certified Azure Solutions Architect",
                           style: TextStyle(
                             color: Colors.deepPurple[900],
                             fontSize: 22,

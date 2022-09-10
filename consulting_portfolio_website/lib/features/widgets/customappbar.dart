@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
 import '../screens/contactus.dart';
+import '../screens/meet_the_team.dart';
 import '../screens/projects_screen.dart';
 import '../screens/services_screen.dart';
 
@@ -62,6 +63,24 @@ AppBar customAppBar(BuildContext context) {
                       },
                       child: Text(
                         "Projects",
+                        style: GlobalVariables.kAppBarTextStyle,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: GlobalVariables.kLineWidth,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
+                        Navigator.pushNamed(
+                          context,
+                          MeetTheTeamScreen.routeName,
+                        );
+                      },
+                      child: Text(
+                        "MeetTheTeam",
                         style: GlobalVariables.kAppBarTextStyle,
                       ),
                     ),

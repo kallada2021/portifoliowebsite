@@ -24,7 +24,7 @@ class MobileScreenLayout extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 200,
+                height: 500,
                 child: IntroBox(),
               ),
               const SizedBox(
