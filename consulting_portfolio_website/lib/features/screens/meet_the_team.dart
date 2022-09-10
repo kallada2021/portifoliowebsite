@@ -77,26 +77,29 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      const MeetTheTeamWidget(
-                        descriptionText: "Description of a team member",
-                        nameText: "Director",
-                      ),
-                      const MeetTheTeamWidget(
-                        nameText: "Lead Architect",
-                        descriptionText:
-                            "Lead designer and developer of software.  He enjoys working with different "
-                            "technologies and developing different types of products and solutions.",
-                      ),
-                      const MeetTheTeamWidget(
-                        nameText: "Project Manager",
-                        descriptionText: "Description of a team member",
-                      ),
-                      const MeetTheTeamWidget(
-                        nameText: "Development Team",
-                        descriptionText: "Description of a team member",
+                      const Text(
+                        "Our Team",
+                        style: GlobalVariables.kTechPageTitleStyle,
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        // height: size.height,
+                        height: teamMembers.length * 150,
+                        child: ListView.builder(
+                          itemCount: teamMembers.length,
+                          itemBuilder: (ctx, index) {
+                            return MeetTheTeamWidget(
+                              nameText: teamMembers[index].name,
+                              descriptionText: teamMembers[index].description,
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15.0,
                       ),
                       const Text(
                         "Team Achievements",
@@ -107,7 +110,7 @@ class _MeetTheTeamScreenState extends State<MeetTheTeamScreen> {
                       ),
                       Center(
                         child: Text(
-                          "Certified AWS Solutions Architect\n Certified Azure Solutions Architect",
+                          "Certified AWS Solutions Architect\nCertified Azure Solutions Architect",
                           style: TextStyle(
                             color: Colors.deepPurple[900],
                             fontSize: 22,
