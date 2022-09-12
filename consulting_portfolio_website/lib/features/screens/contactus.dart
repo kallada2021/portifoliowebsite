@@ -13,6 +13,7 @@ import 'package:consulting_portfolio_website/features/widgets/textfield.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
+import '../providers/appstate.dart';
 import '../widgets/footer.dart';
 
 class ContactUsScreen extends StatefulWidget {
@@ -32,7 +33,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   final TextEditingController _messageController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final ContactService contactService = ContactService();
-  bool isSending = false;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  AppState isSending = AppState.initial;
 
   @override
   void dispose() {
@@ -50,7 +52,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
 
   void sendEmail() {
     setState(() {
-      isSending = true;
+      autovalidateMode = AutovalidateMode.always;
+      isSending = AppState.loading;
     });
     contactService.sendEmailMessage(
       context: context,
@@ -82,7 +85,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   padding: const EdgeInsets.all(50.0),
                   child: Column(
                     children: [
-                      isSending == true ? linearProgressBar() : Container(),
+                      // isSending == AppState.loading
+                      //     ? linearProgressBar()
+                      //     : Container(),
                       const Text(
                         "contact us",
                         style: TextStyle(
@@ -106,6 +111,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         color: Colors.white,
                         child: Form(
                           key: _contactUsFormKey,
+                          autovalidateMode: autovalidateMode,
                           child: Column(
                             children: [
                               const SizedBox(
@@ -113,7 +119,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: formPadding),
+                                  horizontal: formPadding,
+                                ),
                                 child: CustomTextField(
                                   controller: _nameController,
                                   hintText: "* Name",
@@ -125,7 +132,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: formPadding),
+                                  horizontal: formPadding,
+                                ),
                                 child: CustomTextField(
                                   controller: _emailController,
                                   hintText: "* Email Address",
@@ -137,7 +145,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: formPadding),
+                                  horizontal: formPadding,
+                                ),
                                 child: CustomTextField(
                                   controller: _phoneController,
                                   hintText: "* Phone Number",
@@ -149,7 +158,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: formPadding),
+                                  horizontal: formPadding,
+                                ),
                                 child: CustomTextField(
                                   controller: _messageController,
                                   hintText: "* Message",
@@ -200,7 +210,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     ],
                   ),
                 ),
-                // const Footer(),
               ],
             ),
           ),
@@ -226,7 +235,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
   final TextEditingController _messageController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final ContactService contactService = ContactService();
-  bool isSending = false;
+  AppState isSending = AppState.initial;
 
   @override
   void dispose() {
@@ -244,7 +253,7 @@ class _MobileContactScreenState extends State<MobileContactScreen> {
 
   void sendEmail() {
     setState(() {
-      isSending = true;
+      isSending = AppState.loading;
     });
     contactService.sendEmailMessage(
       context: context,

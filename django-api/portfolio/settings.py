@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["localhost"]
 
 CORS_ALLOW_ALL_ORIGINS: True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:54635"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:60035"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -137,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Asia/Bishkek"
+TIME_ZONE = "Asia/Riyadh"
 
 USE_I18N = True
 

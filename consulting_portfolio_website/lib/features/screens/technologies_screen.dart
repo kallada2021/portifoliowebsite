@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:consulting_portfolio_website/constants/global_variables.dart';
 import 'package:consulting_portfolio_website/features/models/technology.dart';
 import 'package:consulting_portfolio_website/features/screens/cloudtechnologies_screen.dart';
@@ -59,22 +57,14 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
               fontWeight: FontWeight.w700,
             ),
           ),
-          // service.isLoading
-          //     ? Padding(
-          //         padding: const EdgeInsets.symmetric(vertical: 20.0),
-          //         child: CircularProgressIndicator(
-          //           color: GlobalVariables.kSecondaryColor,
-          //         ),
-          //       ) :
           LoadingManager(
-            isLoading: service.isLoading,
+            isLoading: service.appState,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: FutureBuilder<List<Technology>>(
                 future: getTech,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    //var index = Random();
                     return ListView.builder(
                       itemCount: techList.isEmpty ? 0 : 4,
                       shrinkWrap: true,
@@ -97,7 +87,7 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                     );
                   } else if (snapshot.hasError) {
                     return LoadingManager(
-                        isLoading: service.isLoading,
+                        isLoading: service.appState,
                         child: Text('${snapshot.error}'));
                   } else {
                     // By default, show a loading spinner.

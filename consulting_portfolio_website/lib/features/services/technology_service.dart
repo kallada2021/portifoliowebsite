@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:consulting_portfolio_website/constants/constants.dart';
 import 'package:consulting_portfolio_website/constants/errors.dart';
 import 'package:consulting_portfolio_website/features/providers/technology_provider.dart';
 import "package:provider/provider.dart";
@@ -9,9 +10,10 @@ import "package:http/http.dart" as http;
 import '../../constants/global_variables.dart';
 import '../../constants/utils.dart';
 import '../models/technology.dart';
+import '../providers/appstate.dart';
 
 class TechnologyService {
-  bool isLoading = true;
+  AppState appState = AppState.loading;
   // getTechs gets a list of techs from backend api
   Future<List<Technology>> getTechs({
     required BuildContext context,
@@ -22,10 +24,9 @@ class TechnologyService {
           .get(Uri.parse("$uri/api/technologies/"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
-      // print(res.body);
-      print(jsonDecode(res.body));
+
       if (res.statusCode != 200) {
-        print(res.statusCode);
+        res.statusCode.log();
         throw "An error occurred.";
       }
       httpErrorHandle(
@@ -45,7 +46,7 @@ class TechnologyService {
         },
       );
     } catch (e) {
-      print(e.toString());
+      e.toString().log();
       if (e.toString().contains("XMLHttp")) {
         showSnackBar(
             context, "Please check your internet connection", Colors.red);
@@ -54,7 +55,7 @@ class TechnologyService {
         throw e.toString();
       }
     }
-    isLoading = false;
+    appState = AppState.initial;
     return techList;
   }
 
@@ -68,7 +69,6 @@ class TechnologyService {
           headers: <String, String>{
             "Content-Type": "application/json; charset=UTF-8",
           });
-      print(res.body);
 
       var techProvider =
           Provider.of<TechnologyProvider>(context, listen: false);

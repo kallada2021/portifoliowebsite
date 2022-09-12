@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../constants/global_variables.dart';
+import '../providers/appstate.dart';
 
 class LoadingManager extends StatelessWidget {
-  final bool isLoading;
+  final AppState isLoading;
   final Widget child;
   const LoadingManager({
     Key? key,
@@ -17,12 +18,12 @@ class LoadingManager extends StatelessWidget {
     return Stack(
       children: [
         child,
-        isLoading
+        isLoading == AppState.loading
             ? Container(
                 color: Colors.purple.withOpacity(0.5),
               )
             : Container(),
-        isLoading
+        isLoading == AppState.loading
             ? Center(
                 child: SpinKitFadingFour(
                   color: Colors.deepPurple,
