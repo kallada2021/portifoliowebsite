@@ -3,5 +3,5 @@ from pytest_terraform import terraform
 
 
 @terraform("rds", scope="session")
-def test_vpc(rds):
-    assert rds["rds.main.tags"] == {"Name": "RDS"}
+def test_db(rds):
+    assert rds["aws_db_instance.main-db.identifier"] == "main-db"

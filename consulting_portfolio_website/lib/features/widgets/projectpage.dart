@@ -123,15 +123,15 @@ class _ProjectState extends State<Project> {
                       },
                       child: isHovered
                           ? SizedBox(
-                              height: 340,
-                              width: 300,
+                              height: 300,
+                              width: size.width * 0.9,
                               child: widget.imageURL != null
                                   ? Image.network(widget.imageURL!)
                                   : Container(),
                             )
                           : SizedBox(
-                              height: 320,
-                              width: 280,
+                              width: size.width * 0.85,
+                              height: 280,
                               child: widget.imageURL != null
                                   ? Image.network(widget.imageURL!)
                                   : Container(),
@@ -139,7 +139,7 @@ class _ProjectState extends State<Project> {
                     ),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.35,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 50.0),
                       child: Column(
@@ -160,7 +160,9 @@ class _ProjectState extends State<Project> {
                             child: Text(
                               widget.description,
                               style: TextStyle(
-                                  color: GlobalVariables.kSecondaryColor),
+                                color: GlobalVariables.kSecondaryColor,
+                              ),
+                              textAlign: TextAlign.justify,
                             ),
                           ),
                           const SizedBox(
