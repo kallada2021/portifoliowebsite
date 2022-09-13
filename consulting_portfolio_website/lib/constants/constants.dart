@@ -53,7 +53,7 @@ const String swiftIntro =
 const String kotlinIntro =
     "Kotlin is used for creating Android application as well as Multiplatform applications and backend APIs. We can provide Android solutions and Fullstack solutions for your company.";
 const String htmlCssIntro =
-    "HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages";
+    "HTML is used for defining structure of webpage while CSS provides styling. Together they are building blocks of a website";
 const String javascriptInto =
     "Javascript is used by programmers across the world to create dynamic and interactive web content like applications and browsers. JavaScript is so popular that it's the most used programming language in the world, used as a client-side programming language by 97.0% of all websites.";
 const String djangoIntro =
@@ -61,7 +61,7 @@ const String djangoIntro =
 const String golangIntro =
     "Go (also called Golang or Go language) is a general purpose language.  Go is statically typed and explicit and is suitable for microservices and concurrent applications.";
 const String csharpIntro =
-    "C# is a simple, modern, general-purpose, object-oriented programming language developed by Microsoft within its .NET initiative led by Anders Hejlsberg";
+    "It is one of the several programming languages that use OOPS to provide flexibility and efficiency. With these capabilities it can solve use cases related to Web Application Development, Windows Forms Development and Gaming using Unity";
 const String powershellIntro =
     "PowerShell is a scripting language used primary on Windows and Windows servers to run commands and to help maintain the server and other Microsoft services such as Active Directory.";
 const String dockerIntro =

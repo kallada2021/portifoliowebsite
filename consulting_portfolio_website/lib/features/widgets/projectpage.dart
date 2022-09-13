@@ -156,7 +156,7 @@ class _ProjectState extends State<Project> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Text(
                               widget.description,
                               style: TextStyle(
