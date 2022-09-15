@@ -45,8 +45,7 @@ class _MainPageState extends State<MainPage> {
     },
     {
       "title": "Devops",
-      "url":
-          "https://cdn.pixabay.com/photo/2020/11/16/22/58/mountains-5750804_960_720.jpg",
+      "url": "${GlobalVariables.s3Url}AWS+Devops.png",
     },
   ];
 
