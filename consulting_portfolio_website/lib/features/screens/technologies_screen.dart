@@ -66,7 +66,11 @@ class _TechnologiesScreenState extends State<TechnologiesScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
-                      itemCount: techList.isEmpty ? 0 : 4,
+                      itemCount: techList.isEmpty
+                          ? 0
+                          : techList.length > 4
+                              ? 4
+                              : techList.length,
                       shrinkWrap: true,
                       itemBuilder: (ctx, int i) {
                         return Container(

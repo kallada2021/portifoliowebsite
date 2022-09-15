@@ -26,7 +26,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final List data = [
-    {"title": "AWS", "url": "${GlobalVariables.s3Url}FullStackOnAWS.png"},
+    {
+      "title": "AWS",
+      "url": "${GlobalVariables.s3Url}FullStackOnAWS.png",
+    },
     {
       "title": "Azure",
       "url": "${GlobalVariables.s3Url}AzureWebApp.jpeg",
@@ -66,7 +69,7 @@ class _MainPageState extends State<MainPage> {
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 2),
                   autoPlayAnimationDuration: const Duration(milliseconds: 400),
-                  height: 400,
+                  height: 500,
                 ),
                 items: data.map((item) {
                   return GridTile(
@@ -79,7 +82,10 @@ class _MainPageState extends State<MainPage> {
                               color: Colors.white, fontSize: 20),
                           textAlign: TextAlign.right,
                         )),
-                    child: Image.network(item["url"], fit: BoxFit.cover),
+                    child: Image.network(
+                      item["url"],
+                      fit: BoxFit.fill,
+                    ),
                   );
                 }).toList(),
               ),

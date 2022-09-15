@@ -80,7 +80,7 @@ AppBar customAppBar(BuildContext context) {
                         );
                       },
                       child: Text(
-                        "MeetTheTeam",
+                        "Meet The Team",
                         style: GlobalVariables.kAppBarTextStyle,
                       ),
                     ),

@@ -4,17 +4,27 @@ resource "random_password" "dbpassword" {
   special = false
 }
 
-#Creating a AWS Secret for Portfolio db
+#Create an AWS Secret for Portfolio db
 resource "aws_secretsmanager_secret" "dbsecretmaster" {
   name = var.secret-name
+
+   tags = {
+    "Name" = "AppSecrets"
+  }
+}
+
+resource "random_string" "djangokey" {
+  length  = 30
+  special = true
 }
 
 resource "aws_secretsmanager_secret_version" "dbsecret" {
   secret_id     = aws_secretsmanager_secret.dbsecretmaster.id
   secret_string = <<EOF
     {
-      "username": "admin1",
-      "password": "${random_password.dbpassword.result}"
+      "POSTGRES_USERNAME": "admin1",
+      "POSTGRES_PASSWORD": "${random_password.dbpassword.result}",
+      "DJANGO_KEY": "${random_string.djangokey.result}"
     }
 EOF
 }

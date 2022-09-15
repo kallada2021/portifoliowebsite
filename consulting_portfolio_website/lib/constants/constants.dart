@@ -53,9 +53,9 @@ const String swiftIntro =
 const String kotlinIntro =
     "Kotlin is used for creating Android application as well as Multiplatform applications and backend APIs. We can provide Android solutions and Fullstack solutions for your company.";
 const String htmlCssIntro =
-    "HTML is used for defining structure of webpage while CSS provides styling. Together they are building blocks of a website";
+    "HTML is used for defining the structure of a webpage while CSS provides styling. Together they are the building blocks of a website";
 const String javascriptInto =
-    "Javascript is used by programmers across the world to create dynamic and interactive web content like applications and browsers. JavaScript is so popular that it's the most used programming language in the world, used as a client-side programming language by 97.0% of all websites.";
+    "Javascript is an all purpose programming language.  It is used primarily for making websites and also can be used in cloud programming, game development, and server development.  Typescript allows Javascript developers to use static types while writing programs. We provide web development solutions.";
 const String djangoIntro =
     "Django is a Python web and API framework.  It provides an admin panel and built in authentication making for fast and efficient development.  We can create an API with Django and integrate it with a frontend application.";
 const String golangIntro =
