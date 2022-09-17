@@ -164,3 +164,4 @@ PyCharm
 .terraform/
 terraform.auto.tfvars
 keypair/
+.tfcache

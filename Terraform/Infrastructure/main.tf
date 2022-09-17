@@ -1,7 +1,7 @@
 provider "aws" {
   region     = var.region
-  access_key = var.aws-accesskey
-  secret_key = var.aws-secretkey
+  /* access_key = var.aws-accesskey
+  secret_key = var.aws-secretkey */
 }
 
 module "networking" {
@@ -13,14 +13,14 @@ module "secretmanager" {
   secret-name = var.secret-name
 }
 
-/* module "compute" {
+module "compute" {
   source          = "./compute"
   vpc-id          = module.networking.vpc-id
   private-subnets = module.networking.private-subnets
   subnet          = module.networking.public-subnets[0]
-} */
+}
 
-/* module "alb" {
+module "alb" {
   source          = "./alb"
   vpc-id          = module.networking.vpc-id
   public-subnets  = module.networking.public-subnets
@@ -28,7 +28,7 @@ module "secretmanager" {
   certificate-arn = var.certificate-arn
   listener-type   = var.listener-type
   ssl-policy      = var.ssl-policy
-} */
+}
 
 module "rds" {
   source          = "./rds"

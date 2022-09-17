@@ -17,3 +17,4 @@ def test_secretmanager(tests):
 def test_vpc(tests):
     assert tests["aws_vpc.main.cidr_block"] == "10.0.0.0/16"
     assert tests["aws_internet_gateway.portfoliogw.tags"] == {"Name": "PortfolioGateway"}
+

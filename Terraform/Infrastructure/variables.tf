@@ -8,13 +8,13 @@ variable "secret-name" {
   type = string
 }
 
-variable "aws-accesskey" {
+/* variable "aws-accesskey" {
   type = string
 }
 
 variable "aws-secretkey" {
   type = string
-}
+} */
 
 variable "db-name" {
   type        = string

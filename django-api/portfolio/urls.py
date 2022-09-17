@@ -5,7 +5,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    # TODO: Change admin URL
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path("portfolioadmin/", admin.site.urls),
     path("api/", include("api.urls")),
