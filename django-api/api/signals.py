@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 def sendEmail(email: str, name: str, message: str):
     # TODO: implement send email lambda
-    url: str = "https://enmkotdau8.execute-api.us-east-1.amazonaws.com/prod/"
+    url: str = "https://enmkotdau8.execute-api.us-east-1.amazonaws.com/prod/sendemail"
     payload = {"email": email, "name": name, "message": message}
     print("Payload ", payload)
     req = requests.post(url, json.dumps(payload))

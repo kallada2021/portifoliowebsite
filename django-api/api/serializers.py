@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import Contact, MeetTheTeam, Project, Service, Technology
 
-
+#Todo fix send email function
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
