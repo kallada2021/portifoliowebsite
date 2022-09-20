@@ -5,7 +5,6 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .signals import sendEmail
 
 from .models import Contact, MeetTheTeam, Project, Service, Technology
 from .serializers import (
@@ -16,6 +15,7 @@ from .serializers import (
     Technology,
     TechnologySerializer,
 )
+from .signals import sendEmail
 
 
 @api_view(["GET"])
@@ -49,11 +49,11 @@ def contact(request):
 @api_view(["POST"])
 def createContact(request):
     serializer = ContactSerializer(data=request.data)
-
+    print(f"createContact {serializer}")
     if serializer.is_valid():
         serializer.save()
-        sendEmail(email=request.data["email"],name=request.data["name"],message = request.data["message"])
     else:
+        print("Invalid data")
         return Response("Invalid contact data", status=status.HTTP_400_BAD_REQUEST)
 
     return Response(serializer.data, status=status.HTTP_201_CREATED)

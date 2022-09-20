@@ -10,8 +10,18 @@ from .models import Contact
 logger = logging.getLogger(__name__)
 
 
+@receiver(post_save, sender=Contact)
+def sendContact(sender, instance, created: bool, **kwargs):
+    if created:
+        logger.info(f"{instance}'s message created.")
+        email: str = instance.email
+        message: str = instance.message
+        name: str = instance.name
+        logger.info(f"{email} message = {instance.message} ")
+        sendEmail(email=email, name=name, message=message)
+
+
 def sendEmail(email: str, name: str, message: str):
-    # TODO: implement send email lambda
     url: str = "https://enmkotdau8.execute-api.us-east-1.amazonaws.com/prod/sendemail"
     payload = {"email": email, "name": name, "message": message}
     print("Payload ", payload)

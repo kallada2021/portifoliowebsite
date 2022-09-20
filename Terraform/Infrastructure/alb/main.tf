@@ -10,6 +10,7 @@ resource "aws_security_group" "portfolio-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   ingress {
     description = "HTTPS from ALB"
     from_port   = 443
@@ -17,6 +18,7 @@ resource "aws_security_group" "portfolio-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   ingress {
     description = "HTTPS from NGINX"
     from_port   = 8080
