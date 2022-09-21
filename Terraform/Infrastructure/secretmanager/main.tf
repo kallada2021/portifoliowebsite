@@ -8,7 +8,7 @@ resource "random_password" "dbpassword" {
 resource "aws_secretsmanager_secret" "dbsecretmaster" {
   name = var.secret-name
 
-   tags = {
+  tags = {
     "Name" = "AppSecrets"
   }
 }
@@ -24,7 +24,8 @@ resource "aws_secretsmanager_secret_version" "dbsecret" {
     {
       "POSTGRES_USERNAME": "admin1",
       "POSTGRES_PASSWORD": "${random_password.dbpassword.result}",
-      "DJANGO_KEY": "${random_string.djangokey.result}"
+      "DJANGO_KEY": "${random_string.djangokey.result}",
+      "POSTGRES_DB" : "${var.db-name}"
     }
 EOF
 }

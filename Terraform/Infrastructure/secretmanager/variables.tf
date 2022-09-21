@@ -1,4 +1,8 @@
 variable "secret-name" {
-    type = string
+  type = string
 }
 
+variable "db-name" {
+  type        = string
+  description = "Database Name"
+}

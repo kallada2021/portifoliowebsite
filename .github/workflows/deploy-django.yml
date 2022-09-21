@@ -97,8 +97,10 @@ jobs:
     - name: Get .env variables from AWS parameter store
       run: |
           cd django-api
-          aws ssm get-parameter --name "${{secrets.PORTFOLIO_DB_SECRET}}" --with-decryption --query Parameter.Value --output text > .env
-    
+          aws secretsmanager get-secret-value --secret-id ${{secrets.PORTFOLIO_DB_SECRET}} --region ${{secrets.REGION}} | \
+            jq -r '.SecretString' | \
+            jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
+            
     - name: Create Docker containers on EC2
       uses: shimataro/ssh-key-action@v2
       with: 

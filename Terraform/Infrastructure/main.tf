@@ -1,7 +1,7 @@
 provider "aws" {
-  region     = var.region
-  /* access_key = var.aws-accesskey
-  secret_key = var.aws-secretkey */
+  region = var.region
+  # access_key = var.aws-accesskey
+  # secret_key = var.aws-secretkey
 }
 
 module "networking" {
@@ -11,6 +11,7 @@ module "networking" {
 module "secretmanager" {
   source      = "./secretmanager"
   secret-name = var.secret-name
+  db-name     = var.db-name
 }
 
 module "compute" {
