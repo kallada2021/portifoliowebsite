@@ -13,14 +13,13 @@ on:
 env:
   TF_WORKSPACE: ${{ github.event.inputs.environment }}
   TF_VAR_aws-region: ${{ secrets.AWS_REGION }}
-  TF_VAR_aws-secret-key: ${{ secrets.AWS_SECRET }}
-  TF_VAR_aws-access-key: ${{ secrets.AWS_ACCESS }}
+  TF_VAR_aws-secretkey: ${{ secrets.AWS_SECRET }}
+  TF_VAR_aws-accesskey: ${{ secrets.AWS_ACCESS }}
   TF_VAR_secret-name: ${{ secrets.SECRET_NAME }}
   TF_VAR_key-name: ${{ secrets.PROD_KEY_NAME }}
   TF_VAR_acm-cert: ${{ secrets.PROD_ACM_CERT }}
-  TF_VAR_db-name: ${{ secrets.PGSQL_NAME }} 
-  TF_VAR_db-username: ${{ secrets.PGSQL_USERNAME }} 
-  TF_VAR_db-password: ${{ secrets.PGSQL_PASSWORD }} 
+  TF_VAR_db-name: ${{ secrets.DATABASE_NAME }} 
+ 
 
 jobs:
   terraform:
@@ -53,7 +52,7 @@ jobs:
       run: |
         cd Terraform
         cd Infrastructure 
-        terraform init  -backend-config="bucket=magnolia-portfolio-bucket" -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="access_key=${{  secrets.AWS_ACCESS }}" -backend-config="secret_key=${{ secrets.AWS_SECRET }}"
+        terraform init  -backend-config="bucket=portfolio-website-magnolia-bucket" -backend-config="key=terraformstate/portfolioinfrastructure/terraform.tfstate" -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="access_key=${{  secrets.AWS_ACCESS }}" -backend-config="secret_key=${{ secrets.AWS_SECRET }}"
 
     - name: Terraform Destroy 
       run: |

@@ -40,7 +40,7 @@ jobs:
       run: |
         cd django-api
         python -m pip install --upgrade pip 
-        pip install -t requirements.txt 
+        pip install -r requirements.txt 
 
     - name: Lint with flake8
       id: lint
@@ -72,14 +72,12 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.ECR_REPO }} 
         IMAGE_TAG: ${{ github.sha }}
-        DB_HOST: ${{ secrets.PGSQL_HOST }} 
-        DB_USER: ${{ secrets.PGSQL_USER }} 
-        DB_PASSWORD: ${{ secrets.PGSQL_PASSWORD }} 
-        JWT_KEY: ${{ secrets.JWT_KEY }} 
+      
       run: |
         cd django-api
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+
 
     - name: Build, tag, and push NGINX image to Amazon ECR
       id: build-nginx
@@ -96,7 +94,7 @@ jobs:
     - name: Get .env variables from Secret Manager
       run: |
           cd django-api
-          aws secretsmanager get-secret-value --secret-id ${{secrets.PORTFOLIO_DB_SECRET}} --region ${{secrets.REGION}} | \
+          aws secretsmanager get-secret-value --secret-id ${{secrets.SECRET_NAME}} --region ${{secrets.REGION}} | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
@@ -110,15 +108,13 @@ jobs:
     - name: Adding Known Hosts 
       run: ssh-keyscan - H ${{ secrets.EC2_HOSTNAME }} >> ~/.ssh/known_hosts
     
-    - name: Run docker compose
-      run: |
+    - name: Pull Docker Images to EC2
+      run: | 
+        ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_KEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
-        git checkout master 
-        git fetch origin
-        docker compose -f docker-compose.prod.yml down -v
-        cd django-api
-        ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_KEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
-        docker compose -f docker-compose.prod.yml up -d
+        docker network create portfolio
+        docker run --name api --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+        docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
 
         
