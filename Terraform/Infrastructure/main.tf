@@ -35,10 +35,8 @@ module "rds" {
   source          = "./rds"
   depends_on      = [module.secretmanager]
   private-subnets = module.networking.private-subnets
-  // dbusername      = "admin"
-  // dbpassword      = "password1"
-  dbusername = module.secretmanager.dbusername
-  dbpassword = module.secretmanager.dbpassword
-  db-name    = var.db-name
-  vpc-id     = module.networking.vpc-id
+  dbusername      = module.secretmanager.dbusername
+  dbpassword      = module.secretmanager.dbpassword
+  db-name         = var.db-name
+  vpc-id          = module.networking.vpc-id
 }

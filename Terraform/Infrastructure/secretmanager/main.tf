@@ -14,7 +14,7 @@ resource "aws_secretsmanager_secret" "dbsecretmaster" {
 }
 
 resource "random_string" "djangokey" {
-  length  = 30
+  length  = 35
   special = true
 }
 
@@ -25,7 +25,7 @@ resource "aws_secretsmanager_secret_version" "dbsecret" {
     {
       "POSTGRES_USERNAME": "admin1",
       "POSTGRES_PASSWORD": "${random_password.dbpassword.result}",
-      "DJANGO_KEY": "${random_string.djangokey.result}",
+      "DJANGO_SECRET_KEY": "${random_string.djangokey.result}",
       "POSTGRES_DB" : "${var.db-name}"
     }
 EOF
