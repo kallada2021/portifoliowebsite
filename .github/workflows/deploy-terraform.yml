@@ -13,8 +13,8 @@ on:
 env:
   TF_WORKSPACE: ${{ github.event.inputs.environment }}
   TF_VAR_aws-region: ${{ secrets.AWS_REGION }}
-  TF_VAR_aws-secret-key: ${{ secrets.AWS_SECRET }}
-  TF_VAR_aws-access-key: ${{ secrets.AWS_ACCESS }}
+  TF_VAR_aws-secretkey: ${{ secrets.AWS_SECRET }}
+  TF_VAR_aws-accesskey: ${{ secrets.AWS_ACCESS }}
   TF_VAR_secret-name: ${{ secrets.SECRET_NAME }}
   TF_VAR_key-name: ${{ secrets.SSH_KEY_NAME }}
   TF_VAR_acm-cert: ${{ secrets.ACM_CERT }}
