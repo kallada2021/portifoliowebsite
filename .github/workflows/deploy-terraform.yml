@@ -51,7 +51,7 @@ jobs:
       run: | 
         cd Terraform
         cd Infrastructure
-        terraform init -backend-config="bucket=magnolia-portfolio-bucket" -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="access_key=${{  secrets.AWS_ACCESS }}" -backend-config="secret_key=${{ secrets.AWS_SECRET }}"
+        terraform init -backend-config="bucket=portfolio-website-magnolia-bucket" -backend-config="key=terraformstate/portfolioinfrastructure/terraform.tfstate" -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="access_key=${{  secrets.AWS_ACCESS }}" -backend-config="secret_key=${{ secrets.AWS_SECRET }}"
 
     - name: Format Terraform 
       id: fmt 
