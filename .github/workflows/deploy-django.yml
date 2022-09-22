@@ -100,14 +100,17 @@ jobs:
           aws secretsmanager get-secret-value --secret-id ${{secrets.PORTFOLIO_DB_SECRET}} --region ${{secrets.REGION}} | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
-            
+
     - name: Create Docker containers on EC2
       uses: shimataro/ssh-key-action@v2
       with: 
         known_hosts: ${{secrets.KNOWN_HOSTS}}
         name: id_rsa
-        key: ${{secrets.SSH_KEY}}
-        
+        key: ${{secrets.SSH_KEY_NAME}}
+
+    - name: Adding Known Hosts 
+      run: ssh-keyscan - H ${{ secrets.EC2_HOSTNAME }} >> ~/.ssh/known_hosts
+    
     - name: Run docker compose
       run: |
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
@@ -116,6 +119,7 @@ jobs:
         git fetch origin
         docker compose -f docker-compose.prod.yml down -v
         cd django-api
+        ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_KEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
         docker compose -f docker-compose.prod.yml up -d
 
         
