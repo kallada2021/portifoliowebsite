@@ -98,12 +98,12 @@ jobs:
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
-    - name: Create Docker containers on EC2
+    - name: Setup EC2 Login credentials
       uses: shimataro/ssh-key-action@v2
       with: 
         known_hosts: ${{secrets.EC2_HOSTNAME}}
-        name: id_rsa
-        key: ${{secrets.SSH_KEY_NAME}}
+        name: ${{secrets.SSH_KEY_NAME}}
+        key: ${{secrets.SSH_PRIVATEKEY_NAME}}
 
     - name: Adding Known Hosts 
       run: ssh-keyscan - H ${{ secrets.EC2_HOSTNAME }} >> ~/.ssh/known_hosts
