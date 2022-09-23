@@ -101,7 +101,7 @@ jobs:
     - name: Create Docker containers on EC2
       uses: shimataro/ssh-key-action@v2
       with: 
-        known_hosts: ${{secrets.KNOWN_HOSTS}}
+        known_hosts: ${{secrets.EC2_HOSTNAME}}
         name: id_rsa
         key: ${{secrets.SSH_KEY_NAME}}
 
