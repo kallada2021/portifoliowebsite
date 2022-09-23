@@ -53,12 +53,12 @@ jobs:
         cd Infrastructure
         terraform init -backend-config="bucket=portfolio-website-magnolia-bucket" -backend-config="key=terraformstate/portfolioinfrastructure/terraform.tfstate" -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="access_key=${{  secrets.AWS_ACCESSKEY }}" -backend-config="secret_key=${{ secrets.AWS_SECRETKEY }}"
 
-    - name: Format Terraform 
-      id: fmt 
-      run: |
-        cd Terraform
-        cd Infrastructure
-        terraform fmt -check
+    # - name: Format Terraform 
+    #   id: fmt 
+    #   run: |
+    #     cd Terraform
+    #     cd Infrastructure
+    #     terraform fmt -check
 
     - name: Terraform Validate
       id: validate
