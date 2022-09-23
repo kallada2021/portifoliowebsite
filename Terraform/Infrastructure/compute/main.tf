@@ -62,7 +62,7 @@ resource "aws_iam_role" "ec2-role" {
 resource "aws_iam_policy_attachment" "ec2-policy-role" {
   name       = "EC2-PolicyAttachment"
   roles      = [aws_iam_role.ec2-role.name]
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  policy_arn = aws_iam_policy.ec2-policy.arn 
 }
 
 resource "aws_iam_instance_profile" "ec2-profile" {
@@ -70,10 +70,43 @@ resource "aws_iam_instance_profile" "ec2-profile" {
   role = aws_iam_role.ec2-role.name
 }
 
+resource "aws_iam_policy" "ec2-policy" {
+  name = "EC2Policy"
+  path = "/"
+  description = "Policy to grant permission to EC2 instances"
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:GetRepositoryPolicy",
+                "ecr:DescribeRepositories",
+                "ecr:ListImages",
+                "ecr:DescribeImages",
+                "ecr:BatchGetImage",
+                "ecr:GetLifecyclePolicy",
+                "ecr:GetLifecyclePolicyPreview",
+                "ecr:ListTagsForResource",
+                "ecr:DescribeImageScanFindings",
+                "ecr:InitiateLayerUpload",
+                "ecr:UploadLayerPart",
+                "ecr:CompleteLayerUpload",
+                "ecr:PutImage"
+            ],
+            "Resource": "*"
+        }
+    ]
+  })
+}
 // Provision ec2
 resource "aws_instance" "webserver" {
   ami                         = "ami-052efd3df9dad4825"
   instance_type               = var.instance-type
+  iam_instance_profile        = aws_iam_instance_profile.ec2-profile.name
   key_name                    = "portfolioKey"
   subnet_id                   = var.subnet
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
