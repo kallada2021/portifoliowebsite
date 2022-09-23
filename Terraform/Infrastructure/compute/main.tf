@@ -74,7 +74,7 @@ resource "aws_iam_instance_profile" "ec2-profile" {
 resource "aws_instance" "webserver" {
   ami                         = "ami-052efd3df9dad4825"
   instance_type               = var.instance-type
-  #key_name                    = aws_key_pair.sshkey.id
+  key_name                    = "portfolioKey"
   subnet_id                   = var.subnet
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
   user_data                   = filebase64("${path.module}/docker-userdata.sh")
