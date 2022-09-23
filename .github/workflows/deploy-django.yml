@@ -42,12 +42,12 @@ jobs:
         python -m pip install --upgrade pip 
         pip install -r requirements.txt 
 
-    - name: Lint with flake8
-      id: lint
-      run:  |
-        cd django-api
-        pip install flake8
-        flake8  
+    # - name: Lint with flake8
+    #   id: lint
+    #   run:  |
+    #     cd django-api
+    #     pip install flake8
+    #     flake8  
 
     - name: Django Testing 
       id: testing
