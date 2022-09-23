@@ -58,8 +58,8 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESSKEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRETKEY }}
           aws-region: ${{ secrets.AWS_REGION }}
     
     - name: Login to Amazon ECR
@@ -94,7 +94,7 @@ jobs:
     - name: Get .env variables from Secret Manager
       run: |
           cd django-api
-          aws secretsmanager get-secret-value --secret-id ${{secrets.SECRET_NAME}} --region ${{secrets.REGION}} | \
+          aws secretsmanager get-secret-value --secret-id ${{secrets.PORTFOLIO_DB_SECRET}} --region ${{secrets.AWS_REGION}} | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
@@ -110,7 +110,7 @@ jobs:
     
     - name: Pull Docker Images to EC2
       run: | 
-        ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_KEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
+        ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_PRIVATEKEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
         docker network create portfolio
