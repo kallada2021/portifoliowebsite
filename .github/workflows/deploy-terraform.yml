@@ -17,7 +17,7 @@ env:
   TF_VAR_aws-accesskey: ${{ secrets.AWS_ACCESSKEY }}
   TF_VAR_secret-name: ${{ secrets.PORTFOLIO_DB_SECRET }}
   TF_VAR_key-name: ${{ secrets.SSH_KEY_NAME }}
-  TF_VAR_acm-cert: ${{ secrets.CERTIFICATE_ARN }}
+  TF_VAR_certificate-arn: ${{ secrets.CERTIFICATE_ARN }}
   TF_VAR_db-name: ${{ secrets.DATABASE_NAME }} 
 
 jobs:
