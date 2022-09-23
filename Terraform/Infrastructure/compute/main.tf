@@ -74,7 +74,7 @@ resource "aws_iam_instance_profile" "ec2-profile" {
 resource "aws_instance" "webserver" {
   ami                         = "ami-052efd3df9dad4825"
   instance_type               = var.instance-type
-  key_name                    = aws_key_pair.sshkey.id
+  #key_name                    = aws_key_pair.sshkey.id
   subnet_id                   = var.subnet
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
   user_data                   = filebase64("${path.module}/docker-userdata.sh")
@@ -91,10 +91,10 @@ resource "aws_instance" "webserver" {
   }
 }
 
-resource "aws_key_pair" "sshkey" {
+/* resource "aws_key_pair" "sshkey" {
   key_name   = "portfolio-key"
   public_key = file("${path.module}/keypair/portfolio-key.pub")
-}
+} */
 
 resource "aws_cloudwatch_log_group" "portifolio-loggroup" {
   name              = "portifolio-ec2-loggroup"
