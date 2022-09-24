@@ -61,6 +61,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESSKEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRETKEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Get .env variables from Secret Manager
+      run: |
+          cd django-api
+          aws secretsmanager get-secret-value --secret-id ${{secrets.PORTFOLIO_DB_SECRET}} --region ${{secrets.AWS_REGION}} | \
+            jq -r '.SecretString' | \
+            jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
     
     - name: Login to Amazon ECR
       id: login-ecr
@@ -90,13 +97,6 @@ jobs:
         cd nginx
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
-
-    - name: Get .env variables from Secret Manager
-      run: |
-          cd django-api
-          aws secretsmanager get-secret-value --secret-id ${{secrets.PORTFOLIO_DB_SECRET}} --region ${{secrets.AWS_REGION}} | \
-            jq -r '.SecretString' | \
-            jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
     - name: Setup EC2 Login credentials
       uses: shimataro/ssh-key-action@v2

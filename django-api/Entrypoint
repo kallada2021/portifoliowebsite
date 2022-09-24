@@ -4,7 +4,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-export DATABASE_URL="postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+export DATABASE_URL="postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}"
 
 postgresReady() {
 python << END
@@ -16,7 +16,7 @@ try:
         user="${POSTGRES_USERNAME}",
         password="${POSTGRES_PASSWORD}",
         host="${POSTGRES_HOST}",
-        port="${POSTGRES_PORT}",
+        port="5432",
     )
 except psycopg2.OperationalError:
     sys.exit(-1)
