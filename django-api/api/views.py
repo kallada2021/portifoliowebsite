@@ -150,5 +150,6 @@ def meetTheTeam(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+# TODO:Render Flutter App
 def displayFrontend(request):
-    return render(request, "test.html")
+    return render(request, "index.html")

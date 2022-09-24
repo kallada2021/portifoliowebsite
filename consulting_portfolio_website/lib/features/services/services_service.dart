@@ -14,10 +14,14 @@ class ServicesService {
     required BuildContext context,
   }) async {
     try {
-      http.Response res = await http
-          .get(Uri.parse("$uri/api/services/"), headers: <String, String>{
-        "Content-Type": "application/json; charset=UTF-8",
-      });
+      http.Response res = await http.get(
+          Uri.parse(
+            // "$uri/api/services/",
+            "api/services/",
+          ),
+          headers: <String, String>{
+            "Content-Type": "application/json; charset=UTF-8",
+          });
 
       List tempList = [];
       var data = jsonDecode(res.body);

@@ -23,7 +23,11 @@ class ContactService {
         message: message,
       );
 
-      http.Response res = await http.post(Uri.parse("$uri/api/create-contact/"),
+      http.Response res = await http.post(
+          Uri.parse(
+            "api/create-contact/",
+            // "$uri/api/create-contact/",
+          ),
           body: contact.toJson(),
           headers: <String, String>{
             "Content-Type": "application/json; charset=UTF-8",

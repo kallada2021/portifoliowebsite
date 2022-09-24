@@ -47,10 +47,14 @@ class ProjectsService {
     required String id,
   }) async {
     try {
-      http.Response res = await http
-          .get(Uri.parse("$uri/api/projects/$id"), headers: <String, String>{
-        "Content-Type": "application/json; charset=UTF-8",
-      });
+      http.Response res = await http.get(
+          Uri.parse(
+            // "$uri/api/projects/$id",
+            "api/projects/$id",
+          ),
+          headers: <String, String>{
+            "Content-Type": "application/json; charset=UTF-8",
+          });
       print(res);
     } catch (e) {
       showSnackBar(context, e.toString(), Colors.red);

@@ -102,7 +102,7 @@ jobs:
       uses: shimataro/ssh-key-action@v2
       with: 
         known_hosts: ${{secrets.EC2_HOSTNAME}}
-        name: ${{secrets.SSH_KEY_NAME}}
+        # name: ${{secrets.SSH_KEY_NAME}}
         key: ${{secrets.SSH_PRIVATEKEY_NAME}}
 
     - name: Adding Known Hosts 

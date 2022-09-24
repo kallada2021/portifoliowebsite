@@ -98,6 +98,12 @@ resource "aws_iam_policy" "ec2-policy" {
                 "ecr:PutImage"
             ],
             "Resource": "*"
+        },
+        {
+          "Sid": "GrantECRAuthAccess",
+          "Effect": "Allow",
+          "Action": "ecr:GetAuthorizationToken",
+          "Resource": "*"
         }
     ]
   })

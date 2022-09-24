@@ -14,10 +14,14 @@ class MeetTheTeamService {
     List<MeetTheTeam> teamMembersList = [];
 
     try {
-      http.Response res = await http
-          .get(Uri.parse("$uri/api/meet-the-team/"), headers: <String, String>{
-        "Content-Type": "application/json; charset=UTF-8",
-      });
+      http.Response res = await http.get(
+          Uri.parse(
+            //"$uri/api/meet-the-team/",
+            "api/meet-the-team/",
+          ),
+          headers: <String, String>{
+            "Content-Type": "application/json; charset=UTF-8",
+          });
       print(res);
       httpErrorHandle(
           response: res,
