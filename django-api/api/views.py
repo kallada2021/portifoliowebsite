@@ -157,7 +157,7 @@ def meetTheTeam(request):
 # def displayFrontend(request):
 #     return render(request, "index.html")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FLUTTER_WEB = os.path.join(BASE_DIR, "templates")
+FLUTTER_WEB = os.path.join(BASE_DIR, "web")
 
 
 def displayFrontend(request, resource):
