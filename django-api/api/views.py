@@ -1,7 +1,10 @@
 import json
+import os
 
+from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.static import serve
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -151,5 +154,11 @@ def meetTheTeam(request):
 
 
 # TODO:Render Flutter App
-def displayFrontend(request):
-    return render(request, "index.html")
+# def displayFrontend(request):
+#     return render(request, "index.html")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FLUTTER_WEB = os.path.join(BASE_DIR, "templates")
+
+
+def displayFrontend(request, resource):
+    return serve(request, resource, FLUTTER_WEB)
