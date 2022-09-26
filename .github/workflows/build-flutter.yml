@@ -27,5 +27,7 @@ jobs:
         channel: 'stable'
     - run: |
         cd consulting_portfolio_website
+        flutter clean
         flutter pub get
+        flutter pub cache repair
         flutter build web

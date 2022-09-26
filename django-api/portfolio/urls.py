@@ -8,7 +8,7 @@ urlpatterns = [
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path("portfolioadmin/", admin.site.urls),
     path("api/", include("api.urls")),
-    path("", lambda r: views.displayFrontend(r, "index.html"), name="homepage"),
+    path("", lambda r: views.displayFrontend(r, "web/index.html"), name="homepage"),
 ]
 
 

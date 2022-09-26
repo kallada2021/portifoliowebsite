@@ -165,3 +165,5 @@ PyCharm
 terraform.auto.tfvars
 keypair/
 .tfcache
+
+.DS_Store

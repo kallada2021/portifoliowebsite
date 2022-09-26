@@ -20,10 +20,14 @@ class TechnologyService {
   }) async {
     List<Technology> techList = [];
     try {
-      http.Response res = await http
-          .get(Uri.parse("$uri/api/technologies/"), headers: <String, String>{
-        "Content-Type": "application/json; charset=UTF-8",
-      });
+      http.Response res = await http.get(
+          Uri.parse(
+            // "$uri/api/technologies/",
+            "/api/technologies/",
+          ),
+          headers: <String, String>{
+            "Content-Type": "application/json; charset=UTF-8",
+          });
 
       if (res.statusCode != 200) {
         res.statusCode.log();

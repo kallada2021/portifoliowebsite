@@ -33,10 +33,10 @@ class _AppDrawerState extends State<AppDrawer> {
                   height: 130,
                   width: 130,
                   //TODO: add company logo image
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage: NetworkImage(""),
-                  ),
+                  // child: CircleAvatar(
+                  //   backgroundColor: Colors.white,
+                  //   backgroundImage: NetworkImage(""),
+                  // ),
                 ),
                 //username
                 SizedBox(

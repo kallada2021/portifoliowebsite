@@ -36,3 +36,5 @@ terraform.rc
 #Ignore pem(ssh-key)
 *.pem
 keypair/
+
+.DS_Store
