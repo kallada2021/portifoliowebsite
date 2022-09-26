@@ -111,7 +111,7 @@ jobs:
     - name: Pull Docker Images to EC2
       run: | 
         ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_PRIVATEKEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 454005374858.dkr.ecr.us-east-1.amazonaws.com/portfolioimage
+        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{secrets.ACCOUNT_ID}}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPO }}
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
         docker network create portfolio
