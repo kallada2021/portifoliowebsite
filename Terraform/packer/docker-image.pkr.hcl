@@ -1,0 +1,55 @@
+variable "aws-region" {
+    type = string 
+    description = "Region where the AMI is made."
+    default = "us-east-1"
+}
+
+variable "docker-username" {
+    type = string 
+    description = "Docker Username"
+}
+
+variable "docker-password" {
+    type = string 
+    description = "Docker Password"
+}
+
+variable "ecr-repo" {
+    type = string 
+    description = "ECR Repo name"
+}
+
+locals {
+  timestamp = regex_replace(timestamp(), "[- TZ]", "")
+}
+
+source "amazon-ebs" "portfolio" {
+    ami_name = "portfolio-ec2-${local.timestamp}"
+    instance_type = "t2.micro"
+    region = var.aws-region 
+
+    source_ami_filter {
+        filters {
+            name = "ubuntu-jammy-22.04-amd64-server-*"
+            root-device-type = "ebs"
+            virtualization-type = "hvm"
+        }
+        most_recent = true 
+        owners = ["099720109477"]
+    }
+    ssh_username = "ubuntu"
+}
+
+build {
+    sources = ["source.amazon-ebs.portfolio"]
+
+    provisioner "shell" {
+        environment_vars [
+            "USERNAME"=${var.docker-username},
+            "REGION"=${var.aws-region},
+            "ECRREPO"=${var.ecr-repo}
+        ]
+
+        script = "./install-docker.sh"
+    }
+}
