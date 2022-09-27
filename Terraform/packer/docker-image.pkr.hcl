@@ -40,7 +40,7 @@ source "amazon-ebs" "portfolio" {
 
     source_ami_filter {
         filters {
-            name = "ubuntu-jammy-22.04-amd64-server-*"
+            name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
             root-device-type = "ebs"
             virtualization-type = "hvm"
         }
@@ -64,4 +64,19 @@ build {
 
         script = "./install-docker.sh"
     }
+
+    provisioner "file" {
+        source = "./daemon.json"
+        destination = "/tmp/daemon.json"
+    }
+
+    provisioner "shell" {
+        script = "./move.sh"
+    }
+
+    provisioner "file" {
+        source = "./packer.pub"
+        destination = "/tmp/packer.pub"
+    }
+    
 }
