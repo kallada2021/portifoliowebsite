@@ -74,8 +74,8 @@ jobs:
         cd Infrastructure 
         terraform plan -no-color
 
-    - name: Terraform Apply
-      run: |
-        cd Terraform
-        cd Infrastructure 
-        terraform apply -auto-approve
+    # - name: Terraform Apply
+    #   run: |
+    #     cd Terraform
+    #     cd Infrastructure 
+    #     terraform apply -auto-approve

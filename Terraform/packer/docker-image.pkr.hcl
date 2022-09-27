@@ -19,6 +19,16 @@ variable "ecr-repo" {
     description = "ECR Repo name"
 }
 
+variable "aws-accesskey" {
+    type = string 
+    description = "AWS Access Key"
+}
+
+variable "aws-secretkey" {
+    type = string 
+    description = "AWS Secret Key"
+}
+
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ]", "")
 }
@@ -47,7 +57,9 @@ build {
         environment_vars [
             "USERNAME"=${var.docker-username},
             "REGION"=${var.aws-region},
-            "ECRREPO"=${var.ecr-repo}
+            "ECRREPO"=${var.ecr-repo},
+            "ACCESSKEY"=${var.aws-accesskey},
+            "SECRETKEY"=${var.aws-secretkey},
         ]
 
         script = "./install-docker.sh"
