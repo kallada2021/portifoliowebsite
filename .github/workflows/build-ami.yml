@@ -1,0 +1,40 @@
+name: "Build AMI"
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        required: true 
+        options:
+          - production
+        type: choice 
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  PKR_VAR_docker-username: ${{ secrets.DOCKER_USERNAME }}
+  PKR_VAR_ecr-repo: ${{ secrets.ECRREPO }}
+
+jobs: 
+  build-ami:
+    name: "Build AMI"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash 
+
+    steps:
+     # checkout the repo to Github Actions runner
+    - name: Checkout 
+      uses: actions/checkout@v2 
+
+    - name: Create-Image
+      id: create-image
+      run: |
+        cd Terraform
+        cd packer
+        packer validate docker-image.pkr.hcl
+        packer build docker-image.pkr.hcl 

@@ -19,6 +19,11 @@ variable "ecr-repo" {
     description = "ECR Repo name"
 }
 
+variable "ecr-registry" {
+    type = string 
+    description = "ECR Registry tag"
+}
+
 variable "aws-accesskey" {
     type = string 
     description = "AWS Access Key"
@@ -60,6 +65,7 @@ build {
             "ECRREPO"=${var.ecr-repo},
             "ACCESSKEY"=${var.aws-accesskey},
             "SECRETKEY"=${var.aws-secretkey},
+            "ECR_REGISTRY"=${var.ecr-registry}
         ]
 
         script = "./install-docker.sh"

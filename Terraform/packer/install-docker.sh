@@ -28,3 +28,8 @@ export AWS_SECRET_ACCESS_KEY=$SECRETKEY
 aws ecr get-login-password --region $aws-region | docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
 
 #Pull docker containers from ECR
+docker pull $ECR_REGISTRY/$ECRREPO:Django-$IMAGE_TAG
+docker pull $ECR_REGISTRY/$ECRREPO:Nginx-$IMAGE_TAG
+docker network create portfolio
+docker run --name api --network portfolio $ECR_REGISTRY/$ECRREPO:Django-$IMAGE_TAG
+docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECRREPO:Nginx-$IMAGE_TAG
