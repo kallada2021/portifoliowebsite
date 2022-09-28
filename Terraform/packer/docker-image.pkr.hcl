@@ -1,12 +1,13 @@
 variable "aws-region" {
     type = string 
     description = "Region where the AMI is made."
-    default = "us-east-1"
+   
 }
 
 variable "docker-username" {
     type = string 
     description = "Docker Username"
+    
 }
 
 variable "docker-password" {
@@ -17,6 +18,7 @@ variable "docker-password" {
 variable "ecr-repo" {
     type = string 
     description = "ECR Repo name"
+   
 }
 
 variable "ecr-registry" {
@@ -27,11 +29,13 @@ variable "ecr-registry" {
 variable "aws-accesskey" {
     type = string 
     description = "AWS Access Key"
+  
 }
 
 variable "aws-secretkey" {
     type = string 
     description = "AWS Secret Key"
+   
 }
 
 locals {

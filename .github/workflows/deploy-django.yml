@@ -98,24 +98,24 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
 
-    - name: Setup EC2 Login credentials
-      uses: shimataro/ssh-key-action@v2
-      with: 
-        known_hosts: ${{secrets.EC2_HOSTNAME}}
-        # name: ${{secrets.SSH_KEY_NAME}}
-        key: ${{secrets.SSH_PRIVATEKEY_NAME}}
+    # - name: Setup EC2 Login credentials
+    #   uses: shimataro/ssh-key-action@v2
+    #   with: 
+    #     known_hosts: ${{secrets.EC2_HOSTNAME}}
+    #     # name: ${{secrets.SSH_KEY_NAME}}
+    #     key: ${{secrets.SSH_PRIVATEKEY_NAME}}
 
-    - name: Adding Known Hosts 
-      run: ssh-keyscan - H ${{ secrets.EC2_HOSTNAME }} >> ~/.ssh/known_hosts
+    # - name: Adding Known Hosts 
+    #   run: ssh-keyscan - H ${{ secrets.EC2_HOSTNAME }} >> ~/.ssh/known_hosts
     
-    - name: Pull Docker Images to EC2
-      run: | 
-        ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_PRIVATEKEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
-        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{secrets.ACCOUNT_ID}}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPO }}
-        docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
-        docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
-        docker network create portfolio
-        docker run --name api --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
-        docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
+    # - name: Pull Docker Images to EC2
+    #   run: | 
+    #     ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_PRIVATEKEY_NAME}} ${{secrets.EC2_USERNAME}}@${{secrets.EC2_HOSTNAME}}
+    #     aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{secrets.ACCOUNT_ID}}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPO }}
+    #     docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+    #     docker pull $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
+    #     docker network create portfolio
+    #     docker run --name api --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+    #     docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
 
         
