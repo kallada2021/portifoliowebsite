@@ -82,8 +82,8 @@ jobs:
       
       run: |
         cd django-api
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:Django-$IMAGE_TAG
+        docker build --file Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:django-latest .
+        docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
 
 
     - name: Build, tag, and push NGINX image to Amazon ECR
@@ -95,8 +95,9 @@ jobs:
       run: |
         cd django-api
         cd nginx
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
+        docker build --file Dockerfile -t $$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:nginx-latest .
+        docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
+  # docker push $ECR_REGISTRY/$ECR_REPOSITORY:Nginx-$IMAGE_TAG
 
     # - name: Setup EC2 Login credentials
     #   uses: shimataro/ssh-key-action@v2
