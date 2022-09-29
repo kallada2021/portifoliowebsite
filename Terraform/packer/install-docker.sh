@@ -20,7 +20,7 @@ sudo usermod -aG docker ubuntu
 sudo docker run hello-world
 
 #install aws-cli
-apt-get install -y awscli
+sudo apt-get install -y awscli
 export AWS_ACCESS_KEY_ID=$ACCESSKEY 
 export AWS_SECRET_ACCESS_KEY=$SECRETKEY
 
