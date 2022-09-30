@@ -10,7 +10,7 @@ variable "image-tag" {
 
 variable "docker-username" {
     type = string 
-    description = "Docker Username"  
+    description = "Docker Username"
 }
 
 variable "ecr-repo" {
