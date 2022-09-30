@@ -36,8 +36,8 @@ aws ecr get-login-password --region $aws-region | sudo docker login --username $
 # docker login -u $USERNAME -p $(aws ecr get-login-password --region $REGION) $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO
 
 #Pull docker containers from ECR
-docker pull $ECR_REGISTRY/$ECRREPO:Django-$IMAGE_TAG
-docker pull $ECR_REGISTRY/$ECRREPO:Nginx-$IMAGE_TAG
+docker pull $ECR_REGISTRY/$ECRREPO:django-latest
+docker pull $ECR_REGISTRY/$ECRREPO:nginx-latest
 docker network create portfolio
 docker run --name api --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:django-latest
 docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECRREPO:nginx-latest 
