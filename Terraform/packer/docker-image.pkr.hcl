@@ -45,14 +45,16 @@ source "amazon-ebs" "portfolio" {
 
     source_ami_filter {
         filters = {
-            name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+            name = "amzn2-ami-kernel-5.10-hvm-*"
+            # name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
             root-device-type = "ebs"
             virtualization-type = "hvm"
         }
         most_recent = true 
-        owners = ["099720109477"]
+        //owners = ["099720109477"]
+        owners = ["amazon"]
     }
-    ssh_username = "ubuntu"
+    ssh_username = "ec2-user"
 }
 
 build {
@@ -65,8 +67,8 @@ build {
             "ECRREPO=${var.ecr-repo}",
             "ACCESSKEY=${var.aws-accesskey}",
             "SECRETKEY=${var.aws-secretkey}",
-            "ECR_REGISTRY=${var.ecr-registry}",
-            "IMAGE_TAG=${var.image-tag}"
+            # "ECR_REGISTRY=${var.ecr-registry}",
+            # "IMAGE_TAG=${var.image-tag}"
         ]
         script = "./install-docker.sh"
     }

@@ -3,42 +3,34 @@
 set -x 
 
 # update and install docker
-sudo apt-get update -y  
-sudo apt-get install -y \
-apt-transport-https \
-ca-certificates \
-curl \
-gnupg-agent \
-software-properties-common &&
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &&
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &&
-sudo apt-get update -y &&
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y &&
-sudo usermod -aG docker ubuntu
+sudo yum update -y
+sudo amazon-linux-extras install -y docker  
+# sudo yum search docker 
+# sudo yum install docker -y 
 
-# run hello-world container for testing
-sudo docker run hello-world
+#Add group membership for the default ec2-user so you can run all docker commands
+sudo usermod -a -G docker ec2-user
+id ec2-user
 
-#install aws-cli
-# sudo apt-get install -y awscli
-# curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-# unzip awscliv2.zip
-# sudo ./aws/install
+# add git
+sudo yum install git -y
 
-#install aws-cli with pip3
-sudo apt install python3-pip -y
-pip3 install awscli --upgrade --user
-python3 -m awscli --version
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo systemctl status docker.service
+
+# check aws cli version
+aws --version
+
 export AWS_ACCESS_KEY_ID=$ACCESSKEY 
 export AWS_SECRET_ACCESS_KEY=$SECRETKEY
 
 # ECR login
 sudo aws ecr get-login-password --region $aws-region | sudo docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
-# docker login -u $USERNAME -p $(aws ecr get-login-password --region $REGION) $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO
 
-#Pull docker containers from ECR
-sudo docker pull $ECR_REGISTRY/$ECRREPO:django-latest
-sudo docker pull $ECR_REGISTRY/$ECRREPO:nginx-latest
+docker pull $ACCOUNTID.dkr.ecr.$aws-region.amazonaws.com/$ECRREPO/django-latest 
+docker pull $ACCOUNTID.dkr.ecr.$aws-region.amazonaws.com/$ECRREPO/nginx-latest
+
 sudo docker network create portfolio
-sudo docker run --name api --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:django-latest
-sudo docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECRREPO:nginx-latest 
+sudo docker run --name api --network portfolio $ACCOUNTID.dkr.ecr.$aws-region.amazonaws.com/$ECRREPO:django-latest
+sudo docker run -p 8080:80 --name nginx --network portfolio $ACCOUNTID.dkr.ecr.$aws-region.amazonaws.com/$ECRREPO:nginx-latest 
