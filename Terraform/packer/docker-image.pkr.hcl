@@ -3,10 +3,10 @@ variable "aws-region" {
     description = "Region where the AMI is made."
 }
 
-variable "image-tag" {
+/* variable "image-tag" {
     type = string 
     description = "Tag for the docker image."
-}
+} */
 
 variable "docker-username" {
     type = string 
@@ -18,9 +18,9 @@ variable "ecr-repo" {
     description = "ECR Repo name"
 }
 
-variable "ecr-registry" {
+variable "account-id" {
     type = string 
-    description = "ECR Registry tag"
+    description = "AccountID"
 }
 
 variable "aws-accesskey" {
@@ -42,7 +42,10 @@ source "amazon-ebs" "portfolio" {
     ami_name = "portfolio-ec2"
     instance_type = "t2.micro"
     region = var.aws-region 
-
+     /* assume_role {
+        role_arn     = "arn:aws:iam::454005374858:instance-profile/ProtfolioAPI-EC2-Profile"
+        session_name = "Portfolio-Session"        
+    } */
     source_ami_filter {
         filters = {
             name = "amzn2-ami-kernel-5.10-hvm-*"
@@ -67,6 +70,7 @@ build {
             "ECRREPO=${var.ecr-repo}",
             "ACCESSKEY=${var.aws-accesskey}",
             "SECRETKEY=${var.aws-secretkey}",
+            "ACCOUNTID=${var.account-id}"
             # "ECR_REGISTRY=${var.ecr-registry}",
             # "IMAGE_TAG=${var.image-tag}"
         ]
