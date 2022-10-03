@@ -1,0 +1,52 @@
+name: "Test Terraform"
+
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        required: true 
+        options:
+          - production
+        type: choice 
+
+env:
+  TF_WORKSPACE: ${{ github.event.inputs.environment }}
+  TF_VAR_aws-region: ${{ secrets.AWS_REGION }}
+  TF_VAR_aws-secretkey: ${{ secrets.AWS_SECRETKEY }}
+  TF_VAR_aws-accesskey: ${{ secrets.AWS_ACCESSKEY }}
+
+jobs:
+  test-terraform:
+    name: "Test Terraform"
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+  
+    defaults:
+      run:
+        shell: bash 
+    
+    steps:
+    # checkout the repo to Github Actions runner
+    - name: Checkout 
+      uses: actions/checkout@v2 
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with: 
+        python-version: 3.9
+
+    - name: Install dependencies 
+      id: install-dependencies
+      run: |
+        cd Terraform
+        cd Infrastructure
+        python -m pip install --upgrade pip 
+        pip install -r requirements.txt 
+
+    - name: Terraform Tests
+      id: testing
+      run: |
+        cd Terraform
+        cd Infrastructure
+        pytest test_terraform.py

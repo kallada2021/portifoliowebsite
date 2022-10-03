@@ -23,7 +23,7 @@ variable "db-instance-type" {
 
 variable "backup-days" {
   type        = number
-  description = "Backdays for rds instance"
+  description = "Backup days for rds instance"
   default = 30
 }
 
