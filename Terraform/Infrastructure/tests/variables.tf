@@ -32,7 +32,7 @@ variable "secret-name" {
   default = "AppSecrets"
 }
 
-ariable "region" {
+variable "region" {
   description = "AWS Region"
   type        = string
   default     = "us-east-1"
