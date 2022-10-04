@@ -1,2 +1,2 @@
 boto3==1.24.85
-pytest==7.1.2
+pytest-terraform==0.6.4
