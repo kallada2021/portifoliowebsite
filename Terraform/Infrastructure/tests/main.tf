@@ -1,3 +1,10 @@
+provider "aws" {
+  region     = var.region
+  access_key = var.aws-accesskey
+  secret_key = var.aws-secretkey
+}
+
+
 # Secret Manager 
 resource "random_password" "dbpassword" {
   length  = 30
