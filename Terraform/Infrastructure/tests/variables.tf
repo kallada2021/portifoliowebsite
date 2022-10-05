@@ -29,7 +29,7 @@ variable "backup-days" {
 
 variable "secret-name" {
   type    = string
-  default = "AppSecrets"
+  default = "AppSecrets1005"
 }
 
 variable "region" {
