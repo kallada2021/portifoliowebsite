@@ -166,4 +166,7 @@ terraform.auto.tfvars
 keypair/
 .tfcache
 
+portfolio-packer 
+portfolio-packer.pub 
+
 .DS_Store

@@ -31,6 +31,22 @@ sudo pip3 install docker-compose # with root access
 docker-compose version
 sudo yum install jq -y
 jq --version
+
+# Setup sudo to allow no-password sudo for "hashicorp" group and adding "terraform" user
+sudo groupadd -r hashicorp
+sudo useradd -m -s /bin/bash terraform
+sudo usermod -a -G hashicorp terraform
+sudo cp /etc/sudoers /etc/sudoers.orig
+echo "terraform ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/terraform
+
+# Installing SSH key
+sudo mkdir -p /home/terraform/.ssh
+sudo chmod 700 /home/terraform/.ssh
+sudo cp /tmp/portfolio-packer.pub /home/terraform/.ssh/authorized_keys
+sudo chmod 600 /home/terraform/.ssh/authorized_keys
+sudo chown -R terraform /home/terraform/.ssh
+sudo usermod --shell /bin/bash terraform
+
 # clone repo
 git clone https://github.com/kallada2021/portifoliowebsite.git
 # ssh-keyscan github.com >> /home/ec2-user/.ssh/known_hosts
@@ -49,7 +65,7 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
-docker-compose up --file docker-compose.prod.yml -d 
+sudo docker-compose up -d --file docker-compose.prod.yml 
 # docker compose up --file docker-compose.prod.yml 
 # # check aws cli version
 # aws --version

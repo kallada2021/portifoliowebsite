@@ -13,10 +13,10 @@ variable "aws-profile" {
     description = "Tag for the docker image."
 } */
 
-variable "docker-username" {
-    type = string 
-    description = "Docker Username"
-}
+# variable "docker-username" {
+#     type = string 
+#     description = "Docker Username"
+# }
 
 # variable "ecr-repo" {
 #     type = string 
@@ -28,10 +28,10 @@ variable "db-secret" {
     description = "DB Secret Name"
 }
 
-variable "account-id" {
-    type = string 
-    description = "AccountID"
-}
+# variable "account-id" {
+#     type = string 
+#     description = "AccountID"
+# }
 
 variable "aws-accesskey" {
     type = string 
@@ -70,6 +70,12 @@ source "amazon-ebs" "portfolio" {
 build {
     sources = ["source.amazon-ebs.portfolio"]
 
+    # Add SSH Key
+    provisioner "file" {
+        source = "./portfolio-packer.pub"
+        destination = "./tmp/portfolio-packer.pub"
+    }
+
     provisioner "shell" {
         environment_vars = [
             # "USERNAME=${var.docker-username}",
@@ -92,5 +98,5 @@ build {
 
     provisioner "shell" {
         script = "./move.sh"
-    } 
+    }
 }
