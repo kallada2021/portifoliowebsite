@@ -3,6 +3,11 @@ variable "aws-region" {
     description = "Region where the AMI is made."
 }
 
+variable "aws-profile" {
+    type = string 
+     description = "AWS profile to use"
+}
+
 /* variable "image-tag" {
     type = string 
     description = "Tag for the docker image."
@@ -13,9 +18,14 @@ variable "docker-username" {
     description = "Docker Username"
 }
 
-variable "ecr-repo" {
+# variable "ecr-repo" {
+#     type = string 
+#     description = "ECR Repo name"
+# }
+
+variable "db-secret" {
     type = string 
-    description = "ECR Repo name"
+    description = "DB Secret Name"
 }
 
 variable "account-id" {
@@ -34,11 +44,12 @@ variable "aws-secretkey" {
 }
 
 locals {
-  timestamp = regex_replace(timestamp(), "[- TZ]", "")
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 
 source "amazon-ebs" "portfolio" {
-    #ami_name = "portfolio-ec2-${local.timestamp}"
+    ami_name = "portfolio-ec2-${local.timestamp}"
+    profile = var.aws-profile
     ami_name = "portfolio-ec2"
     instance_type = "t2.micro"
     region = var.aws-region 
@@ -65,12 +76,13 @@ build {
 
     provisioner "shell" {
         environment_vars = [
-            "USERNAME=${var.docker-username}",
+            # "USERNAME=${var.docker-username}",
             "REGION=${var.aws-region}",
-            "ECRREPO=${var.ecr-repo}",
+            # "ECRREPO=${var.ecr-repo}",
             "ACCESSKEY=${var.aws-accesskey}",
             "SECRETKEY=${var.aws-secretkey}",
-            "ACCOUNTID=${var.account-id}"
+            # "ACCOUNTID=${var.account-id}"
+            "DB_SECRET=${var.db-secret}"
             # "ECR_REGISTRY=${var.ecr-registry}",
             # "IMAGE_TAG=${var.image-tag}"
         ]
@@ -84,6 +96,5 @@ build {
 
     provisioner "shell" {
         script = "./move.sh"
-    }
-    
+    } 
 }

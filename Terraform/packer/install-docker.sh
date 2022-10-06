@@ -39,6 +39,15 @@ git clone https://github.com/kallada2021/portifoliowebsite.git
 ls  
 cd portifoliowebsite 
 cd django-api 
+
+export AWS_DEFAULT_REGION=$REGION
+export AWS_ACCESS_KEY_ID=$ACCESSKEY 
+export AWS_SECRET_ACCESS_KEY=$SECRETKEY
+
+aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
+            jq -r '.SecretString' | \
+            jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
+
 docker compose up -f docker-compose.prod.yml 
 # # check aws cli version
 # aws --version
