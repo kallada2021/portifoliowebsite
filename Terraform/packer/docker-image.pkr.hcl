@@ -5,7 +5,7 @@ variable "aws-region" {
 
 variable "aws-profile" {
     type = string 
-     description = "AWS profile to use"
+    description = "AWS profile to use"
 }
 
 /* variable "image-tag" {
@@ -35,7 +35,7 @@ variable "account-id" {
 
 variable "aws-accesskey" {
     type = string 
-    description = "AWS Access Key" 
+    description = "AWS Access Key"
 }
 
 variable "aws-secretkey" {
@@ -50,13 +50,9 @@ locals {
 source "amazon-ebs" "portfolio" {
     ami_name = "portfolio-ec2-${local.timestamp}"
     profile = var.aws-profile
-    ami_name = "portfolio-ec2"
+    #ami_name = "portfolio-ec2"
     instance_type = "t2.micro"
     region = var.aws-region 
-     /* assume_role {
-        role_arn     = "arn:aws:iam::454005374858:instance-profile/ProtfolioAPI-EC2-Profile"
-        session_name = "Portfolio-Session"        
-    } */
     source_ami_filter {
         filters = {
             name = "amzn2-ami-kernel-5.10-hvm-*"
