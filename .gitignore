@@ -168,5 +168,6 @@ keypair/
 
 portfolio-packer 
 portfolio-packer.pub 
+*.pem
 
 .DS_Store
