@@ -65,7 +65,7 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
-sudo docker-compose up -d --file docker-compose.prod.yml 
+
 # docker compose up --file docker-compose.prod.yml 
 # # check aws cli version
 # aws --version
