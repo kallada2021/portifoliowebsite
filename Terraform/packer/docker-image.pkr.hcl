@@ -26,6 +26,7 @@ variable "aws-profile" {
 variable "db-secret" {
     type = string 
     description = "DB Secret Name"
+
 }
 
 # variable "account-id" {

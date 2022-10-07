@@ -117,14 +117,15 @@ resource "aws_iam_policy" "ec2-policy" {
 }
 // Provision ec2
 resource "aws_instance" "webserver" {
-  ami = "ami-052efd3df9dad4825"
-  # ami                         = "ami-010918097d769b5c8"
+  /* ami = "ami-052efd3df9dad4825" */
+  ami                         = "ami-0d8ff453bb44195fe"
   instance_type               = var.instance-type
   iam_instance_profile        = aws_iam_instance_profile.ec2-profile.name
   key_name                    = "portfolioKey"
   subnet_id                   = var.subnet
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
-  user_data                   = filebase64("${path.module}/docker-userdata.sh")
+  /* user_data                   = filebase64("${path.module}/docker-userdata.sh") */
+  user_data                   = filebase64("${path.module}/run-docker.sh")
   associate_public_ip_address = true
 
   ebs_block_device {
