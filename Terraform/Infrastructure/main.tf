@@ -14,14 +14,14 @@ module "secretmanager" {
   db-name     = var.db-name
 }
 
-/* module "compute" {
+module "compute" {
   source          = "./compute"
   vpc-id          = module.networking.vpc-id
   private-subnets = module.networking.private-subnets
   subnet          = module.networking.public-subnets[0]
-} */
+}
 
-/* module "alb" {
+module "alb" {
   source          = "./alb"
   vpc-id          = module.networking.vpc-id
   public-subnets  = module.networking.public-subnets
@@ -29,9 +29,9 @@ module "secretmanager" {
   certificate-arn = var.certificate-arn
   listener-type   = var.listener-type
   ssl-policy      = var.ssl-policy
-} */
+}
 
-/* module "rds" {
+module "rds" {
   source          = "./rds"
   depends_on      = [module.secretmanager]
   private-subnets = module.networking.private-subnets
@@ -39,7 +39,7 @@ module "secretmanager" {
   dbpassword      = module.secretmanager.dbpassword
   db-name         = var.db-name
   vpc-id          = module.networking.vpc-id
-} */
+}
 
 # data "aws_ami" "AWSAMI" {
 #   most_recent = true
