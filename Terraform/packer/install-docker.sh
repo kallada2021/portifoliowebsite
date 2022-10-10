@@ -50,6 +50,11 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
 
 cat .env
 
+# echo "::set-output name=POSTGRES_HOST::$(aws rds describe-db-instances \
+#           --query="DBInstances[*].Endpoint.Address" \
+#           --db-instance-identifier main-db \
+#           --region $REGION --output text)"
+
 # # ECR login
 # sudo aws ecr get-login-password --region $aws-region | sudo docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
 # # docker login -u $USERNAME -p $(aws ecr get-login-password --region $REGION) $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO
