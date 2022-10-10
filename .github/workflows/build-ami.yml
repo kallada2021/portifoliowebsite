@@ -44,7 +44,7 @@ jobs:
         PKR_VAR_aws-region: ${{ secrets.AWS_REGION }}
         PKR_VAR_aws-secretkey: ${{ secrets.AWS_SECRETKEY }}
         PKR_VAR_aws-accesskey: ${{ secrets.AWS_ACCESSKEY }}
-        PKR_VAR_secret-name: ${{ secrets.PORTFOLIO_DB_SECRET }}
+        PKR_VAR_db-secret: ${{ secrets.PORTFOLIO_DB_SECRET }}
       run: |
         cd Terraform
         cd packer
