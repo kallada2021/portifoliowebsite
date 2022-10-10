@@ -12,15 +12,15 @@ variable "db-name" {
   description = "Database Name"
 }
 
-variable "dbusername" {
-  type        = string
-  description = "Database User"
-}
+# variable "dbusername" {
+#   type        = string
+#   description = "Database User"
+# }
 
-variable "dbpassword" {
-  type        = string
-  description = "Database password"
-}
+# variable "dbpassword" {
+#   type        = string
+#   description = "Database password"
+# }
 
 variable "db-instance-type" {
   description = "DB Instance type"

@@ -37,9 +37,9 @@ module "rds" {
   //depends_on      = [module.secretmanager]
   db-secret       = var.secret-name
   private-subnets = module.networking.private-subnets
-  dbusername      = module.secretmanager.dbusername
-  dbpassword      = module.secretmanager.dbpassword
-  db-name         = var.db-name
-  vpc-id          = module.networking.vpc-id
+  // dbusername      = module.secretmanager.dbusername
+  // dbpassword      = module.secretmanager.dbpassword
+  db-name = var.db-name
+  vpc-id  = module.networking.vpc-id
 }
 
