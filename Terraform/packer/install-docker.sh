@@ -33,6 +33,11 @@ export AWS_ACCESS_KEY_ID=$ACCESSKEY
 export AWS_SECRET_ACCESS_KEY=$SECRETKEY
 export AWS_DEFAULT_REGION=$REGION
 
+#install jq
+sudo apt update 
+sudo apt install -y jq
+jq --version
+
 git clone https://github.com/kallada2021/portifoliowebsite.git
 # ssh-keyscan github.com >> /home/ec2-user/.ssh/known_hosts
 # eval `ssh-agent`
@@ -49,6 +54,10 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
 
 
 cat .env
+
+#if top value doesn't work
+# aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' > .env
+# eval $(cat .env | sed 's/^/export /')
 
 # echo "::set-output name=POSTGRES_HOST::$(aws rds describe-db-instances \
 #           --query="DBInstances[*].Endpoint.Address" \
