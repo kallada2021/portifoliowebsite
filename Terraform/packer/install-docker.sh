@@ -19,17 +19,17 @@ sudo apt install docker-compose
 
 # run hello-world container for testing
 sudo docker run hello-world
+sudo apt install unzip -y
 
 #install aws-cli
-# sudo apt-get install -y awscli
-# curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-# unzip awscliv2.zip
-# sudo ./aws/install
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
 #install aws-cli with pip3
-sudo apt install python3-pip -y
-pip3 install awscli --upgrade --user
-python3 -m awscli --version
+# sudo apt install python3-pip -y
+# pip3 install awscli --upgrade --user
+# python3 -m awscli --version
 export AWS_ACCESS_KEY_ID=$ACCESSKEY 
 export AWS_SECRET_ACCESS_KEY=$SECRETKEY
 export AWS_DEFAULT_REGION=$REGION
@@ -49,7 +49,7 @@ cd portifoliowebsite
 cd django-api 
 
 echo "Creating .env file"
-aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
+/home/ubuntu/.local/aws-cli/aws secretsmanager get-secret-value --secret-id $DB_SECRET--region $REGION | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
