@@ -55,26 +55,27 @@ source "amazon-ebs" "portfolio" {
     region = var.aws-region 
     source_ami_filter {
         filters = {
-            name = "amzn2-ami-kernel-5.10-hvm-*"
-            # name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+            # name = "amzn2-ami-kernel-5.10-hvm-*"
+            name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
             root-device-type = "ebs"
             virtualization-type = "hvm"
         }
         most_recent = true 
-        //owners = ["099720109477"]
-        owners = ["amazon"]
+        owners = ["099720109477"]
+        # owners = ["amazon"]
     }
-    ssh_username = "ec2-user"
+    # ssh_username = "ec2-user"
+    ssh_username = "ubuntu"
 }
 
 build {
     sources = ["source.amazon-ebs.portfolio"]
 
-    # Add SSH Key
-    provisioner "file" {
-        source = "./portfolio-packer.pub"
-        destination = "./tmp/portfolio-packer.pub"
-    }
+    # # Add SSH Key
+    # provisioner "file" {
+    #     source = "./portfolio-packer.pub"
+    #     destination = "./tmp/portfolio-packer.pub"
+    # }
 
     provisioner "shell" {
         environment_vars = [

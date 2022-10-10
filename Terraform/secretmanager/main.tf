@@ -1,3 +1,10 @@
+# provider
+provider "aws" {
+  region     = var.region
+  access_key = var.aws-accesskey
+  secret_key = var.aws-secretkey
+}
+
 # Secret Manager 
 resource "random_password" "dbpassword" {
   length  = 30
@@ -18,7 +25,6 @@ resource "random_string" "djangokey" {
   special = true
 }
 
-# aws secretsmanager delete-secret --secret-id your-secret-name --force-delete-without-recovery --region your-region
 resource "aws_secretsmanager_secret_version" "dbsecret" {
   secret_id     = aws_secretsmanager_secret.dbsecretmaster.id
   secret_string = <<EOF

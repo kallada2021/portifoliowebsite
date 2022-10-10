@@ -8,17 +8,18 @@ module "networking" {
   source = "./networking"
 }
 
-module "secretmanager" {
-  source      = "./secretmanager"
-  secret-name = var.secret-name
-  db-name     = var.db-name
-}
+# module "secretmanager" {
+#   source      = "./secretmanager"
+#   secret-name = var.secret-name
+#   db-name     = var.db-name
+# }
 
 module "compute" {
   source          = "./compute"
   vpc-id          = module.networking.vpc-id
   private-subnets = module.networking.private-subnets
   subnet          = module.networking.public-subnets[0]
+  depends_on      = [module.rds]
 }
 
 module "alb" {
@@ -32,8 +33,9 @@ module "alb" {
 }
 
 module "rds" {
-  source          = "./rds"
-  depends_on      = [module.secretmanager]
+  source = "./rds"
+  //depends_on      = [module.secretmanager]
+  db-secret       = var.secret-name
   private-subnets = module.networking.private-subnets
   dbusername      = module.secretmanager.dbusername
   dbpassword      = module.secretmanager.dbpassword
@@ -41,18 +43,3 @@ module "rds" {
   vpc-id          = module.networking.vpc-id
 }
 
-# data "aws_ami" "AWSAMI" {
-#   most_recent = true
-
-#   filter {
-#     name   = "name"
-#     values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-#   }
-
-#   filter {
-#     name   = "virtualization-type"
-#     values = ["hvm"]
-#   }
-
-#   owners = ["099720109477"] # Canonical
-# }

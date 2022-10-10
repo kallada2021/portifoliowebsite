@@ -1,3 +1,13 @@
+# output "dbusername" {
+#   value     = jsondecode(aws_secretsmanager_secret_version.dbsecret.secret_string)["POSTGRES_USERNAME"]
+#   sensitive = true
+# }
+
+# output "dbpassword" {
+#   value     = jsondecode(aws_secretsmanager_secret_version.dbsecret.secret_string)["POSTGRES_PASSWORD"]
+#   sensitive = true
+# }
+
 # DB Subnets
 resource "aws_db_subnet_group" "db-main" {
   name       = "main-rds-db-subnets"
@@ -17,8 +27,8 @@ resource "aws_db_instance" "main-db" {
   engine_version          = "14.3"
   instance_class          = var.db-instance-type
   db_subnet_group_name    = aws_db_subnet_group.db-main.name
-  password                = var.dbpassword
-  username                = var.dbusername
+  password                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["POSTGRES_USERNAME"]
+  username                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["POSTGRES_USERNAME"]
   backup_retention_period = var.backup-days
   multi_az                = false // TODO: true for production
   skip_final_snapshot     = true  //TODO:  false for production
