@@ -15,7 +15,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update -y &&
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y &&
 sudo usermod -aG docker ubuntu
-sudo apt install docker-compose
+sudo apt install docker-compose -y
 
 # run hello-world container for testing
 sudo docker run hello-world
@@ -26,10 +26,6 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 
-#install aws-cli with pip3
-# sudo apt install python3-pip -y
-# pip3 install awscli --upgrade --user
-# python3 -m awscli --version
 export AWS_ACCESS_KEY_ID=$ACCESSKEY 
 export AWS_SECRET_ACCESS_KEY=$SECRETKEY
 export AWS_DEFAULT_REGION=$REGION
@@ -40,10 +36,6 @@ sudo apt install -y jq
 jq --version
 
 git clone https://github.com/kallada2021/portifoliowebsite.git
-# ssh-keyscan github.com >> /home/ec2-user/.ssh/known_hosts
-# eval `ssh-agent`
-# ssh-agent bash -c \
-# 'ssh-add /home/ec2-user/.ssh/[privateKey]; git clone https://github.com/kallada2021/portifoliowebsite.git'
 ls  
 cd portifoliowebsite 
 cd django-api 

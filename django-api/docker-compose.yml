@@ -15,21 +15,7 @@ services:
       - "8000"
     env_file:
       - ./.env
-    depends_on: 
-      - postgres 
     networks: 
-      - portfolio-website
-  
-  postgres: 
-    image: postgres:13.4-alpine
-    ports:
-      - "5432:5432"
-    restart: always
-    environment:
-      POSTGRES_USERNAME: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: portfolio
-    networks:
       - portfolio-website
 
   nginx: 
