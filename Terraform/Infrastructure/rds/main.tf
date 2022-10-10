@@ -27,7 +27,7 @@ resource "aws_db_instance" "main-db" {
   engine_version          = "14.3"
   instance_class          = var.db-instance-type
   db_subnet_group_name    = aws_db_subnet_group.db-main.name
-  password                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["POSTGRES_USERNAME"]
+  password                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["POSTGRES_PASSWORD"]
   username                = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["POSTGRES_USERNAME"]
   backup_retention_period = var.backup-days
   multi_az                = false // TODO: true for production
