@@ -30,3 +30,4 @@ done
 >&2 echo "PostgresSQL is ready!!..."
 
 exec "$@"
+#exec "Start"
