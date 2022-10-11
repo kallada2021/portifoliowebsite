@@ -17,14 +17,14 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io -y &&
 sudo usermod -aG docker ubuntu
 sudo apt install docker-compose -y
 
-# run hello-world container for testing
-sudo docker run hello-world
 sudo apt install unzip -y
 
 #install aws-cli
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+
+which aws 
 
 export AWS_ACCESS_KEY_ID=$ACCESSKEY 
 export AWS_SECRET_ACCESS_KEY=$SECRETKEY
@@ -41,21 +41,12 @@ cd portifoliowebsite
 cd django-api 
 
 # echo "Creating .env file"
-aws secretsmanager get-secret-value --secret-id $DB_SECRET--region $REGION | \
+aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
 
 cat .env
-
-#if top value doesn't work
-# aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' > .env
-# eval $(cat .env | sed 's/^/export /')
-
-# echo "::set-output name=POSTGRES_HOST::$(aws rds describe-db-instances \
-#           --query="DBInstances[*].Endpoint.Address" \
-#           --db-instance-identifier main-db \
-#           --region $REGION --output text)"
 
 # # ECR login
 # sudo aws ecr get-login-password --region $aws-region | sudo docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
