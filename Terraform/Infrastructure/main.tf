@@ -19,6 +19,8 @@ module "compute" {
   vpc-id          = module.networking.vpc-id
   private-subnets = module.networking.private-subnets
   subnet          = module.networking.public-subnets[0]
+  db-secret       = var.secret-name
+  region          = var.region
   depends_on      = [module.rds]
 }
 

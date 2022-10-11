@@ -17,3 +17,13 @@ variable "instance-type" {
   description = "EC2 instance type"
   default     = "t2.micro"
 }
+
+variable "region" {
+  type        = string
+  description = "AWS Region"
+}
+
+variable "db-secret" {
+  type        = string
+  description = "Name of DB secret"
+}
