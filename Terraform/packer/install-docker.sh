@@ -46,7 +46,7 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
 
-cat .env
+# cat .env
 
 # # ECR login
 # sudo aws ecr get-login-password --region $aws-region | sudo docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
