@@ -37,16 +37,16 @@ jq --version
 
 git clone https://github.com/kallada2021/portifoliowebsite.git
 ls  
-# cd portifoliowebsite 
-# cd django-api 
+cd portifoliowebsite 
+cd django-api 
 
 # echo "Creating .env file"
-# /home/ubuntu/.local/aws-cli/aws secretsmanager get-secret-value --secret-id $DB_SECRET--region $REGION | \
-#             jq -r '.SecretString' | \
-#             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
+aws secretsmanager get-secret-value --secret-id $DB_SECRET--region $REGION | \
+            jq -r '.SecretString' | \
+            jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
 
 
-# cat .env
+cat .env
 
 #if top value doesn't work
 # aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' > .env
