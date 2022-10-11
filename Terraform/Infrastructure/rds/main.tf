@@ -43,11 +43,11 @@ resource "aws_security_group" "rds-sg" {
   description = "Allow access to the RDS DB"
   name        = "rds-inbound-access"
   vpc_id      = var.vpc-id
-
   ingress {
     protocol  = "tcp"
     from_port = 5432
     to_port   = 5432
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
