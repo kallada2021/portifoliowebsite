@@ -107,6 +107,16 @@ resource "aws_iam_policy" "ec2-policy" {
         "Resource" : "*"
       },
       {
+        "Effect" : "Allow",
+        "Action" : "iam:CreateServiceLinkedRole",
+        "Resource" : "arn:aws:iam::*:role/aws-service-role/events.amazonaws.com/AWSServiceRoleForCloudWatchEvents*",
+        "Condition" : {
+          "StringLike" : {
+            "iam:AWSServiceName" : "events.amazonaws.com"
+          }
+        }
+      },
+      {
         "Sid" : "GrantECRAuthAccess",
         "Effect" : "Allow",
         "Action" : "ecr:GetAuthorizationToken",
