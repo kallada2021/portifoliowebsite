@@ -6,6 +6,12 @@ services:
       context: . 
       dockerfile: Dockerfile
     command: /Start 
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-region: "us-east-1"
+        awslogs-group: "portfolio-ec2-loggroup"
+        awslogs-stream: "Django-Logstream"
     container_name: api
     volumes: 
       - .:/app 

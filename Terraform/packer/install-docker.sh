@@ -35,11 +35,10 @@ sudo apt update
 sudo apt install -y jq
 jq --version
 
-git clone https://github.com/kallada2021/portifoliowebsite.git
-ls  
+git clone https://github.com/kallada2021/portifoliowebsite.git  
 cd portifoliowebsite 
 cd django-api 
-
+ls 
 # echo "Creating .env file"
 aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r '.SecretString' | \
@@ -48,8 +47,8 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
 
 # cat .env
 # change directory permissions
-# sudo chmod 755 static
-# sudo chmod 755 staticfiles
+sudo chmod 755 static
+sudo chmod 755 staticfiles
 
 
 # # ECR login
