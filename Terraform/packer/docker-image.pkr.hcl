@@ -92,12 +92,12 @@ build {
         script = "./install-docker.sh"
     }
 
-    provisioner "file" {
+    /* provisioner "file" {
         source = "./daemon.json"
         destination = "/tmp/daemon.json"
     }
 
     provisioner "shell" {
         script = "./move.sh"
-    }
+    } */
 }
