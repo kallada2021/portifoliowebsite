@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     "api.apps.ApiConfig",
     "rest_framework",
     "corsheaders",
-    "admin_honeypot",
+    #"admin_honeypot",
 ]
 
 MIDDLEWARE = [
