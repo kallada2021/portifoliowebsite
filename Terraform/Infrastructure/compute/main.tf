@@ -66,7 +66,7 @@ resource "aws_iam_policy_attachment" "ec2-policy-role" {
 }
 
 resource "aws_iam_instance_profile" "ec2-profile" {
-  name = "ProtfolioAPI-EC2-Profile"
+  name = "PortfolioAPI-EC2-Profile"
   role = aws_iam_role.ec2-role.name
 }
 
@@ -149,12 +149,16 @@ resource "aws_instance" "webserver" {
   public_key = file("${path.module}/keypair/portfolio-key.pub")
 } */
 
-resource "aws_cloudwatch_log_group" "portifolio-loggroup" {
-  name              = "portifolio-ec2-loggroup"
+resource "aws_cloudwatch_log_group" "portfolio-loggroup" {
+  name              = "portfolio-ec2-loggroup"
   retention_in_days = 30
   tags = {
     Environment = "production"
-    Application = "portifoliowebsite"
+    Application = "portfoliowebsite"
   }
 }
 
+resource "aws_cloudwatch_log_stream" "portfolio-logstream" {
+  name           = "Django-Logstream"
+  log_group_name = aws_cloudwatch_log_group.portfolio-loggroup.name
+}

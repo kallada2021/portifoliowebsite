@@ -1,13 +1,3 @@
-# output "dbusername" {
-#   value     = jsondecode(aws_secretsmanager_secret_version.dbsecret.secret_string)["POSTGRES_USERNAME"]
-#   sensitive = true
-# }
-
-# output "dbpassword" {
-#   value     = jsondecode(aws_secretsmanager_secret_version.dbsecret.secret_string)["POSTGRES_PASSWORD"]
-#   sensitive = true
-# }
-
 # DB Subnets
 resource "aws_db_subnet_group" "db-main" {
   name       = "main-rds-db-subnets"
@@ -44,9 +34,9 @@ resource "aws_security_group" "rds-sg" {
   name        = "rds-inbound-access"
   vpc_id      = var.vpc-id
   ingress {
-    protocol  = "tcp"
-    from_port = 5432
-    to_port   = 5432
+    protocol    = "tcp"
+    from_port   = 5432
+    to_port     = 5432
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
