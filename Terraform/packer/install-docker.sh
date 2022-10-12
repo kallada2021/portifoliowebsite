@@ -39,6 +39,9 @@ git clone https://github.com/kallada2021/portifoliowebsite.git
 cd portifoliowebsite 
 cd django-api 
 ls 
+mkdir static 
+mkdir staticfiles
+ls
 # echo "Creating .env file"
 aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r '.SecretString' | \
