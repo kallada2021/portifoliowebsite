@@ -119,7 +119,7 @@ resource "aws_iam_policy" "ec2-policy" {
 // Provision ec2
 resource "aws_instance" "webserver" {
   #ami = "ami-052efd3df9dad4825"
-  ami                    = "ami-068735ea5544176e7"
+  ami                    = "ami-0f4728ccff745db48"
   instance_type          = var.instance-type
   iam_instance_profile   = aws_iam_instance_profile.ec2-profile.name
   key_name               = "portfolioec2user"
