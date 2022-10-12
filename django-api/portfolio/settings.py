@@ -27,13 +27,13 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "https://www.magnoliaitsolutionsgroup.com", "*"]
+ALLOWED_HOSTS = ["localhost", "https://*.magnoliaitsolutionsgroup.com", "*"]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://*:8080", "https://www.magnoliaitsolutionsgroup.com"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://...", "https://*.magnoliaitsolutionsgroup.com"]
 
 CORS_ALLOW_ALL_ORIGINS: True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:8080", "https://www.magnoliaitsolutionsgroup.com"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:8080", "https://*.magnoliaitsolutionsgroup.com"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
