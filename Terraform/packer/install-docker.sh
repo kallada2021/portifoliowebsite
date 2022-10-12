@@ -47,6 +47,10 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
 
 
 # cat .env
+# change directory permissions
+sudo chmod 755 static
+sudo chmod 755 staticfiles
+
 
 # # ECR login
 # sudo aws ecr get-login-password --region $aws-region | sudo docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
