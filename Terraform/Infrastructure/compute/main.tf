@@ -126,11 +126,11 @@ resource "aws_instance" "webserver" {
   subnet_id              = var.subnet
   vpc_security_group_ids = [aws_security_group.ec2-sg.id]
   /* user_data                   = filebase64("${path.module}/docker-userdata.sh") */
-  //user_data                   = filebase64("${path.module}/run-docker.sh")
-  user_data = templatefile("${path.module}/run-docker.sh", {
+  user_data                   = filebase64("${path.module}/run-docker.sh")
+  /* user_data = templatefile("${path.module}/run-docker.sh", {
     REGION    = var.region
     DB_SECRET = var.db-secret
-  })
+  }) */
   associate_public_ip_address = true
 
   ebs_block_device {
@@ -149,7 +149,7 @@ resource "aws_instance" "webserver" {
   public_key = file("${path.module}/keypair/portfolio-key.pub")
 } */
 
-resource "aws_cloudwatch_log_group" "portfolio-loggroup" {
+/* resource "aws_cloudwatch_log_group" "portfolio-loggroup" {
   name              = "portfolio-ec2-loggroup"
   retention_in_days = 30
   tags = {
@@ -161,4 +161,4 @@ resource "aws_cloudwatch_log_group" "portfolio-loggroup" {
 resource "aws_cloudwatch_log_stream" "portfolio-logstream" {
   name           = "Django-Logstream"
   log_group_name = aws_cloudwatch_log_group.portfolio-loggroup.name
-}
+} */
