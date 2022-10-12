@@ -48,8 +48,8 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
 
 # cat .env
 # change directory permissions
-sudo chmod 755 static
-sudo chmod 755 staticfiles
+# sudo chmod 755 static
+# sudo chmod 755 staticfiles
 
 
 # # ECR login
