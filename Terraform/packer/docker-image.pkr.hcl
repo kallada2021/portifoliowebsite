@@ -8,30 +8,10 @@ variable "aws-profile" {
     description = "AWS profile to use"
 }
 
-/* variable "image-tag" {
-    type = string 
-    description = "Tag for the docker image."
-} */
-
-# variable "docker-username" {
-#     type = string 
-#     description = "Docker Username"
-# }
-
-# variable "ecr-repo" {
-#     type = string 
-#     description = "ECR Repo name"
-# }
-
 variable "db-secret" {
     type = string 
     description = "DB Secret Name"
 }
-
-# variable "account-id" {
-#     type = string 
-#     description = "AccountID"
-# }
 
 variable "aws-accesskey" {
     type = string 
@@ -67,13 +47,6 @@ source "amazon-ebs" "portfolio" {
 
 build {
     sources = ["source.amazon-ebs.portfolio"]
-
-    # # Add SSH Key
-    # provisioner "file" {
-    #     source = "./portfolio-packer.pub"
-    #     destination = "./tmp/portfolio-packer.pub"
-    # }
-
     provisioner "shell" {
         environment_vars = [
             "REGION=${var.aws-region}",

@@ -37,12 +37,17 @@ jq --version
 
 git clone https://github.com/kallada2021/portifoliowebsite.git  
 cd portifoliowebsite 
+ls 
+sudo rm -rf EmailApi
+sudo rm -rf consulting_portfolio_website
+sudo rm -rf Terraform
+ls
 cd django-api 
 
 mkdir static 
 mkdir staticfiles
 
-# echo "Creating .env file"
+echo "Creating .env file"
 aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
             jq -r '.SecretString' | \
             jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > .env
@@ -53,14 +58,3 @@ aws secretsmanager get-secret-value --secret-id $DB_SECRET --region $REGION | \
 sudo chmod 755 static
 sudo chmod 755 staticfiles
 
-
-# # ECR login
-# sudo aws ecr get-login-password --region $aws-region | sudo docker login --username $USERNAME --password-stdin $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO 
-# # docker login -u $USERNAME -p $(aws ecr get-login-password --region $REGION) $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com/$ECRREPO
-
-# #Pull docker containers from ECR
-# sudo docker pull $ECR_REGISTRY/$ECRREPO:django-latest
-# sudo docker pull $ECR_REGISTRY/$ECRREPO:nginx-latest
-# sudo docker network create portfolio
-# sudo docker run --name api --network portfolio $ECR_REGISTRY/$ECR_REPOSITORY:django-latest
-# sudo docker run -p 8080:80 --name nginx --network portfolio $ECR_REGISTRY/$ECRREPO:nginx-latest 

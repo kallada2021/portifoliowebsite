@@ -128,19 +128,14 @@ resource "aws_iam_policy" "ec2-policy" {
 
 // Provision ec2
 resource "aws_instance" "webserver" {
-  #ami = "ami-052efd3df9dad4825"
   ami                    = "ami-073e7a32b5e0a1c6b"
   instance_type          = var.instance-type
   iam_instance_profile   = aws_iam_instance_profile.ec2-profile.name
   key_name               = "portfolioec2user"
   subnet_id              = var.subnet
   vpc_security_group_ids = [aws_security_group.ec2-sg.id]
-  /* user_data                   = filebase64("${path.module}/docker-userdata.sh") */
   user_data = filebase64("${path.module}/run-docker.sh")
-  /* user_data = templatefile("${path.module}/run-docker.sh", {
-    REGION    = var.region
-    DB_SECRET = var.db-secret
-  }) */
+  
   associate_public_ip_address = true
 
   ebs_block_device {
@@ -153,11 +148,6 @@ resource "aws_instance" "webserver" {
     Name = "PortfolioWebServer"
   }
 }
-
-/* resource "aws_key_pair" "sshkey" {
-  key_name   = "portfolio-key"
-  public_key = file("${path.module}/keypair/portfolio-key.pub")
-} */
 
 resource "aws_cloudwatch_log_group" "portfolio-loggroup" {
   name              = "portfolio-ec2-loggroup"
