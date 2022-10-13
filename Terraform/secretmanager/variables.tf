@@ -21,3 +21,6 @@ variable "db-name" {
   description = "Database Name"
 }
 
+variable "db-host" {
+  type = string
+}

@@ -25,6 +25,11 @@ resource "random_string" "djangokey" {
   special = true
 }
 
+resource "random_string" "djangoadmin" {
+  length  = 32
+  special = true
+}
+
 resource "aws_secretsmanager_secret_version" "dbsecret" {
   secret_id     = aws_secretsmanager_secret.dbsecretmaster.id
   secret_string = <<EOF
@@ -32,7 +37,9 @@ resource "aws_secretsmanager_secret_version" "dbsecret" {
       "POSTGRES_USERNAME": "admin1",
       "POSTGRES_PASSWORD": "${random_password.dbpassword.result}",
       "DJANGO_SECRET_KEY": "${random_string.djangokey.result}",
-      "POSTGRES_DB" : "${var.db-name}"
+      "POSTGRES_DB" : "${var.db-name}",
+      "DJANGO_SUPERUSER_PASSWORD" : "${random_string.djangoadmin.result}"
+      "POSTGRES_HOST": "${var.db-host}"
     }
 EOF
 }
