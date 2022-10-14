@@ -14,25 +14,25 @@ module "networking" {
 #   db-name     = var.db-name
 # }
 
-# module "compute" {
-#   source          = "./compute"
-#   vpc-id          = module.networking.vpc-id
-#   private-subnets = module.networking.private-subnets
-#   subnet          = module.networking.public-subnets[0]
-#   db-secret       = var.secret-name
-#   region          = var.region
-#   depends_on      = [module.rds]
-# }
+module "compute" {
+  source          = "./compute"
+  vpc-id          = module.networking.vpc-id
+  private-subnets = module.networking.private-subnets
+  subnet          = module.networking.public-subnets[0]
+  db-secret       = var.secret-name
+  region          = var.region
+  depends_on      = [module.rds]
+}
 
-# module "alb" {
-#   source          = "./alb"
-#   vpc-id          = module.networking.vpc-id
-#   public-subnets  = module.networking.public-subnets
-#   ec2-id          = module.compute.ec2-id
-#   certificate-arn = var.certificate-arn
-#   listener-type   = var.listener-type
-#   ssl-policy      = var.ssl-policy
-# }
+module "alb" {
+  source          = "./alb"
+  vpc-id          = module.networking.vpc-id
+  public-subnets  = module.networking.public-subnets
+  ec2-id          = module.compute.ec2-id
+  certificate-arn = var.certificate-arn
+  listener-type   = var.listener-type
+  ssl-policy      = var.ssl-policy
+}
 
 module "rds" {
   source = "./rds"
