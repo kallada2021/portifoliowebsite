@@ -65,7 +65,8 @@ resource "aws_lb_target_group" "portfolio-alb-tg" {
   }
 
   health_check {
-    path = "/" # checks application to see if it is running
+    path     = "/" # checks application to see if it is running
+    interval = 300
   }
 }
 

@@ -109,7 +109,7 @@ class _MainPageState extends State<MainPage> {
                     child: Builder(
                       builder: (context) {
                         return SizedBox(
-                          width: 150,
+                          width: 170,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(
@@ -128,7 +128,7 @@ class _MainPageState extends State<MainPage> {
                     child: Builder(
                       builder: (context) {
                         return SizedBox(
-                          width: 150,
+                          width: 170,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(
@@ -147,7 +147,7 @@ class _MainPageState extends State<MainPage> {
                     child: Builder(
                       builder: (context) {
                         return SizedBox(
-                          width: 150,
+                          width: 170,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(
@@ -166,7 +166,7 @@ class _MainPageState extends State<MainPage> {
                     child: Builder(
                       builder: (context) {
                         return SizedBox(
-                          width: 150,
+                          width: 170,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(

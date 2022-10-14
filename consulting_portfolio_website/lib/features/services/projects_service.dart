@@ -17,8 +17,8 @@ class ProjectsService {
     List<Projects> projectsList = [];
 
     try {
-      http.Response res = await http
-          .get(Uri.parse("$uri/api/projects/"), headers: <String, String>{
+      http.Response res =
+          await http.get(Uri.parse("api/projects/"), headers: <String, String>{
         "Content-Type": "application/json; charset=UTF-8",
       });
       print(res);
