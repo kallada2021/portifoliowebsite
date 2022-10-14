@@ -38,7 +38,7 @@ resource "aws_secretsmanager_secret_version" "dbsecret" {
       "POSTGRES_PASSWORD": "${random_password.dbpassword.result}",
       "DJANGO_SECRET_KEY": "${random_string.djangokey.result}",
       "POSTGRES_DB" : "${var.db-name}",
-      "DJANGO_SUPERUSER_PASSWORD" : "${random_string.djangoadmin.result}"
+      "DJANGO_SUPERUSER_PASSWORD" : "${random_string.djangoadmin.result}",
       "POSTGRES_HOST": "${var.db-host}"
     }
 EOF
