@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "https://www.magnoliaitsolutionsgroup.com", "*"]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://...", "https://www.magnoliaitsolutionsgroup.com", "*"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://...", "https://www.magnoliaitsolutionsgroup.com"]
 
 CORS_ALLOW_ALL_ORIGINS: True
 
