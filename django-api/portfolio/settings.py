@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "https://*.magnoliaitsolutionsgroup.com", "*"]
+ALLOWED_HOSTS = ["localhost", "https://*.magnoliaitsolutionsgroup.com"]
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://...", "https://*.magnoliaitsolutionsgroup.com"]
 
@@ -44,6 +44,15 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
+CORS_ALLOW_HEADERS = (
+    "content-disposition",
+    "accept-encoding",
+    "content-type",
+    "accept",
+    "origin",
+    "authorization",
+    "cache-control",
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",

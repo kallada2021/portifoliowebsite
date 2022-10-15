@@ -4,6 +4,7 @@ import os
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from django.views.static import serve
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -50,6 +51,7 @@ def contact(request):
 
 
 @api_view(["POST"])
+@csrf_exempt
 def createContact(request):
     serializer = ContactSerializer(data=request.data)
     print(f"createContact {serializer}")
@@ -153,9 +155,6 @@ def meetTheTeam(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# TODO:Render Flutter App
-# def displayFrontend(request):
-#     return render(request, "index.html")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLUTTER_WEB = os.path.join(BASE_DIR, "web")
 
