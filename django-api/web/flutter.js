@@ -13,7 +13,6 @@ if (!_flutter) {
 }
 _flutter.loader = null;
 
-
 (function() {
   "use strict";
   class FlutterLoader {

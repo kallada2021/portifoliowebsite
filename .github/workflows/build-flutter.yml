@@ -30,4 +30,4 @@ jobs:
         flutter clean
         flutter pub get
         flutter pub cache repair
-        flutter build web
+        flutter build web --web-renderer html
