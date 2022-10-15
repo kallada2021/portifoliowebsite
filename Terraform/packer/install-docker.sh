@@ -37,11 +37,11 @@ jq --version
 
 git clone https://github.com/kallada2021/portifoliowebsite.git  
 cd portifoliowebsite 
-ls 
+ 
 sudo rm -rf EmailApi
 sudo rm -rf consulting_portfolio_website
 sudo rm -rf Terraform
-ls
+
 cd django-api 
 
 mkdir static 
