@@ -33,7 +33,7 @@ CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://...", "https://www.magn
 
 CORS_ALLOW_ALL_ORIGINS: True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:8080", "https://www.magnoliaitsolutionsgroup.com", "*"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:8080", "https://www.magnoliaitsolutionsgroup.com"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
