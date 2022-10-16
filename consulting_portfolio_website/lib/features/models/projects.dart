@@ -70,7 +70,6 @@ class Projects with EquatableMixin {
   }
 
   static List<Projects> servicesFromJSON(List projectList) {
-    print("snapshot $projectList");
     return projectList.map((data) {
       return Projects.fromJson(data);
     }).toList();

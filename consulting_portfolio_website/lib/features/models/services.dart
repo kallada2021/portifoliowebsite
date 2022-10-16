@@ -62,7 +62,6 @@ class Services with ChangeNotifier, EquatableMixin {
   }
 
   static List<Services> servicesFromJSON(List servicesList) {
-    print("snapshot ${servicesList}");
     return servicesList.map((data) {
       return Services.fromJson(data);
     }).toList();

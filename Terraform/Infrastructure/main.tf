@@ -8,12 +8,6 @@ module "networking" {
   source = "./networking"
 }
 
-# module "secretmanager" {
-#   source      = "./secretmanager"
-#   secret-name = var.secret-name
-#   db-name     = var.db-name
-# }
-
 module "compute" {
   source          = "./compute"
   vpc-id          = module.networking.vpc-id
@@ -35,13 +29,10 @@ module "alb" {
 }
 
 module "rds" {
-  source = "./rds"
-  //depends_on      = [module.secretmanager]
+  source          = "./rds"
   db-secret       = var.secret-name
   private-subnets = module.networking.private-subnets
-  // dbusername      = module.secretmanager.dbusername
-  // dbpassword      = module.secretmanager.dbpassword
-  db-name = var.db-name
-  vpc-id  = module.networking.vpc-id
+  db-name         = var.db-name
+  vpc-id          = module.networking.vpc-id
 }
 
