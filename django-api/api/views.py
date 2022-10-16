@@ -159,5 +159,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLUTTER_WEB = os.path.join(BASE_DIR, "web")
 
 
+@csrf_exempt
 def displayFrontend(request, resource):
     return serve(request, resource, FLUTTER_WEB)
